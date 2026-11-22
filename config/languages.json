@@ -1,0 +1,129 @@
+{
+  "_comment": "Per-language street-type affixes and connectors for structural normalization.",
+  "it": {
+    "prefixes": [
+      "strada vicinale", "strada provinciale", "strada comunale", "strada statale", "strada regionale",
+      "via", "viale", "piazza", "piazzale", "piazzetta", "corso", "largo",
+      "vicolo", "strada", "stradone", "stradella", "salita", "discesa",
+      "traversa", "contrada", "borgo", "lungomare", "lungarno", "lungotevere",
+      "lungolago", "lungopo", "lungoadige", "passaggio", "passeggiata",
+      "galleria", "calle", "campo", "campiello", "fondamenta", "riva",
+      "corte", "cortile", "localita", "frazione", "parco", "rampa",
+      "gradini", "scalinata", "rotatoria", "rotonda", "circonvallazione",
+      "sottoportico", "portico", "vico", "vicoletto", "vicinale", "provinciale", "comunale", "sentiero",
+      "v.", "v.le", "p.za", "p.zza", "c.so"
+    ],
+    "connectors": [
+      "della", "dello", "degli", "delle", "dell'", "del", "dei", "di", "da", "d'", "ai", "alle", "agli", "al", "alla", "allo", "all'"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "fr": {
+    "prefixes": [
+      "rue", "avenue", "av.", "boulevard", "bd", "bd.", "blvd", "place", "pl.",
+      "impasse", "imp.", "allee", "chemin", "ch.", "route", "rte", "passage",
+      "cours", "quai", "square", "sq.", "sentier", "sente", "cite", "clos",
+      "cour", "esplanade", "faubourg", "galerie", "parvis", "promenade",
+      "rampe", "rond-point", "rond point", "terrasse", "traverse", "villa",
+      "voie", "ruelle", "venelle", "montee", "descente", "carrefour", "mail", "lotissement", "residence"
+    ],
+    "connectors": [
+      "de la", "de l'", "du", "des", "de", "d'", "au", "aux", "a la", "a l'"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "de": {
+    "prefixes": [
+      "strasse", "straße", "weg", "platz", "allee",
+      "am", "an der", "an dem", "an den", "auf der", "auf dem", "auf den",
+      "im", "in der", "in den", "zum", "zur", "bei der", "beim", "unter den", "unter der", "uber der"
+    ],
+    "connectors": ["der", "des"],
+    "suffixes": [
+      "strasse", "straße", "str.", "str", "platz", "pl.", "weg", "allee",
+      "gasse", "ring", "damm", "ufer", "chaussee", "stieg", "steige",
+      "pfad", "zeile", "promenade", "bogen", "kamp", "wall", "markt", "tor", "brucke", "brücke", "kreisel", "treppe"
+    ],
+    "fused_suffixes": [
+      "strasse", "straße", "platz", "allee", "gasse", "weg", "ring",
+      "damm", "ufer", "chaussee", "stieg", "pfad", "zeile", "promenade", "bogen"
+    ]
+  },
+  "es": {
+    "prefixes": [
+      "calle", "callejon", "c/", "c.", "cl", "avenida", "av.", "avda.", "avda",
+      "plaza", "pl.", "pza.", "plazoleta", "paseo", "p.o", "camino", "cno.",
+      "ronda", "travesia", "carretera", "ctra.", "ctra", "glorieta", "gta.",
+      "pasaje", "pasadizo", "cuesta", "rambla", "alameda", "bulevar", "carrera",
+      "via", "senda", "sendero", "mirador", "parque", "urbanizacion", "poligono", "barrio"
+    ],
+    "connectors": [
+      "de la", "de los", "de las", "del", "de", "d'"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "ca": {
+    "prefixes": [
+      "carrer", "c/", "avinguda", "av.", "placa", "plaça", "passeig", "pg.",
+      "cami", "ronda", "travessera", "travessia", "passatge", "rambla", "via",
+      "baixada", "pujada", "costa", "placeta", "jardins", "parc", "carrero"
+    ],
+    "connectors": [
+      "de la", "de l'", "dels", "de les", "del", "de", "d'"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "eu": {
+    "prefixes": [
+      "kalea", "etorbidea", "plaza", "pasealekua", "bidea", "zumarkalea"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "kalea", "etorbidea", "plaza", "pasealekua", "bidea", "zumarkalea", "karrika", "hiribidea", "enparantza", "kale"
+    ],
+    "fused_suffixes": []
+  },
+  "gl": {
+    "prefixes": [
+      "rua", "rúa", "avenida", "praza", "paseo", "camino", "camiño", "travesia", "estrada", "ronda", "calexon"
+    ],
+    "connectors": [
+      "da", "do", "das", "dos", "de"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "pl": {
+    "prefixes": [
+      "ulica", "ul.", "ul", "aleja", "aleje", "al.", "plac", "pl.", "osiedle",
+      "os.", "skwer", "bulwar", "rondo", "droga", "dojazd", "zaulek", "wybrzeze", "pasaz",
+      "trakt", "szosa", "park"
+    ],
+    "connectors": ["do"],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "he": {
+    "prefixes": [
+      "רחוב", "רח׳", "רח.", "רח", "שדרות", "שדרת", "שד׳", "שד.", "שד",
+      "דרך", "סמטת", "סמטה", "סמ׳", "סמ.", "סמ", "כיכר", "ככר", "רחבת",
+      "מעלה", "מעלות", "משעול", "מבוא", "נתיב", "מעגל", "שביל", "טיילת",
+      "שכונת", "שכונה", "שכ׳", "שכ.", "שכ"
+    ],
+    "connectors": [],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "ar": {
+    "prefixes": [
+      "شارع", "طريق", "جادة", "ميدان", "ساحة", "زقاق", "درب", "ممر", "حارة"
+    ],
+    "connectors": [],
+    "suffixes": [],
+    "fused_suffixes": []
+  }
+}
