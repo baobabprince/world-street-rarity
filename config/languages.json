@@ -175,5 +175,234 @@
       "n", "s", "e", "w", "ne", "nw", "se", "sw"
     ],
     "fused_suffixes": []
+  },
+  "pt": {
+    "prefixes": [
+      "rua", "r.", "avenida", "av.", "praca", "praça", "largo", "travessa", "tv.",
+      "calcada", "calçada", "estrada", "alameda", "beco", "rotunda", "via",
+      "caminho", "azinhaga", "escadinhas", "escadas", "passeio", "jardim",
+      "praceta", "urbanizacao", "quinta", "ponte", "loteamento"
+    ],
+    "connectors": [
+      "da", "do", "das", "dos", "de", "d'"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "nl": {
+    "prefixes": [
+      "straat", "laan", "weg", "plein", "gracht", "kade", "dijk", "steeg", "hof", "singel", "dreef", "boulevard"
+    ],
+    "connectors": ["van de", "van der", "van den", "van", "de", "het"],
+    "suffixes": [
+      "straat", "str.", "laan", "ln.", "weg", "plein", "gracht", "kade", "dijk",
+      "steeg", "hof", "singel", "dreef", "plantsoen", "pad", "baan", "boulevard",
+      "avenue", "ring", "veld", "plaats", "passage", "brug", "poort", "wal", "markt"
+    ],
+    "fused_suffixes": [
+      "straat", "laan", "plein", "weg", "gracht", "kade", "dijk", "steeg",
+      "singel", "dreef", "plantsoen", "baan", "pad", "brug", "wal", "ring", "markt"
+    ]
+  },
+  "sv": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "gatan", "gata", "vagen", "vägen", "vag", "väg", "torget", "torg",
+      "granden", "gränden", "grand", "gränd", "allen", "allén", "alle", "allé",
+      "stigen", "stig", "platsen", "plats", "plan", "boulevard", "promenad",
+      "promenaden", "strand", "kajen", "backen", "backe", "ringen", "leden", "led"
+    ],
+    "fused_suffixes": [
+      "gatan", "gata", "vagen", "vag", "torget", "torg", "granden", "grand",
+      "allen", "alle", "stigen", "stig", "platsen", "plan", "backen", "ringen",
+      "promenaden", "kajen", "leden"
+    ]
+  },
+  "no": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "gata", "gaten", "gate", "veien", "vegen", "vei", "veg", "plassen", "plass",
+      "torget", "torg", "alleen", "alle", "allé", "stien", "sti", "bakken", "bakke",
+      "svingen", "sving", "terrassen", "terrasse", "brygge", "kai", "kaia",
+      "ringen", "ring", "stranda", "strand", "stubben", "tunet"
+    ],
+    "fused_suffixes": [
+      "gata", "gaten", "gate", "veien", "vegen", "vei", "veg", "plassen", "plass",
+      "torget", "torg", "alleen", "stien", "bakken", "svingen", "stubben", "ringen", "tunet"
+    ]
+  },
+  "da": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "gaden", "gade", "vejen", "vej", "alleen", "alle", "allé", "pladsen", "plads",
+      "torvet", "torv", "stien", "sti", "vaenget", "vænget", "vaenge", "vænge",
+      "parken", "boulevard", "straedet", "straede", "stræde", "bakken", "bakke",
+      "vangen", "vang", "bro", "kaj", "toften", "toft", "ringvej", "svinget"
+    ],
+    "fused_suffixes": [
+      "gaden", "gade", "vejen", "vej", "alleen", "alle", "pladsen", "plads",
+      "torvet", "torv", "stien", "sti", "vaenget", "vaenge",
+      "straedet", "straede", "bakken", "toften", "vangen", "svinget", "ringvej"
+    ]
+  },
+  "fi": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "puistokatu", "maentie", "katu", "tie", "kuja", "polku", "raitti",
+      "tori", "aukio", "puisto", "bulevardi", "ranta", "kaari", "rinne",
+      "vayla", "väylä", "mutka", "linja", "taival"
+    ],
+    "fused_suffixes": [
+      "puistokatu", "maentie", "katu", "tie", "kuja", "polku", "raitti",
+      "tori", "aukio", "puisto", "ranta", "kaari", "rinne", "vayla", "taival"
+    ]
+  },
+  "is": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "gata", "vegur", "braut", "stigur", "stígur", "torg", "bakki",
+      "hlid", "hlíð", "gardur", "garður", "straeti", "stræti"
+    ],
+    "fused_suffixes": [
+      "gata", "vegur", "braut", "stigur", "torg", "straeti", "hlid", "bakki"
+    ]
+  },
+  "cs": {
+    "prefixes": [
+      "ulice", "ulica", "ul.", "namesti", "namestie", "nam.", "trida", "trieda", "tr.",
+      "nabrezi", "nabrezie", "nabr.", "sady", "cesta", "alej", "sidliste", "sidlisko",
+      "na", "u", "pod", "nad", "za", "ke", "ve"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "ulice", "ulica", "namesti", "namestie", "trida", "trieda", "nabrezi", "nabrezie",
+      "cesta", "alej", "sady", "most", "nadrazi"
+    ],
+    "fused_suffixes": []
+  },
+  "hu": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "utca", "u.", "ut", "út", "ter", "tér", "korut", "körút", "krt.",
+      "koz", "köz", "sor", "setany", "sétány", "dulo", "dűlő", "fasor",
+      "rakpart", "lepcso", "lépcső", "telep", "hatarut"
+    ],
+    "fused_suffixes": []
+  },
+  "ro": {
+    "prefixes": [
+      "strada", "str.", "str", "bulevardul", "bulevard", "bd.", "bd", "b-dul",
+      "calea", "soseaua", "sos.", "aleea", "intrarea", "piata", "p-ta",
+      "splaiul", "drumul", "fundatura", "pasajul", "cartier", "varianta", "ulita"
+    ],
+    "connectors": [],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "bg": {
+    "prefixes": [
+      "ulica", "ulitsa", "ul.", "ul", "bulevard", "bul.", "bul",
+      "plostad", "ploshtad", "pl.", "kvartal", "kv.", "zh.k.", "zhk", "aleja", "pat"
+    ],
+    "connectors": [],
+    "suffixes": ["ulica", "ulitsa", "bulevard", "plostad"],
+    "fused_suffixes": []
+  },
+  "sl": {
+    "prefixes": [
+      "ulica", "ul.", "cesta", "trg", "pot", "nabrezje", "drevored", "steza", "aleja", "ploscad"
+    ],
+    "connectors": ["na", "ob", "pri", "pod", "za"],
+    "suffixes": [
+      "ulica", "cesta", "trg", "pot", "nabrezje", "drevored", "steza", "aleja"
+    ],
+    "fused_suffixes": []
+  },
+  "et": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "tanav", "tänav", "tn.", "tn", "tee", "puiestee", "pst.", "pst",
+      "maantee", "mnt.", "mnt", "valjak", "väljak", "plats", "poik", "põik",
+      "allee", "ring", "kaar", "kallas"
+    ],
+    "fused_suffixes": []
+  },
+  "lv": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "iela", "bulvaris", "bulvāris", "gatve", "prospekts", "aleja",
+      "laukums", "cels", "ceļš", "krastmala", "dambis", "linija", "līnija",
+      "skersiela", "šķērsiela", "soseja", "šoseja"
+    ],
+    "fused_suffixes": []
+  },
+  "lt": {
+    "prefixes": [],
+    "connectors": [],
+    "suffixes": [
+      "gatve", "gatvė", "g.", "g", "prospektas", "pr.", "aleja", "alėja", "al.",
+      "aikste", "aikštė", "a.", "plentas", "pl.", "skersgatvis", "skg.",
+      "kelias", "takas", "krantine", "krantinė", "bulvaras", "akligatvis"
+    ],
+    "fused_suffixes": []
+  },
+  "uk": {
+    "prefixes": [
+      "vulicja", "vulycja", "vulica", "vulycia", "vul.", "vul", "ulica", "ul.", "ul",
+      "prospekt", "praspekt", "prosp.", "pr.", "pr-t", "bulvar", "bul.", "b-r",
+      "provulok", "pereulok", "zavulak", "prov.", "per.", "zav.",
+      "plosca", "pl.", "majdan", "naberezna", "nab.", "sose", "shose",
+      "trakt", "doroga", "aleja", "uzviz", "spusk", "tupik", "tupyk", "proizd", "proezd"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "vulicja", "vulycja", "vulica", "ulica", "prospekt", "praspekt", "bulvar",
+      "provulok", "pereulok", "zavulak", "plosca", "majdan", "naberezna",
+      "sose", "uzviz", "spusk", "proizd", "proezd", "aleja"
+    ],
+    "fused_suffixes": []
+  },
+  "el": {
+    "prefixes": [
+      "odos", "leoforos", "leof.", "l.", "plateia", "pl.", "parodos",
+      "akti", "aktis", "perifereiaki", "ethniki", "diadromos", "stoa"
+    ],
+    "connectors": ["tou", "tis", "ton"],
+    "suffixes": ["odos", "leoforos", "plateia"],
+    "fused_suffixes": []
+  },
+  "sq": {
+    "prefixes": [
+      "rruga", "rr.", "bulevardi", "bul.", "sheshi", "rrugica", "autostrada", "unaza", "lagjja"
+    ],
+    "connectors": ["e", "i", "te", "se"],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "mt": {
+    "prefixes": [
+      "triq", "vjal", "pjazza", "misrah", "sqaq", "dawret", "telgha", "xatt", "gnien", "wesgha", "trejqa"
+    ],
+    "connectors": [
+      "il", "l'", "ta'", "tal", "tas", "tar", "tad", "tan", "tat", "taz", "is", "ir", "id", "in", "it", "iz", "ic"
+    ],
+    "suffixes": [],
+    "fused_suffixes": []
+  },
+  "ga": {
+    "prefixes": [
+      "sraid", "bothar", "cearnog", "ascail", "lana"
+    ],
+    "connectors": ["na", "an"],
+    "suffixes": [],
+    "fused_suffixes": []
   }
 }

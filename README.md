@@ -7,20 +7,13 @@ Built on **Overture Maps** (OpenStreetMap + open administrative divisions) queri
 ## Live Site (GitHub Pages)
 https://baobabprince.github.io/world-street-rarity/
 
-## Pilot Countries & Regions
-- **Italy (`IT`)**
-- **France (`FR`)**
-- **Germany (`DE`)**
-- **Spain (`ES`)**
-- **Switzerland (`CH`)**
-- **Poland (`PL`)**
-- **Israel (`IL`)** *(also benchmarked against official registries in [israel-street-rarity](https://github.com/baobabprince/israel-street-rarity))*
-- **Serbia (`RS`)** *(Cyrillic & Latin unified)*
-- **Croatia (`HR`)**
-- **Bosnia & Herzegovina (`BA`)**
-- **Montenegro (`ME`)**
-- **North Macedonia (`MK`)** *(Cyrillic & Latin unified)*
-- **New York State (`NY` / `US-NY`)** *(including NYC's 5 boroughs separately — Manhattan, Brooklyn, Queens, The Bronx, Staten Island — to compare the numbered Manhattan grid against European & Middle Eastern cities)*
+## Coverage (40 European Countries + Israel + New York)
+- **Western Europe:** United Kingdom (`GB`), Ireland (`IE`), France (`FR`), Netherlands (`NL`), Belgium (`BE`), Luxembourg (`LU`), Germany (`DE`), Switzerland (`CH`), Austria (`AT`)
+- **Southern Europe:** Spain (`ES`), Portugal (`PT`), Italy (`IT`), Greece (`GR`), Malta (`MT`), Cyprus (`CY`)
+- **Northern Europe (Nordics & Baltics):** Denmark (`DK`), Sweden (`SE`), Norway (`NO`), Finland (`FI`), Iceland (`IS`), Estonia (`EE`), Latvia (`LV`), Lithuania (`LT`)
+- **Central & Eastern Europe:** Poland (`PL`), Czechia (`CZ`), Slovakia (`SK`), Hungary (`HU`), Romania (`RO`), Bulgaria (`BG`), Ukraine (`UA`), Belarus (`BY`), Moldova (`MD`)
+- **Balkans:** Slovenia (`SI`), Croatia (`HR`), Serbia (`RS`), Bosnia & Herzegovina (`BA`), Montenegro (`ME`), North Macedonia (`MK`), Albania (`AL`), Kosovo (`XK`)
+- **Benchmarks outside Europe:** Israel (`IL`, also benchmarked against official registries in [israel-street-rarity](https://github.com/baobabprince/israel-street-rarity)) & New York State (`NY` / `US-NY`, with NYC's 5 boroughs separated to compare Manhattan's numbered grid)
 
 ## Methodology
 - **Standardized City Inclusion:** Municipalities/localities with population ≥ 10,000 and ≥ 20 normalized streets (or ≥ 50 streets when population metadata is unavailable).

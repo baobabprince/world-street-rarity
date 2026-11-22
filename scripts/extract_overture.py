@@ -88,7 +88,14 @@ def extract_country(
         )
     )
 
-    if area_mode == "localadmin_spatial":
+    spatial_subtypes = {
+        "localadmin_spatial": "localadmin",
+        "county_spatial": "county",
+        "region_spatial": "region",
+    }
+
+    if area_mode in spatial_subtypes:
+        area_subtype = spatial_subtypes[area_mode]
         con.execute(
             f"""
             CREATE TEMP TABLE cities_geom AS
@@ -110,7 +117,7 @@ def extract_country(
                 WHERE a.country = '{overture_country}'
                   {region_filter_a}
                   AND a.is_land = true
-                  AND a.subtype = 'localadmin'
+                  AND a.subtype = '{area_subtype}'
             )
             SELECT
                 a.division_id AS city_id,
