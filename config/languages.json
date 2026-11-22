@@ -125,5 +125,55 @@
     "connectors": [],
     "suffixes": [],
     "fused_suffixes": []
+  },
+  "sr": {
+    "prefixes": [
+      "ulica", "ul.", "ul", "bulevar", "bul.", "bul", "trg", "put", "kej",
+      "sokak", "prolaz", "venac", "aleja", "cesta", "prilaz", "stube",
+      "obala", "naselje", "spoj", "krak", "odvojak", "ogranak", "setaliste",
+      "korzo", "avenija", "av.", "magistrala", "rruga"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "ulica", "ul.", "bulevar", "trg", "put", "kej", "cesta", "sokak",
+      "prolaz", "venac", "aleja", "prilaz", "obala", "odvojak", "ogranak",
+      "setaliste", "avenija", "stube", "krak", "cikma"
+    ],
+    "fused_suffixes": []
+  },
+  "mk": {
+    "prefixes": [
+      "ulica", "ul.", "ul", "bulevar", "bul.", "plostad", "kej", "pat", "sokak", "prolaz", "aleja", "rruga"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "ulica", "bulevar", "plostad", "kej", "pat"
+    ],
+    "fused_suffixes": []
+  },
+  "en": {
+    "prefixes": [
+      "avenue", "ave.", "ave", "street", "st.", "st", "boulevard", "blvd.", "blvd",
+      "road", "rd.", "rd", "route", "rte", "highway", "hwy"
+    ],
+    "connectors": [
+      "of the", "of"
+    ],
+    "suffixes": [
+      "street", "st.", "st", "avenue", "ave.", "ave", "boulevard", "blvd.", "blvd",
+      "road", "rd.", "rd", "drive", "dr.", "dr", "lane", "ln.", "ln",
+      "place", "pl.", "pl", "court", "ct.", "ct", "way", "parkway", "pkwy.", "pkwy",
+      "terrace", "ter.", "ter", "terr", "circle", "cir", "trail", "trl",
+      "plaza", "plz", "square", "sq.", "sq", "alley", "loop", "crescent", "cres",
+      "highway", "hwy", "turnpike", "tpke", "expressway", "expy", "freeway", "fwy",
+      "concourse", "row", "walk", "slip", "bridge", "crossing", "xing",
+      "path", "pike", "run", "trace", "oval", "mews", "extension", "ext",
+      "bypass", "causeway", "promenade", "esplanade", "viaduct"
+    ],
+    "directionals": [
+      "north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest",
+      "n", "s", "e", "w", "ne", "nw", "se", "sw"
+    ],
+    "fused_suffixes": []
   }
 }

@@ -69,6 +69,63 @@
       "center": [31.65, 34.95],
       "zoom": 8,
       "color": "#06b6d4"
+    },
+    {
+      "code": "RS",
+      "name": "Serbia",
+      "languages": ["sr"],
+      "bbox": [18.8, 42.2, 23.05, 46.25],
+      "center": [44.1, 20.9],
+      "zoom": 7,
+      "color": "#f97316"
+    },
+    {
+      "code": "HR",
+      "name": "Croatia",
+      "languages": ["sr"],
+      "bbox": [13.4, 42.3, 19.5, 46.6],
+      "center": [45.1, 16.0],
+      "zoom": 7,
+      "color": "#14b8a6"
+    },
+    {
+      "code": "BA",
+      "name": "Bosnia & Herzegovina",
+      "languages": ["sr"],
+      "bbox": [15.7, 42.5, 19.7, 45.3],
+      "center": [44.0, 17.7],
+      "zoom": 7,
+      "color": "#eab308"
+    },
+    {
+      "code": "ME",
+      "name": "Montenegro",
+      "languages": ["sr"],
+      "bbox": [18.4, 41.8, 20.4, 43.6],
+      "center": [42.7, 19.3],
+      "zoom": 8,
+      "color": "#84cc16"
+    },
+    {
+      "code": "MK",
+      "name": "North Macedonia",
+      "languages": ["mk", "sr"],
+      "bbox": [20.4, 40.8, 23.1, 42.4],
+      "center": [41.6, 21.7],
+      "zoom": 8,
+      "color": "#e11d48"
+    },
+    {
+      "code": "NY",
+      "name": "New York (US)",
+      "overture_country": "US",
+      "overture_region": "US-NY",
+      "exclude_names": ["New York"],
+      "languages": ["en"],
+      "bbox": [-79.8, 40.45, -71.8, 45.05],
+      "center": [42.2, -75.0],
+      "zoom": 7,
+      "color": "#6366f1"
     }
   ]
 }

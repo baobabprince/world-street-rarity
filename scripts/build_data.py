@@ -51,6 +51,66 @@ def _spearman(x: pd.Series, y: pd.Series) -> float | None:
     return round(float(x[mask].rank().corr(y[mask].rank())), 3)
 
 
+def _drop_nested_overlapping_cities(
+    cities_df: pd.DataFrame,
+    dedup: pd.DataFrame,
+    raw_streets_df: pd.DataFrame,
+    overlap_threshold: float = 0.88,
+) -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
+    """Drop sub-districts/boroughs/duplicate polygons nested inside a larger overlapping city polygon.
+
+    In Overture Maps, some metro areas (e.g. Belgrade, Zagreb, Warsaw, Long Island towns,
+    or duplicate Beer Sheva polygons) have overlapping child `locality` polygons inside a
+    parent `locality` polygon, which double-counts every street inside the child and artificially
+    collapses exclusive_pct to 0%. Using exact raw street_name containment (>=88% within ~65km)
+    cleanly catches true spatial containment without dropping independent neighboring towns
+    that merely share common normalized names (e.g. Kiryat Motzkin near Haifa).
+    """
+    valid_cids = set(cities_df["city_id"].tolist())
+    raw_sub = raw_streets_df[raw_streets_df["city_id"].isin(valid_cids)]
+    street_sets: dict[Any, set[str]] = (
+        raw_sub.groupby("city_id")["street_name"].apply(set).to_dict()
+    )
+    meta = cities_df.set_index("city_id")[["name", "population", "lat", "lon"]].to_dict("index")
+    ordered_ids = sorted(
+        street_sets.keys(),
+        key=lambda cid: (len(street_sets[cid]), float(meta.get(cid, {}).get("population") or 0)),
+        reverse=True,
+    )
+
+    kept: list[tuple[Any, float, float, set[str]]] = []
+    dropped_ids: set[Any] = set()
+    dropped_names: list[str] = []
+
+    for cid in ordered_ids:
+        m = meta.get(cid)
+        if not m:
+            continue
+        lat = float(m["lat"])
+        lon = float(m["lon"])
+        sset = street_sets[cid]
+        if not sset:
+            continue
+
+        is_nested = False
+        for _, plat, plon, pset in kept:
+            if abs(lat - plat) <= 0.6 and abs(lon - plon) <= 0.85:
+                shared = len(sset & pset)
+                if shared / len(sset) >= overlap_threshold:
+                    is_nested = True
+                    break
+        if is_nested:
+            dropped_ids.add(cid)
+            dropped_names.append(str(m["name"]))
+        else:
+            kept.append((cid, lat, lon, sset))
+
+    if dropped_ids:
+        cities_df = cities_df[~cities_df["city_id"].isin(dropped_ids)].copy()
+        dedup = dedup[~dedup["city_id"].isin(dropped_ids)].copy()
+    return cities_df, dedup, dropped_names
+
+
 def process_country(
     country_cfg: dict[str, Any],
     release: str,
@@ -103,6 +163,13 @@ def process_country(
     kept_ids = set(city_counts[city_counts >= min_streets].index)
     dedup = dedup[dedup["city_id"].isin(kept_ids)].copy()
     cities_df = cities_df[cities_df["city_id"].isin(kept_ids)].copy()
+
+    # Remove nested overlapping sub-districts / duplicate Overture polygons (e.g. Zemun inside Belgrade)
+    cities_df, dedup, dropped_nested = _drop_nested_overlapping_cities(cities_df, dedup, streets_df)
+    if dropped_nested:
+        sample_drop = ", ".join(dropped_nested[:6])
+        more = f" (+{len(dropped_nested) - 6} more)" if len(dropped_nested) > 6 else ""
+        print(f"[{code}] Dropped {len(dropped_nested)} nested/duplicate overlapping localities: {sample_drop}{more}", flush=True)
 
     n_cities = len(cities_df)
     if n_cities == 0:
@@ -379,10 +446,12 @@ def main() -> None:
 
     summary_path = DATA_DIR / "summary.json"
     existing_summaries: dict[str, dict[str, Any]] = {}
+    existing_cross_shared: list[dict[str, Any]] = []
     if selected_codes and summary_path.exists():
         old = json.loads(summary_path.read_text(encoding="utf-8"))
         for cs in old.get("countries", []):
             existing_summaries[cs["code"]] = cs
+        existing_cross_shared = old.get("cross_country_shared", [])
 
     all_prevalence: dict[str, dict[str, tuple[str, int]]] = {}
     for c_cfg in country_cfgs:
@@ -436,7 +505,7 @@ def main() -> None:
         "total_countries": len(ordered_summaries),
         "total_cities": sum(c["cities_count"] for c in ordered_summaries),
         "countries": ordered_summaries,
-        "cross_country_shared": cross_shared[:25],
+        "cross_country_shared": existing_cross_shared if selected_codes and existing_cross_shared else cross_shared[:25],
     }
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"\nWrote {summary_path} ({summary['total_countries']} countries, {summary['total_cities']:,} cities)")

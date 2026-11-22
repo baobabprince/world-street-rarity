@@ -54,6 +54,16 @@ def extract_country(
 
     xmin, ymin, xmax, ymax = country_cfg["bbox"]
     area_mode = country_cfg.get("area_mode", "locality")
+    overture_country = country_cfg.get("overture_country", code)
+    overture_region = country_cfg.get("overture_region")
+    exclude_names = country_cfg.get("exclude_names", [])
+
+    region_filter_d = f"AND d.region = '{overture_region}'" if overture_region else ""
+    region_filter_a = f"AND a.region = '{overture_region}'" if overture_region else ""
+    exclude_filter_d = ""
+    if exclude_names:
+        quoted = ", ".join("'" + n.replace("'", "''") + "'" for n in exclude_names)
+        exclude_filter_d = f"AND d.names.primary NOT IN ({quoted})"
 
     div_url = f"s3://overturemaps-us-west-2/release/{release}/theme=divisions/type=division/*"
     area_url = f"s3://overturemaps-us-west-2/release/{release}/theme=divisions/type=division_area/*"
@@ -65,9 +75,17 @@ def extract_country(
 
     region_expr = (
         "COALESCE("
+        "  list_extract(list_transform(list_filter(d.hierarchies[1], lambda h: h.subtype = 'county'), lambda h: h.name), 1),"
         "  list_extract(list_transform(list_filter(d.hierarchies[1], lambda h: h.subtype = 'region'), lambda h: h.name), 1),"
         "  d.region"
         ")"
+        if overture_region
+        else (
+            "COALESCE("
+            "  list_extract(list_transform(list_filter(d.hierarchies[1], lambda h: h.subtype = 'region'), lambda h: h.name), 1),"
+            "  d.region"
+            ")"
+        )
     )
 
     if area_mode == "localadmin_spatial":
@@ -79,7 +97,9 @@ def extract_country(
                        d.population, d.geometry, d.bbox,
                        {region_expr} AS region_name
                 FROM read_parquet('{div_url}') d
-                WHERE d.country = '{code}'
+                WHERE d.country = '{overture_country}'
+                  {region_filter_d}
+                  {exclude_filter_d}
                   AND d.subtype = 'locality'
                   AND d.population >= {min_population}
             ),
@@ -87,7 +107,8 @@ def extract_country(
                 SELECT a.division_id, a.names.primary AS area_name, a.names.common['en'] AS area_en,
                        a.region, a.geometry, a.bbox
                 FROM read_parquet('{area_url}') a
-                WHERE a.country = '{code}'
+                WHERE a.country = '{overture_country}'
+                  {region_filter_a}
                   AND a.is_land = true
                   AND a.subtype = 'localadmin'
             )
@@ -123,7 +144,9 @@ def extract_country(
                        ST_Y(d.geometry) AS pt_lat,
                        ST_X(d.geometry) AS pt_lon
                 FROM read_parquet('{div_url}') d
-                WHERE d.country = '{code}'
+                WHERE d.country = '{overture_country}'
+                  {region_filter_d}
+                  {exclude_filter_d}
                   AND d.subtype = 'locality'
                   AND d.population >= {min_population}
             )
@@ -141,7 +164,8 @@ def extract_country(
             FROM locs l
             JOIN read_parquet('{area_url}') a
               ON a.division_id = l.id
-             AND a.country = '{code}'
+             AND a.country = '{overture_country}'
+             {region_filter_a}
              AND a.subtype = 'locality'
              AND a.is_land = true
             GROUP BY l.id

@@ -22,9 +22,12 @@ def main() -> None:
     release = cfg["overture_release"]
     rules = load_lang_rules()
 
+    selected = {a.upper() for a in sys.argv[1:]}
     for c in cfg["countries"]:
         code = c["code"]
-        pq = CACHE_DIR / f"{code}_{release}_streets.parquet"
+        if selected and code not in selected:
+            continue
+        pq = CACHE_DIR / f"{code}_{release}_streets_v3.parquet"
         if not pq.exists():
             continue
         df = pd.read_parquet(pq)
