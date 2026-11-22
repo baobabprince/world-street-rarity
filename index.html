@@ -130,6 +130,8 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 .leaflet-control-attribution a{color:#7da4d4!important}
 .leaflet-bar a{background:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
 .leaflet-bar a:hover{background:#1e2c42!important}
+.leaflet-control-layers{background:var(--surface)!important;color:var(--text)!important;border:1px solid var(--border)!important;border-radius:8px!important}
+.leaflet-control-layers-toggle{filter:invert(0.85)}
 
 /* Street Search Tool */
 .search-bar{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;margin-bottom:.7rem}
@@ -542,11 +544,20 @@ function initMap(){
   if(!el) return;
   MAP_RENDERER=L.canvas({padding:0.5});
   MAP_OBJ=L.map(el,{center:[44.5,12.0],zoom:5,minZoom:4,maxZoom:14,preferCanvas:true});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-    attribution:'&copy; OpenStreetMap &copy; CARTO',
-    subdomains:'abcd',
+  const esriDark=L.layerGroup([
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+      attribution:'Tiles &copy; Esri',
+      maxZoom:16
+    }),
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{
+      maxZoom:16
+    })
+  ]).addTo(MAP_OBJ);
+  const osmStd=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; OpenStreetMap contributors',
     maxZoom:19
-  }).addTo(MAP_OBJ);
+  });
+  L.control.layers({'Dark (Esri)':esriDark,'OpenStreetMap':osmStd},null,{position:'topright'}).addTo(MAP_OBJ);
   MAP_LAYER=L.layerGroup().addTo(MAP_OBJ);
 }
 
