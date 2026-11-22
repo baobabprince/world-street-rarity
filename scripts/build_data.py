@@ -2,7 +2,8 @@
 """Build World Street Rarity static JSON files for configured pilot countries.
 
 Default primary metric: square-root rarity (1 / sqrt(n)).
-Also computes Normalized IDF (1 - log(n)/log(C)) and Log (1 / log2(1 + n)).
+Includes dual-carriageway-corrected street lengths, active built-up urban area (250m grid),
+municipal area, length-weighted rarity (Boulevard Cliché Gap), and power-law scaling fits.
 """
 from __future__ import annotations
 
@@ -31,6 +32,25 @@ CONFIG_PATH = ROOT / "config" / "countries.json"
 DATA_DIR = ROOT / "data"
 
 
+def _power_law_fit(x: pd.Series, y: pd.Series) -> dict[str, float] | None:
+    """Fit log10(y) = a + exp * log10(x) on positive finite pairs; return exponent and Pearson r."""
+    mask = (x > 0) & (y > 0) & x.notna() & y.notna()
+    if int(mask.sum()) < 5:
+        return None
+    lx = np.log10(x[mask].astype(float).to_numpy())
+    ly = np.log10(y[mask].astype(float).to_numpy())
+    exp, _ = np.polyfit(lx, ly, 1)
+    r = float(np.corrcoef(lx, ly)[0, 1])
+    return {"exponent": round(float(exp), 3), "r": round(r, 3)}
+
+
+def _spearman(x: pd.Series, y: pd.Series) -> float | None:
+    mask = (x > 0) & x.notna() & y.notna()
+    if int(mask.sum()) < 5:
+        return None
+    return round(float(x[mask].rank().corr(y[mask].rank())), 3)
+
+
 def process_country(
     country_cfg: dict[str, Any],
     release: str,
@@ -52,6 +72,7 @@ def process_country(
 
     cities_df = pd.read_parquet(cities_pq)
     streets_df = pd.read_parquet(streets_pq)
+    streets_df["len_m"] = pd.to_numeric(streets_df.get("len_m", 0.0), errors="coerce").fillna(0.0).clip(lower=0.0)
 
     # Normalize every raw street name using the country's language profile
     norm_keys: list[str] = []
@@ -67,13 +88,15 @@ def process_country(
     streets_df["display"] = disp_names
     streets_df["is_numbered"] = is_num_flags
 
-    # Count numbered streets per city before filtering them out
     numbered_per_city = streets_df.groupby("city_id")["is_numbered"].sum().to_dict()
 
-    # Keep valid non-numbered normalized streets & deduplicate per city!
+    # Keep valid non-numbered normalized streets & sum adjusted lengths across merged raw variants per city!
     valid = streets_df[streets_df["norm_key"].str.len() > 0].copy()
     raw_valid_rows = len(valid)
-    dedup = valid.drop_duplicates(subset=["city_id", "norm_key"], keep="first").copy()
+    dedup = (
+        valid.groupby(["city_id", "norm_key"], as_index=False)
+        .agg(len_m=("len_m", "sum"), display=("display", "first"))
+    )
 
     # Keep only cities with >= min_streets normalized streets
     city_counts = dedup.groupby("city_id")["norm_key"].count()
@@ -85,7 +108,6 @@ def process_country(
     if n_cities == 0:
         raise RuntimeError(f"No cities remained for {code} after filtering!")
 
-    # Pick cleanest canonical display name per norm_key (most common original display form)
     display_votes: dict[str, Counter[str]] = defaultdict(Counter)
     for k, d in zip(dedup["norm_key"].tolist(), dedup["display"].tolist()):
         display_votes[k][d] += 1
@@ -102,8 +124,23 @@ def process_country(
     dedup["w_sqrt"] = 1.0 / np.sqrt(dedup["n"].astype(float))
     dedup["w_log"] = 1.0 / np.log2(1.0 + dedup["n"].astype(float))
     dedup["w_idf"] = 1.0 - np.log(dedup["n"].astype(float)) / log_c
+    dedup["lw_sqrt"] = dedup["len_m"] * dedup["w_sqrt"]
 
-    # Per-city aggregation on deduplicated streets
+    # Length by rarity tier (Boulevard Cliché test)
+    tier_bins = [0, 1, 5, 20, 100, 10**9]
+    tier_labels = ["Unique (n=1)", "Rare (2-5)", "Medium (6-20)", "Common (21-100)", "Iconic (>100)"]
+    dedup["tier"] = pd.cut(dedup["n"], bins=tier_bins, labels=tier_labels)
+    length_by_tier: list[dict[str, Any]] = []
+    for label in tier_labels:
+        sub_len = dedup.loc[dedup["tier"] == label, "len_m"]
+        if len(sub_len) > 0:
+            length_by_tier.append({
+                "tier": label,
+                "count": int(len(sub_len)),
+                "median_m": round(float(sub_len.median()), 1),
+                "mean_m": round(float(sub_len.mean()), 1),
+            })
+
     per = dedup.groupby("city_id").agg(
         streets=("norm_key", "count"),
         pure_exclusive=("n", lambda s: int((s == 1).sum())),
@@ -113,11 +150,14 @@ def process_country(
         rarity_mean_idf=("w_idf", "mean"),
         rarity_sum_log=("w_log", "sum"),
         rarity_mean_log=("w_log", "mean"),
+        total_len_m=("len_m", "sum"),
+        lw_sqrt_sum=("lw_sqrt", "sum"),
+        median_street_m=("len_m", "median"),
+        mean_street_m=("len_m", "mean"),
     ).reset_index()
 
     merged = per.merge(cities_df, on="city_id", how="inner")
 
-    # Build per-city samples (8 unique + 8 most shared)
     city_samples: dict[str, tuple[list[str], list[dict[str, Any]]]] = {}
     for cid, grp in dedup.groupby("city_id"):
         uniq_keys = sorted(grp.loc[grp["n"] == 1, "norm_key"].tolist())
@@ -143,6 +183,16 @@ def process_country(
         num_n = int(numbered_per_city.get(r["city_id"], 0))
         numbered_pct = round(num_n / (streets_n + num_n) * 100.0, 1) if (streets_n + num_n) > 0 else 0.0
 
+        pop = int(r["population"]) if pd.notna(r["population"]) else 0
+        muni_area_km2 = round(float(r["muni_area_km2"]), 2) if pd.notna(r["muni_area_km2"]) and float(r["muni_area_km2"]) > 0 else None
+        built_area_km2 = round(float(r["built_area_km2"]), 2) if pd.notna(r["built_area_km2"]) and float(r["built_area_km2"]) > 0 else muni_area_km2
+        built_share_pct = round(min(100.0, built_area_km2 / muni_area_km2 * 100.0), 1) if (built_area_km2 and muni_area_km2) else None
+
+        total_len_m = float(r["total_len_m"])
+        total_street_km = round(total_len_m / 1000.0, 2)
+        med_m = round(float(r["median_street_m"]), 1)
+        mean_m = round(float(r["mean_street_m"]), 1)
+
         mean_sqrt = round(float(r["rarity_mean_sqrt"]) * 100.0, 1)
         sum_sqrt = round(float(r["rarity_sum_sqrt"]), 1)
         mean_idf = round(float(r["rarity_mean_idf"]) * 100.0, 1)
@@ -151,10 +201,20 @@ def process_country(
         sum_log = round(float(r["rarity_sum_log"]), 1)
         excl_pct = round(excl_n / streets_n * 100.0, 1)
 
-        # Mathematical invariants
+        rarity_len_sqrt = round((float(r["lw_sqrt_sum"]) / total_len_m) * 100.0, 1) if total_len_m > 0 else mean_sqrt
+        cliche_gap = round(mean_sqrt - rarity_len_sqrt, 1)
+
+        # Primary density metrics use ACTIVE BUILT-UP URBAN AREA (built_area_km2)
+        pop_density = round(pop / built_area_km2, 1) if built_area_km2 and pop > 0 else None
+        muni_pop_density = round(pop / muni_area_km2, 1) if muni_area_km2 and pop > 0 else None
+        street_km_per_km2 = round(total_street_km / built_area_km2, 2) if built_area_km2 else None
+        pop_per_street = round(pop / streets_n, 1) if pop > 0 else None
+        pop_per_street_km = round(pop / total_street_km, 1) if total_street_km > 0 and pop > 0 else None
+
         assert 0 <= excl_n <= streets_n, f"pure_exclusive > streets in {code}:{r['name']}"
         assert sum_sqrt <= streets_n + 0.2, f"sum_sqrt > streets in {code}:{r['name']}"
         assert 0.0 <= mean_sqrt <= 100.0
+        assert 0.0 <= rarity_len_sqrt <= 100.0
         assert 0.0 <= mean_idf <= 100.0
         assert 0.0 <= mean_log <= 100.0
 
@@ -165,14 +225,27 @@ def process_country(
             "name": str(r["name"]).strip(),
             "local_name": str(r["local_name"]).strip() if pd.notna(r["local_name"]) else None,
             "region": str(r["region"]).strip() if pd.notna(r["region"]) else None,
-            "population": int(r["population"]) if pd.notna(r["population"]) else 0,
+            "population": pop,
+            "built_area_km2": built_area_km2,
+            "muni_area_km2": muni_area_km2,
+            "built_share_pct": built_share_pct,
+            "pop_density": pop_density,
+            "muni_pop_density": muni_pop_density,
             "lat": round(float(r["lat"]), 5),
             "lon": round(float(r["lon"]), 5),
             "streets": streets_n,
             "pure_exclusive": excl_n,
             "exclusive_pct": excl_pct,
             "numbered_pct": numbered_pct,
+            "total_street_km": total_street_km,
+            "street_km_per_km2": street_km_per_km2,
+            "median_street_m": med_m,
+            "mean_street_m": mean_m,
+            "pop_per_street": pop_per_street,
+            "pop_per_street_km": pop_per_street_km,
             "rarity_mean_sqrt": mean_sqrt,
+            "rarity_len_sqrt": rarity_len_sqrt,
+            "cliche_gap": cliche_gap,
             "rarity_sum_sqrt": sum_sqrt,
             "rarity_mean_idf": mean_idf,
             "rarity_sum_idf": sum_idf,
@@ -182,10 +255,8 @@ def process_country(
             "sample_common": common_disp,
         })
 
-    # Sort by default metric: rarity_mean_sqrt descending
     cities_out.sort(key=lambda x: (-x["rarity_mean_sqrt"], -x["streets"], x["name"]))
 
-    # Build compact inverted search index for street queries (all shared streets n >= 2)
     city_index_map = {c["id"]: idx for idx, c in enumerate(cities_out)}
     city_names_ordered = [c["name"] for c in cities_out]
     street_to_idxs: dict[str, list[int]] = defaultdict(list)
@@ -194,7 +265,6 @@ def process_country(
         if idx is not None:
             street_to_idxs[k].append(idx)
 
-    # Include all streets appearing in >= 2 cities (compact and covers every shared street!)
     search_streets: dict[str, list[Any]] = {}
     for k, idxs in street_to_idxs.items():
         if len(idxs) >= 2:
@@ -208,7 +278,6 @@ def process_country(
         "streets": search_streets,
     }
 
-    # Top 15 most common streets in this country
     top_shared_keys = n_by_key.sort_values(ascending=False).head(15)
     top_shared = [
         {
@@ -223,11 +292,14 @@ def process_country(
         for k, cnt in top_shared_keys.items()
     ]
 
-    sqrt_vals = [c["rarity_mean_sqrt"] for c in cities_out]
-    idf_vals = [c["rarity_mean_idf"] for c in cities_out]
-    log_vals = [c["rarity_mean_log"] for c in cities_out]
-    excl_vals = [c["exclusive_pct"] for c in cities_out]
-    num_vals = [c["numbered_pct"] for c in cities_out]
+    cdf = pd.DataFrame(cities_out)
+    scaling = {
+        "streets_vs_built_area": _power_law_fit(cdf["built_area_km2"], cdf["streets"]),
+        "pop_vs_built_area": _power_law_fit(cdf["built_area_km2"], cdf["population"]),
+        "streets_vs_muni_area": _power_law_fit(cdf["muni_area_km2"], cdf["streets"]),
+        "streets_vs_pop": _power_law_fit(cdf["population"], cdf["streets"]),
+        "street_km_vs_built_area": _power_law_fit(cdf["built_area_km2"], cdf["total_street_km"]),
+    }
 
     country_summary = {
         "code": code,
@@ -243,24 +315,43 @@ def process_country(
         "pure_exclusive_streets": int((n_by_key == 1).sum()),
         "searchable_shared_streets": len(search_streets),
         "raw_valid_rows": raw_valid_rows,
-        "mean_rarity_sqrt": round(float(np.mean(sqrt_vals)), 1),
-        "median_rarity_sqrt": round(float(np.median(sqrt_vals)), 1),
-        "mean_rarity_idf": round(float(np.mean(idf_vals)), 1),
-        "median_rarity_idf": round(float(np.median(idf_vals)), 1),
-        "mean_rarity_log": round(float(np.mean(log_vals)), 1),
-        "median_rarity_log": round(float(np.median(log_vals)), 1),
-        "mean_exclusive_pct": round(float(np.mean(excl_vals)), 1),
-        "mean_numbered_pct": round(float(np.mean(num_vals)), 2),
+        "mean_rarity_sqrt": round(float(cdf["rarity_mean_sqrt"].mean()), 1),
+        "median_rarity_sqrt": round(float(cdf["rarity_mean_sqrt"].median()), 1),
+        "median_rarity_len_sqrt": round(float(cdf["rarity_len_sqrt"].median()), 1),
+        "median_cliche_gap": round(float(cdf["cliche_gap"].median()), 1),
+        "pct_longer_more_generic": round(float((cdf["cliche_gap"] > 0).mean() * 100.0), 1),
+        "mean_rarity_idf": round(float(cdf["rarity_mean_idf"].mean()), 1),
+        "median_rarity_idf": round(float(cdf["rarity_mean_idf"].median()), 1),
+        "mean_rarity_log": round(float(cdf["rarity_mean_log"].mean()), 1),
+        "median_rarity_log": round(float(cdf["rarity_mean_log"].median()), 1),
+        "mean_exclusive_pct": round(float(cdf["exclusive_pct"].mean()), 1),
+        "mean_numbered_pct": round(float(cdf["numbered_pct"].mean()), 2),
+        "median_built_area_km2": round(float(cdf["built_area_km2"].dropna().median()), 1),
+        "median_muni_area_km2": round(float(cdf["muni_area_km2"].dropna().median()), 1),
+        "median_built_share_pct": round(float(cdf["built_share_pct"].dropna().median()), 1),
+        "median_pop_density": round(float(cdf["pop_density"].dropna().median()), 1),
+        "median_street_km_per_km2": round(float(cdf["street_km_per_km2"].dropna().median()), 2),
+        "median_pop_per_street": round(float(cdf["pop_per_street"].dropna().median()), 1),
+        "median_pop_per_street_km": round(float(cdf["pop_per_street_km"].dropna().median()), 1),
+        "median_street_m": round(float(cdf["median_street_m"].median()), 1),
+        "mean_street_m": round(float(cdf["mean_street_m"].median()), 1),
+        "spearman_built_area_rarity": _spearman(cdf["built_area_km2"], cdf["rarity_mean_sqrt"]),
+        "spearman_muni_area_rarity": _spearman(cdf["muni_area_km2"], cdf["rarity_mean_sqrt"]),
+        "scaling": scaling,
+        "length_by_tier": length_by_tier,
         "most_unique_city": {"name": cities_out[0]["name"], "score_sqrt": cities_out[0]["rarity_mean_sqrt"], "streets": cities_out[0]["streets"]},
         "most_generic_city": {"name": cities_out[-1]["name"], "score_sqrt": cities_out[-1]["rarity_mean_sqrt"], "streets": cities_out[-1]["streets"]},
         "top_shared": top_shared,
     }
 
     street_prevalence = {str(k): (canon_display[str(k)], int(cnt)) for k, cnt in n_by_key.items() if int(cnt) >= 3}
+    sa = scaling["streets_vs_built_area"]
+    pa = scaling["pop_vs_built_area"]
     print(
-        f"[{code}] Done: {n_cities} cities, {len(n_by_key):,} unique streets, "
-        f"mean_sqrt={country_summary['mean_rarity_sqrt']}%, median_sqrt={country_summary['median_rarity_sqrt']}%, "
-        f"top={top_shared[0]['name']} ({top_shared[0]['n_cities']})",
+        f"[{code}] Done: {n_cities} cities | built={country_summary['median_built_area_km2']}km² (muni {country_summary['median_muni_area_km2']}km², {country_summary['median_built_share_pct']}%) | "
+        f"med_len={country_summary['median_street_m']}m | gap={country_summary['median_cliche_gap']:+.1f}% | "
+        f"streets~built^{sa['exponent'] if sa else '?'} (r={sa['r'] if sa else '?'}) | "
+        f"pop~built^{pa['exponent'] if pa else '?'} (r={pa['r'] if pa else '?'})",
         flush=True,
     )
     return country_summary, cities_out, search_index, street_prevalence
@@ -286,7 +377,6 @@ def main() -> None:
     (DATA_DIR / "countries").mkdir(parents=True, exist_ok=True)
     (DATA_DIR / "search").mkdir(parents=True, exist_ok=True)
 
-    # Preserve existing summary entries if running a subset of countries
     summary_path = DATA_DIR / "summary.json"
     existing_summaries: dict[str, dict[str, Any]] = {}
     if selected_codes and summary_path.exists():
@@ -303,7 +393,6 @@ def main() -> None:
         existing_summaries[code] = cs
         all_prevalence[code] = prev
 
-        # Write compact JSON per country
         (DATA_DIR / "countries" / f"{code}.json").write_text(
             json.dumps(cities_out, ensure_ascii=False, separators=(",", ":")),
             encoding="utf-8",
@@ -313,11 +402,9 @@ def main() -> None:
             encoding="utf-8",
         )
 
-    # Order country summaries according to config order
     cfg_order = {c["code"]: i for i, c in enumerate(cfg["countries"])}
     ordered_summaries = sorted(existing_summaries.values(), key=lambda x: cfg_order.get(x["code"], 999))
 
-    # Cross-country shared names (names appearing in >= 3 cities in >= 3 pilot countries)
     cross_hits: dict[str, dict[str, int]] = defaultdict(dict)
     cross_disp: dict[str, str] = {}
     for code, prev in all_prevalence.items():
