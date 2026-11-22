@@ -7,7 +7,7 @@ Built on **Overture Maps** (OpenStreetMap + open administrative divisions) queri
 ## Live Site (GitHub Pages)
 https://baobabprince.github.io/world-street-rarity/
 
-## Pilot Countries
+## Pilot Countries & Regions
 - **Italy (`IT`)**
 - **France (`FR`)**
 - **Germany (`DE`)**
@@ -15,11 +15,17 @@ https://baobabprince.github.io/world-street-rarity/
 - **Switzerland (`CH`)**
 - **Poland (`PL`)**
 - **Israel (`IL`)** *(also benchmarked against official registries in [israel-street-rarity](https://github.com/baobabprince/israel-street-rarity))*
+- **Serbia (`RS`)** *(Cyrillic & Latin unified)*
+- **Croatia (`HR`)**
+- **Bosnia & Herzegovina (`BA`)**
+- **Montenegro (`ME`)**
+- **North Macedonia (`MK`)** *(Cyrillic & Latin unified)*
+- **New York State (`NY` / `US-NY`)** *(including NYC's 5 boroughs separately — Manhattan, Brooklyn, Queens, The Bronx, Staten Island — to compare the numbered Manhattan grid against European & Middle Eastern cities)*
 
 ## Methodology
 - **Standardized City Inclusion:** Municipalities/localities with population ≥ 10,000 and ≥ 20 normalized streets (or ≥ 50 streets when population metadata is unavailable).
 - **Multilingual Normalization (`config/languages.json`):** Strips road-type prefixes (`Via`, `Rue de la`, `Calle de`, `ul.`, `רחוב`), suffixes and German fused compounds (`Goethestraße` → `goethe`, `Bahnhofsplatz` → `bahnhof`), folds accents/case for matching while keeping clean display names, preserves historical dates (`Via 20 Settembre`, `Rue du 14 Juillet`), filters highway route codes (`A1`, `SS16`), and tracks purely numbered streets separately (`numbered_pct`).
-- **Intra-City Deduplication:** Each normalized street name is counted once per city.
+- **Intra-City & Nested-Locality Deduplication:** Each normalized street name is counted once per city, and overlapping sub-district/borough or duplicate polygons (≥88% exact street containment inside a larger nearby locality) are automatically removed so cities like Belgrade, Zagreb, Warsaw, and Be'er Sheva are never double-counted. For New York City, the aggregate city polygon is excluded so Manhattan, Brooklyn, Queens, The Bronx, and Staten Island appear cleanly as distinct non-overlapping boroughs.
 - **Metrics (Default: Square-Root `sqrt`):**
   - **Sqrt (Default):** `1 / √n` (0–100% city mean) — strong penalty for nationwide recurring street names.
   - **Normalized IDF:** `1 - log(n) / log(C)` — normalized by number of cities `C` in each country for fair cross-country comparisons.

@@ -265,7 +265,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
         <ol>
           <li><strong>Active Built-Up Urban Area (<code>built_area_km2</code>):</strong> Instead of relying on abstract municipal borders (which often include vast farmland or desert), each city's urban roads are projected onto an equal-area <strong>250m × 250m grid</strong>. Only cells with intensive urban street activity (<strong>≥ 2 distinct named streets</strong> or <strong>≥ 300m of roads</strong>) are counted as built-up area (clamped to municipal area <code>muni_area_km2</code>).</li>
           <li><strong>Dual-Carriageway Length Correction:</strong> Restricted to true urban street classes (<code>primary</code>, <code>secondary</code>, <code>tertiary</code>, <code>residential</code>, <code>unclassified</code>, <code>living_street</code>, <code>pedestrian</code> — excluding <code>service</code>, <code>footway</code>, <code>cycleway</code>, <code>track</code>, <code>motorway</code>, <code>trunk</code>). One-way segments on divided arterial roads (<code>primary</code>/<code>secondary</code>/<code>tertiary</code>) are weighted <strong>0.5×</strong> so dual-carriageway boulevards are not double-counted.</li>
-          <li>Standardized inclusion: localities with <strong>population ≥ 10,000</strong> and <strong>≥ 20 normalized streets</strong>, with config-driven multilingual affix stripping and intra-city deduplication.</li>
+          <li>Standardized inclusion: localities with <strong>population ≥ 10,000</strong> and <strong>≥ 20 normalized streets</strong>, with config-driven multilingual affix stripping (including Serbian/Macedonian Cyrillic↔Latin unification), intra-city deduplication, and automatic removal of nested/duplicate overlapping sub-district polygons (≥ 88% exact street containment within a parent city).</li>
         </ol>
       </div>
       <div class="method-box">
@@ -345,8 +345,10 @@ function median(a){
   const m=Math.floor(s.length/2);
   return s.length%2?s[m]:(s[m-1]+s[m])/2;
 }
+const CYR_MAP={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'dj','ѓ':'g','е':'e','ё':'e','ж':'z','з':'z','ѕ':'dz','и':'i','й':'j','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'c','ќ':'k','у':'u','ф':'f','х':'h','ц':'c','ч':'c','џ':'dz','ш':'s','щ':'st','ъ':'','ы':'y','ь':'','э':'e','ю':'ju','я':'ja'};
 function foldQuery(s){
-  return String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss').replace(/ł/gi,'l').toLowerCase().replace(/[^a-z0-9\u0590-\u05ff\u0600-\u06ff\s']/g,' ').replace(/\s+/g,' ').trim();
+  const mapped=String(s||'').toLowerCase().replace(/[\u0400-\u04ff]/g,ch=>CYR_MAP[ch]??ch).replace(/đ/g,'dj').replace(/ß/g,'ss').replace(/ł/g,'l');
+  return mapped.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0590-\u05ff\u0600-\u06ff\s']/g,' ').replace(/\s+/g,' ').trim();
 }
 
 function meanKey(){return METRIC==='idf'?'rarity_mean_idf':METRIC==='log'?'rarity_mean_log':'rarity_mean_sqrt'}
@@ -449,7 +451,7 @@ function openCityModal(d){
     <div class="modal-stats">
       <div class="modal-stat"><div class="v">${meanOf(d).toFixed(1)}%</div><div class="k">Mean Rarity (${metricLabel()})</div></div>
       <div class="modal-stat"><div class="v">${fmt(d.pure_exclusive)} (${d.exclusive_pct.toFixed(1)}%)</div><div class="k">Pure Exclusive</div></div>
-      <div class="modal-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Normalized Streets</div></div>
+      <div class="modal-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Named Streets${d.numbered_pct>0?' ('+d.numbered_pct.toFixed(1)+'% numbered)':''}</div></div>
       <div class="modal-stat"><div class="v">${fmt(d.population)}</div><div class="k">Population</div></div>
       <div class="modal-stat"><div class="v">${d.built_area_km2!=null?fmt(d.built_area_km2)+' km²':'—'}</div><div class="k">Built-Up Area (${d.built_share_pct!=null?d.built_share_pct+'% of '+fmt(d.muni_area_km2)+' km²':'250m grid'})</div></div>
       <div class="modal-stat"><div class="v">${d.pop_density!=null?fmt(Math.round(d.pop_density))+'/km²':'—'}</div><div class="k">Built-Up Pop Density</div></div>
@@ -543,7 +545,7 @@ function initMap(){
   const el=document.getElementById('map');
   if(!el) return;
   MAP_RENDERER=L.canvas({padding:0.5});
-  MAP_OBJ=L.map(el,{center:[44.5,12.0],zoom:5,minZoom:4,maxZoom:14,preferCanvas:true});
+  MAP_OBJ=L.map(el,{center:[43.0,-18.0],zoom:3,minZoom:2,maxZoom:14,preferCanvas:true});
   const esriDark=L.layerGroup([
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
       attribution:'Tiles &copy; Esri',
@@ -563,7 +565,7 @@ function initMap(){
 
 function fitMapToCountry(code){
   if(!MAP_OBJ) return;
-  if(code==='ALL') MAP_OBJ.setView([44.5,13.0],4.5);
+  if(code==='ALL') MAP_OBJ.setView([43.0,-18.0],3);
   else { const c=COUNTRY_MAP[code]; if(c) MAP_OBJ.setView(c.center,c.zoom); }
 }
 
@@ -603,7 +605,7 @@ function renderMapInspector(visible){
       <div class="insp-stats">
         <div class="insp-stat"><div class="v">${meanOf(d).toFixed(1)}%</div><div class="k">Mean Rarity (${metricLabel()})</div></div>
         <div class="insp-stat"><div class="v">${fmt(d.pure_exclusive)} (${d.exclusive_pct.toFixed(1)}%)</div><div class="k">Pure Exclusive</div></div>
-        <div class="insp-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Normalized Streets</div></div>
+        <div class="insp-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Named Streets${d.numbered_pct>0?' · '+d.numbered_pct.toFixed(1)+'% num':''}</div></div>
         <div class="insp-stat"><div class="v">${d.built_area_km2!=null?fmt(d.built_area_km2)+' km²':'—'}</div><div class="k">Built Area (${d.built_share_pct!=null?d.built_share_pct+'%':'—'}) · ${d.pop_density!=null?fmt(Math.round(d.pop_density))+'/km²':'—'}</div></div>
         <div class="insp-stat"><div class="v">${d.median_street_m!=null?Math.round(d.median_street_m)+' m':'—'}</div><div class="k">Med Street (mean ${d.mean_street_m!=null?Math.round(d.mean_street_m)+'m':'—'})</div></div>
         <div class="insp-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'} · Gap ${gapStr}</div><div class="k">Pop/Street · Boulevard Gap</div></div>
@@ -1298,7 +1300,7 @@ async function main(){
       <select id="search-country" aria-label="Country to search">
         ${SUMMARY.countries.map(c=>`<option value="${esc(c.code)}">${esc(c.name)}</option>`).join('')}
       </select>
-      <input id="street-query" type="search" placeholder="Search street name (e.g. Garibaldi, Roma, Goethe, Victor Hugo, Mozart)…">
+      <input id="street-query" type="search" placeholder="Search street name (e.g. Garibaldi, Goethe, Broadway, Main, Kneza Mihaila)…">
       <button type="button" class="btn" id="search-go">Search</button>
     </div>
     <div class="search-suggestions" id="search-suggestions"></div>

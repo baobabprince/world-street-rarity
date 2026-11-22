@@ -77,6 +77,46 @@ def test_hebrew_normalization():
     assert k == "" and num is True
 
 
+def test_balkan_cyrillic_and_latin_normalization():
+    k_cyr, _, _ = normalize_street("Улица Кнеза Михаила", ["sr"])
+    k_lat, _, _ = normalize_street("Ulica Kneza Mihaila", ["sr"])
+    assert k_cyr == "kneza mihaila" and k_lat == "kneza mihaila"
+    k_dj1, _, _ = normalize_street("Ђуре Јакшића", ["sr"])
+    k_dj2, _, _ = normalize_street("Đure Jakšića", ["sr"])
+    assert k_dj1 == "djure jaksica" and k_dj2 == "djure jaksica"
+    k_suf, _, _ = normalize_street("Balkanska ulica", ["sr"])
+    assert k_suf == "balkanska"
+    k_mk, _, _ = normalize_street("Булевар Партизански Одреди", ["mk", "sr"])
+    assert k_mk == "partizanski odredi"
+
+
+def test_english_new_york_normalization():
+    # Manhattan numbered grid streets & avenues
+    k, _, num = normalize_street("West 42nd Street", ["en"])
+    assert k == "" and num is True
+    k, _, num = normalize_street("East 14th Street", ["en"])
+    assert k == "" and num is True
+    k, _, num = normalize_street("5th Avenue", ["en"])
+    assert k == "" and num is True
+    # Named streets & directional merging
+    k, _, num = normalize_street("Broadway", ["en"])
+    assert k == "broadway" and not num
+    k, _, _ = normalize_street("Lexington Avenue", ["en"])
+    assert k == "lexington"
+    k1, _, _ = normalize_street("East Houston Street", ["en"])
+    k2, _, _ = normalize_street("West Houston Street", ["en"])
+    assert k1 == "houston" and k2 == "houston"
+    k, _, _ = normalize_street("West Street", ["en"])
+    assert k == "west"
+    k, _, _ = normalize_street("West End Avenue", ["en"])
+    assert k == "west end"
+    # US highway route codes dropped
+    k, _, num = normalize_street("NY 17", ["en"])
+    assert k == "" and not num
+    k, _, num = normalize_street("US Route 9", ["en"])
+    assert k == "" and not num
+
+
 def test_generated_outputs_integrity():
     summary_path = ROOT / "data" / "summary.json"
     if not summary_path.exists():
