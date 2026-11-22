@@ -94,11 +94,17 @@ def test_generated_outputs_integrity():
 
         cities = json.loads(cpath.read_text(encoding="utf-8"))
         assert len(cities) == c["cities_count"]
+        assert c.get("length_by_tier"), f"Missing length_by_tier in {code}"
+        assert c.get("scaling", {}).get("streets_vs_built_area"), f"Missing built-area scaling in {code}"
         for city in cities:
             assert city["streets"] >= 20, city["name"]
             assert 0 <= city["pure_exclusive"] <= city["streets"], city["name"]
             assert city["rarity_sum_sqrt"] <= city["streets"] + 0.2, city["name"]
             assert 0.0 <= city["rarity_mean_sqrt"] <= 100.0, city["name"]
+            assert 0.0 <= city["rarity_len_sqrt"] <= 100.0, city["name"]
             assert 0.0 <= city["rarity_mean_idf"] <= 100.0, city["name"]
             assert 0.0 <= city["rarity_mean_log"] <= 100.0, city["name"]
+            assert city["built_area_km2"] is not None and city["built_area_km2"] > 0, city["name"]
+            assert city["muni_area_km2"] is not None and city["built_area_km2"] <= city["muni_area_km2"] + 0.05, city["name"]
+            assert city["total_street_km"] > 0 and city["median_street_m"] > 0, city["name"]
             assert city["lat"] is not None and city["lon"] is not None, city["name"]

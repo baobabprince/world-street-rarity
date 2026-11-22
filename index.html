@@ -20,7 +20,7 @@ a{color:#93c5fd}
 /* Header */
 header{background:radial-gradient(circle at top center,#1b3358 0%,#0b111b 72%);padding:2.2rem 1.2rem 1.7rem;text-align:center;border-bottom:1px solid var(--border)}
 header h1{font-size:2.05rem;letter-spacing:-.02em;margin-bottom:.35rem}
-header p{color:var(--muted);max-width:720px;margin:0 auto;font-size:.98rem}
+header p{color:var(--muted);max-width:740px;margin:0 auto;font-size:.98rem}
 .header-meta{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .75rem;border-radius:999px;background:rgba(148,163,184,.12);border:1px solid var(--border);color:#cbd5e1;font-size:.82rem;text-decoration:none}
 .pill.link{background:rgba(59,130,246,.16);border-color:rgba(59,130,246,.38);color:#93c5fd;transition:background .15s}
@@ -28,16 +28,16 @@ header p{color:var(--muted);max-width:720px;margin:0 auto;font-size:.98rem}
 
 /* Sticky Bar */
 .sticky-bar{position:sticky;top:0;z-index:500;background:rgba(11,17,27,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.sticky-inner{max-width:1200px;margin:0 auto;padding:.55rem 1.2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem}
+.sticky-inner{max-width:1220px;margin:0 auto;padding:.55rem 1.2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem}
 .nav-links{display:flex;flex-wrap:wrap;gap:.2rem}
-.nav-links a{padding:.3rem .62rem;border-radius:8px;font-size:.85rem;color:var(--muted);text-decoration:none;transition:background .15s,color .15s}
+.nav-links a{padding:.3rem .6rem;border-radius:8px;font-size:.84rem;color:var(--muted);text-decoration:none;transition:background .15s,color .15s}
 .nav-links a:hover{background:rgba(148,163,184,.12);color:var(--text)}
 .global-ctrls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
 .global-ctrls select{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.34rem .62rem;font-family:inherit;font-size:.84rem;font-weight:600}
 .metric-ctrl{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:var(--muted)}
 
 /* Layout */
-.container{max-width:1200px;margin:0 auto;padding:1.25rem 1.2rem 0}
+.container{max-width:1220px;margin:0 auto;padding:1.25rem 1.2rem 0}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem;margin-bottom:1.15rem}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:.85rem;margin-bottom:1.15rem}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1rem .9rem;text-align:center}
@@ -55,8 +55,8 @@ p{margin:.35rem 0;font-size:.93rem}
 code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;border:1px solid rgba(148,163,184,.14)}
 
 /* Controls */
-.seg-btns{display:inline-flex;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:2px;gap:2px}
-.seg-btns button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:.28rem .68rem;font-size:.81rem;cursor:pointer;font-family:inherit;transition:background .15s,color .15s;white-space:nowrap}
+.seg-btns{display:inline-flex;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:2px;gap:2px;flex-wrap:wrap}
+.seg-btns button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:.28rem .64rem;font-size:.8rem;cursor:pointer;font-family:inherit;transition:background .15s,color .15s;white-space:nowrap}
 .seg-btns button:hover{color:var(--text)}
 .seg-btns button.active{background:var(--accent);color:#fff;font-weight:600}
 .btn{background:rgba(59,130,246,.16);color:#93c5fd;border:1px solid rgba(59,130,246,.38);border-radius:8px;padding:.32rem .75rem;font-size:.82rem;cursor:pointer;font-family:inherit;transition:background .15s}
@@ -64,6 +64,7 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 .btn.subtle{background:rgba(148,163,184,.12);color:#cbd5e1;border-color:var(--border)}
 .btn.subtle:hover{background:rgba(148,163,184,.22)}
 .btn.warn{background:rgba(245,158,11,.18);color:#fcd34d;border-color:rgba(245,158,11,.45)}
+.insight{background:var(--surface2);border-radius:10px;padding:.72rem .92rem;border-left:3px solid var(--accent);margin:.4rem 0 .65rem;font-size:.86rem;color:#cbd5e1}
 
 /* Country Showcase Cards */
 .country-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem;margin-top:.85rem}
@@ -90,6 +91,7 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 
 /* Map */
 .map-controls{display:flex;flex-wrap:wrap;gap:.75rem 1.05rem;align-items:center;padding:.75rem .95rem;background:var(--surface2);border:1px solid var(--border);border-radius:12px;margin-bottom:.85rem}
+.map-controls select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.34rem .6rem;font-family:inherit;font-size:.83rem}
 .slider-group{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;flex:1 1 300px}
 .slider-label{font-size:.85rem;color:#cbd5e1;white-space:nowrap}
 .slider-label strong{color:#93c5fd;font-size:.93rem;display:inline-block;min-width:3.8ch}
@@ -100,24 +102,24 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 .presets button.active{background:rgba(59,130,246,.24);color:#93c5fd;border-color:rgba(59,130,246,.55);font-weight:600}
 .highlight-banner{display:none;align-items:center;justify-content:space-between;gap:.6rem;padding:.55rem .85rem;margin-bottom:.75rem;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.42);border-radius:10px;font-size:.87rem;color:#fde68a}
 .highlight-banner.active{display:flex}
-.map-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(305px,1fr);gap:.95rem;align-items:stretch}
+.map-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(310px,1fr);gap:.95rem;align-items:stretch}
 .map-stage{display:flex;flex-direction:column;gap:.45rem}
-#map{height:550px;width:100%;border-radius:12px;border:1px solid var(--border);background:#0c1421;z-index:1}
+#map{height:560px;width:100%;border-radius:12px;border:1px solid var(--border);background:#0c1421;z-index:1}
 .map-legend{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem;font-size:.79rem;color:var(--muted);padding:.1rem .2rem}
 .grad-bar{display:inline-block;width:130px;height:10px;border-radius:999px;background:linear-gradient(to right,#ef4444,#f59e0b,#38bdf8,#10b981);vertical-align:middle;margin:0 .4rem;border:1px solid rgba(255,255,255,.15)}
 
 /* Inspector */
-.inspector{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.05rem;height:550px;overflow:auto;display:flex;flex-direction:column}
+.inspector{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.05rem;height:560px;overflow:auto;display:flex;flex-direction:column}
 .insp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;padding-bottom:.65rem;border-bottom:1px solid var(--border)}
 .insp-head h3{margin:0;font-size:1.22rem;color:var(--text)}
-.insp-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:.8rem 0}
-.insp-stat{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:.55rem .6rem;text-align:center}
-.insp-stat .v{font-size:1.06rem;font-weight:700;color:#93c5fd;line-height:1.25}
-.insp-stat .k{font-size:.72rem;color:var(--muted)}
-.insp-block{margin-top:.75rem}
-.insp-block h4{font-size:.83rem;color:#cbd5e1;margin-bottom:.35rem}
-.quick-list{display:flex;flex-direction:column;gap:.35rem;margin-top:.3rem}
-.quick-item{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.4rem .6rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.83rem;transition:border-color .12s,background .12s;text-align:left;color:var(--text);font-family:inherit;width:100%}
+.insp-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.48rem;margin:.75rem 0}
+.insp-stat{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:.5rem .55rem;text-align:center}
+.insp-stat .v{font-size:1.02rem;font-weight:700;color:#93c5fd;line-height:1.25}
+.insp-stat .k{font-size:.71rem;color:var(--muted)}
+.insp-block{margin-top:.7rem}
+.insp-block h4{font-size:.82rem;color:#cbd5e1;margin-bottom:.32rem}
+.quick-list{display:flex;flex-direction:column;gap:.34rem;margin-top:.28rem}
+.quick-item{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.38rem .58rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.82rem;transition:border-color .12s,background .12s;text-align:left;color:var(--text);font-family:inherit;width:100%}
 .quick-item:hover{border-color:rgba(59,130,246,.55);background:rgba(59,130,246,.1)}
 
 /* Leaflet Overrides */
@@ -142,9 +144,13 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 .sr-meta{font-size:.81rem;color:var(--muted);margin-bottom:.45rem}
 
 /* Charts */
-.chart-wrap{height:400px;margin:.6rem 0 .2rem;position:relative}
-.chart-wrap.tall{height:490px}
+.chart-wrap{height:400px;margin:.55rem 0 .2rem;position:relative}
+.chart-wrap.tall{height:480px}
 .chart-wrap.med{height:320px;flex:1;min-height:280px}
+.exp-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.5rem;margin-top:.7rem}
+.exp-box{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:.5rem .6rem;text-align:center}
+.exp-box .v{font-size:1rem;font-weight:700;color:#93c5fd}
+.exp-box .k{font-size:.71rem;color:var(--muted)}
 
 /* Table */
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem;align-items:center}
@@ -152,8 +158,8 @@ code{background:#090e17;padding:.1rem .35rem;border-radius:4px;font-size:.83rem;
 .filters input{min-width:190px;flex:1 1 200px;max-width:290px}
 .table-count{margin-left:auto;font-size:.82rem;color:var(--muted)}
 .table-wrap{max-height:520px;overflow:auto;border:1px solid var(--border);border-radius:11px;background:var(--surface2)}
-table{width:100%;border-collapse:collapse;font-size:.85rem}
-th,td{padding:.5rem .55rem;text-align:left;border-bottom:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.83rem}
+th,td{padding:.48rem .5rem;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
 th.num-col,td.num-col{text-align:right;font-variant-numeric:tabular-nums}
 thead th{color:var(--muted);position:sticky;top:0;background:var(--surface);z-index:2;user-select:none;font-weight:600}
 thead th.sortable{cursor:pointer}
@@ -161,6 +167,8 @@ thead th.sortable:hover{color:var(--text)}
 thead th.sorted{color:#93c5fd}
 tbody tr{cursor:pointer;transition:background .12s}
 tbody tr:hover{background:rgba(59,130,246,.1)}
+.pos{color:#34d399;font-weight:600}
+.neg{color:#38bdf8;font-weight:600}
 
 /* Methodology */
 .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:.5rem}
@@ -176,16 +184,16 @@ details[open] summary::after{transform:rotate(180deg)}
 /* Modal */
 .modal-backdrop{position:fixed;inset:0;background:rgba(5,8,14,.76);display:none;align-items:center;justify-content:center;padding:1rem;z-index:1000}
 .modal-backdrop.open{display:flex}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:650px;width:100%;max-height:88vh;overflow:auto;padding:1.35rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:670px;width:100%;max-height:88vh;overflow:auto;padding:1.35rem 1.4rem;box-shadow:0 20px 50px rgba(0,0,0,.6)}
 .modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
 .modal-head h3{font-size:1.35rem;margin:0;color:var(--text)}
 .modal-actions{display:flex;align-items:center;gap:.45rem}
 .modal-close{background:transparent;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;line-height:1}
 .modal-close:hover{color:var(--text);border-color:#64748b}
-.modal-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:.6rem;margin:1rem 0}
-.modal-stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.65rem;text-align:center}
-.modal-stat .v{font-size:1.15rem;font-weight:700;color:#93c5fd}
-.modal-stat .k{font-size:.73rem;color:var(--muted)}
+.modal-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.55rem;margin:1rem 0}
+.modal-stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.6rem;text-align:center}
+.modal-stat .v{font-size:1.1rem;font-weight:700;color:#93c5fd}
+.modal-stat .k{font-size:.72rem;color:var(--muted)}
 .modal-block{margin-top:.9rem}
 .modal-block h4{font-size:.89rem;color:#cbd5e1;margin-bottom:.4rem}
 
@@ -193,10 +201,10 @@ details[open] summary::after{transform:rotate(180deg)}
 .error{color:#f87171;padding:1rem}
 footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
 
-@media(max-width:940px){
+@media(max-width:960px){
   .grid-2,.map-layout{grid-template-columns:1fr}
   #map{height:430px}
-  .inspector{height:auto;max-height:460px}
+  .inspector{height:auto;max-height:480px}
 }
 @media(max-width:680px){
   header h1{font-size:1.5rem}
@@ -209,7 +217,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
 
 <header>
   <h1>World Street Name Rarity</h1>
-  <p>How original are street names across cities? Explore local uniqueness, nationwide clichés, and cross-country patterns built on Overture Maps &amp; OpenStreetMap.</p>
+  <p>How original are street names across cities — and how do city area, street length, and population shape urban naming? Built on Overture Maps &amp; OpenStreetMap.</p>
   <div class="header-meta">
     <span class="pill" id="updated-pill">Source: Overture Maps / OSM</span>
     <a class="pill link" href="https://github.com/baobabprince/world-street-rarity" target="_blank" rel="noopener">GitHub</a>
@@ -223,6 +231,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
       <a href="#sec-overview">Countries</a>
       <a href="#sec-map">Map</a>
       <a href="#sec-search">Street Search</a>
+      <a href="#sec-urban">Urban Form</a>
       <a href="#sec-rank">Rankings</a>
       <a href="#sec-table">Table</a>
       <a href="#sec-method">Methodology</a>
@@ -250,20 +259,21 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
     <h2>Methodology &amp; Open Data</h2>
     <div class="method-grid">
       <div class="method-box">
-        <h3>Data &amp; Standardized City Scope</h3>
+        <h3>Data, Active Built-Up Area &amp; Corrected Street Lengths</h3>
         <ol>
-          <li>City boundaries, populations, and named road segments are queried directly from <strong>Overture Maps</strong> (OpenStreetMap + open divisions) via DuckDB.</li>
-          <li>To ensure apples-to-apples comparisons across countries with very different municipal structures (e.g., 35,000 tiny communes in France vs. ~1,200 in Italy), each country includes municipalities/localities with <strong>population ≥ 10,000</strong> and <strong>≥ 20 normalized streets</strong>.</li>
-          <li>Language-specific prefixes (<code>Via</code>, <code>Rue de la</code>, <code>Calle de</code>, <code>ul.</code>, <code>רחוב</code>), suffixes, and German fused compounds (<code>Goethestraße → goethe</code>) are stripped; historical dates (<code>Via 20 Settembre</code>, <code>14 Juillet</code>) are preserved; purely numbered streets are tracked separately (<code>numbered_pct</code>); intra-city duplicates are counted once per city.</li>
+          <li><strong>Active Built-Up Urban Area (<code>built_area_km2</code>):</strong> Instead of relying on abstract municipal borders (which often include vast farmland or desert), each city's urban roads are projected onto an equal-area <strong>250m × 250m grid</strong>. Only cells with intensive urban street activity (<strong>≥ 2 distinct named streets</strong> or <strong>≥ 300m of roads</strong>) are counted as built-up area (clamped to municipal area <code>muni_area_km2</code>).</li>
+          <li><strong>Dual-Carriageway Length Correction:</strong> Restricted to true urban street classes (<code>primary</code>, <code>secondary</code>, <code>tertiary</code>, <code>residential</code>, <code>unclassified</code>, <code>living_street</code>, <code>pedestrian</code> — excluding <code>service</code>, <code>footway</code>, <code>cycleway</code>, <code>track</code>, <code>motorway</code>, <code>trunk</code>). One-way segments on divided arterial roads (<code>primary</code>/<code>secondary</code>/<code>tertiary</code>) are weighted <strong>0.5×</strong> so dual-carriageway boulevards are not double-counted.</li>
+          <li>Standardized inclusion: localities with <strong>population ≥ 10,000</strong> and <strong>≥ 20 normalized streets</strong>, with config-driven multilingual affix stripping and intra-city deduplication.</li>
         </ol>
       </div>
       <div class="method-box">
-        <h3>Rarity Formulas (Default: Square Root)</h3>
+        <h3>Rarity Formulas &amp; Scaling Laws</h3>
         <ul>
-          <li><strong>Sqrt (Default):</strong> <code>1 / √n</code> (city mean scaled 0–100%). A street unique to one city scores 100%; appearing in 4 cities scores 50%; in 100 cities scores 10%.</li>
-          <li><strong>Normalized IDF:</strong> <code>1 - log(n) / log(C)</code>, where <code>C</code> is the number of cities in that country — adjusts for country size so a street in 10% of cities scores comparably across small and large countries.</li>
-          <li><strong>Log:</strong> <code>1 / log₂(1 + n)</code> — softer decay for widespread names.</li>
-          <li><strong>Pure Exclusive %:</strong> Share of a city's streets appearing in only that single city nationwide (<code>n = 1</code>).</li>
+          <li><strong>Sqrt (Default):</strong> <code>1 / √n</code> (0–100% city mean). Unique street = 100%, 4 cities = 50%, 100 cities = 10%.</li>
+          <li><strong>Normalized IDF:</strong> <code>1 - log(n) / log(C)</code>, adjusting for the number of cities <code>C</code> in each country.</li>
+          <li><strong>Log:</strong> <code>1 / log₂(1 + n)</code> — gentler decay.</li>
+          <li><strong>Length-Weighted Rarity &amp; Boulevard Gap:</strong> Weights each street by its dual-carriageway-corrected length. Positive gap (<code>count − length &gt; 0</code>) means longer avenues are <em>more generic</em>; negative gap means longer roads are <em>more unique</em>.</li>
+          <li><strong>Power-Law Scaling:</strong> Log-log OLS fits on <strong>active built-up area</strong>: <code>streets ~ built_area^α</code>, <code>population ~ built_area^γ</code>, and <code>streets ~ population^β</code>.</li>
         </ul>
       </div>
     </div>
@@ -274,7 +284,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
         <table>
           <thead><tr>
             <th>Country</th><th class="num-col">Cities</th><th class="num-col">Unique Streets</th>
-            <th class="num-col">Pure Exclusive</th><th class="num-col">Searchable Shared</th>
+            <th class="num-col">Med Area km²</th><th class="num-col">Med Street m</th>
             <th class="num-col">Mean Sqrt %</th><th class="num-col">Mean Norm-IDF %</th><th>Data</th>
           </tr></thead>
           <tbody id="meta-table-body"></tbody>
@@ -304,18 +314,19 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
 
 <script>
 let SUMMARY = null;
-let COUNTRY_MAP = {};        // code -> country summary object
-let CITY_CACHE = {};         // code -> array of cities
-let SEARCH_CACHE = {};       // code -> search index object
-let ACTIVE_COUNTRY = 'ALL';  // 'ALL' or ISO2 code
-let METRIC = 'sqrt';         // DEFAULT: 'sqrt' | 'idf' | 'log'
-let RANK_MODE = 'top';       // 'top' | 'bottom' | 'sum'
-let SCATTER_Y = 'mean';      // 'mean' | 'exclusive'
-let MAP_COLOR_MODE = 'rarity'; // 'rarity' | 'country'
+let COUNTRY_MAP = {};
+let CITY_CACHE = {};
+let SEARCH_CACHE = {};
+let ACTIVE_COUNTRY = 'ALL';
+let METRIC = 'sqrt';               // DEFAULT: 'sqrt' | 'idf' | 'log'
+let RANK_MODE = 'top';             // 'top' | 'bottom' | 'sum'
+let SCATTER_Y = 'mean';            // 'mean' | 'exclusive'
+let SCALE_MODE = 'area_streets';   // 'area_streets' | 'area_pop' | 'pop_streets' | 'area_rarity'
+let MAP_COLOR_MODE = 'rarity';     // 'rarity' | 'country' | 'length' | 'pop_per_st' | 'density'
 let MAP_MIN_STREETS = 20;
 let SELECTED_CITY = null;
 let MODAL_CITY = null;
-let HIGHLIGHT_STREET = null; // { country, key, name, cityNames: Set }
+let HIGHLIGHT_STREET = null;
 let MAP_OBJ = null, MAP_LAYER = null, MAP_RENDERER = null;
 let CHARTS = {};
 let SORT_COL = 'rarity_mean_sqrt', SORT_DIR = -1;
@@ -344,17 +355,26 @@ function countryMeanOf(cs){return METRIC==='idf'?cs.mean_rarity_idf:METRIC==='lo
 function countryMedianOf(cs){return METRIC==='idf'?cs.median_rarity_idf:METRIC==='log'?cs.median_rarity_log:cs.median_rarity_sqrt}
 function metricLabel(){return METRIC==='idf'?'Norm-IDF':METRIC==='log'?'Log':'Sqrt'}
 
-function rarityColor(pct){
-  const t=Math.max(0,Math.min(1,(pct-20)/65));
+function gradColor(t){
+  const cl=Math.max(0,Math.min(1,t));
   const stops=[[0,[239,68,68]],[0.38,[245,158,11]],[0.72,[56,189,248]],[1,[16,185,129]]];
   for(let i=0;i<stops.length-1;i++){
     const [t0,c0]=stops[i],[t1,c1]=stops[i+1];
-    if(t<=t1){
-      const f=(t-t0)/(t1-t0);
+    if(cl<=t1){
+      const f=(cl-t0)/(t1-t0);
       return `rgb(${Math.round(c0[0]+(c1[0]-c0[0])*f)},${Math.round(c0[1]+(c1[1]-c0[1])*f)},${Math.round(c0[2]+(c1[2]-c0[2])*f)})`;
     }
   }
   return '#10b981';
+}
+
+function markerColorFor(d){
+  if(HIGHLIGHT_STREET) return '#f59e0b';
+  if(MAP_COLOR_MODE==='country') return COUNTRY_MAP[d.country]?.color||'#3b82f6';
+  if(MAP_COLOR_MODE==='length') return gradColor(((d.median_street_m||200)-140)/260);
+  if(MAP_COLOR_MODE==='pop_per_st') return gradColor(1-Math.min(1,(Math.log10(Math.max(20,d.pop_per_street||80))-1.3)/1.3));
+  if(MAP_COLOR_MODE==='density') return gradColor(1-Math.min(1,(Math.log10(Math.max(50,d.pop_density||400))-1.7)/2.3));
+  return gradColor((meanOf(d)-20)/65);
 }
 
 function countryBadge(code){
@@ -370,11 +390,9 @@ async function ensureCountryLoaded(code){
   CITY_CACHE[code]=await r.json();
   return CITY_CACHE[code];
 }
-
 async function ensureAllCountriesLoaded(){
   await Promise.all(SUMMARY.countries.map(c=>ensureCountryLoaded(c.code)));
 }
-
 async function ensureSearchLoaded(code){
   if(SEARCH_CACHE[code]) return SEARCH_CACHE[code];
   const r=await fetch(`data/search/${code}.json?t=${Date.now()}`);
@@ -384,9 +402,7 @@ async function ensureSearchLoaded(code){
 }
 
 function activeCities(){
-  if(ACTIVE_COUNTRY==='ALL'){
-    return SUMMARY.countries.flatMap(c=>CITY_CACHE[c.code]||[]);
-  }
+  if(ACTIVE_COUNTRY==='ALL') return SUMMARY.countries.flatMap(c=>CITY_CACHE[c.code]||[]);
   return CITY_CACHE[ACTIVE_COUNTRY]||[];
 }
 
@@ -410,9 +426,7 @@ function wireStreetChipClicks(container){
   container.querySelectorAll('[data-query-street]').forEach(btn=>{
     btn.onclick=async ()=>{
       closeCityModal();
-      const cc=btn.dataset.queryCc;
-      const q=btn.dataset.queryStreet;
-      await runStreetSearchAndHighlight(cc, q, true);
+      await runStreetSearchAndHighlight(btn.dataset.queryCc, btn.dataset.queryStreet, true);
     };
   });
 }
@@ -427,15 +441,19 @@ function openCityModal(d){
     <span class="badge other">Rank #${rk.rank} of ${fmt(rk.total)} in ${esc(COUNTRY_MAP[d.country]?.name||d.country)}</span>`;
 
   const {uniq, common}=streetChipsHtml(d);
+  const gapStr=d.cliche_gap!=null?`${d.cliche_gap>=0?'+':''}${d.cliche_gap.toFixed(1)}%`:'—';
   const body=document.getElementById('modal-body');
   body.innerHTML=`
     <div class="modal-stats">
       <div class="modal-stat"><div class="v">${meanOf(d).toFixed(1)}%</div><div class="k">Mean Rarity (${metricLabel()})</div></div>
       <div class="modal-stat"><div class="v">${fmt(d.pure_exclusive)} (${d.exclusive_pct.toFixed(1)}%)</div><div class="k">Pure Exclusive</div></div>
       <div class="modal-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Normalized Streets</div></div>
-      <div class="modal-stat"><div class="v">${sumOf(d).toFixed(1)}</div><div class="k">Rarity Sum</div></div>
       <div class="modal-stat"><div class="v">${fmt(d.population)}</div><div class="k">Population</div></div>
-      <div class="modal-stat"><div class="v">${d.numbered_pct.toFixed(1)}%</div><div class="k">Numbered Streets</div></div>
+      <div class="modal-stat"><div class="v">${d.built_area_km2!=null?fmt(d.built_area_km2)+' km²':'—'}</div><div class="k">Built-Up Area (${d.built_share_pct!=null?d.built_share_pct+'% of '+fmt(d.muni_area_km2)+' km²':'250m grid'})</div></div>
+      <div class="modal-stat"><div class="v">${d.pop_density!=null?fmt(Math.round(d.pop_density))+'/km²':'—'}</div><div class="k">Built-Up Pop Density</div></div>
+      <div class="modal-stat"><div class="v">${d.median_street_m!=null?Math.round(d.median_street_m)+' m':'—'}</div><div class="k">Median Street Length</div></div>
+      <div class="modal-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'}</div><div class="k">Residents / Street</div></div>
+      <div class="modal-stat"><div class="v">${d.rarity_len_sqrt!=null?d.rarity_len_sqrt.toFixed(1)+'%':'—'} (${gapStr})</div><div class="k">Length-Wtd Rarity (Gap)</div></div>
     </div>
     <div class="modal-block">
       <h4>Sample Unique Streets (only in ${esc(d.name)})</h4>
@@ -473,11 +491,10 @@ function renderOverview(){
     kpi.innerHTML=`
       <div class="card"><div class="num">${fmt(c.cities_count)}</div><div class="label">Cities in ${esc(c.name)} (≥10k pop, ≥20 sts)</div></div>
       <div class="card"><div class="num green">${countryMeanOf(c).toFixed(1)}%</div><div class="label">Mean Rarity (${metricLabel()}, median ${countryMedianOf(c).toFixed(1)}%)</div></div>
-      <div class="card"><div class="num">${c.mean_exclusive_pct.toFixed(1)}%</div><div class="label">Avg Pure Exclusive Streets</div></div>
+      <div class="card"><div class="num">${c.median_street_m!=null?Math.round(c.median_street_m)+' m':'—'}</div><div class="label">Median Street · Built Area ${c.median_built_area_km2||'—'} km² (${c.median_built_share_pct||'—'}%)</div></div>
       <div class="card"><div class="num amber">${sorted[0]?esc(sorted[0].name):'—'}</div><div class="label">Most Unique City (${sorted[0]?meanOf(sorted[0]).toFixed(1)+'%':'—'})</div></div>`;
   }
 
-  // Cross-country comparison chart
   if(CHARTS.countries) CHARTS.countries.destroy();
   CHARTS.countries=new Chart(document.getElementById('cCountries'),{
     type:'bar',
@@ -499,7 +516,6 @@ function renderOverview(){
     }
   });
 
-  // Country cards with top shared streets
   const grid=document.getElementById('country-cards');
   grid.innerHTML=sortedByMean.map(c=>`
     <div class="cc-card" style="${ACTIVE_COUNTRY===c.code?'border-color:'+c.color:''}">
@@ -507,7 +523,7 @@ function renderOverview(){
         <div class="cc-title" data-pick-country="${esc(c.code)}"><span class="cc-dot" style="background:${c.color}"></span>${esc(c.name)}</div>
         <strong>${countryMeanOf(c).toFixed(1)}%</strong>
       </div>
-      <div class="cc-meta">${fmt(c.cities_count)} cities · ${c.mean_exclusive_pct.toFixed(1)}% exclusive · ${fmt(c.unique_norm_streets)} unique names</div>
+      <div class="cc-meta">${fmt(c.cities_count)} cities · ${c.mean_exclusive_pct.toFixed(1)}% exclusive · med ${Math.round(c.median_street_m||0)} m/st</div>
       <div class="cc-streets">
         ${c.top_shared.slice(0,5).map(s=>`<button type="button" class="chip btn-chip" data-query-street="${esc(s.key)}" data-query-cc="${esc(c.code)}" title="In ${s.n_cities} cities (${s.pct_cities}%)">${esc(s.name)} (${s.pct_cities}%)</button>`).join('')}
       </div>
@@ -536,12 +552,8 @@ function initMap(){
 
 function fitMapToCountry(code){
   if(!MAP_OBJ) return;
-  if(code==='ALL'){
-    MAP_OBJ.setView([44.5,13.0],4.5);
-  }else{
-    const c=COUNTRY_MAP[code];
-    if(c) MAP_OBJ.setView(c.center,c.zoom);
-  }
+  if(code==='ALL') MAP_OBJ.setView([44.5,13.0],4.5);
+  else { const c=COUNTRY_MAP[code]; if(c) MAP_OBJ.setView(c.center,c.zoom); }
 }
 
 function filteredMapCities(){
@@ -564,6 +576,7 @@ function renderMapInspector(visible){
     const d=SELECTED_CITY;
     const rk=rankInCountry(d);
     const {uniq, common}=streetChipsHtml(d);
+    const gapStr=d.cliche_gap!=null?`${d.cliche_gap>=0?'+':''}${d.cliche_gap.toFixed(1)}%`:'—';
     el.innerHTML=`
       <div class="insp-head">
         <div>
@@ -580,16 +593,16 @@ function renderMapInspector(visible){
         <div class="insp-stat"><div class="v">${meanOf(d).toFixed(1)}%</div><div class="k">Mean Rarity (${metricLabel()})</div></div>
         <div class="insp-stat"><div class="v">${fmt(d.pure_exclusive)} (${d.exclusive_pct.toFixed(1)}%)</div><div class="k">Pure Exclusive</div></div>
         <div class="insp-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Normalized Streets</div></div>
-        <div class="insp-stat"><div class="v">${sumOf(d).toFixed(1)}</div><div class="k">Rarity Sum</div></div>
-        <div class="insp-stat"><div class="v">${fmt(d.population)}</div><div class="k">Population</div></div>
-        <div class="insp-stat"><div class="v">${d.numbered_pct.toFixed(1)}%</div><div class="k">Numbered Streets</div></div>
+        <div class="insp-stat"><div class="v">${d.built_area_km2!=null?fmt(d.built_area_km2)+' km²':'—'}</div><div class="k">Built Area (${d.built_share_pct!=null?d.built_share_pct+'%':'—'}) · ${d.pop_density!=null?fmt(Math.round(d.pop_density))+'/km²':'—'}</div></div>
+        <div class="insp-stat"><div class="v">${d.median_street_m!=null?Math.round(d.median_street_m)+' m':'—'}</div><div class="k">Med Street (mean ${d.mean_street_m!=null?Math.round(d.mean_street_m)+'m':'—'})</div></div>
+        <div class="insp-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'} · Gap ${gapStr}</div><div class="k">Pop/Street · Boulevard Gap</div></div>
       </div>
       <div class="insp-block">
         <h4>Sample Unique Streets (only in ${esc(d.name)})</h4>
         <div>${uniq}</div>
       </div>
       <div class="insp-block">
-        <h4>Most Shared Streets <span class="muted">(click to highlight on map)</span></h4>
+        <h4>Most Shared Streets <span class="muted">(click to highlight)</span></h4>
         <div>${common}</div>
       </div>`;
     document.getElementById('insp-back').onclick=()=>{SELECTED_CITY=null; updateMap()};
@@ -611,7 +624,7 @@ function renderMapInspector(visible){
     <div class="insp-head">
       <div>
         <h3 style="font-size:1.05rem">Click any city on the map</h3>
-        <p class="muted" style="margin:.15rem 0 0">Inspect full rarity statistics, unique local street names, and nationwide shared streets.</p>
+        <p class="muted" style="margin:.15rem 0 0">Inspect street rarity, city area, street lengths, and unique/shared street samples.</p>
       </div>
     </div>
     <div class="insp-stats">
@@ -639,14 +652,16 @@ function renderMapInspector(visible){
 function updateMapLegend(){
   const leg=document.getElementById('map-legend');
   if(!leg) return;
-  if(MAP_COLOR_MODE==='rarity'){
-    leg.innerHTML=`
-      <span>Generic (20%) <span class="grad-bar"></span> Unique (85%+)</span>
-      <span>Circle size ∝ normalized streets</span>`;
+  if(MAP_COLOR_MODE==='country'){
+    leg.innerHTML=`<span>${SUMMARY.countries.map(c=>`<span class="cc-dot" style="background:${c.color};vertical-align:middle;margin-right:4px"></span>${esc(c.name)}`).join(' &nbsp; ')}</span><span>Circle size ∝ streets</span>`;
+  }else if(MAP_COLOR_MODE==='length'){
+    leg.innerHTML=`<span>Short streets (≤140m) <span class="grad-bar"></span> Long streets (≥400m)</span><span>Circle size ∝ streets</span>`;
+  }else if(MAP_COLOR_MODE==='pop_per_st'){
+    leg.innerHTML=`<span>Dense (350+ pop/st) <span class="grad-bar"></span> Sprawling (≤30 pop/st)</span><span>Circle size ∝ streets</span>`;
+  }else if(MAP_COLOR_MODE==='density'){
+    leg.innerHTML=`<span>High density (5k+/km²) <span class="grad-bar"></span> Low density (≤100/km²)</span><span>Circle size ∝ streets</span>`;
   }else{
-    leg.innerHTML=`
-      <span>${SUMMARY.countries.map(c=>`<span class="cc-dot" style="background:${c.color};vertical-align:middle;margin-right:4px"></span>${esc(c.name)}`).join(' &nbsp; ')}</span>
-      <span>Circle size ∝ normalized streets</span>`;
+    leg.innerHTML=`<span>Generic (20%) <span class="grad-bar"></span> Unique (85%+)</span><span>Circle size ∝ streets</span>`;
   }
 }
 
@@ -660,9 +675,7 @@ function updateMap(){
   if(cntEl) cntEl.textContent=`Showing ${fmt(visible.length)} of ${fmt(totalPool)} cities`;
   const lblEl=document.getElementById('min-streets-val');
   if(lblEl) lblEl.textContent=`${MAP_MIN_STREETS}+`;
-  document.querySelectorAll('#map-presets button').forEach(b=>{
-    b.classList.toggle('active', Number(b.dataset.min)===MAP_MIN_STREETS);
-  });
+  document.querySelectorAll('#map-presets button').forEach(b=>b.classList.toggle('active', Number(b.dataset.min)===MAP_MIN_STREETS));
 
   const banner=document.getElementById('highlight-banner');
   if(banner){
@@ -670,9 +683,7 @@ function updateMap(){
       banner.classList.add('active');
       document.getElementById('highlight-text').innerHTML=
         `Highlighting <strong>${fmt(visible.length)}</strong> cities in <strong>${esc(COUNTRY_MAP[HIGHLIGHT_STREET.country]?.name||HIGHLIGHT_STREET.country)}</strong> with street <strong>"${esc(HIGHLIGHT_STREET.name)}"</strong>`;
-    }else{
-      banner.classList.remove('active');
-    }
+    }else banner.classList.remove('active');
   }
 
   updateMapLegend();
@@ -682,9 +693,7 @@ function updateMap(){
 
   for(const d of ordered){
     const isSel=SELECTED_CITY&&SELECTED_CITY.id===d.id;
-    const fill=HIGHLIGHT_STREET
-      ? '#f59e0b'
-      : (MAP_COLOR_MODE==='rarity'?rarityColor(meanOf(d)):(COUNTRY_MAP[d.country]?.color||'#3b82f6'));
+    const fill=markerColorFor(d);
     const r=Math.max(4,Math.min(14,2.2+Math.log2(Math.max(1,d.streets||1))*1.05));
     const marker=L.circleMarker([d.lat,d.lon],{
       renderer:MAP_RENDERER,
@@ -697,13 +706,10 @@ function updateMap(){
     });
     marker.bindTooltip(
       `<strong>${esc(d.name)}</strong> (${esc(d.country)}) · ${meanOf(d).toFixed(1)}%<br>`+
-      `${fmt(d.pure_exclusive)} / ${fmt(d.streets)} exclusive · pop ${fmt(d.population)}`,
+      `${fmt(d.streets)} sts · med ${Math.round(d.median_street_m||0)}m · built ${d.built_area_km2||'—'} km² · pop ${fmt(d.population)}`,
       {direction:'top',offset:[0,-r],className:'map-tip'}
     );
-    marker.on('click',()=>{
-      SELECTED_CITY=d;
-      updateMap();
-    });
+    marker.on('click',()=>{SELECTED_CITY=d; updateMap()});
     marker.addTo(MAP_LAYER);
     if(isSel) selectedMarker=marker;
   }
@@ -714,9 +720,7 @@ function updateMap(){
 function focusCityOnMap(d, scrollToMap=true){
   if(!d||d.lat==null||d.lon==null) return;
   HIGHLIGHT_STREET=null;
-  if(ACTIVE_COUNTRY!=='ALL'&&ACTIVE_COUNTRY!==d.country){
-    selectGlobalCountry(d.country);
-  }
+  if(ACTIVE_COUNTRY!=='ALL'&&ACTIVE_COUNTRY!==d.country) selectGlobalCountry(d.country);
   if((d.streets||0)<MAP_MIN_STREETS){
     MAP_MIN_STREETS=20;
     const sl=document.getElementById('map-min-streets');
@@ -726,6 +730,145 @@ function focusCityOnMap(d, scrollToMap=true){
   updateMap();
   if(scrollToMap) document.getElementById('sec-map')?.scrollIntoView({behavior:'smooth',block:'start'});
   if(MAP_OBJ) MAP_OBJ.flyTo([d.lat,d.lon],Math.max(MAP_OBJ.getZoom(),10),{duration:0.65});
+}
+
+/* ==================== URBAN FORM & SCALING ==================== */
+function rebuildUrbanSection(){
+  // 1. Boulevard Cliché / Length by Rarity Tier chart
+  const lenTitle=document.getElementById('len-title');
+  const lenInsight=document.getElementById('len-insight');
+
+  if(CHARTS.lenTier) CHARTS.lenTier.destroy();
+  if(ACTIVE_COUNTRY==='ALL'){
+    const list=[...SUMMARY.countries].sort((a,b)=>(b.median_cliche_gap||0)-(a.median_cliche_gap||0));
+    lenTitle.textContent='Boulevard Cliché Gap by Country (Count − Length Rarity)';
+    lenInsight.innerHTML='<strong>Positive (+):</strong> longer avenues are more generic (national icons on main boulevards). <strong>Negative (−):</strong> longer roads are more unique (long rural/hamlet roads inside large municipalities).';
+    CHARTS.lenTier=new Chart(document.getElementById('cLenTier'),{
+      type:'bar',
+      data:{
+        labels:list.map(c=>c.name),
+        datasets:[{
+          label:'Median Boulevard Gap (Count % − Length-Wtd %)',
+          data:list.map(c=>c.median_cliche_gap||0),
+          backgroundColor:list.map(c=>(c.median_cliche_gap||0)>=0?'rgba(16,185,129,.82)':'rgba(56,189,248,.82)'),
+          borderRadius:5
+        }]
+      },
+      options:{
+        indexAxis:'y',responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{label:ctx=>{
+            const c=list[ctx.dataIndex];
+            return ` Gap: ${c.median_cliche_gap>=0?'+':''}${c.median_cliche_gap}% (${c.pct_longer_more_generic}% of cities have more generic long streets)`;
+          }}}
+        },
+        scales:{
+          x:{ticks:{color:'#8fa1bc',callback:v=>(v>0?'+':'')+v+'%'},grid:{color:'#243247'}},
+          y:{ticks:{color:'#e8eef6',font:{size:12}},grid:{display:false}}
+        }
+      }
+    });
+  }else{
+    const c=COUNTRY_MAP[ACTIVE_COUNTRY];
+    const tiers=c.length_by_tier||[];
+    lenTitle.textContent=`Street Length by Rarity Tier — ${c.name}`;
+    const gap=c.median_cliche_gap||0;
+    lenInsight.innerHTML=`In <strong>${esc(c.name)}</strong>, <strong>${c.pct_longer_more_generic}%</strong> of cities have longer streets that are more generic (median Boulevard Gap: <strong>${gap>=0?'+':''}${gap}%</strong>; median street length: <strong>${Math.round(c.median_street_m||0)} m</strong>).`;
+    CHARTS.lenTier=new Chart(document.getElementById('cLenTier'),{
+      type:'bar',
+      data:{
+        labels:tiers.map(t=>t.tier),
+        datasets:[
+          {label:'Mean Length (m)',data:tiers.map(t=>t.mean_m),backgroundColor:'rgba(59,130,246,.8)',borderRadius:5},
+          {label:'Median Length (m)',data:tiers.map(t=>t.median_m),backgroundColor:'rgba(16,185,129,.82)',borderRadius:5}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#e8eef6',boxWidth:11}}},
+        scales:{
+          x:{ticks:{color:'#e8eef6',font:{size:11}},grid:{color:'#243247'}},
+          y:{ticks:{color:'#8fa1bc',callback:v=>v+'m'},grid:{color:'#243247'}}
+        }
+      }
+    });
+  }
+
+  // 2. Scaling Explorer scatter plot (using Active Built-Up Urban Area!)
+  const countriesToShow=ACTIVE_COUNTRY==='ALL'?SUMMARY.countries:[COUNTRY_MAP[ACTIVE_COUNTRY]];
+  const modeCfg={
+    area_streets:{xKey:'built_area_km2',yKey:'streets',xLabel:'Active Built-Up Area (km², log)',yLabel:'Normalized Streets (log)',yLog:true,desc:'Empirical scaling: streets ~ BuiltArea^α (vs ideal 2D grid √Area = 0.50)'},
+    area_pop:{xKey:'built_area_km2',yKey:'population',xLabel:'Active Built-Up Area (km², log)',yLabel:'Population (log)',yLog:true,desc:'Empirical scaling: population ~ BuiltArea^γ'},
+    pop_streets:{xKey:'population',yKey:'streets',xLabel:'Population (log)',yLabel:'Normalized Streets (log)',yLog:true,desc:'Urban infrastructure scaling: streets ~ Population^β'},
+    area_rarity:{xKey:'built_area_km2',yKey:meanKey(),xLabel:'Active Built-Up Area (km², log)',yLabel:`Mean Rarity % (${metricLabel()})`,yLog:false,desc:'How active urban footprint relates to street name rarity'}
+  }[SCALE_MODE];
+
+  const datasets=countriesToShow.filter(Boolean).map(c=>({
+    label:c.name,
+    data:(CITY_CACHE[c.code]||[]).filter(d=>d[modeCfg.xKey]>0&&d[modeCfg.yKey]>0).map(d=>({
+      x:d[modeCfg.xKey],
+      y:d[modeCfg.yKey],
+      city:d
+    })),
+    backgroundColor:c.color+'95',
+    pointRadius:3.3,
+    pointHoverRadius:6.5
+  }));
+
+  document.getElementById('scale-sub').textContent=modeCfg.desc;
+  if(CHARTS.scale) CHARTS.scale.destroy();
+  CHARTS.scale=new Chart(document.getElementById('cScale'),{
+    type:'scatter',
+    data:{datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      onClick:(_,els)=>{
+        if(els&&els.length){
+          const pt=CHARTS.scale.data.datasets[els[0].datasetIndex].data[els[0].index];
+          if(pt&&pt.city) openCityModal(pt.city);
+        }
+      },
+      plugins:{
+        legend:{labels:{color:'#e8eef6',boxWidth:10}},
+        tooltip:{callbacks:{label:ctx=>{
+          const d=ctx.raw.city;
+          return `${d.name} (${d.country}): built ${d.built_area_km2} km² (${d.built_share_pct}% of ${d.muni_area_km2} km²), pop ${fmt(d.population)}, ${fmt(d.streets)} sts, rarity ${meanOf(d).toFixed(1)}%`;
+        }}}
+      },
+      scales:{
+        x:{type:'logarithmic',title:{display:true,text:modeCfg.xLabel,color:'#8fa1bc'},ticks:{color:'#8fa1bc'},grid:{color:'#243247'}},
+        y:{type:modeCfg.yLog?'logarithmic':'linear',min:modeCfg.yLog?undefined:0,max:modeCfg.yLog?undefined:100,title:{display:true,text:modeCfg.yLabel,color:'#8fa1bc'},ticks:{color:'#8fa1bc'},grid:{color:'#243247'}}
+      }
+    }
+  });
+
+  // Scaling exponents table (on Active Built-Up Area!)
+  const tb=document.getElementById('scaling-table-body');
+  if(tb){
+    tb.innerHTML=SUMMARY.countries.map(c=>{
+      const sa=c.scaling?.streets_vs_built_area;
+      const pa=c.scaling?.pop_vs_built_area;
+      const sp=c.scaling?.streets_vs_pop;
+      const gap=c.median_cliche_gap??0;
+      const rho=c.spearman_built_area_rarity;
+      return `<tr data-cc-pick="${esc(c.code)}">
+        <td>${countryBadge(c.code)}</td>
+        <td class="num-col">${c.median_built_area_km2!=null?c.median_built_area_km2:'—'} <span class="muted">(${c.median_built_share_pct||'—'}%)</span></td>
+        <td class="num-col">${c.median_pop_density!=null?fmt(Math.round(c.median_pop_density)):'—'}</td>
+        <td class="num-col">${c.median_pop_per_street!=null?Math.round(c.median_pop_per_street):'—'}</td>
+        <td class="num-col">${c.median_street_m!=null?Math.round(c.median_street_m)+' m':'—'}</td>
+        <td class="num-col ${gap>=0?'pos':'neg'}">${gap>=0?'+':''}${gap.toFixed(1)}%</td>
+        <td class="num-col"><strong>${sa?sa.exponent.toFixed(2):'—'}</strong> <span class="muted">(r=${sa?sa.r.toFixed(2):'—'})</span></td>
+        <td class="num-col"><strong>${pa?pa.exponent.toFixed(2):'—'}</strong> <span class="muted">(r=${pa?pa.r.toFixed(2):'—'})</span></td>
+        <td class="num-col"><strong>${sp?sp.exponent.toFixed(2):'—'}</strong> <span class="muted">(r=${sp?sp.r.toFixed(2):'—'})</span></td>
+        <td class="num-col ${rho>0?'pos':''}">${rho!=null?(rho>=0?'+':'')+rho.toFixed(2):'—'}</td>
+      </tr>`;
+    }).join('');
+    tb.querySelectorAll('tr[data-cc-pick]').forEach(tr=>{
+      tr.onclick=()=>selectGlobalCountry(tr.dataset.ccPick);
+    });
+  }
 }
 
 /* ==================== STREET QUERY TOOL ==================== */
@@ -752,9 +895,7 @@ async function runStreetSearchAndHighlight(cc, queryText, highlightFirst=false){
   const inp=document.getElementById('street-query');
   if(inp) inp.value=queryText;
   const matches=await executeStreetSearch();
-  if(highlightFirst&&matches&&matches.length){
-    await highlightStreetOnMap(cc, matches[0]);
-  }
+  if(highlightFirst&&matches&&matches.length) await highlightStreetOnMap(cc, matches[0]);
 }
 
 async function highlightStreetOnMap(cc, match){
@@ -763,6 +904,7 @@ async function highlightStreetOnMap(cc, match){
     ACTIVE_COUNTRY=cc;
     document.getElementById('global-country').value=cc;
     renderOverview();
+    rebuildUrbanSection();
     rebuildRankChart();
     rebuildScatter();
     renderTable();
@@ -802,7 +944,7 @@ async function executeStreetSearch(){
     const matches=[...exact,...prefix,...contains].slice(0,12);
 
     if(!matches.length){
-      out.innerHTML=`<p class="muted">No shared street matching "<strong>${esc(rawQ)}</strong>" found in ${esc(COUNTRY_MAP[cc]?.name||cc)} (streets appearing in 2+ cities are indexed).</p>`;
+      out.innerHTML=`<p class="muted">No shared street matching "<strong>${esc(rawQ)}</strong>" found in ${esc(COUNTRY_MAP[cc]?.name||cc)}.</p>`;
       return [];
     }
 
@@ -900,20 +1042,17 @@ function rebuildRankChart(){
 
 function rebuildScatter(){
   const countriesToShow=ACTIVE_COUNTRY==='ALL'?SUMMARY.countries:[COUNTRY_MAP[ACTIVE_COUNTRY]];
-  const datasets=countriesToShow.filter(Boolean).map(c=>{
-    const pts=(CITY_CACHE[c.code]||[]).filter(d=>d.population>0).map(d=>({
+  const datasets=countriesToShow.filter(Boolean).map(c=>({
+    label:c.name,
+    data:(CITY_CACHE[c.code]||[]).filter(d=>d.population>0).map(d=>({
       x:d.population,
       y:SCATTER_Y==='mean'?meanOf(d):d.pure_exclusive,
       city:d
-    }));
-    return {
-      label:c.name,
-      data:pts,
-      backgroundColor:c.color+'99',
-      pointRadius:3.5,
-      pointHoverRadius:6.5
-    };
-  });
+    })),
+    backgroundColor:c.color+'99',
+    pointRadius:3.5,
+    pointHoverRadius:6.5
+  }));
 
   if(CHARTS.scatter) CHARTS.scatter.destroy();
   CHARTS.scatter=new Chart(document.getElementById('cScatter'),{
@@ -955,7 +1094,7 @@ function populateRegionFilter(){
 }
 
 function updateSortHeaders(){
-  document.querySelectorAll('thead th.sortable').forEach(th=>{
+  document.querySelectorAll('#sec-table thead th.sortable').forEach(th=>{
     const col=th.dataset.col;
     const base=th.dataset.label;
     if(col===SORT_COL){
@@ -991,7 +1130,7 @@ function renderTable(){
 
   const limit=SHOW_ALL_ROWS?rows.length:250;
   const shown=rows.slice(0,limit);
-  document.getElementById('table-count').textContent=`Showing ${fmt(shown.length)} of ${fmt(rows.length)} cities · click any row for street details`;
+  document.getElementById('table-count').textContent=`Showing ${fmt(shown.length)} of ${fmt(rows.length)} cities · click any row for details`;
   updateSortHeaders();
 
   document.getElementById('tb').innerHTML=shown.map(d=>`<tr data-cid="${esc(d.id)}" data-cc="${esc(d.country)}">
@@ -1000,10 +1139,11 @@ function renderTable(){
     <td>${countryBadge(d.country)}</td>
     <td>${esc(d.region||'—')}</td>
     <td class="num-col">${fmt(d.streets)}</td>
-    <td class="num-col">${fmt(d.pure_exclusive)}</td>
     <td class="num-col">${d.exclusive_pct.toFixed(1)}%</td>
     <td class="num-col"><strong>${meanOf(d).toFixed(1)}%</strong></td>
-    <td class="num-col">${sumOf(d).toFixed(1)}</td>
+    <td class="num-col">${d.built_area_km2!=null?fmt(d.built_area_km2):'—'}</td>
+    <td class="num-col">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'}</td>
+    <td class="num-col">${d.median_street_m!=null?Math.round(d.median_street_m)+'m':'—'}</td>
     <td class="num-col">${fmt(d.population)}</td>
   </tr>`).join('');
 
@@ -1030,6 +1170,7 @@ async function selectGlobalCountry(code){
   renderOverview();
   updateMap();
   fitMapToCountry(code);
+  rebuildUrbanSection();
   rebuildRankChart();
   rebuildScatter();
   renderTable();
@@ -1040,6 +1181,7 @@ function setMetric(m){
   document.querySelectorAll('#metric-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.metric===m));
   renderOverview();
   updateMap();
+  rebuildUrbanSection();
   rebuildRankChart();
   rebuildScatter();
   renderTable();
@@ -1066,13 +1208,12 @@ async function main(){
   gcSel.innerHTML=`<option value="ALL">All Pilot Countries (${SUMMARY.total_countries})</option>`+
     SUMMARY.countries.map(c=>`<option value="${esc(c.code)}">${esc(c.name)} (${fmt(c.cities_count)})</option>`).join('');
 
-  // Methodology meta table
   document.getElementById('meta-table-body').innerHTML=SUMMARY.countries.map(c=>`<tr>
     <td>${countryBadge(c.code)}</td>
     <td class="num-col">${fmt(c.cities_count)}</td>
     <td class="num-col">${fmt(c.unique_norm_streets)}</td>
-    <td class="num-col">${fmt(c.pure_exclusive_streets)}</td>
-    <td class="num-col">${fmt(c.searchable_shared_streets)}</td>
+    <td class="num-col">${c.median_built_area_km2!=null?c.median_built_area_km2:'—'}</td>
+    <td class="num-col">${c.median_street_m!=null?Math.round(c.median_street_m)+' m':'—'}</td>
     <td class="num-col"><strong>${c.mean_rarity_sqrt.toFixed(1)}%</strong></td>
     <td class="num-col">${c.mean_rarity_idf.toFixed(1)}%</td>
     <td><a href="data/countries/${esc(c.code)}.json" target="_blank" rel="noopener">${esc(c.code)}.json</a></td>
@@ -1119,10 +1260,13 @@ async function main(){
           <button type="button" data-min="500">500+</button>
         </div>
       </div>
-      <div class="seg-btns" id="map-color-toggle" role="group" aria-label="Map coloring">
-        <button type="button" data-color="rarity" class="active">Color by Rarity</button>
-        <button type="button" data-color="country">Color by Country</button>
-      </div>
+      <select id="map-color-select" aria-label="Color map markers by">
+        <option value="rarity">Color: Rarity %</option>
+        <option value="country">Color: Country</option>
+        <option value="length">Color: Median Street Length</option>
+        <option value="pop_per_st">Color: Residents / Street</option>
+        <option value="density">Color: Pop Density (/km²)</option>
+      </select>
     </div>
     <div class="highlight-banner" id="highlight-banner">
       <span id="highlight-text"></span>
@@ -1149,6 +1293,49 @@ async function main(){
     <div class="search-suggestions" id="search-suggestions"></div>
     <div class="search-results" id="search-results">
       <p class="muted">Pick a suggested street above or type any street name to see which cities have it and highlight them on the map.</p>
+    </div>
+  </section>
+
+  <section id="sec-urban">
+    <h2>Urban Form, City Area, Street Length &amp; Scaling Laws</h2>
+    <div class="grid-2" style="margin-bottom:1rem">
+      <section style="background:var(--surface2)">
+        <h2 style="font-size:1.02rem"><span id="len-title">Boulevard Cliché Gap by Country</span></h2>
+        <div class="insight" id="len-insight"></div>
+        <div class="chart-wrap med"><canvas id="cLenTier"></canvas></div>
+      </section>
+
+      <section style="background:var(--surface2)">
+        <h2 style="font-size:1.02rem">
+          <span>Geometric Scaling Explorer</span>
+          <div class="seg-btns" id="scale-toggle">
+            <button type="button" data-scale="area_streets" class="active">Area × Streets</button>
+            <button type="button" data-scale="area_pop">Area × Pop</button>
+            <button type="button" data-scale="pop_streets">Pop × Streets</button>
+            <button type="button" data-scale="area_rarity">Area × Rarity</button>
+          </div>
+        </h2>
+        <p class="muted" id="scale-sub"></p>
+        <div class="chart-wrap med"><canvas id="cScale"></canvas></div>
+      </section>
+    </div>
+    <h3>Power-Law Exponents &amp; Urban Geometry by Country <span class="muted" style="font-weight:400">(click any country row to focus)</span></h3>
+    <div class="table-wrap" style="max-height:320px">
+      <table>
+        <thead><tr>
+          <th>Country</th>
+          <th class="num-col" title="Active built-up area from 250m grid (% of municipal area)">Med Built km²</th>
+          <th class="num-col" title="Population per built-up km²">Built Pop/km²</th>
+          <th class="num-col">Med Pop/St</th>
+          <th class="num-col">Med St Len</th>
+          <th class="num-col">Boulevard Gap</th>
+          <th class="num-col" title="streets ~ built_area^α">Streets ~ B^α</th>
+          <th class="num-col" title="population ~ built_area^γ">Pop ~ B^γ</th>
+          <th class="num-col" title="streets ~ population^β">Streets ~ P^β</th>
+          <th class="num-col" title="Spearman correlation between built-up area and street rarity">ρ(Built, Rarity)</th>
+        </tr></thead>
+        <tbody id="scaling-table-body"></tbody>
+      </table>
     </div>
   </section>
 
@@ -1193,10 +1380,11 @@ async function main(){
         <th class="sortable" data-col="country" data-label="Country">Country</th>
         <th class="sortable" data-col="region" data-label="Region">Region</th>
         <th class="sortable num-col" data-col="streets" data-label="Streets">Streets</th>
-        <th class="sortable num-col" data-col="pure_exclusive" data-label="Exclusive">Exclusive</th>
-        <th class="sortable num-col" data-col="exclusive_pct" data-label="Exclusive %">Exclusive %</th>
+        <th class="sortable num-col" data-col="exclusive_pct" data-label="Excl %">Excl %</th>
         <th class="sortable num-col" data-col="rarity_mean_sqrt" data-label="Mean %">Mean %</th>
-        <th class="sortable num-col" data-col="rarity_sum_sqrt" data-label="Sum">Sum</th>
+        <th class="sortable num-col" data-col="built_area_km2" data-label="Built km²">Built km²</th>
+        <th class="sortable num-col" data-col="pop_per_street" data-label="Pop/St">Pop/St</th>
+        <th class="sortable num-col" data-col="median_street_m" data-label="Med Len">Med Len</th>
         <th class="sortable num-col" data-col="population" data-label="Population">Population</th>
       </tr></thead>
       <tbody id="tb"></tbody>
@@ -1210,26 +1398,21 @@ async function main(){
   gcSel.onchange=function(){selectGlobalCountry(this.value)};
   document.querySelectorAll('#metric-toggle button').forEach(b=>b.onclick=()=>setMetric(b.dataset.metric));
 
-  // Map controls
   const sl=document.getElementById('map-min-streets');
   sl.oninput=()=>{MAP_MIN_STREETS=Number(sl.value); HIGHLIGHT_STREET=null; updateMap()};
   document.querySelectorAll('#map-presets button').forEach(b=>{
     b.onclick=()=>{MAP_MIN_STREETS=Number(b.dataset.min); sl.value=String(MAP_MIN_STREETS); HIGHLIGHT_STREET=null; updateMap()};
   });
-  document.querySelectorAll('#map-color-toggle button').forEach(b=>{
-    b.onclick=()=>{
-      MAP_COLOR_MODE=b.dataset.color;
-      document.querySelectorAll('#map-color-toggle button').forEach(x=>x.classList.toggle('active',x===b));
-      updateMap();
-    };
-  });
+  document.getElementById('map-color-select').onchange=function(){
+    MAP_COLOR_MODE=this.value;
+    updateMap();
+  };
   document.getElementById('clear-highlight').onclick=()=>{HIGHLIGHT_STREET=null; updateMap()};
   document.getElementById('map-reset').onclick=()=>{
     MAP_MIN_STREETS=20; sl.value='20'; HIGHLIGHT_STREET=null; SELECTED_CITY=null;
     fitMapToCountry(ACTIVE_COUNTRY); updateMap();
   };
 
-  // Search controls
   document.getElementById('search-country').onchange=()=>{renderSearchSuggestions(); executeStreetSearch()};
   document.getElementById('search-go').onclick=executeStreetSearch;
   let searchTimer=null;
@@ -1239,7 +1422,14 @@ async function main(){
   };
   renderSearchSuggestions();
 
-  // Rankings & scatter controls
+  document.querySelectorAll('#scale-toggle button').forEach(b=>{
+    b.onclick=()=>{
+      SCALE_MODE=b.dataset.scale;
+      document.querySelectorAll('#scale-toggle button').forEach(x=>x.classList.toggle('active',x===b));
+      rebuildUrbanSection();
+    };
+  });
+
   document.querySelectorAll('#rank-toggle button').forEach(b=>{
     b.onclick=()=>{
       RANK_MODE=b.dataset.mode;
@@ -1255,12 +1445,11 @@ async function main(){
     };
   });
 
-  // Table controls
   populateRegionFilter();
   document.getElementById('f-region').onchange=()=>{SHOW_ALL_ROWS=false; renderTable()};
   document.getElementById('f-q').oninput=()=>{SHOW_ALL_ROWS=false; renderTable()};
   document.getElementById('show-more-rows').onclick=()=>{SHOW_ALL_ROWS=true; renderTable()};
-  document.querySelectorAll('thead th.sortable').forEach(th=>{
+  document.querySelectorAll('#sec-table thead th.sortable').forEach(th=>{
     th.onclick=()=>{
       const col=th.dataset.col;
       if(SORT_COL===col){SORT_DIR=-SORT_DIR}
@@ -1275,7 +1464,6 @@ async function main(){
     if(city) openCityModal(city);
   };
 
-  // Modal controls
   document.getElementById('modal-locate').onclick=()=>{
     const c=MODAL_CITY;
     closeCityModal();
@@ -1285,11 +1473,11 @@ async function main(){
   document.getElementById('city-modal').onclick=e=>{if(e.target.id==='city-modal') closeCityModal()};
   document.addEventListener('keydown',e=>{if(e.key==='Escape') closeCityModal()});
 
-  // Initial render
   initMap();
   renderOverview();
   updateMap();
   fitMapToCountry('ALL');
+  rebuildUrbanSection();
   rebuildRankChart();
   rebuildScatter();
   renderTable();

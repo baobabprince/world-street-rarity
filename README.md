@@ -24,6 +24,11 @@ https://baobabprince.github.io/world-street-rarity/
   - **Sqrt (Default):** `1 / √n` (0–100% city mean) — strong penalty for nationwide recurring street names.
   - **Normalized IDF:** `1 - log(n) / log(C)` — normalized by number of cities `C` in each country for fair cross-country comparisons.
   - **Log:** `1 / log₂(1 + n)` — gentler penalty.
+- **Urban Form, Active Built-Up Area & Corrected Street Length:**
+  - **Active Built-Up Urban Area (`built_area_km2`):** Computed via an equal-area 250m × 250m grid counting cells with intensive street activity (≥ 2 distinct named streets or ≥ 300m of urban roads), separating real built-up urban footprints from rural/desert municipal borders (`muni_area_km2`, `built_share_pct`).
+  - **Dual-Carriageway-Corrected Street Length:** Filters to urban road classes only (`primary`, `secondary`, `tertiary`, `residential`, `unclassified`, `living_street`, `pedestrian` — excluding `service`, `footway`, `cycleway`, `track`, `motorway`, `trunk`) and applies a 0.5× correction to one-way arterial segments (`primary`/`secondary`/`tertiary`) so divided boulevards aren't double-counted.
+  - **Length-Weighted Rarity & Boulevard Cliché Gap:** Compares count-weighted vs length-weighted rarity (`rarity_mean_sqrt - rarity_len_sqrt`) and street lengths across rarity tiers.
+  - **Power-Law Scaling Laws:** Empirical log-log scaling fits on active built-up area (`streets ~ built_area^α`, `population ~ built_area^γ`, `streets ~ population^β`).
 
 ## Local Usage
 ```bash
