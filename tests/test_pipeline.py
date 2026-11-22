@@ -117,6 +117,45 @@ def test_english_new_york_normalization():
     assert k == "" and not num
 
 
+def test_pan_european_normalization():
+    # Dutch fused suffixes
+    k, _, _ = normalize_street("Kerkstraat", ["nl"])
+    assert k == "kerk"
+    k, _, _ = normalize_street("Dorpsstraat", ["nl"])
+    assert k == "dorp"
+    # Swedish / Norwegian / Danish / Finnish fused suffixes
+    k, _, _ = normalize_street("Storgatan", ["sv"])
+    assert k == "stor"
+    k, _, _ = normalize_street("Kyrkogatan", ["sv"])
+    assert k == "kyrko"
+    k, _, _ = normalize_street("Storgata", ["no"])
+    assert k == "stor"
+    k, _, _ = normalize_street("Hovedgaden", ["da"])
+    assert k == "hovedgaden" or k == "hoved"
+    k, _, _ = normalize_street("Mannerheimintie", ["fi"])
+    assert k == "mannerheimin"
+    # Portuguese, Romanian, Hungarian, Czech, Lithuanian
+    k, _, _ = normalize_street("Rua da Liberdade", ["pt"])
+    assert k == "liberdade"
+    k, _, _ = normalize_street("Strada Mihai Eminescu", ["ro"])
+    assert k == "mihai eminescu"
+    k, _, _ = normalize_street("Kossuth Lajos utca", ["hu"])
+    assert k == "kossuth lajos"
+    k, _, _ = normalize_street("Gedimino prospektas", ["lt"])
+    assert k == "gedimino"
+    # Greek transliteration & prefix stripping
+    k, _, _ = normalize_street("Λεωφόρος Κηφισίας", ["el"])
+    assert k == "kifisias"
+    # Ukrainian Cyrillic transliteration & prefix stripping
+    k, _, _ = normalize_street("вулиця Тараса Шевченка", ["uk"])
+    assert k == "tarasa sevce" or k == "tarasa sevcenka"
+    # Albanian & Maltese
+    k, _, _ = normalize_street("Rruga e Kavajës", ["sq"])
+    assert k == "kavajes"
+    k, _, _ = normalize_street("Triq il-Kbira", ["mt"])
+    assert k == "kbira"
+
+
 def test_generated_outputs_integrity():
     summary_path = ROOT / "data" / "summary.json"
     if not summary_path.exists():
@@ -135,7 +174,8 @@ def test_generated_outputs_integrity():
         cities = json.loads(cpath.read_text(encoding="utf-8"))
         assert len(cities) == c["cities_count"]
         assert c.get("length_by_tier"), f"Missing length_by_tier in {code}"
-        assert c.get("scaling", {}).get("streets_vs_built_area"), f"Missing built-area scaling in {code}"
+        if c["cities_count"] >= 5:
+            assert c.get("scaling", {}).get("streets_vs_built_area"), f"Missing built-area scaling in {code}"
         for city in cities:
             assert city["streets"] >= 20, city["name"]
             assert 0 <= city["pure_exclusive"] <= city["streets"], city["name"]

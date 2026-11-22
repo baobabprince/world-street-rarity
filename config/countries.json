@@ -126,6 +126,280 @@
       "center": [42.2, -75.0],
       "zoom": 7,
       "color": "#6366f1"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "languages": ["en"],
+      "area_mode": "county_spatial",
+      "bbox": [-8.7, 49.8, 1.9, 60.9],
+      "center": [54.2, -2.5],
+      "zoom": 6,
+      "color": "#2563eb"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "languages": ["en", "ga"],
+      "bbox": [-10.6, 51.3, -5.9, 55.5],
+      "center": [53.3, -8.0],
+      "zoom": 7,
+      "color": "#16a34a"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "languages": ["pt"],
+      "bbox": [-9.6, 36.9, -6.1, 42.2],
+      "center": [39.6, -8.0],
+      "zoom": 7,
+      "color": "#059669"
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "languages": ["nl"],
+      "bbox": [3.3, 50.7, 7.3, 53.6],
+      "center": [52.1, 5.3],
+      "zoom": 7,
+      "color": "#ea580c"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "languages": ["nl", "fr", "de"],
+      "bbox": [2.5, 49.4, 6.5, 51.6],
+      "center": [50.6, 4.5],
+      "zoom": 8,
+      "color": "#d97706"
+    },
+    {
+      "code": "LU",
+      "name": "Luxembourg",
+      "languages": ["fr", "de"],
+      "area_mode": "county_spatial",
+      "bbox": [5.7, 49.4, 6.6, 50.2],
+      "center": [49.8, 6.1],
+      "zoom": 9,
+      "color": "#0284c7"
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "languages": ["de"],
+      "bbox": [9.5, 46.3, 17.2, 49.1],
+      "center": [47.6, 13.4],
+      "zoom": 7,
+      "color": "#dc2626"
+    },
+    {
+      "code": "CZ",
+      "name": "Czechia",
+      "languages": ["cs"],
+      "area_mode": "localadmin_spatial",
+      "bbox": [12.0, 48.5, 18.9, 51.1],
+      "center": [49.8, 15.5],
+      "zoom": 7,
+      "color": "#0d9488"
+    },
+    {
+      "code": "SK",
+      "name": "Slovakia",
+      "languages": ["cs"],
+      "area_mode": "localadmin_spatial",
+      "bbox": [16.8, 47.7, 22.6, 49.7],
+      "center": [48.7, 19.7],
+      "zoom": 7,
+      "color": "#0ea5e9"
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "languages": ["hu"],
+      "bbox": [16.1, 45.7, 22.9, 48.6],
+      "center": [47.2, 19.5],
+      "zoom": 7,
+      "color": "#65a30d"
+    },
+    {
+      "code": "SI",
+      "name": "Slovenia",
+      "languages": ["sl"],
+      "area_mode": "region_spatial",
+      "bbox": [13.3, 45.4, 16.7, 46.9],
+      "center": [46.1, 14.9],
+      "zoom": 8,
+      "color": "#10b981"
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "languages": ["da"],
+      "area_mode": "county_spatial",
+      "bbox": [8.0, 54.5, 15.3, 57.8],
+      "center": [56.1, 10.5],
+      "zoom": 7,
+      "color": "#e11d48"
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "languages": ["sv"],
+      "area_mode": "county_spatial",
+      "bbox": [10.9, 55.2, 24.3, 69.2],
+      "center": [62.0, 16.0],
+      "zoom": 5,
+      "color": "#facc15"
+    },
+    {
+      "code": "NO",
+      "name": "Norway",
+      "languages": ["no"],
+      "area_mode": "county_spatial",
+      "bbox": [4.5, 57.9, 31.3, 71.3],
+      "center": [64.0, 12.0],
+      "zoom": 5,
+      "color": "#ef4444"
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "languages": ["fi", "sv"],
+      "bbox": [19.4, 59.7, 31.6, 70.2],
+      "center": [64.0, 26.0],
+      "zoom": 5,
+      "color": "#38bdf8"
+    },
+    {
+      "code": "IS",
+      "name": "Iceland",
+      "languages": ["is"],
+      "area_mode": "county_spatial",
+      "bbox": [-24.6, 63.3, -13.4, 66.6],
+      "center": [64.9, -18.5],
+      "zoom": 6,
+      "color": "#60a5fa"
+    },
+    {
+      "code": "EE",
+      "name": "Estonia",
+      "languages": ["et"],
+      "bbox": [21.7, 57.5, 28.3, 59.8],
+      "center": [58.6, 25.0],
+      "zoom": 7,
+      "color": "#3b82f6"
+    },
+    {
+      "code": "LV",
+      "name": "Latvia",
+      "languages": ["lv"],
+      "bbox": [20.9, 55.6, 28.3, 58.1],
+      "center": [56.9, 24.6],
+      "zoom": 7,
+      "color": "#be123c"
+    },
+    {
+      "code": "LT",
+      "name": "Lithuania",
+      "languages": ["lt"],
+      "bbox": [20.9, 53.8, 26.9, 56.5],
+      "center": [55.2, 23.9],
+      "zoom": 7,
+      "color": "#ca8a04"
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "languages": ["ro"],
+      "area_mode": "county_spatial",
+      "bbox": [20.2, 43.6, 29.8, 48.3],
+      "center": [45.9, 25.0],
+      "zoom": 6,
+      "color": "#f59e0b"
+    },
+    {
+      "code": "BG",
+      "name": "Bulgaria",
+      "languages": ["bg"],
+      "area_mode": "county_spatial",
+      "bbox": [22.3, 41.2, 28.7, 44.3],
+      "center": [42.7, 25.5],
+      "zoom": 7,
+      "color": "#22c55e"
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "languages": ["el"],
+      "area_mode": "county_spatial",
+      "bbox": [19.3, 34.7, 29.7, 41.8],
+      "center": [38.4, 23.7],
+      "zoom": 6,
+      "color": "#0284c7"
+    },
+    {
+      "code": "CY",
+      "name": "Cyprus",
+      "languages": ["el", "en"],
+      "bbox": [32.2, 34.5, 34.7, 35.8],
+      "center": [35.1, 33.4],
+      "zoom": 9,
+      "color": "#fb923c"
+    },
+    {
+      "code": "MT",
+      "name": "Malta",
+      "languages": ["mt", "en"],
+      "area_mode": "region_spatial",
+      "bbox": [14.1, 35.75, 14.65, 36.15],
+      "center": [35.9, 14.43],
+      "zoom": 11,
+      "color": "#f43f5e"
+    },
+    {
+      "code": "AL",
+      "name": "Albania",
+      "languages": ["sq"],
+      "bbox": [19.2, 39.6, 21.1, 42.7],
+      "center": [41.1, 20.1],
+      "zoom": 7,
+      "color": "#dc2626"
+    },
+    {
+      "code": "XK",
+      "name": "Kosovo",
+      "languages": ["sq", "sr"],
+      "bbox": [19.95, 41.8, 21.85, 43.3],
+      "center": [42.6, 20.9],
+      "zoom": 8,
+      "color": "#6366f1"
+    },
+    {
+      "code": "UA",
+      "name": "Ukraine",
+      "languages": ["uk"],
+      "bbox": [22.1, 44.3, 40.3, 52.4],
+      "center": [48.7, 31.2],
+      "zoom": 6,
+      "color": "#eab308"
+    },
+    {
+      "code": "BY",
+      "name": "Belarus",
+      "languages": ["uk"],
+      "bbox": [23.1, 51.2, 32.8, 56.2],
+      "center": [53.7, 28.0],
+      "zoom": 6,
+      "color": "#16a34a"
+    },
+    {
+      "code": "MD",
+      "name": "Moldova",
+      "languages": ["ro", "uk"],
+      "bbox": [26.6, 45.4, 30.2, 48.5],
+      "center": [47.2, 28.6],
+      "zoom": 7,
+      "color": "#8b5cf6"
     }
   ]
 }

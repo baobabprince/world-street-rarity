@@ -8,6 +8,7 @@ municipal area, length-weighted rarity (Boulevard Cliché Gap), and power-law sc
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import math
 import random
@@ -428,6 +429,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build World Street Rarity datasets.")
     parser.add_argument("--countries", default="", help="Comma-separated ISO2 country codes (default: all configured)")
     parser.add_argument("--force-extract", action="store_true", help="Ignore local Parquet cache and re-query Overture S3")
+    parser.add_argument("--workers", type=int, default=1, help="Parallel S3 extraction workers (default: 1)")
     args = parser.parse_args()
 
     cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
@@ -453,10 +455,21 @@ def main() -> None:
             existing_summaries[cs["code"]] = cs
         existing_cross_shared = old.get("cross_country_shared", [])
 
+    # Pre-extract any uncached countries concurrently via ThreadPoolExecutor (each uses its own DuckDB connection)
+    if args.workers > 1 and len(country_cfgs) > 1:
+        def _extract_one(c_cfg: dict[str, Any]) -> str:
+            extract_country(c_cfg, release=release, min_population=min_pop, force=args.force_extract)
+            return c_cfg["code"]
+
+        with ThreadPoolExecutor(max_workers=args.workers) as pool:
+            futs = [pool.submit(_extract_one, c_cfg) for c_cfg in country_cfgs]
+            for fut in as_completed(futs):
+                fut.result()
+
     all_prevalence: dict[str, dict[str, tuple[str, int]]] = {}
     for c_cfg in country_cfgs:
         cs, cities_out, search_idx, prev = process_country(
-            c_cfg, release, min_pop, min_streets, lang_rules, force_extract=args.force_extract
+            c_cfg, release, min_pop, min_streets, lang_rules, force_extract=False
         )
         code = c_cfg["code"]
         existing_summaries[code] = cs

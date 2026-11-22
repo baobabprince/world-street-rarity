@@ -43,20 +43,28 @@ _LATIN_TRANSLIT = str.maketrans({
     "Œ": "oe",
     "đ": "dj",
     "Đ": "dj",
-    # Serbian / Macedonian / general Cyrillic -> Latin
+    "ð": "d",
+    "Ð": "d",
+    "þ": "th",
+    "Þ": "th",
+    # Serbian / Macedonian / Ukrainian / Belarusian / Bulgarian / Russian Cyrillic -> Latin
     "а": "a", "А": "a",
     "б": "b", "Б": "b",
     "в": "v", "В": "v",
     "г": "g", "Г": "g",
+    "ґ": "g", "Ґ": "g",
     "д": "d", "Д": "d",
     "ђ": "dj", "Ђ": "dj",
     "ѓ": "g", "Ѓ": "g",
     "е": "e", "Е": "e",
     "ё": "e", "Ё": "e",
+    "є": "je", "Є": "je",
     "ж": "z", "Ж": "z",
     "з": "z", "З": "z",
     "ѕ": "dz", "Ѕ": "dz",
     "и": "i", "И": "i",
+    "і": "i", "І": "i",
+    "ї": "ji", "Ї": "ji",
     "й": "j", "Й": "j",
     "ј": "j", "Ј": "j",
     "к": "k", "К": "k",
@@ -73,6 +81,7 @@ _LATIN_TRANSLIT = str.maketrans({
     "ћ": "c", "Ћ": "c",
     "ќ": "k", "Ќ": "k",
     "у": "u", "У": "u",
+    "ў": "u", "Ў": "u",
     "ф": "f", "Ф": "f",
     "х": "h", "Х": "h",
     "ц": "c", "Ц": "c",
@@ -80,12 +89,37 @@ _LATIN_TRANSLIT = str.maketrans({
     "џ": "dz", "Џ": "dz",
     "ш": "s", "Ш": "s",
     "щ": "st", "Щ": "st",
-    "ъ": "", "Ъ": "",
+    "ъ": "a", "Ъ": "a",
     "ы": "y", "Ы": "y",
     "ь": "", "Ь": "",
     "э": "e", "Э": "e",
     "ю": "ju", "Ю": "ju",
     "я": "ja", "Я": "ja",
+    # Greek -> Latin (accents stripped by NFKD after NFC/translation)
+    "α": "a", "Α": "a", "ά": "a", "Ά": "a",
+    "β": "v", "Β": "v",
+    "γ": "g", "Γ": "g",
+    "δ": "d", "Δ": "d",
+    "ε": "e", "Ε": "e", "έ": "e", "Έ": "e",
+    "ζ": "z", "Ζ": "z",
+    "η": "i", "Η": "i", "ή": "i", "Ή": "i",
+    "θ": "th", "Θ": "th",
+    "ι": "i", "Ι": "i", "ί": "i", "Ί": "i", "ϊ": "i", "ΐ": "i",
+    "κ": "k", "Κ": "k",
+    "λ": "l", "Λ": "l",
+    "μ": "m", "Μ": "m",
+    "ν": "n", "Ν": "n",
+    "ξ": "x", "Ξ": "x",
+    "ο": "o", "Ο": "o", "ό": "o", "Ό": "o",
+    "π": "p", "Π": "p",
+    "ρ": "r", "Ρ": "r",
+    "σ": "s", "ς": "s", "Σ": "s",
+    "τ": "t", "Τ": "t",
+    "υ": "y", "Υ": "y", "ύ": "y", "Ύ": "y", "ϋ": "y", "ΰ": "y",
+    "φ": "f", "Φ": "f",
+    "χ": "ch", "Χ": "ch",
+    "ψ": "ps", "Ψ": "ps",
+    "ω": "o", "Ω": "o", "ώ": "o", "Ώ": "o",
 })
 
 # Nouns that should not lose a leading directional (e.g. "West End", "North Side", "East River")
@@ -245,8 +279,11 @@ def _strip_fused_german_suffix(s: str, fused_suffixes: list[str]) -> str:
     for sf in fused_suffixes:
         if last.endswith(sf) and len(last) >= len(sf) + 3:
             stem = last[: -len(sf)]
-            # Clean linking 's' only for common compound patterns like "bahnhofsplatz" -> "bahnhof"
-            if stem.endswith(("hofs", "parks", "walds", "bergs", "dorfs", "markts", "turms", "bachs", "felds")):
+            # Clean linking 's' only for common Germanic/Dutch/Nordic compound patterns
+            if stem.endswith((
+                "hofs", "parks", "walds", "bergs", "dorfs", "markts", "turms", "bachs", "felds",
+                "dorps", "stations", "konings", "kerks", "slots", "stads", "kyrks", "skogs",
+            )):
                 stem = stem[:-1]
             if len(stem) >= 3:
                 tokens[-1] = stem
