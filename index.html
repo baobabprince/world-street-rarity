@@ -304,7 +304,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
   </section>
 </div>
 
-<footer>Overture Maps · OpenStreetMap · <a href="https://github.com/baobabprince/world-street-rarity" target="_blank" rel="noopener">GitHub</a></footer>
+<footer>Overture Maps · OpenStreetMap · Wikidata · <a href="https://github.com/baobabprince/world-street-rarity" target="_blank" rel="noopener">GitHub</a> · <span id="footer-updated" style="cursor:help;border-bottom:1px dotted var(--border)" title="Last updated timestamp"></span></footer>
 
 <div class="modal-backdrop" id="city-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
@@ -346,6 +346,11 @@ function esc(s){
   return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 function fmt(n){return n==null||isNaN(n)?'—':Number(n).toLocaleString('en-US')}
+function fmtYear(y, short=false){
+  if(y==null||isNaN(y)) return '—';
+  const n=Number(y);
+  return n<0?(short?`${Math.abs(n)} BC`:`${Math.abs(n)} BCE`):String(n);
+}
 function avg(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:0}
 function median(a){
   if(!a.length) return 0;
@@ -437,6 +442,11 @@ function markerColorFor(d){
   if(MAP_COLOR_MODE==='length') return gradColor(((d.median_street_m||200)-140)/260);
   if(MAP_COLOR_MODE==='pop_per_st') return gradColor(1-Math.min(1,(Math.log10(Math.max(20,d.pop_per_street||80))-1.3)/1.3));
   if(MAP_COLOR_MODE==='density') return gradColor(1-Math.min(1,(Math.log10(Math.max(50,d.pop_density||400))-1.7)/2.3));
+  if(MAP_COLOR_MODE==='founded'){
+    if(d.founded_year==null) return '#475569';
+    // 2000+ = red (0.0), 1900 = amber (0.25), 1400 = cyan (0.72), <=800 = emerald (1.0)
+    return gradColor(1-Math.max(0,Math.min(1,(d.founded_year-800)/1200)));
+  }
   return gradColor((meanOf(d)-20)/65);
 }
 
@@ -564,6 +574,7 @@ function openCityModal(d){
       <div class="modal-stat"><div class="v">${d.median_street_m!=null?Math.round(d.median_street_m)+' m':'—'}</div><div class="k">Median Street Length</div></div>
       <div class="modal-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'}</div><div class="k">Residents / Street</div></div>
       <div class="modal-stat"><div class="v">${d.rarity_len_sqrt!=null?d.rarity_len_sqrt.toFixed(1)+'%':'—'} (${gapStr})</div><div class="k">Length-Wtd Rarity (Gap)</div></div>
+      ${d.founded_year!=null?`<div class="modal-stat"><div class="v">${esc(fmtYear(d.founded_year))}</div><div class="k">${d.founded_type==='earliest_record'?'Earliest Record (Wikidata)':'Founded (Wikidata)'}</div></div>`:''}
     </div>
     <div class="modal-block">
       <h4>Sample Unique Streets (only in ${esc(d.name)})</h4>
@@ -719,7 +730,7 @@ function renderMapInspector(visible){
         <div class="insp-stat"><div class="v">${fmt(d.streets)}</div><div class="k">Named Streets${d.numbered_pct>0?' · '+d.numbered_pct.toFixed(1)+'% num':''}</div></div>
         <div class="insp-stat"><div class="v">${d.built_area_km2!=null?fmt(d.built_area_km2)+' km²':'—'}</div><div class="k">Built Area (${d.built_share_pct!=null?d.built_share_pct+'%':'—'}) · ${d.pop_density!=null?fmt(Math.round(d.pop_density))+'/km²':'—'}</div></div>
         <div class="insp-stat"><div class="v">${d.median_street_m!=null?Math.round(d.median_street_m)+' m':'—'}</div><div class="k">Med Street (mean ${d.mean_street_m!=null?Math.round(d.mean_street_m)+'m':'—'})</div></div>
-        <div class="insp-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'} · Gap ${gapStr}</div><div class="k">Pop/Street · Boulevard Gap</div></div>
+        <div class="insp-stat"><div class="v">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'} · Gap ${gapStr}</div><div class="k">Pop/Street · Boulevard Gap${d.founded_year!=null?' · '+esc(fmtYear(d.founded_year,true)):''}</div></div>
       </div>
       <div class="insp-block">
         <h4>Sample Unique Streets (only in ${esc(d.name)})</h4>
@@ -788,6 +799,8 @@ function updateMapLegend(){
     leg.innerHTML=`<span>Dense (350+ pop/st) <span class="grad-bar"></span> Sprawling (≤30 pop/st)</span><span>Circle size ∝ streets</span>`;
   }else if(MAP_COLOR_MODE==='density'){
     leg.innerHTML=`<span>High density (5k+/km²) <span class="grad-bar"></span> Low density (≤100/km²)</span><span>Circle size ∝ streets</span>`;
+  }else if(MAP_COLOR_MODE==='founded'){
+    leg.innerHTML=`<span>Modern (20th c.) <span class="grad-bar"></span> Ancient/Medieval (≤800) · <span style="color:#64748b">●</span> N/A</span><span>Circle size ∝ streets</span>`;
   }else{
     leg.innerHTML=`<span>Generic (20%) <span class="grad-bar"></span> Unique (85%+)</span><span>Circle size ∝ streets</span>`;
   }
@@ -926,15 +939,19 @@ function rebuildUrbanSection(){
   // 2. Scaling Explorer scatter plot (using Active Built-Up Urban Area!)
   const countriesToShow=ACTIVE_COUNTRY==='ALL'?SUMMARY.countries:[COUNTRY_MAP[ACTIVE_COUNTRY]];
   const modeCfg={
-    area_streets:{xKey:'built_area_km2',yKey:'streets',xLabel:'Active Built-Up Area (km², log)',yLabel:'Normalized Streets (log)',yLog:true,desc:'Empirical scaling: streets ~ BuiltArea^α (vs ideal 2D grid √Area = 0.50)'},
-    area_pop:{xKey:'built_area_km2',yKey:'population',xLabel:'Active Built-Up Area (km², log)',yLabel:'Population (log)',yLog:true,desc:'Empirical scaling: population ~ BuiltArea^γ'},
-    pop_streets:{xKey:'population',yKey:'streets',xLabel:'Population (log)',yLabel:'Normalized Streets (log)',yLog:true,desc:'Urban infrastructure scaling: streets ~ Population^β'},
-    area_rarity:{xKey:'built_area_km2',yKey:meanKey(),xLabel:'Active Built-Up Area (km², log)',yLabel:`Mean Rarity % (${metricLabel()})`,yLog:false,desc:'How active urban footprint relates to street name rarity'}
+    area_streets:{xKey:'built_area_km2',yKey:'streets',xLabel:'Active Built-Up Area (km², log)',yLabel:'Normalized Streets (log)',xLog:true,yLog:true,desc:'Empirical scaling: streets ~ BuiltArea^α (vs ideal 2D grid √Area = 0.50)'},
+    area_pop:{xKey:'built_area_km2',yKey:'population',xLabel:'Active Built-Up Area (km², log)',yLabel:'Population (log)',xLog:true,yLog:true,desc:'Empirical scaling: population ~ BuiltArea^γ'},
+    pop_streets:{xKey:'population',yKey:'streets',xLabel:'Population (log)',yLabel:'Normalized Streets (log)',xLog:true,yLog:true,desc:'Urban infrastructure scaling: streets ~ Population^β'},
+    area_rarity:{xKey:'built_area_km2',yKey:meanKey(),xLabel:'Active Built-Up Area (km², log)',yLabel:`Mean Rarity % (${metricLabel()})`,xLog:true,yLog:false,desc:'How active urban footprint relates to street name rarity'},
+    founded_rarity:{xKey:'founded_year',yKey:meanKey(),xLabel:'Founding / Earliest Record Year (Wikidata)',yLabel:`Mean Rarity % (${metricLabel()})`,xLog:false,yLog:false,desc:'Historical city age vs street-name uniqueness (negative = BCE; Wikidata P571/P1249)'}
   }[SCALE_MODE];
 
   const datasets=countriesToShow.filter(Boolean).map(c=>({
     label:c.name,
-    data:filteredCitiesFor(c.code).filter(d=>d[modeCfg.xKey]>0&&d[modeCfg.yKey]>0).map(d=>({
+    data:filteredCitiesFor(c.code).filter(d=>{
+      const xv=d[modeCfg.xKey], yv=d[modeCfg.yKey];
+      return xv!=null&&yv!=null&&(modeCfg.xLog?xv>0:isFinite(xv))&&(modeCfg.yLog?yv>0:isFinite(yv));
+    }).map(d=>({
       x:d[modeCfg.xKey],
       y:d[modeCfg.yKey],
       city:d
@@ -961,11 +978,12 @@ function rebuildUrbanSection(){
         legend:{display:datasets.length<=14,labels:{color:'#e8eef6',boxWidth:10}},
         tooltip:{callbacks:{label:ctx=>{
           const d=ctx.raw.city;
-          return `${d.name} (${d.country}): built ${d.built_area_km2} km² (${d.built_share_pct}% of ${d.muni_area_km2} km²), pop ${fmt(d.population)}, ${fmt(d.streets)} sts, rarity ${meanOf(d).toFixed(1)}%`;
+          const fStr=d.founded_year!=null?`, founded ${fmtYear(d.founded_year,true)}`:'';
+          return `${d.name} (${d.country}): built ${d.built_area_km2} km², pop ${fmt(d.population)}, ${fmt(d.streets)} sts, rarity ${meanOf(d).toFixed(1)}%${fStr}`;
         }}}
       },
       scales:{
-        x:{type:'logarithmic',title:{display:true,text:modeCfg.xLabel,color:'#8fa1bc'},ticks:{color:'#8fa1bc'},grid:{color:'#243247'}},
+        x:{type:modeCfg.xLog?'logarithmic':'linear',title:{display:true,text:modeCfg.xLabel,color:'#8fa1bc'},ticks:{color:'#8fa1bc'},grid:{color:'#243247'}},
         y:{type:modeCfg.yLog?'logarithmic':'linear',min:modeCfg.yLog?undefined:0,max:modeCfg.yLog?undefined:100,title:{display:true,text:modeCfg.yLabel,color:'#8fa1bc'},ticks:{color:'#8fa1bc'},grid:{color:'#243247'}}
       }
     }
@@ -1247,6 +1265,13 @@ function renderTable(){
   if(q) rows=rows.filter(d=>foldQuery(d.name).includes(q)||foldQuery(d.local_name||'').includes(q)||foldQuery(d.region||'').includes(q));
 
   rows.sort((a,b)=>{
+    if(SORT_COL==='founded_year'){
+      const na=a.founded_year==null, nb=b.founded_year==null;
+      if(na&&nb) return 0;
+      if(na) return 1;
+      if(nb) return -1;
+      return SORT_DIR*(a.founded_year-b.founded_year);
+    }
     let va,vb;
     if(SORT_COL==='rarity_mean_sqrt'){va=meanOf(a);vb=meanOf(b)}
     else if(SORT_COL==='rarity_sum_sqrt'){va=sumOf(a);vb=sumOf(b)}
@@ -1272,6 +1297,7 @@ function renderTable(){
     <td class="num-col">${d.built_area_km2!=null?fmt(d.built_area_km2):'—'}</td>
     <td class="num-col">${d.pop_per_street!=null?Math.round(d.pop_per_street):'—'}</td>
     <td class="num-col">${d.median_street_m!=null?Math.round(d.median_street_m)+'m':'—'}</td>
+    <td class="num-col" title="${d.founded_type==='earliest_record'?'Earliest written record (Wikidata)':'Founded (Wikidata)'}">${esc(fmtYear(d.founded_year,true))}</td>
     <td class="num-col">${fmt(d.population)}</td>
   </tr>`).join('');
 
@@ -1358,7 +1384,12 @@ async function main(){
     return;
   }
 
-  document.getElementById('updated-pill').textContent=`Updated ${SUMMARY.updated_at} · Overture Maps ${SUMMARY.overture_release}`;
+  document.getElementById('updated-pill').textContent=`Overture Maps ${SUMMARY.overture_release}`;
+  const fut=document.getElementById('footer-updated');
+  if(fut){
+    fut.textContent=`Updated ${SUMMARY.updated_at}`;
+    fut.title=`Last data build: ${SUMMARY.updated_at_iso || SUMMARY.updated_at}`;
+  }
 
   const gcSel=document.getElementById('global-country');
   gcSel.innerHTML=`<option value="ALL">All Countries &amp; Regions (${SUMMARY.total_countries})</option>`+
@@ -1423,6 +1454,7 @@ async function main(){
         <option value="length">Color: Median Street Length</option>
         <option value="pop_per_st">Color: Residents / Street</option>
         <option value="density">Color: Pop Density (/km²)</option>
+        <option value="founded">Color: Founding Year</option>
       </select>
     </div>
     <div class="highlight-banner" id="highlight-banner">
@@ -1470,6 +1502,7 @@ async function main(){
             <button type="button" data-scale="area_pop">Area × Pop</button>
             <button type="button" data-scale="pop_streets">Pop × Streets</button>
             <button type="button" data-scale="area_rarity">Area × Rarity</button>
+            <button type="button" data-scale="founded_rarity">Founded × Rarity</button>
           </div>
         </h2>
         <p class="muted" id="scale-sub"></p>
@@ -1542,6 +1575,7 @@ async function main(){
         <th class="sortable num-col" data-col="built_area_km2" data-label="Built km²">Built km²</th>
         <th class="sortable num-col" data-col="pop_per_street" data-label="Pop/St">Pop/St</th>
         <th class="sortable num-col" data-col="median_street_m" data-label="Med Len">Med Len</th>
+        <th class="sortable num-col" data-col="founded_year" data-label="Founded">Founded</th>
         <th class="sortable num-col" data-col="population" data-label="Population">Population</th>
       </tr></thead>
       <tbody id="tb"></tbody>
