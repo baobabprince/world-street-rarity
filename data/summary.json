@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22",
+  "updated_at": "2026-11-23",
   "overture_release": "2026-11-18.0",
   "default_metric": "sqrt",
   "min_population": 10000,
@@ -254,7 +254,10 @@
           "weight_idf": 0.083,
           "weight_log": 0.106
         }
-      ]
+      ],
+      "founded_coverage_pct": 5.2,
+      "median_founded_year": 1522,
+      "spearman_founded_rarity": -0.48
     },
     {
       "code": "FR",
@@ -502,7 +505,10 @@
           "weight_idf": 0.131,
           "weight_log": 0.116
         }
-      ]
+      ],
+      "founded_coverage_pct": 12.7,
+      "median_founded_year": 1904,
+      "spearman_founded_rarity": -0.073
     },
     {
       "code": "DE",
@@ -750,7 +756,10 @@
           "weight_idf": 0.063,
           "weight_log": 0.102
         }
-      ]
+      ],
+      "founded_coverage_pct": 14.4,
+      "median_founded_year": 1300,
+      "spearman_founded_rarity": -0.027
     },
     {
       "code": "ES",
@@ -1001,7 +1010,10 @@
           "weight_idf": 0.156,
           "weight_log": 0.126
         }
-      ]
+      ],
+      "founded_coverage_pct": 12.9,
+      "median_founded_year": 1268,
+      "spearman_founded_rarity": 0.192
     },
     {
       "code": "CH",
@@ -1245,7 +1257,10 @@
           "weight_idf": 0.215,
           "weight_log": 0.176
         }
-      ]
+      ],
+      "founded_coverage_pct": 13.0,
+      "median_founded_year": 1080,
+      "spearman_founded_rarity": -0.196
     },
     {
       "code": "PL",
@@ -1493,7 +1508,10 @@
           "weight_idf": 0.059,
           "weight_log": 0.109
         }
-      ]
+      ],
+      "founded_coverage_pct": 15.9,
+      "median_founded_year": 1296,
+      "spearman_founded_rarity": -0.111
     },
     {
       "code": "IL",
@@ -1736,7 +1754,10 @@
           "weight_idf": 0.188,
           "weight_log": 0.202
         }
-      ]
+      ],
+      "founded_coverage_pct": 89.4,
+      "median_founded_year": 1934,
+      "spearman_founded_rarity": -0.117
     },
     {
       "code": "RS",
@@ -1984,7 +2005,10 @@
           "weight_idf": 0.082,
           "weight_log": 0.155
         }
-      ]
+      ],
+      "founded_coverage_pct": 2.3,
+      "median_founded_year": 1957,
+      "spearman_founded_rarity": null
     },
     {
       "code": "HR",
@@ -2226,7 +2250,10 @@
           "weight_idf": 0.138,
           "weight_log": 0.218
         }
-      ]
+      ],
+      "founded_coverage_pct": 26.3,
+      "median_founded_year": 977,
+      "spearman_founded_rarity": -0.624
     },
     {
       "code": "BA",
@@ -2462,7 +2489,10 @@
           "weight_idf": 0.354,
           "weight_log": 0.301
         }
-      ]
+      ],
+      "founded_coverage_pct": 56.7,
+      "median_founded_year": 1991,
+      "spearman_founded_rarity": 0.018
     },
     {
       "code": "ME",
@@ -2698,7 +2728,10 @@
           "weight_idf": 0.542,
           "weight_log": 0.5
         }
-      ]
+      ],
+      "founded_coverage_pct": 27.3,
+      "median_founded_year": 1382,
+      "spearman_founded_rarity": null
     },
     {
       "code": "MK",
@@ -2935,7 +2968,10 @@
           "weight_idf": 0.212,
           "weight_log": 0.279
         }
-      ]
+      ],
+      "founded_coverage_pct": 9.5,
+      "median_founded_year": 1306,
+      "spearman_founded_rarity": null
     },
     {
       "code": "NY",
@@ -3183,7 +3219,10 @@
           "weight_idf": 0.113,
           "weight_log": 0.146
         }
-      ]
+      ],
+      "founded_coverage_pct": 60.7,
+      "median_founded_year": 1798,
+      "spearman_founded_rarity": -0.053
     },
     {
       "code": "GB",
@@ -3431,7 +3470,10 @@
           "weight_idf": 0.028,
           "weight_log": 0.136
         }
-      ]
+      ],
+      "founded_coverage_pct": 0.0,
+      "median_founded_year": null,
+      "spearman_founded_rarity": null
     },
     {
       "code": "IE",
@@ -3674,7 +3716,10 @@
           "weight_idf": 0.284,
           "weight_log": 0.25
         }
-      ]
+      ],
+      "founded_coverage_pct": 11.4,
+      "median_founded_year": 812,
+      "spearman_founded_rarity": 0.1
     },
     {
       "code": "PT",
@@ -3922,7 +3967,10 @@
           "weight_idf": 0.183,
           "weight_log": 0.156
         }
-      ]
+      ],
+      "founded_coverage_pct": 50.9,
+      "median_founded_year": 2013,
+      "spearman_founded_rarity": -0.116
     },
     {
       "code": "NL",
@@ -4170,7 +4218,10 @@
           "weight_idf": 0.144,
           "weight_log": 0.14
         }
-      ]
+      ],
+      "founded_coverage_pct": 8.8,
+      "median_founded_year": 1260,
+      "spearman_founded_rarity": 0.15
     },
     {
       "code": "BE",
@@ -4420,7 +4471,10 @@
           "weight_idf": 0.22,
           "weight_log": 0.167
         }
-      ]
+      ],
+      "founded_coverage_pct": 13.8,
+      "median_founded_year": 1310,
+      "spearman_founded_rarity": -0.304
     },
     {
       "code": "LU",
@@ -4651,7 +4705,10 @@
           "weight_idf": 0.139,
           "weight_log": 0.431
         }
-      ]
+      ],
+      "founded_coverage_pct": 80.0,
+      "median_founded_year": 1462,
+      "spearman_founded_rarity": null
     },
     {
       "code": "AT",
@@ -4893,7 +4950,10 @@
           "weight_idf": 0.197,
           "weight_log": 0.213
         }
-      ]
+      ],
+      "founded_coverage_pct": 14.5,
+      "median_founded_year": 1169,
+      "spearman_founded_rarity": -0.238
     },
     {
       "code": "CZ",
@@ -5141,7 +5201,10 @@
           "weight_idf": 0.087,
           "weight_log": 0.157
         }
-      ]
+      ],
+      "founded_coverage_pct": 100.0,
+      "median_founded_year": 1253,
+      "spearman_founded_rarity": -0.088
     },
     {
       "code": "SK",
@@ -5383,7 +5446,10 @@
           "weight_idf": 0.153,
           "weight_log": 0.191
         }
-      ]
+      ],
+      "founded_coverage_pct": 100.0,
+      "median_founded_year": 1245,
+      "spearman_founded_rarity": -0.218
     },
     {
       "code": "HU",
@@ -5631,7 +5697,10 @@
           "weight_idf": 0.075,
           "weight_log": 0.152
         }
-      ]
+      ],
+      "founded_coverage_pct": 20.1,
+      "median_founded_year": 1246,
+      "spearman_founded_rarity": -0.472
     },
     {
       "code": "SI",
@@ -5867,7 +5936,10 @@
           "weight_idf": 0.208,
           "weight_log": 0.301
         }
-      ]
+      ],
+      "founded_coverage_pct": 0.0,
+      "median_founded_year": null,
+      "spearman_founded_rarity": null
     },
     {
       "code": "DK",
@@ -6109,7 +6181,10 @@
           "weight_idf": 0.025,
           "weight_log": 0.171
         }
-      ]
+      ],
+      "founded_coverage_pct": 98.4,
+      "median_founded_year": 2007,
+      "spearman_founded_rarity": -0.113
     },
     {
       "code": "SE",
@@ -6357,7 +6432,10 @@
           "weight_idf": 0.047,
           "weight_log": 0.151
         }
-      ]
+      ],
+      "founded_coverage_pct": 100.0,
+      "median_founded_year": 1971,
+      "spearman_founded_rarity": 0.115
     },
     {
       "code": "NO",
@@ -6599,7 +6677,10 @@
           "weight_idf": 0.135,
           "weight_log": 0.191
         }
-      ]
+      ],
+      "founded_coverage_pct": 84.6,
+      "median_founded_year": 1838,
+      "spearman_founded_rarity": -0.069
     },
     {
       "code": "FI",
@@ -6842,7 +6923,10 @@
           "weight_idf": 0.061,
           "weight_log": 0.166
         }
-      ]
+      ],
+      "founded_coverage_pct": 78.6,
+      "median_founded_year": 1865,
+      "spearman_founded_rarity": -0.384
     },
     {
       "code": "IS",
@@ -7078,7 +7162,10 @@
           "weight_idf": 0.226,
           "weight_log": 0.387
         }
-      ]
+      ],
+      "founded_coverage_pct": 50.0,
+      "median_founded_year": 1832,
+      "spearman_founded_rarity": null
     },
     {
       "code": "EE",
@@ -7314,7 +7401,10 @@
           "weight_idf": 0.127,
           "weight_log": 0.289
         }
-      ]
+      ],
+      "founded_coverage_pct": 78.6,
+      "median_founded_year": 1241,
+      "spearman_founded_rarity": -0.46
     },
     {
       "code": "LV",
@@ -7550,7 +7640,10 @@
           "weight_idf": 0.058,
           "weight_log": 0.27
         }
-      ]
+      ],
+      "founded_coverage_pct": 64.3,
+      "median_founded_year": 1670,
+      "spearman_founded_rarity": 0.633
     },
     {
       "code": "LT",
@@ -7792,7 +7885,10 @@
           "weight_idf": 0.095,
           "weight_log": 0.218
         }
-      ]
+      ],
+      "founded_coverage_pct": 87.5,
+      "median_founded_year": 1446,
+      "spearman_founded_rarity": -0.47
     },
     {
       "code": "RO",
@@ -8040,7 +8136,10 @@
           "weight_idf": 0.12,
           "weight_log": 0.151
         }
-      ]
+      ],
+      "founded_coverage_pct": 65.0,
+      "median_founded_year": 1406,
+      "spearman_founded_rarity": -0.188
     },
     {
       "code": "BG",
@@ -8282,7 +8381,10 @@
           "weight_idf": 0.077,
           "weight_log": 0.172
         }
-      ]
+      ],
+      "founded_coverage_pct": 0.0,
+      "median_founded_year": null,
+      "spearman_founded_rarity": null
     },
     {
       "code": "GR",
@@ -8524,7 +8626,10 @@
           "weight_idf": 0.088,
           "weight_log": 0.176
         }
-      ]
+      ],
+      "founded_coverage_pct": 11.0,
+      "median_founded_year": 2011,
+      "spearman_founded_rarity": -0.063
     },
     {
       "code": "CY",
@@ -8761,7 +8866,10 @@
           "weight_idf": 0.163,
           "weight_log": 0.315
         }
-      ]
+      ],
+      "founded_coverage_pct": 16.7,
+      "median_founded_year": 1986,
+      "spearman_founded_rarity": null
     },
     {
       "code": "MT",
@@ -8998,7 +9106,10 @@
           "weight_idf": 0.313,
           "weight_log": 0.333
         }
-      ]
+      ],
+      "founded_coverage_pct": 5.9,
+      "median_founded_year": 1565,
+      "spearman_founded_rarity": null
     },
     {
       "code": "AL",
@@ -9234,7 +9345,10 @@
           "weight_idf": 0.448,
           "weight_log": 0.333
         }
-      ]
+      ],
+      "founded_coverage_pct": 8.8,
+      "median_founded_year": -314,
+      "spearman_founded_rarity": null
     },
     {
       "code": "XK",
@@ -9471,7 +9585,10 @@
           "weight_idf": 0.226,
           "weight_log": 0.387
         }
-      ]
+      ],
+      "founded_coverage_pct": 12.5,
+      "median_founded_year": 2013,
+      "spearman_founded_rarity": null
     },
     {
       "code": "UA",
@@ -9719,7 +9836,10 @@
           "weight_idf": 0.113,
           "weight_log": 0.128
         }
-      ]
+      ],
+      "founded_coverage_pct": 83.3,
+      "median_founded_year": 1795,
+      "spearman_founded_rarity": -0.355
     },
     {
       "code": "BY",
@@ -9961,7 +10081,10 @@
           "weight_idf": 0.097,
           "weight_log": 0.173
         }
-      ]
+      ],
+      "founded_coverage_pct": 77.1,
+      "median_founded_year": 1482,
+      "spearman_founded_rarity": -0.033
     },
     {
       "code": "MD",
@@ -10204,7 +10327,10 @@
           "weight_idf": 0.161,
           "weight_log": 0.218
         }
-      ]
+      ],
+      "founded_coverage_pct": 97.6,
+      "median_founded_year": 1603,
+      "spearman_founded_rarity": 0.17
     }
   ],
   "cross_country_shared": [
@@ -10702,5 +10828,7 @@
         "CY": 3
       }
     }
-  ]
+  ],
+  "updated_at_iso": "2026-11-23 10:27 UTC",
+  "total_with_founded_year": 2241
 }

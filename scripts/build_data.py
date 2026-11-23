@@ -509,8 +509,10 @@ def main() -> None:
     ]
     cross_shared.sort(key=lambda x: (-x["countries_count"], -x["total_cities"], x["key"]))
 
+    now_utc = datetime.now(timezone.utc)
     summary = {
-        "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "updated_at": now_utc.strftime("%Y-%m-%d"),
+        "updated_at_iso": now_utc.strftime("%Y-%m-%d %H:%M UTC"),
         "overture_release": release,
         "default_metric": "sqrt",
         "min_population": min_pop,
