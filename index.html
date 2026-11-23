@@ -240,7 +240,15 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:1.5rem}
     </nav>
     <div class="global-ctrls">
       <select id="global-country" aria-label="Select country">
-        <option value="ALL">All Pilot Countries</option>
+        <option value="ALL">All Countries &amp; Regions</option>
+      </select>
+      <select id="global-min-streets" aria-label="Minimum streets filter" title="Filter ALL charts, tables, and map by minimum streets">
+        <option value="20" selected>Min: 20+ sts</option>
+        <option value="50">Min: 50+ sts</option>
+        <option value="100">Min: 100+ sts</option>
+        <option value="250">Min: 250+ sts</option>
+        <option value="500">Min: 500+ sts</option>
+        <option value="1000">Min: 1,000+ sts</option>
       </select>
       <div class="metric-ctrl">
         <span>Metric:</span>
@@ -325,7 +333,7 @@ let RANK_MODE = 'top';             // 'top' | 'bottom' | 'sum'
 let SCATTER_Y = 'mean';            // 'mean' | 'exclusive'
 let SCALE_MODE = 'area_streets';   // 'area_streets' | 'area_pop' | 'pop_streets' | 'area_rarity'
 let MAP_COLOR_MODE = 'rarity';     // 'rarity' | 'country' | 'length' | 'pop_per_st' | 'density'
-let MAP_MIN_STREETS = 20;
+let MIN_STREETS = 20;              // GLOBAL filter affecting all charts, tables & map
 let SELECTED_CITY = null;
 let MODAL_CITY = null;
 let HIGHLIGHT_STREET = null;
@@ -344,6 +352,49 @@ function median(a){
   const s=[...a].sort((x,y)=>x-y);
   const m=Math.floor(s.length/2);
   return s.length%2?s[m]:(s[m-1]+s[m])/2;
+}
+function powerLawFit(xs, ys){
+  const lx=[], ly=[];
+  for(let i=0;i<xs.length;i++){
+    if(xs[i]>0&&ys[i]>0&&isFinite(xs[i])&&isFinite(ys[i])){
+      lx.push(Math.log10(xs[i])); ly.push(Math.log10(ys[i]));
+    }
+  }
+  const n=lx.length;
+  if(n<5) return null;
+  const mx=avg(lx), my=avg(ly);
+  let sxy=0, sxx=0, syy=0;
+  for(let i=0;i<n;i++){
+    const dx=lx[i]-mx, dy=ly[i]-my;
+    sxy+=dx*dy; sxx+=dx*dx; syy+=dy*dy;
+  }
+  if(sxx<=0||syy<=0) return null;
+  return {exponent:sxy/sxx, r:sxy/Math.sqrt(sxx*syy)};
+}
+function spearmanCorr(xs, ys){
+  const pairs=[];
+  for(let i=0;i<xs.length;i++){
+    if(xs[i]>0&&xs[i]!=null&&ys[i]!=null&&isFinite(xs[i])&&isFinite(ys[i])) pairs.push([xs[i],ys[i]]);
+  }
+  const n=pairs.length;
+  if(n<5) return null;
+  const rankOf=arr=>{
+    const idx=arr.map((v,i)=>[v,i]).sort((a,b)=>a[0]-b[0]);
+    const r=new Array(n);
+    for(let i=0;i<n;){
+      let j=i;
+      while(j+1<n&&idx[j+1][0]===idx[i][0]) j++;
+      const rk=(i+j)/2+1;
+      for(let k=i;k<=j;k++) r[idx[k][1]]=rk;
+      i=j+1;
+    }
+    return r;
+  };
+  const rx=rankOf(pairs.map(p=>p[0])), ry=rankOf(pairs.map(p=>p[1]));
+  const mx=avg(rx), my=avg(ry);
+  let sxy=0, sxx=0, syy=0;
+  for(let i=0;i<n;i++){const dx=rx[i]-mx,dy=ry[i]-my; sxy+=dx*dy; sxx+=dx*dx; syy+=dy*dy;}
+  return (sxx>0&&syy>0)?sxy/Math.sqrt(sxx*syy):null;
 }
 const SCRIPT_MAP={
   'а':'a','б':'b','в':'v','г':'g','ґ':'g','д':'d','ђ':'dj','ѓ':'g','е':'e','ё':'e','є':'je','ж':'z','з':'z','ѕ':'dz',
@@ -413,15 +464,62 @@ async function ensureSearchLoaded(code){
   return SEARCH_CACHE[code];
 }
 
+function filteredCitiesFor(code){
+  const list=CITY_CACHE[code]||[];
+  return MIN_STREETS<=20?list:list.filter(d=>(d.streets||0)>=MIN_STREETS);
+}
 function activeCities(){
-  if(ACTIVE_COUNTRY==='ALL') return SUMMARY.countries.flatMap(c=>CITY_CACHE[c.code]||[]);
-  return CITY_CACHE[ACTIVE_COUNTRY]||[];
+  if(ACTIVE_COUNTRY==='ALL') return SUMMARY.countries.flatMap(c=>filteredCitiesFor(c.code));
+  return filteredCitiesFor(ACTIVE_COUNTRY);
+}
+function countryStatsFor(cs){
+  if(MIN_STREETS<=20) return cs;
+  const list=filteredCitiesFor(cs.code);
+  if(!list.length) return null;
+  const sq=list.map(d=>d.rarity_mean_sqrt), idf=list.map(d=>d.rarity_mean_idf), lg=list.map(d=>d.rarity_mean_log);
+  const built=list.map(d=>d.built_area_km2).filter(v=>v>0);
+  const bshr=list.map(d=>d.built_share_pct).filter(v=>v!=null);
+  const dens=list.map(d=>d.pop_density).filter(v=>v>0);
+  const pps=list.map(d=>d.pop_per_street).filter(v=>v>0);
+  const medm=list.map(d=>d.median_street_m).filter(v=>v>0);
+  const gaps=list.map(d=>d.cliche_gap).filter(v=>v!=null);
+  return {
+    ...cs,
+    cities_count:list.length,
+    mean_rarity_sqrt:avg(sq),
+    median_rarity_sqrt:median(sq),
+    mean_rarity_idf:avg(idf),
+    median_rarity_idf:median(idf),
+    mean_rarity_log:avg(lg),
+    median_rarity_log:median(lg),
+    mean_exclusive_pct:avg(list.map(d=>d.exclusive_pct)),
+    median_built_area_km2:built.length?Number(median(built).toFixed(1)):null,
+    median_built_share_pct:bshr.length?Number(median(bshr).toFixed(1)):null,
+    median_pop_density:dens.length?median(dens):null,
+    median_pop_per_street:pps.length?median(pps):null,
+    median_street_m:medm.length?median(medm):null,
+    median_cliche_gap:gaps.length?Number(median(gaps).toFixed(1)):0,
+    pct_longer_more_generic:gaps.length?Number((gaps.filter(g=>g>0).length/gaps.length*100).toFixed(1)):0,
+    spearman_built_area_rarity:spearmanCorr(list.map(d=>d.built_area_km2), sq),
+    scaling:{
+      streets_vs_built_area:powerLawFit(list.map(d=>d.built_area_km2), list.map(d=>d.streets)),
+      pop_vs_built_area:powerLawFit(list.map(d=>d.built_area_km2), list.map(d=>d.population)),
+      streets_vs_pop:powerLawFit(list.map(d=>d.population), list.map(d=>d.streets)),
+    }
+  };
+}
+function activeCountrySummaries(){
+  return SUMMARY.countries.map(countryStatsFor).filter(Boolean);
 }
 
 function rankInCountry(city){
-  const list=CITY_CACHE[city.country]||[];
+  const list=filteredCitiesFor(city.country);
   const sorted=[...list].sort((a,b)=>meanOf(b)-meanOf(a));
-  return { rank: sorted.findIndex(x=>x.id===city.id)+1, total: list.length };
+  const idx=sorted.findIndex(x=>x.id===city.id);
+  if(idx>=0) return { rank: idx+1, total: list.length };
+  const full=CITY_CACHE[city.country]||[];
+  const fSorted=[...full].sort((a,b)=>meanOf(b)-meanOf(a));
+  return { rank: fSorted.findIndex(x=>x.id===city.id)+1, total: full.length };
 }
 
 function streetChipsHtml(d){
@@ -485,25 +583,27 @@ function closeCityModal(){
 
 /* ==================== OVERVIEW ==================== */
 function renderOverview(){
-  const csList=SUMMARY.countries;
+  const csList=activeCountrySummaries();
   const kpi=document.getElementById('kpi-cards');
   const sortedByMean=[...csList].sort((a,b)=>countryMeanOf(b)-countryMeanOf(a));
   const topC=sortedByMean[0], botC=sortedByMean[sortedByMean.length-1];
+  const filterTag=MIN_STREETS>20?` (≥${fmt(MIN_STREETS)} sts)`:'';
 
   if(ACTIVE_COUNTRY==='ALL'){
+    const totalShown=csList.reduce((s,c)=>s+c.cities_count,0);
     kpi.innerHTML=`
-      <div class="card"><div class="num">${fmt(SUMMARY.total_cities)}</div><div class="label">Cities across ${SUMMARY.total_countries} Pilot Countries</div></div>
-      <div class="card"><div class="num green">${esc(topC.name)} (${countryMeanOf(topC).toFixed(1)}%)</div><div class="label">Most Unique Country (${metricLabel()})</div></div>
-      <div class="card"><div class="num amber">${esc(botC.name)} (${countryMeanOf(botC).toFixed(1)}%)</div><div class="label">Most Repetitive Country (${metricLabel()})</div></div>
-      <div class="card"><div class="num">${fmt(csList.reduce((s,c)=>s+c.unique_norm_streets,0))}</div><div class="label">Distinct Normalized Street Names</div></div>`;
+      <div class="card"><div class="num">${fmt(totalShown)}</div><div class="label">Cities across ${csList.length} Countries${filterTag}</div></div>
+      <div class="card"><div class="num green">${topC?esc(topC.name)+' ('+countryMeanOf(topC).toFixed(1)+'%)':'—'}</div><div class="label">Most Unique Country (${metricLabel()})</div></div>
+      <div class="card"><div class="num amber">${botC?esc(botC.name)+' ('+countryMeanOf(botC).toFixed(1)+'%)':'—'}</div><div class="label">Most Repetitive Country (${metricLabel()})</div></div>
+      <div class="card"><div class="num">${fmt(SUMMARY.countries.reduce((s,c)=>s+c.unique_norm_streets,0))}</div><div class="label">Distinct Normalized Street Names</div></div>`;
   }else{
-    const c=COUNTRY_MAP[ACTIVE_COUNTRY];
+    const c=countryStatsFor(COUNTRY_MAP[ACTIVE_COUNTRY]);
     const cities=activeCities();
     const sorted=[...cities].sort((a,b)=>meanOf(b)-meanOf(a));
     kpi.innerHTML=`
-      <div class="card"><div class="num">${fmt(c.cities_count)}</div><div class="label">Cities in ${esc(c.name)} (≥10k pop, ≥20 sts)</div></div>
-      <div class="card"><div class="num green">${countryMeanOf(c).toFixed(1)}%</div><div class="label">Mean Rarity (${metricLabel()}, median ${countryMedianOf(c).toFixed(1)}%)</div></div>
-      <div class="card"><div class="num">${c.median_street_m!=null?Math.round(c.median_street_m)+' m':'—'}</div><div class="label">Median Street · Built Area ${c.median_built_area_km2||'—'} km² (${c.median_built_share_pct||'—'}%)</div></div>
+      <div class="card"><div class="num">${fmt(cities.length)}</div><div class="label">Cities in ${esc(COUNTRY_MAP[ACTIVE_COUNTRY]?.name||ACTIVE_COUNTRY)} (≥10k pop, ≥${fmt(MIN_STREETS)} sts)</div></div>
+      <div class="card"><div class="num green">${c?countryMeanOf(c).toFixed(1)+'%':'—'}</div><div class="label">Mean Rarity (${metricLabel()}, median ${c?countryMedianOf(c).toFixed(1)+'%':'—'})</div></div>
+      <div class="card"><div class="num">${c&&c.median_street_m!=null?Math.round(c.median_street_m)+' m':'—'}</div><div class="label">Median Street · Built Area ${c&&c.median_built_area_km2!=null?c.median_built_area_km2:'—'} km² (${c&&c.median_built_share_pct!=null?c.median_built_share_pct:'—'}%)</div></div>
       <div class="card"><div class="num amber">${sorted[0]?esc(sorted[0].name):'—'}</div><div class="label">Most Unique City (${sorted[0]?meanOf(sorted[0]).toFixed(1)+'%':'—'})</div></div>`;
   }
 
@@ -585,15 +685,11 @@ function fitMapToCountry(code){
 }
 
 function filteredMapCities(){
-  const pool=activeCities();
-  return pool.filter(d=>{
-    if(d.lat==null||d.lon==null) return false;
-    if(HIGHLIGHT_STREET){
-      if(HIGHLIGHT_STREET.country!==d.country) return false;
-      return HIGHLIGHT_STREET.cityNames.has(d.name);
-    }
-    return (d.streets||0)>=MAP_MIN_STREETS;
-  });
+  if(HIGHLIGHT_STREET){
+    const raw=CITY_CACHE[HIGHLIGHT_STREET.country]||[];
+    return raw.filter(d=>d.lat!=null&&d.lon!=null&&HIGHLIGHT_STREET.cityNames.has(d.name));
+  }
+  return activeCities().filter(d=>d.lat!=null&&d.lon!=null);
 }
 
 function renderMapInspector(visible){
@@ -656,7 +752,7 @@ function renderMapInspector(visible){
       </div>
     </div>
     <div class="insp-stats">
-      <div class="insp-stat"><div class="v">${fmt(visible.length)}</div><div class="k">Visible Cities (${MAP_MIN_STREETS}+ sts)</div></div>
+      <div class="insp-stat"><div class="v">${fmt(visible.length)}</div><div class="k">Visible Cities (${MIN_STREETS}+ sts)</div></div>
       <div class="insp-stat"><div class="v">${visible.length?mMean.toFixed(1)+'%':'—'}</div><div class="k">Mean ${metricLabel()} (median ${mMed.toFixed(1)}%)</div></div>
     </div>
     ${top4.length?`
@@ -701,13 +797,13 @@ function updateMap(){
   if(!MAP_OBJ||!MAP_LAYER) return;
   MAP_LAYER.clearLayers();
   const visible=filteredMapCities();
-  const totalPool=activeCities().length;
+  const totalPool=(ACTIVE_COUNTRY==='ALL'?SUMMARY.countries.flatMap(c=>CITY_CACHE[c.code]||[]):(CITY_CACHE[ACTIVE_COUNTRY]||[])).length;
 
   const cntEl=document.getElementById('map-count');
   if(cntEl) cntEl.textContent=`Showing ${fmt(visible.length)} of ${fmt(totalPool)} cities`;
   const lblEl=document.getElementById('min-streets-val');
-  if(lblEl) lblEl.textContent=`${MAP_MIN_STREETS}+`;
-  document.querySelectorAll('#map-presets button').forEach(b=>b.classList.toggle('active', Number(b.dataset.min)===MAP_MIN_STREETS));
+  if(lblEl) lblEl.textContent=`${MIN_STREETS}+`;
+  document.querySelectorAll('#map-presets button').forEach(b=>b.classList.toggle('active', Number(b.dataset.min)===MIN_STREETS));
 
   const banner=document.getElementById('highlight-banner');
   if(banner){
@@ -753,11 +849,7 @@ function focusCityOnMap(d, scrollToMap=true){
   if(!d||d.lat==null||d.lon==null) return;
   HIGHLIGHT_STREET=null;
   if(ACTIVE_COUNTRY!=='ALL'&&ACTIVE_COUNTRY!==d.country) selectGlobalCountry(d.country);
-  if((d.streets||0)<MAP_MIN_STREETS){
-    MAP_MIN_STREETS=20;
-    const sl=document.getElementById('map-min-streets');
-    if(sl) sl.value='20';
-  }
+  if((d.streets||0)<MIN_STREETS) setMinStreets(20);
   SELECTED_CITY=d;
   updateMap();
   if(scrollToMap) document.getElementById('sec-map')?.scrollIntoView({behavior:'smooth',block:'start'});
@@ -772,10 +864,11 @@ function rebuildUrbanSection(){
 
   if(CHARTS.lenTier) CHARTS.lenTier.destroy();
   const lenWrap=document.getElementById('cLenTierWrap');
+  const dynCountries=activeCountrySummaries();
   if(ACTIVE_COUNTRY==='ALL'){
-    const list=[...SUMMARY.countries].sort((a,b)=>(b.median_cliche_gap||0)-(a.median_cliche_gap||0));
+    const list=[...dynCountries].sort((a,b)=>(b.median_cliche_gap||0)-(a.median_cliche_gap||0));
     if(lenWrap) lenWrap.style.height=`${Math.max(320,list.length*21)}px`;
-    lenTitle.textContent='Boulevard Cliché Gap by Country (Count − Length Rarity)';
+    lenTitle.textContent=`Boulevard Cliché Gap by Country${MIN_STREETS>20?' (≥'+fmt(MIN_STREETS)+' sts)':''}`;
     lenInsight.innerHTML='<strong>Positive (+):</strong> longer avenues are more generic (national icons on main boulevards). <strong>Negative (−):</strong> longer roads are more unique (long rural/hamlet roads inside large municipalities).';
     CHARTS.lenTier=new Chart(document.getElementById('cLenTier'),{
       type:'bar',
@@ -841,7 +934,7 @@ function rebuildUrbanSection(){
 
   const datasets=countriesToShow.filter(Boolean).map(c=>({
     label:c.name,
-    data:(CITY_CACHE[c.code]||[]).filter(d=>d[modeCfg.xKey]>0&&d[modeCfg.yKey]>0).map(d=>({
+    data:filteredCitiesFor(c.code).filter(d=>d[modeCfg.xKey]>0&&d[modeCfg.yKey]>0).map(d=>({
       x:d[modeCfg.xKey],
       y:d[modeCfg.yKey],
       city:d
@@ -849,7 +942,7 @@ function rebuildUrbanSection(){
     backgroundColor:c.color+'95',
     pointRadius:3.3,
     pointHoverRadius:6.5
-  }));
+  })).filter(ds=>ds.data.length>0);
 
   document.getElementById('scale-sub').textContent=modeCfg.desc;
   if(CHARTS.scale) CHARTS.scale.destroy();
@@ -878,10 +971,10 @@ function rebuildUrbanSection(){
     }
   });
 
-  // Scaling exponents table (on Active Built-Up Area!)
+  // Scaling exponents table (on Active Built-Up Area, respecting global MIN_STREETS!)
   const tb=document.getElementById('scaling-table-body');
   if(tb){
-    tb.innerHTML=SUMMARY.countries.map(c=>{
+    tb.innerHTML=dynCountries.map(c=>{
       const sa=c.scaling?.streets_vs_built_area;
       const pa=c.scaling?.pop_vs_built_area;
       const sp=c.scaling?.streets_vs_pop;
@@ -1079,7 +1172,7 @@ function rebuildScatter(){
   const countriesToShow=ACTIVE_COUNTRY==='ALL'?SUMMARY.countries:[COUNTRY_MAP[ACTIVE_COUNTRY]];
   const datasets=countriesToShow.filter(Boolean).map(c=>({
     label:c.name,
-    data:(CITY_CACHE[c.code]||[]).filter(d=>d.population>0).map(d=>({
+    data:filteredCitiesFor(c.code).filter(d=>d.population>0).map(d=>({
       x:d.population,
       y:SCATTER_Y==='mean'?meanOf(d):d.pure_exclusive,
       city:d
@@ -1087,7 +1180,7 @@ function rebuildScatter(){
     backgroundColor:c.color+'99',
     pointRadius:3.5,
     pointHoverRadius:6.5
-  }));
+  })).filter(ds=>ds.data.length>0);
 
   if(CHARTS.scatter) CHARTS.scatter.destroy();
   CHARTS.scatter=new Chart(document.getElementById('cScatter'),{
@@ -1205,6 +1298,34 @@ async function selectGlobalCountry(code){
   renderOverview();
   updateMap();
   fitMapToCountry(code);
+  rebuildUrbanSection();
+  rebuildRankChart();
+  rebuildScatter();
+  renderTable();
+}
+
+function setMinStreets(val){
+  const n=Math.max(20, Number(val)||20);
+  MIN_STREETS=n;
+  HIGHLIGHT_STREET=null;
+  SHOW_ALL_ROWS=false;
+  const sl=document.getElementById('map-min-streets');
+  if(sl) sl.value=String(Math.min(1000, n));
+  const gs=document.getElementById('global-min-streets');
+  if(gs){
+    const customOpt=gs.querySelector('option[data-custom]');
+    if(customOpt) customOpt.remove();
+    const hasOpt=[...gs.options].some(o=>Number(o.value)===n);
+    if(!hasOpt){
+      const o=document.createElement('option');
+      o.value=String(n); o.textContent=`Min: ${fmt(n)}+ sts`; o.dataset.custom='1';
+      gs.appendChild(o);
+    }
+    gs.value=String(n);
+  }
+  populateRegionFilter();
+  renderOverview();
+  updateMap();
   rebuildUrbanSection();
   rebuildRankChart();
   rebuildScatter();
@@ -1432,12 +1553,13 @@ async function main(){
 
   // Wire up controls
   gcSel.onchange=function(){selectGlobalCountry(this.value)};
+  document.getElementById('global-min-streets').onchange=function(){setMinStreets(Number(this.value))};
   document.querySelectorAll('#metric-toggle button').forEach(b=>b.onclick=()=>setMetric(b.dataset.metric));
 
   const sl=document.getElementById('map-min-streets');
-  sl.oninput=()=>{MAP_MIN_STREETS=Number(sl.value); HIGHLIGHT_STREET=null; updateMap()};
+  sl.oninput=()=>setMinStreets(Number(sl.value));
   document.querySelectorAll('#map-presets button').forEach(b=>{
-    b.onclick=()=>{MAP_MIN_STREETS=Number(b.dataset.min); sl.value=String(MAP_MIN_STREETS); HIGHLIGHT_STREET=null; updateMap()};
+    b.onclick=()=>setMinStreets(Number(b.dataset.min));
   });
   document.getElementById('map-color-select').onchange=function(){
     MAP_COLOR_MODE=this.value;
@@ -1448,8 +1570,9 @@ async function main(){
     if(MAP_OBJ) MAP_OBJ.setView([50.5,13.0],4);
   };
   document.getElementById('map-reset').onclick=()=>{
-    MAP_MIN_STREETS=20; sl.value='20'; HIGHLIGHT_STREET=null; SELECTED_CITY=null;
-    fitMapToCountry(ACTIVE_COUNTRY); updateMap();
+    SELECTED_CITY=null;
+    setMinStreets(20);
+    fitMapToCountry(ACTIVE_COUNTRY);
   };
 
   document.getElementById('search-country').onchange=()=>{renderSearchSuggestions(); executeStreetSearch()};
