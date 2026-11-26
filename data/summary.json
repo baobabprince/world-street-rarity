@@ -1,12 +1,12 @@
 {
   "updated_at": "2026-11-26",
-  "updated_at_iso": "2026-11-26 19:50 UTC",
+  "updated_at_iso": "2026-11-26 21:11 UTC",
   "overture_release": "2026-11-18.0",
   "default_metric": "sqrt",
   "min_population": 10000,
   "min_streets": 20,
-  "total_countries": 42,
-  "total_cities": 8538,
+  "total_countries": 43,
+  "total_cities": 9805,
   "countries": [
     {
       "code": "IT",
@@ -10332,6 +10332,257 @@
       "founded_coverage_pct": 97.6,
       "median_founded_year": 1603,
       "spearman_founded_rarity": 0.173
+    },
+    {
+      "code": "RU",
+      "name": "Russia",
+      "color": "#e11d48",
+      "center": [
+        57.0,
+        62.0
+      ],
+      "zoom": 3,
+      "bbox": [
+        19.5,
+        41.2,
+        178.0,
+        71.8
+      ],
+      "languages": [
+        "ru"
+      ],
+      "cities_count": 1267,
+      "total_city_streets": 220086,
+      "unique_norm_streets": 52643,
+      "pure_exclusive_streets": 39199,
+      "searchable_shared_streets": 13444,
+      "raw_valid_rows": 243884,
+      "mean_rarity_sqrt": 26.7,
+      "median_rarity_sqrt": 23.6,
+      "median_rarity_len_sqrt": 23.1,
+      "median_cliche_gap": 1.2,
+      "pct_longer_more_generic": 63.3,
+      "mean_rarity_idf": 43.7,
+      "median_rarity_idf": 41.5,
+      "mean_rarity_log": 29.7,
+      "median_rarity_log": 26.9,
+      "mean_exclusive_pct": 13.2,
+      "mean_numbered_pct": 1.36,
+      "median_built_area_km2": 8.1,
+      "median_muni_area_km2": 23.6,
+      "median_built_share_pct": 34.0,
+      "median_pop_density": 3348.4,
+      "median_street_km_per_km2": 11.04,
+      "median_pop_per_street": 246.3,
+      "median_pop_per_street_km": 305.7,
+      "median_street_m": 571.9,
+      "mean_street_m": 813.8,
+      "spearman_built_area_rarity": 0.308,
+      "spearman_muni_area_rarity": 0.277,
+      "scaling": {
+        "streets_vs_built_area": {
+          "exponent": 0.965,
+          "r": 0.946
+        },
+        "pop_vs_built_area": {
+          "exponent": 1.038,
+          "r": 0.793
+        },
+        "streets_vs_muni_area": {
+          "exponent": 0.488,
+          "r": 0.662
+        },
+        "streets_vs_pop": {
+          "exponent": 0.597,
+          "r": 0.767
+        },
+        "street_km_vs_built_area": {
+          "exponent": 1.014,
+          "r": 0.994
+        }
+      },
+      "length_by_tier": [
+        {
+          "tier": "Unique (n=1)",
+          "count": 39199,
+          "median_m": 469.6,
+          "mean_m": 756.1
+        },
+        {
+          "tier": "Rare (2-5)",
+          "count": 25584,
+          "median_m": 486.0,
+          "mean_m": 777.9
+        },
+        {
+          "tier": "Medium (6-20)",
+          "count": 27855,
+          "median_m": 481.3,
+          "mean_m": 745.4
+        },
+        {
+          "tier": "Common (21-100)",
+          "count": 40609,
+          "median_m": 513.2,
+          "mean_m": 759.5
+        },
+        {
+          "tier": "Iconic (>100)",
+          "count": 86839,
+          "median_m": 641.1,
+          "mean_m": 934.5
+        }
+      ],
+      "most_unique_city": {
+        "name": "Avtury",
+        "score_sqrt": 99.2,
+        "streets": 39
+      },
+      "most_generic_city": {
+        "name": "Nekrasovskiy",
+        "score_sqrt": 5.7,
+        "streets": 22
+      },
+      "top_shared": [
+        {
+          "key": "sovetskaja",
+          "name": "Советская улица",
+          "n_cities": 983,
+          "pct_cities": 77.6,
+          "weight_sqrt": 0.032,
+          "weight_idf": 0.036,
+          "weight_log": 0.101
+        },
+        {
+          "key": "lenina",
+          "name": "улица Ленина",
+          "n_cities": 954,
+          "pct_cities": 75.3,
+          "weight_sqrt": 0.032,
+          "weight_idf": 0.04,
+          "weight_log": 0.101
+        },
+        {
+          "key": "komsomolskaja",
+          "name": "Комсомольская улица",
+          "n_cities": 915,
+          "pct_cities": 72.2,
+          "weight_sqrt": 0.033,
+          "weight_idf": 0.046,
+          "weight_log": 0.102
+        },
+        {
+          "key": "sadovaja",
+          "name": "Садовая улица",
+          "n_cities": 866,
+          "pct_cities": 68.4,
+          "weight_sqrt": 0.034,
+          "weight_idf": 0.053,
+          "weight_log": 0.102
+        },
+        {
+          "key": "mira",
+          "name": "улица Мира",
+          "n_cities": 849,
+          "pct_cities": 67.0,
+          "weight_sqrt": 0.034,
+          "weight_idf": 0.056,
+          "weight_log": 0.103
+        },
+        {
+          "key": "oktjabrskaja",
+          "name": "Октябрьская улица",
+          "n_cities": 848,
+          "pct_cities": 66.9,
+          "weight_sqrt": 0.034,
+          "weight_idf": 0.056,
+          "weight_log": 0.103
+        },
+        {
+          "key": "puskina",
+          "name": "улица Пушкина",
+          "n_cities": 803,
+          "pct_cities": 63.4,
+          "weight_sqrt": 0.035,
+          "weight_idf": 0.064,
+          "weight_log": 0.104
+        },
+        {
+          "key": "kirova",
+          "name": "улица Кирова",
+          "n_cities": 783,
+          "pct_cities": 61.8,
+          "weight_sqrt": 0.036,
+          "weight_idf": 0.067,
+          "weight_log": 0.104
+        },
+        {
+          "key": "molodeznaja",
+          "name": "Молодёжная улица",
+          "n_cities": 773,
+          "pct_cities": 61.0,
+          "weight_sqrt": 0.036,
+          "weight_idf": 0.069,
+          "weight_log": 0.104
+        },
+        {
+          "key": "lesnaja",
+          "name": "Лесная улица",
+          "n_cities": 743,
+          "pct_cities": 58.6,
+          "weight_sqrt": 0.037,
+          "weight_idf": 0.075,
+          "weight_log": 0.105
+        },
+        {
+          "key": "pervomajskaja",
+          "name": "Первомайская улица",
+          "n_cities": 726,
+          "pct_cities": 57.3,
+          "weight_sqrt": 0.037,
+          "weight_idf": 0.078,
+          "weight_log": 0.105
+        },
+        {
+          "key": "gagarina",
+          "name": "улица Гагарина",
+          "n_cities": 720,
+          "pct_cities": 56.8,
+          "weight_sqrt": 0.037,
+          "weight_idf": 0.079,
+          "weight_log": 0.105
+        },
+        {
+          "key": "kalinina",
+          "name": "улица Калинина",
+          "n_cities": 718,
+          "pct_cities": 56.7,
+          "weight_sqrt": 0.037,
+          "weight_idf": 0.079,
+          "weight_log": 0.105
+        },
+        {
+          "key": "novaja",
+          "name": "Новая улица",
+          "n_cities": 717,
+          "pct_cities": 56.6,
+          "weight_sqrt": 0.037,
+          "weight_idf": 0.08,
+          "weight_log": 0.105
+        },
+        {
+          "key": "pionerskaja",
+          "name": "Пионерская улица",
+          "n_cities": 711,
+          "pct_cities": 56.1,
+          "weight_sqrt": 0.038,
+          "weight_idf": 0.081,
+          "weight_log": 0.106
+        }
+      ],
+      "founded_coverage_pct": 88.0,
+      "median_founded_year": 1781,
+      "spearman_founded_rarity": -0.202
     }
   ],
   "cross_country_shared": [
@@ -10830,5 +11081,5 @@
       }
     }
   ],
-  "total_with_founded_year": 2245
+  "total_with_founded_year": 3360
 }
