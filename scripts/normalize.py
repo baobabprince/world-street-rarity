@@ -130,7 +130,13 @@ _PROTECTED_AFTER_DIR = {
 }
 
 _LANG_CACHE: dict[str, dict[str, list[str]]] | None = None
-_PREPARED_CACHE: dict[tuple[int, tuple[str, ...]], tuple[list[tuple[str, bool]], list[tuple[str, bool]], list[str], list[str], list[str]]] = {}
+_PREPARED_CACHE: dict[
+    tuple[int, tuple[str, ...]],
+    tuple[list[tuple[str, bool]], list[tuple[str, bool]], list[str], list[str], list[str], list[str], list[str]],
+] = {}
+_SLASH_SEP_RE = re.compile(r"\s+/\s+")
+_DASH_SEP_RE = re.compile(r"\s+[-–—]\s+")
+_CYRILLIC_LANG_ORDER = ("sr", "mk", "bg", "uk")
 
 
 def load_lang_rules(path: Path = LANG_CONFIG_PATH) -> dict[str, dict[str, list[str]]]:
@@ -147,13 +153,15 @@ def load_lang_rules(path: Path = LANG_CONFIG_PATH) -> dict[str, dict[str, list[s
 def _prepare_lang_affixes(
     languages: list[str],
     rules: dict[str, dict[str, list[str]]],
-) -> tuple[list[tuple[str, bool]], list[tuple[str, bool]], list[str], list[str], list[str]]:
+) -> tuple[list[tuple[str, bool]], list[tuple[str, bool]], list[str], list[str], list[str], list[str], list[str]]:
     cache_key = (id(rules), tuple(languages))
     cached = _PREPARED_CACHE.get(cache_key)
     if cached is not None:
         return cached
 
-    raw_pref, raw_conn, raw_suf, raw_dir, raw_fused = [], [], [], [], []
+    raw_pref, raw_conn, raw_suf, raw_dir, raw_fused, raw_titles, raw_titles_multi = (
+        [], [], [], [], [], [], []
+    )
     for lang in languages:
         lr = rules.get(lang, {})
         raw_pref.extend(lr.get("prefixes", []))
@@ -161,6 +169,8 @@ def _prepare_lang_affixes(
         raw_suf.extend(lr.get("suffixes", []))
         raw_dir.extend(lr.get("directionals", []))
         raw_fused.extend(lr.get("fused_suffixes", []))
+        raw_titles.extend(lr.get("titles", []))
+        raw_titles_multi.extend(lr.get("titles_multi", []))
 
     def _prep_pref(items: list[str]) -> list[tuple[str, bool]]:
         seen: set[tuple[str, bool]] = set()
@@ -193,6 +203,8 @@ def _prepare_lang_affixes(
         _prep_plain(raw_suf),
         _prep_plain(raw_dir),
         _prep_plain(raw_fused),
+        _prep_plain(raw_titles),
+        _prep_plain(raw_titles_multi),
     )
     _PREPARED_CACHE[cache_key] = prepared
     return prepared
@@ -291,6 +303,257 @@ def _strip_fused_german_suffix(s: str, fused_suffixes: list[str]) -> str:
     return s
 
 
+def _strip_titles(s: str, titles: list[str], titles_multi: list[str]) -> str:
+    """Strip honorific/professional titles while guarding generic single-word nouns."""
+    if not titles and not titles_multi:
+        return s
+    for _ in range(2):
+        changed = False
+        for t in titles:
+            if s.startswith(t + " "):
+                rem = s[len(t) + 1 :].strip()
+                if len(rem) >= 2:
+                    s = rem
+                    changed = True
+                    break
+        if changed:
+            continue
+        for t in titles_multi:
+            if s.startswith(t + " "):
+                rem = s[len(t) + 1 :].strip()
+                # Require at least 2 remaining tokens so "Don Bosco" / "Doctor Bos" stay distinct
+                if len(rem.split()) >= 2:
+                    s = rem
+                    changed = True
+                    break
+        if not changed:
+            break
+    return s
+
+
+def _strip_affixes(
+    key: str,
+    prefixes: list[tuple[str, bool]],
+    connectors: list[tuple[str, bool]],
+    suffixes: list[str],
+    directionals: list[str],
+    fused_suffixes: list[str],
+) -> str:
+    """Strip road-type prefixes, suffixes, directionals, German fused suffixes, and connectors."""
+    for _ in range(2):
+        nxt = _strip_prefix_list(key, prefixes)
+        if nxt == key:
+            break
+        key = nxt
+
+    for _ in range(2):
+        nxt = _strip_suffix_list(key, suffixes)
+        if nxt == key:
+            break
+        key = nxt
+
+    if directionals:
+        dir_pref = [(d, False) for d in directionals]
+        cand = _strip_prefix_list(key, dir_pref)
+        if cand != key and cand not in _PROTECTED_AFTER_DIR:
+            key = cand
+        cand_suf = _strip_suffix_list(key, directionals)
+        if cand_suf != key and cand_suf not in _PROTECTED_AFTER_DIR:
+            key = cand_suf
+        key = _strip_suffix_list(key, suffixes)
+
+    if fused_suffixes:
+        key = _strip_fused_german_suffix(key, fused_suffixes)
+
+    if connectors:
+        key = _strip_prefix_list(key, connectors)
+
+    return key
+
+
+def _scripts_of(text: str) -> set[str]:
+    """Identify coarse writing systems present in raw text before transliteration."""
+    scripts: set[str] = set()
+    for ch in text:
+        code = ord(ch)
+        if 0x0590 <= code <= 0x05FF:
+            scripts.add("he")
+        elif 0x0600 <= code <= 0x06FF:
+            scripts.add("ar")
+        elif 0x0400 <= code <= 0x04FF:
+            scripts.add("cyrl")
+        elif 0x0370 <= code <= 0x03FF:
+            scripts.add("grek")
+        elif ("a" <= ch.lower() <= "z") or (0x00C0 <= code <= 0x024F):
+            scripts.add("latn")
+    return scripts
+
+
+def _detect_side_matches(
+    raw_side: str,
+    languages: list[str],
+    rules: dict[str, dict[str, list[str]]],
+    scripts: set[str],
+) -> tuple[dict[str, tuple[str, bool]], str | None]:
+    """Match a bilingual street side against country languages, falling back to other known rules."""
+    s = fold_for_key(raw_side)
+    matches: dict[str, tuple[str, bool]] = {}
+    if not s:
+        return matches, None
+
+    def _match_lang(
+        lang: str,
+        min_affix_len: int = 2,
+        allow_fused: bool = True,
+        min_fused_len: int = 3,
+    ) -> tuple[str, bool] | None:
+        prefs, conns, sufs, _, fused, _, _ = _prepare_lang_affixes([lang], rules)
+        for p, is_apos in prefs:
+            if len(p) < min_affix_len:
+                continue
+            matched = (
+                (s.startswith(p) and len(s) > len(p))
+                if is_apos
+                else (s.startswith(p + " ") and len(s) > len(p) + 1)
+            )
+            if matched:
+                rem = (s[len(p) :] if is_apos else s[len(p) + 1 :]).strip()
+                conn_ok = bool(conns and _strip_prefix_list(rem, conns) != rem)
+                return ("prefix", conn_ok)
+        for sf in sufs:
+            if len(sf) >= min_affix_len and s.endswith(" " + sf) and len(s) > len(sf) + 1:
+                return ("suffix", False)
+        if fused and allow_fused:
+            last = s.split()[-1]
+            for sf in fused:
+                if len(sf) >= min_fused_len and last.endswith(sf) and len(last) >= len(sf) + 3:
+                    return ("fused", False)
+        return None
+
+    for lang in languages:
+        hit = _match_lang(lang, min_affix_len=2, allow_fused=True, min_fused_len=3)
+        if hit is not None:
+            matches[lang] = hit
+
+    if not matches:
+        latin_only = scripts == {"latn"}
+        for lang in rules:
+            if lang in languages:
+                continue
+            # Require >=3-char affixes (and Latin script + >=4-char fused) outside country languages
+            hit = _match_lang(lang, min_affix_len=3, allow_fused=latin_only, min_fused_len=4)
+            if hit is not None:
+                matches[f"other:{lang}"] = hit
+                break
+
+    script_lang: str | None = None
+    if "he" in scripts and "ar" not in scripts:
+        script_lang = "he"
+    elif "ar" in scripts and "he" not in scripts:
+        script_lang = "ar"
+    elif "grek" in scripts:
+        script_lang = "el"
+    elif "cyrl" in scripts:
+        for cl in _CYRILLIC_LANG_ORDER:
+            if cl in languages:
+                script_lang = cl
+                break
+        if script_lang is None:
+            script_lang = "cyrl"
+
+    return matches, script_lang
+
+
+def _pick_side_lang(
+    matches: dict[str, tuple[str, bool]],
+    other_matches: dict[str, tuple[str, bool]],
+    script_lang: str | None,
+    languages: list[str],
+) -> tuple[str | None, str | None]:
+    """Disambiguate shared affixes (e.g. 'Boulevard' in fr+nl) and choose best (kind, lang)."""
+    if not matches:
+        return None, script_lang
+
+    confirmed = [lang for lang, (_, conn_ok) in matches.items() if conn_ok]
+    if confirmed:
+        cands = confirmed
+    else:
+        cands = list(matches.keys())
+        if len(cands) > 1 and len(other_matches) == 1:
+            other_only = next(iter(other_matches.keys()))
+            narrowed = [lang for lang in cands if lang != other_only]
+            if narrowed:
+                cands = narrowed
+
+    def _lang_rank(lang: str) -> int:
+        return languages.index(lang) if lang in languages else 999
+
+    best_lang = min(cands, key=_lang_rank)
+    return matches[best_lang][0], best_lang
+
+
+def _resolve_bilingual(
+    raw_name: str,
+    languages: list[str],
+    rules: dict[str, dict[str, list[str]]],
+) -> str:
+    """Resolve dual-language street names ('Rue X - Xstraat', 'Chemin A / Aweg') to one canonical side."""
+    if " / " not in raw_name and " - " not in raw_name and " – " not in raw_name and " — " not in raw_name:
+        return raw_name
+
+    cur = raw_name
+    for _ in range(2):
+        parts = _SLASH_SEP_RE.split(cur)
+        sep = "/"
+        if len(parts) != 2:
+            parts = _DASH_SEP_RE.split(cur)
+            sep = "-"
+        if len(parts) != 2:
+            break
+        left, right = parts[0].strip(), parts[1].strip()
+        if not left or not right:
+            break
+
+        sc_l, sc_r = _scripts_of(left), _scripts_of(right)
+        diff_script = bool(sc_l and sc_r and sc_l.isdisjoint(sc_r))
+
+        m_l, sl_l = _detect_side_matches(left, languages, rules, sc_l)
+        m_r, sl_r = _detect_side_matches(right, languages, rules, sc_r)
+        k_l, lang_l = _pick_side_lang(m_l, m_r, sl_l, languages)
+        k_r, lang_r = _pick_side_lang(m_r, m_l, sl_r, languages)
+
+        fold_l, fold_r = fold_for_key(left), fold_for_key(right)
+        same_fold = fold_l == fold_r
+        same_core = False
+        if not same_fold and k_l is not None and k_r is not None:
+            prefs, conns, sufs, dirs, fused, _, _ = _prepare_lang_affixes(languages, rules)
+            core_l = _strip_affixes(fold_l, prefs, conns, sufs, dirs, fused)
+            core_r = _strip_affixes(fold_r, prefs, conns, sufs, dirs, fused)
+            same_core = len(core_l) >= 2 and core_l == core_r
+
+        is_dual = (
+            diff_script
+            or same_fold
+            or same_core
+            or (sep == "/" and (k_r is not None or k_l in ("suffix", "fused")))
+            or (sep == "-" and (k_r is not None or k_l in ("suffix", "fused")) and (lang_l != lang_r or lang_l is None))
+        )
+        if not is_dual:
+            break
+
+        rank_l = languages.index(lang_l) if lang_l in languages else 999
+        rank_r = languages.index(lang_r) if lang_r in languages else 999
+        primary, fallback = (right, left) if rank_r < rank_l else (left, right)
+
+        primary_fold = fold_for_key(primary)
+        if not primary_fold or _HIGHWAY_CODE_RE.match(primary_fold):
+            cur = fallback
+        else:
+            cur = primary
+
+    return cur
+
+
 def normalize_street(
     raw_name: Any,
     languages: list[str],
@@ -313,7 +576,12 @@ def normalize_street(
     if not no_paren:
         return "", "", False
 
-    key = fold_for_key(no_paren)
+    if rules is None:
+        rules = load_lang_rules()
+
+    chosen = _resolve_bilingual(no_paren, languages, rules)
+
+    key = fold_for_key(chosen)
     if not key:
         return "", "", False
 
@@ -321,43 +589,14 @@ def normalize_street(
     if _HIGHWAY_CODE_RE.match(key):
         return "", "", False
 
-    if rules is None:
-        rules = load_lang_rules()
+    prefixes, connectors, suffixes, directionals, fused_suffixes, titles, titles_multi = (
+        _prepare_lang_affixes(languages, rules)
+    )
 
-    prefixes, connectors, suffixes, directionals, fused_suffixes = _prepare_lang_affixes(languages, rules)
+    key = _strip_affixes(key, prefixes, connectors, suffixes, directionals, fused_suffixes)
 
-    # Strip road-type prefix (up to twice for nested forms like "Via Strada ...")
-    for _ in range(2):
-        nxt = _strip_prefix_list(key, prefixes)
-        if nxt == key:
-            break
-        key = nxt
-
-    # Strip trailing road-type suffix (up to twice, e.g. "Park Road Extension")
-    for _ in range(2):
-        nxt = _strip_suffix_list(key, suffixes)
-        if nxt == key:
-            break
-        key = nxt
-
-    # Strip English/US directional prefixes & suffixes ("West 42nd" -> "42nd", "Main North" -> "Main")
-    if directionals:
-        dir_pref = [(d, False) for d in directionals]
-        cand = _strip_prefix_list(key, dir_pref)
-        if cand != key and cand not in _PROTECTED_AFTER_DIR:
-            key = cand
-        cand_suf = _strip_suffix_list(key, directionals)
-        if cand_suf != key and cand_suf not in _PROTECTED_AFTER_DIR:
-            key = cand_suf
-        key = _strip_suffix_list(key, suffixes)
-
-    # Strip German fused suffixes ("Goethestraße" -> "goethe")
-    if fused_suffixes:
-        key = _strip_fused_german_suffix(key, fused_suffixes)
-
-    # Strip leading prepositions / connectors ("de la", "della", "del", "d'")
-    if connectors:
-        key = _strip_prefix_list(key, connectors)
+    # Strip honorific/academic/military titles (must stay AFTER connectors so "de Gaulle" keeps "de")
+    key = _strip_titles(key, titles, titles_multi)
 
     # Strip trailing Hebrew alley/segment numbers or standalone trailing 1-3 digit sub-numbers
     if "he" in languages:
@@ -370,10 +609,10 @@ def normalize_street(
 
     # Check if purely numeric / ordinal street (e.g. "42", "1st", "10a")
     if _PURE_NUMERIC_RE.match(key):
-        return "", clean_display(no_paren), True
+        return "", clean_display(chosen), True
 
     # Drop single-character leftovers
     if len(key) < 2:
         return "", "", False
 
-    return key, clean_display(no_paren), False
+    return key, clean_display(chosen), False

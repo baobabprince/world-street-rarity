@@ -17,7 +17,18 @@
       "della", "dello", "degli", "delle", "dell'", "del", "dei", "di", "da", "d'", "ai", "alle", "agli", "al", "alla", "allo", "all'"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "dottor", "dottore", "dott.", "dott", "dr.", "dr",
+      "professor", "professore", "prof.", "prof",
+      "avvocato", "avv.", "avv", "ingegnere", "ing.", "ing",
+      "architetto", "arch.", "arch", "senatore", "sen.", "onorevole", "on."
+    ],
+    "titles_multi": [
+      "generale", "gen.", "colonnello", "capitano", "tenente", "maggiore",
+      "ammiraglio", "maresciallo", "presidente", "cardinale", "vescovo",
+      "monsignor", "monsignore", "papa", "principe", "don", "padre"
+    ]
   },
   "fr": {
     "prefixes": [
@@ -26,13 +37,22 @@
       "cours", "quai", "square", "sq.", "sentier", "sente", "cite", "clos",
       "cour", "esplanade", "faubourg", "galerie", "parvis", "promenade",
       "rampe", "rond-point", "rond point", "terrasse", "traverse", "villa",
-      "voie", "ruelle", "venelle", "montee", "descente", "carrefour", "mail", "lotissement", "residence"
+      "voie", "ruelle", "venelle", "montee", "descente", "carrefour", "mail", "lotissement", "residence",
+      "chaussee", "dreve"
     ],
     "connectors": [
       "de la", "de l'", "du", "des", "de", "d'", "au", "aux", "a la", "a l'"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "docteur", "dr.", "dr", "professeur", "prof.", "prof", "marechal", "maréchal"
+    ],
+    "titles_multi": [
+      "general", "général", "colonel", "commandant", "capitaine", "lieutenant",
+      "amiral", "president", "président", "cardinal", "monseigneur", "pasteur",
+      "baron", "pere", "père", "abbe", "abbé", "roi", "reine", "prince"
+    ]
   },
   "de": {
     "prefixes": [
@@ -49,6 +69,13 @@
     "fused_suffixes": [
       "strasse", "straße", "platz", "allee", "gasse", "weg", "ring",
       "damm", "ufer", "chaussee", "stieg", "pfad", "zeile", "promenade", "bogen"
+    ],
+    "titles": [],
+    "titles_multi": [
+      "dr.", "dr", "doktor", "prof.", "prof", "professor", "general",
+      "freiherr", "graf", "gräfin", "grafin", "fürst", "furst", "herzog",
+      "kaiser", "könig", "konig", "prinz", "pfarrer", "bischof", "kardinal",
+      "bürgermeister", "burgermeister", "pater", "oberst", "hauptmann"
     ]
   },
   "es": {
@@ -63,7 +90,18 @@
       "de la", "de los", "de las", "del", "de", "d'"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "doctor", "dr.", "dr", "doctora", "dra.", "dra", "doutor",
+      "profesor", "profesora", "prof.", "prof",
+      "pintor", "poeta", "escritor", "escultor", "arquitecto"
+    ],
+    "titles_multi": [
+      "maestro", "maestra", "general", "capitan", "capitán", "coronel",
+      "comandante", "almirante", "teniente", "mariscal", "presidente", "alcalde",
+      "obispo", "cardenal", "padre", "fray", "rey", "reina", "principe", "príncipe",
+      "infanta", "don", "dona", "doña"
+    ]
   },
   "ca": {
     "prefixes": [
@@ -75,7 +113,16 @@
       "de la", "de l'", "dels", "de les", "del", "de", "d'"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "doctor", "dr.", "dr", "doctora", "dra.", "dra",
+      "professor", "professora", "prof.", "prof",
+      "pintor", "poeta", "escriptor", "escultor", "arquitecte"
+    ],
+    "titles_multi": [
+      "mestre", "general", "capitan", "coronel", "president", "alcalde",
+      "bisbe", "cardenal", "pare", "rei", "reina"
+    ]
   },
   "eu": {
     "prefixes": [
@@ -95,7 +142,14 @@
       "da", "do", "das", "dos", "de"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "doutor", "dr.", "dr", "doutora", "profesor", "profesora",
+      "pintor", "poeta", "escritor"
+    ],
+    "titles_multi": [
+      "xeneral", "alcalde", "presidente", "bispo", "padre", "rei", "raiña"
+    ]
   },
   "pl": {
     "prefixes": [
@@ -105,7 +159,18 @@
     ],
     "connectors": ["do"],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "im.", "im", "imienia", "profesora", "prof.", "prof",
+      "doktora", "dr.", "dr", "marszalka", "marszałka", "rotmistrza", "rtm.", "rtm"
+    ],
+    "titles_multi": [
+      "generala", "generała", "gen.", "gen", "ksiedza", "księdza", "ks.", "ks",
+      "pulkownika", "pułkownika", "plk.", "płk.", "plk", "płk",
+      "majora", "mjr.", "mjr", "kapitana", "kpt.", "kpt", "porucznika", "por.", "por",
+      "kardynala", "kardynała", "biskupa", "bp.", "bp",
+      "krola", "króla", "krolowej", "królowej", "ksiecia", "księcia", "ojca"
+    ]
   },
   "he": {
     "prefixes": [
@@ -116,7 +181,16 @@
     ],
     "connectors": [],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "הרב", "הנשיא", "ד\"ר", "ד״ר", "דוקטור",
+      "פרופ'", "פרופ׳", "פרופ", "פרופסור", "הברון",
+      "רב אלוף", "האלוף", "אלוף", "סרן",
+      "רס\"ן", "רס״ן", "סא\"ל", "סא״ל", "אל\"מ", "אל״מ", "תא\"ל", "תא״ל", "השופט"
+    ],
+    "titles_multi": [
+      "רבי", "רב", "דר", "המלך", "גנרל", "לורד", "סר"
+    ]
   },
   "ar": {
     "prefixes": [
@@ -139,7 +213,15 @@
       "prolaz", "venac", "aleja", "prilaz", "obala", "odvojak", "ogranak",
       "setaliste", "avenija", "stube", "krak", "cikma"
     ],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "dr.", "dr", "doktora", "profesora", "prof.", "prof", "narodnog heroja"
+    ],
+    "titles_multi": [
+      "generala", "vojvode", "kralja", "cara", "kneza", "despota",
+      "majora", "pukovnika", "kapetana", "marsala", "maršala",
+      "patrijarha", "vladike", "mitropolita"
+    ]
   },
   "mk": {
     "prefixes": [
@@ -174,7 +256,14 @@
       "north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest",
       "n", "s", "e", "w", "ne", "nw", "se", "sw"
     ],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [],
+    "titles_multi": [
+      "dr.", "dr", "doctor", "prof.", "prof", "professor",
+      "general", "gen.", "gen", "colonel", "captain", "capt.", "capt",
+      "major", "admiral", "president", "governor", "senator", "bishop",
+      "reverend", "rev.", "rev", "sir", "lord", "king", "queen", "prince", "princess"
+    ]
   },
   "pt": {
     "prefixes": [
@@ -187,21 +276,38 @@
       "da", "do", "das", "dos", "de", "d'"
     ],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "doutor", "dr.", "dr", "dra.", "dra", "professor", "prof.", "prof",
+      "engenheiro", "eng.", "eng", "arquitecto", "arquiteto", "poeta", "pintor", "maestro"
+    ],
+    "titles_multi": [
+      "general", "coronel", "capitao", "capitão", "almirante", "comandante",
+      "marechal", "major", "tenente", "presidente", "padre", "bispo", "cardeal",
+      "dom", "dona", "rei", "rainha", "infante"
+    ]
   },
   "nl": {
     "prefixes": [
-      "straat", "laan", "weg", "plein", "gracht", "kade", "dijk", "steeg", "hof", "singel", "dreef", "boulevard"
+      "straat", "laan", "weg", "plein", "gracht", "kade", "dijk", "steeg", "hof", "singel", "dreef", "boulevard", "steenweg"
     ],
     "connectors": ["van de", "van der", "van den", "van", "de", "het"],
     "suffixes": [
       "straat", "str.", "laan", "ln.", "weg", "plein", "gracht", "kade", "dijk",
       "steeg", "hof", "singel", "dreef", "plantsoen", "pad", "baan", "boulevard",
-      "avenue", "ring", "veld", "plaats", "passage", "brug", "poort", "wal", "markt"
+      "avenue", "ring", "veld", "plaats", "passage", "brug", "poort", "wal", "markt", "steenweg"
     ],
     "fused_suffixes": [
       "straat", "laan", "plein", "weg", "gracht", "kade", "dijk", "steeg",
-      "singel", "dreef", "plantsoen", "baan", "pad", "brug", "wal", "ring", "markt"
+      "singel", "dreef", "plantsoen", "baan", "pad", "brug", "wal", "ring", "markt", "steenweg"
+    ],
+    "titles": [
+      "professor", "prof.", "prof", "dr.", "dr"
+    ],
+    "titles_multi": [
+      "doctor", "burgemeester", "koning", "koningin", "prins", "prinses",
+      "generaal", "admiraal", "kapitein", "kolonel", "pastoor", "dominee",
+      "ds.", "ds", "meester", "mr.", "mr", "ir.", "ir", "ing.", "ing"
     ]
   },
   "sv": {
@@ -283,7 +389,15 @@
       "ulice", "ulica", "namesti", "namestie", "trida", "trieda", "nabrezi", "nabrezie",
       "cesta", "alej", "sady", "most", "nadrazi"
     ],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "dr.", "dr", "doktora", "prof.", "prof", "profesora"
+    ],
+    "titles_multi": [
+      "generala", "generála", "kapitana", "kapitána", "majora",
+      "plukovnika", "plukovníka", "krale", "krále", "knizete", "knížete",
+      "biskupa", "kardinala", "kardinála", "prezidenta"
+    ]
   },
   "hu": {
     "prefixes": [],
@@ -303,7 +417,15 @@
     ],
     "connectors": [],
     "suffixes": [],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "doctor", "dr.", "dr", "profesor", "prof.", "prof",
+      "inginer", "pictor", "poet", "academician"
+    ],
+    "titles_multi": [
+      "general", "colonel", "capitan", "căpitan", "maior",
+      "maresal", "mareșal", "locotenent", "mitropolit", "episcop", "preot"
+    ]
   },
   "bg": {
     "prefixes": [
@@ -368,7 +490,14 @@
       "provulok", "pereulok", "zavulak", "plosca", "majdan", "naberezna",
       "sose", "uzviz", "spusk", "proizd", "proezd", "aleja"
     ],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [
+      "akademika", "doktora", "profesora", "imeni"
+    ],
+    "titles_multi": [
+      "generala", "getmana", "marsala", "marshala", "polkovnika",
+      "kapitana", "majora", "lejtenanta", "knjazja", "mitropolita"
+    ]
   },
   "el": {
     "prefixes": [
@@ -377,7 +506,12 @@
     ],
     "connectors": ["tou", "tis", "ton"],
     "suffixes": ["odos", "leoforos", "plateia"],
-    "fused_suffixes": []
+    "fused_suffixes": [],
+    "titles": [],
+    "titles_multi": [
+      "mitropolitoy", "patriarchoy", "stratigoy", "nayarchoy",
+      "vasileos", "vasilissis", "proedroy", "archiepiskopoy"
+    ]
   },
   "sq": {
     "prefixes": [

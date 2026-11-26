@@ -156,6 +156,159 @@ def test_pan_european_normalization():
     assert k == "kbira"
 
 
+def test_bilingual_normalization():
+    # Belgium (nl, fr, de): prefers first configured language (nl) and resolves shared affixes
+    k, d, _ = normalize_street("Rue de l'Abbaye - Abdijstraat", ["nl", "fr", "de"])
+    assert k == "abdij" and d == "Abdijstraat"
+    k, _, _ = normalize_street("Avenue de l'Atomium - Atomiumlaan", ["nl", "fr", "de"])
+    assert k == "atomium"
+    k, _, _ = normalize_street("Rue Neuve - Nieuwstraat", ["nl", "fr", "de"])
+    assert k == "nieuw"
+    k, _, _ = normalize_street("Boulevard du Midi - Zuidlaan", ["nl", "fr", "de"])
+    assert k == "zuid"
+    k, _, _ = normalize_street("Boulevard Anspach - Anspachlaan", ["nl", "fr", "de"])
+    assert k == "anspach"
+    k, _, _ = normalize_street("Chaussée de Charleroi - Charleroisesteenweg", ["nl", "fr", "de"])
+    assert k == "charleroise"
+
+    # Italy (it, de) + Aosta fallback (other:fr) + highway/non-bilingual guards
+    k, _, _ = normalize_street("Carduccistraße - Via Carducci", ["it", "de"])
+    assert k == "carducci"
+    k, _, _ = normalize_street("Brennerstraße - Via Brennero", ["it", "de"])
+    assert k == "brennero"
+    k, _, _ = normalize_street("Burgfrieden - Via Castelliere", ["it", "de"])
+    assert k == "castelliere"
+    k, _, _ = normalize_street("Piazza Porta Prætoria / Place de la Porte Prétorienne", ["it", "de"])
+    assert k == "porta praetoria"
+    k, _, _ = normalize_street("Strada Comunale n.29 - Santo Scalone", ["it", "de"])
+    assert k == "n 29 santo scalone"
+    k, _, _ = normalize_street("Via Capitano Antonino Rizzo / Strada Statale 113", ["it", "de"])
+    assert k == "antonino rizzo"
+
+    # Switzerland (de, fr, it)
+    k, _, _ = normalize_street("Chemin des Alouettes / Lerchenweg", ["de", "fr", "it"])
+    assert k == "lerchen"
+    k, _, _ = normalize_street("Rue des Alpes / Alpenstrasse", ["de", "fr", "it"])
+    assert k == "alpen"
+
+    # Germany Sorbian bilingual (de)
+    k, _, _ = normalize_street("Karl-Liebknecht-Straße - Karla Liebknechtowa", ["de"])
+    assert k == "karl liebknecht"
+    k, _, _ = normalize_street("Czornebohstraße - Čornobóska", ["de"])
+    assert k == "czorneboh"
+
+    # Spain (es, ca, eu, gl) + intercity road guard
+    k, _, _ = normalize_street("Calle de Chalamera / Carrer de Xalamera", ["es", "ca", "eu", "gl"])
+    assert k == "chalamera"
+    k, _, _ = normalize_street("Elía / Elia", ["es", "ca", "eu", "gl"])
+    assert k == "elia"
+    k, _, _ = normalize_street("Carretera València - Torrent", ["es", "ca", "eu", "gl"])
+    assert k == "valencia torrent"
+
+    # Slovenia (sl) + neighbor Italian + intercity road guard
+    k, _, _ = normalize_street("Morova ulica - Via Mario Moro", ["sl"])
+    assert k == "morova"
+    k, _, _ = normalize_street("Kačja ulica / Calle della Bissa", ["sl"])
+    assert k == "kacja"
+    k, _, _ = normalize_street("Gorjuša - Žeje", ["sl"])
+    assert k == "gorjusa zeje"
+
+    # Israel (he, ar) cross-script + order independence + non-bilingual guard
+    k, _, _ = normalize_street("רחוב הרצל - Herzl Street", ["he", "ar"])
+    assert k == "הרצל"
+    k, _, _ = normalize_street("הכרמל / الكرمل", ["he", "ar"])
+    assert k == "הכרמל"
+    k, _, _ = normalize_street("الكرمل / הכרמל", ["he", "ar"])
+    assert k == "הכרמל"
+    k, _, _ = normalize_street("כיכר ברק - חטיבה 188", ["he", "ar"])
+    assert k == "ברק חטיבה 188"
+
+    # Greece, Serbia, Spain-route, France guards & same_core
+    k, _, _ = normalize_street("Εθνική Οδός Χανίων - Αεροδρομίου", ["el"])
+    assert k == "chanion aerodromioy"
+    k, _, _ = normalize_street("Κλεισούρα - Βλάστη", ["el"])
+    assert k == "kleisoyra vlasti"
+    k, _, _ = normalize_street("Antiga Carretera de Vilanova i la Geltrú a Igualada - C-15z", ["es", "ca", "eu", "gl"])
+    assert k == "antiga carretera de vilanova i la geltru a igualada c 15z"
+    k, _, _ = normalize_street("Мирослава Антића - Мике", ["sr"])
+    assert k == "miroslava antica mike"
+    k, _, _ = normalize_street("Cité d'Arenberg - Allée B", ["fr"])
+    assert k == "arenberg allee b"
+    k, _, _ = normalize_street("Rue de Sévigné - Avenue de Sévigné", ["fr"])
+    assert k == "sevigne"
+
+
+def test_title_cleaning_and_guards():
+    # Hebrew
+    assert normalize_street("רחוב הרב הרצוג", ["he", "ar"])[0] == "הרצוג"
+    assert normalize_street("רחוב הנשיא ויצמן", ["he", "ar"])[0] == "ויצמן"
+    assert normalize_street('רחוב ד"ר משה סנה', ["he", "ar"])[0] == "משה סנה"
+    assert normalize_street("רחוב פרופ' אהרון צ'חנובר", ["he", "ar"])[0] == "אהרון צ'חנובר"
+    assert normalize_street("רחוב אלוף הרב גורן", ["he", "ar"])[0] == "גורן"
+    assert normalize_street("רחוב רבי יהודה הנשיא", ["he", "ar"])[0] == "יהודה הנשיא"
+    assert normalize_street("רחוב הנשיא", ["he", "ar"])[0] == "הנשיא"
+    assert normalize_street("רחוב רבי עקיבא", ["he", "ar"])[0] == "רבי עקיבא"
+    assert normalize_street("רחוב המלך דוד", ["he", "ar"])[0] == "המלך דוד"
+
+    # Italian
+    assert normalize_street("Via Generale Carlo Alberto dalla Chiesa", ["it", "de"])[0] == "carlo alberto dalla chiesa"
+    assert normalize_street("Via Papa Giovanni XXIII", ["it", "de"])[0] == "giovanni xxiii"
+    assert normalize_street("Via Don Luigi Sturzo", ["it", "de"])[0] == "luigi sturzo"
+    assert normalize_street("Via Avvocato Giovanni Agnelli", ["it", "de"])[0] == "giovanni agnelli"
+    assert normalize_street("Via Don Bosco", ["it", "de"])[0] == "don bosco"
+    assert normalize_street("Via Conte Verde", ["it", "de"])[0] == "conte verde"
+    assert normalize_street("Via Padre Pio", ["it", "de"])[0] == "padre pio"
+
+    # French
+    assert normalize_street("Rue du Docteur Roux", ["fr"])[0] == "roux"
+    assert normalize_street("Avenue du Maréchal Foch", ["fr"])[0] == "foch"
+    assert normalize_street("Avenue du Général Charles de Gaulle", ["fr"])[0] == "charles de gaulle"
+    assert normalize_street("Rue du Général de Gaulle", ["fr"])[0] == "de gaulle"
+    assert normalize_street("Rue du Président Salvador Allende", ["fr"])[0] == "salvador allende"
+    assert normalize_street("Rue du Général Moulin", ["fr"])[0] == "general moulin"
+    assert normalize_street("Rue de l'Abbé Pierre", ["fr"])[0] == "abbe pierre"
+    assert normalize_street("Rue Saint-Martin", ["fr"])[0] == "saint martin"
+
+    # German
+    assert normalize_street("Dr.-Robert-Koch-Straße", ["de"])[0] == "robert koch"
+    assert normalize_street("Dr.-Martin-Luther-Straße", ["de"])[0] == "martin luther"
+    assert normalize_street("Freiherr-vom-Stein-Straße", ["de"])[0] == "vom stein"
+    assert normalize_street("Dr.-Lange-Straße", ["de"])[0] == "dr lange"
+    assert normalize_street("Bürgermeister-Haupt-Straße", ["de"])[0] == "burgermeister haupt"
+    assert normalize_street("Kaiser-Wilhelm-Straße", ["de"])[0] == "kaiser wilhelm"
+
+    # Spanish
+    assert normalize_street("Calle del Doctor Fleming", ["es", "ca", "eu", "gl"])[0] == "fleming"
+    assert normalize_street("Calle del Pintor Velázquez", ["es", "ca", "eu", "gl"])[0] == "velazquez"
+    assert normalize_street("Calle de Don Miguel de Cervantes", ["es", "ca", "eu", "gl"])[0] == "miguel de cervantes"
+    assert normalize_street("Avenida del Presidente Adolfo Suárez", ["es", "ca", "eu", "gl"])[0] == "adolfo suarez"
+    assert normalize_street("Calle del Maestro Luna", ["es", "ca", "eu", "gl"])[0] == "maestro luna"
+    assert normalize_street("Calle de Doña Sol", ["es", "ca", "eu", "gl"])[0] == "dona sol"
+    assert normalize_street("Calle del Cardenal Cervantes", ["es", "ca", "eu", "gl"])[0] == "cardenal cervantes"
+    assert normalize_street("Calle Mayor", ["es", "ca", "eu", "gl"])[0] == "mayor"
+
+    # Polish
+    assert normalize_street("ul. Generała Tadeusza Kościuszki", ["pl"])[0] == "tadeusza kosciuszki"
+    assert normalize_street("ul. Księdza Kardynała Stefana Wyszyńskiego", ["pl"])[0] == "stefana wyszynskiego"
+    assert normalize_street("ul. im. Marszałka Józefa Piłsudskiego", ["pl"])[0] == "jozefa pilsudskiego"
+    assert normalize_street("ul. Świętego Floriana", ["pl"])[0] == "swietego floriana"
+    assert normalize_street("ul. Królowej Jadwigi", ["pl"])[0] == "krolowej jadwigi"
+
+    # English, Serbian, Dutch, Portuguese, Ukrainian
+    assert normalize_street("Dr. Martin Luther King Jr. Boulevard", ["en"])[0] == "martin luther king jr"
+    assert normalize_street("King Edward Street", ["en"])[0] == "king edward"
+    assert normalize_street("Lady Park Road", ["en"])[0] == "lady park"
+    assert normalize_street("Doctor Hill Road", ["en"])[0] == "doctor hill"
+    assert normalize_street("Ulica Kneza Miloša Obrenovića", ["sr"])[0] == "milosa obrenovica"
+    assert normalize_street("Ulica Kneza Mihaila", ["sr"])[0] == "kneza mihaila"
+    assert normalize_street("Professor Lorentzstraat", ["nl"])[0] == "lorentz"
+    assert normalize_street("Doctor Aletta Jacobsstraat", ["nl"])[0] == "aletta jacobs"
+    assert normalize_street("Doctor Bosstraat", ["nl"])[0] == "doctor bos"
+    assert normalize_street("Rua Doutor Francisco Sá Carneiro", ["pt"])[0] == "francisco sa carneiro"
+    assert normalize_street("Rua Padre Cruz", ["pt"])[0] == "padre cruz"
+    assert normalize_street("вулиця Академіка Корольова", ["uk"])[0] == "korolova"
+
+
 def test_generated_outputs_integrity():
     summary_path = ROOT / "data" / "summary.json"
     if not summary_path.exists():

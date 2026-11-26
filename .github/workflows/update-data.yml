@@ -35,10 +35,13 @@ jobs:
       - name: Build pilot country data from Overture Maps
         run: |
           if [ -n "${{ github.event.inputs.countries }}" ]; then
-            python scripts/build_data.py --countries "${{ github.event.inputs.countries }}"
+            python scripts/build_data.py --countries "${{ github.event.inputs.countries }}" --workers 4
           else
-            python scripts/build_data.py
+            python scripts/build_data.py --workers 4
           fi
+
+      - name: Enrich cities with Wikidata founding years
+        run: python scripts/enrich_wikidata.py
 
       - name: Run tests
         run: pytest -q
