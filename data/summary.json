@@ -1,5 +1,6 @@
 {
-  "updated_at": "2026-11-23",
+  "updated_at": "2026-11-26",
+  "updated_at_iso": "2026-11-26 19:50 UTC",
   "overture_release": "2026-11-18.0",
   "default_metric": "sqrt",
   "min_population": 10000,
@@ -27,21 +28,21 @@
         "de"
       ],
       "cities_count": 1211,
-      "total_city_streets": 396180,
-      "unique_norm_streets": 150921,
-      "pure_exclusive_streets": 121190,
-      "searchable_shared_streets": 29731,
-      "raw_valid_rows": 405301,
-      "mean_rarity_sqrt": 43.4,
-      "median_rarity_sqrt": 42.8,
-      "median_rarity_len_sqrt": 50.2,
+      "total_city_streets": 395584,
+      "unique_norm_streets": 148926,
+      "pure_exclusive_streets": 119008,
+      "searchable_shared_streets": 29918,
+      "raw_valid_rows": 405298,
+      "mean_rarity_sqrt": 42.9,
+      "median_rarity_sqrt": 42.5,
+      "median_rarity_len_sqrt": 50.0,
       "median_cliche_gap": -5.4,
-      "pct_longer_more_generic": 19.1,
-      "mean_rarity_idf": 59.8,
-      "median_rarity_idf": 59.7,
-      "mean_rarity_log": 44.6,
-      "median_rarity_log": 43.9,
-      "mean_exclusive_pct": 27.4,
+      "pct_longer_more_generic": 19.0,
+      "mean_rarity_idf": 59.5,
+      "median_rarity_idf": 59.5,
+      "mean_rarity_log": 44.2,
+      "median_rarity_log": 43.7,
+      "mean_exclusive_pct": 26.9,
       "mean_numbered_pct": 0.05,
       "median_built_area_km2": 8.6,
       "median_muni_area_km2": 41.0,
@@ -51,9 +52,9 @@
       "median_pop_per_street": 87.3,
       "median_pop_per_street_km": 175.7,
       "median_street_m": 238.7,
-      "mean_street_m": 488.7,
-      "spearman_built_area_rarity": 0.397,
-      "spearman_muni_area_rarity": 0.442,
+      "mean_street_m": 489.5,
+      "spearman_built_area_rarity": 0.4,
+      "spearman_muni_area_rarity": 0.447,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.841,
@@ -68,8 +69,8 @@
           "r": 0.585
         },
         "streets_vs_pop": {
-          "exponent": 0.759,
-          "r": 0.755
+          "exponent": 0.758,
+          "r": 0.754
         },
         "street_km_vs_built_area": {
           "exponent": 1.017,
@@ -79,60 +80,60 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 121190,
+          "count": 119008,
           "median_m": 228.2,
-          "mean_m": 572.2
+          "mean_m": 575.3
         },
         {
           "tier": "Rare (2-5)",
-          "count": 60496,
-          "median_m": 237.1,
-          "mean_m": 636.0
+          "count": 60984,
+          "median_m": 236.9,
+          "mean_m": 635.5
         },
         {
           "tier": "Medium (6-20)",
-          "count": 47628,
-          "median_m": 210.0,
-          "mean_m": 487.6
+          "count": 47684,
+          "median_m": 210.4,
+          "mean_m": 488.9
         },
         {
           "tier": "Common (21-100)",
-          "count": 65686,
-          "median_m": 203.6,
-          "mean_m": 396.4
+          "count": 66113,
+          "median_m": 203.8,
+          "mean_m": 396.9
         },
         {
           "tier": "Iconic (>100)",
-          "count": 101180,
-          "median_m": 219.0,
-          "mean_m": 380.3
+          "count": 101795,
+          "median_m": 219.2,
+          "mean_m": 380.9
         }
       ],
       "most_unique_city": {
-        "name": "Brixen - Bressanone",
-        "score_sqrt": 97.6,
-        "streets": 216
+        "name": "Aosta",
+        "score_sqrt": 81.3,
+        "streets": 157
       },
       "most_generic_city": {
         "name": "Muggiò",
-        "score_sqrt": 11.9,
+        "score_sqrt": 11.5,
         "streets": 183
       },
       "top_shared": [
         {
           "key": "roma",
           "name": "Via Roma",
-          "n_cities": 1010,
-          "pct_cities": 83.4,
+          "n_cities": 1014,
+          "pct_cities": 83.7,
           "weight_sqrt": 0.031,
-          "weight_idf": 0.026,
+          "weight_idf": 0.025,
           "weight_log": 0.1
         },
         {
           "key": "giuseppe garibaldi",
           "name": "Via Giuseppe Garibaldi",
-          "n_cities": 897,
-          "pct_cities": 74.1,
+          "n_cities": 901,
+          "pct_cities": 74.4,
           "weight_sqrt": 0.033,
           "weight_idf": 0.042,
           "weight_log": 0.102
@@ -140,10 +141,10 @@
         {
           "key": "guglielmo marconi",
           "name": "Via Guglielmo Marconi",
-          "n_cities": 882,
-          "pct_cities": 72.8,
+          "n_cities": 885,
+          "pct_cities": 73.1,
           "weight_sqrt": 0.034,
-          "weight_idf": 0.045,
+          "weight_idf": 0.044,
           "weight_log": 0.102
         },
         {
@@ -158,8 +159,8 @@
         {
           "key": "giacomo matteotti",
           "name": "Via Giacomo Matteotti",
-          "n_cities": 837,
-          "pct_cities": 69.1,
+          "n_cities": 838,
+          "pct_cities": 69.2,
           "weight_sqrt": 0.035,
           "weight_idf": 0.052,
           "weight_log": 0.103
@@ -167,17 +168,17 @@
         {
           "key": "giuseppe verdi",
           "name": "Via Giuseppe Verdi",
-          "n_cities": 814,
-          "pct_cities": 67.2,
+          "n_cities": 819,
+          "pct_cities": 67.6,
           "weight_sqrt": 0.035,
-          "weight_idf": 0.056,
+          "weight_idf": 0.055,
           "weight_log": 0.103
         },
         {
           "key": "dante alighieri",
           "name": "Via Dante Alighieri",
-          "n_cities": 786,
-          "pct_cities": 64.9,
+          "n_cities": 787,
+          "pct_cities": 65.0,
           "weight_sqrt": 0.036,
           "weight_idf": 0.061,
           "weight_log": 0.104
@@ -194,17 +195,17 @@
         {
           "key": "piave",
           "name": "Via Piave",
-          "n_cities": 771,
-          "pct_cities": 63.7,
+          "n_cities": 773,
+          "pct_cities": 63.8,
           "weight_sqrt": 0.036,
-          "weight_idf": 0.064,
+          "weight_idf": 0.063,
           "weight_log": 0.104
         },
         {
           "key": "alessandro manzoni",
           "name": "Via Alessandro Manzoni",
-          "n_cities": 741,
-          "pct_cities": 61.2,
+          "n_cities": 742,
+          "pct_cities": 61.3,
           "weight_sqrt": 0.037,
           "weight_idf": 0.069,
           "weight_log": 0.105
@@ -212,15 +213,33 @@
         {
           "key": "cesare battisti",
           "name": "Via Cesare Battisti",
-          "n_cities": 712,
-          "pct_cities": 58.8,
+          "n_cities": 715,
+          "pct_cities": 59.0,
           "weight_sqrt": 0.037,
-          "weight_idf": 0.075,
-          "weight_log": 0.106
+          "weight_idf": 0.074,
+          "weight_log": 0.105
         },
         {
           "key": "alcide de gasperi",
           "name": "Via Alcide De Gasperi",
+          "n_cities": 699,
+          "pct_cities": 57.7,
+          "weight_sqrt": 0.038,
+          "weight_idf": 0.077,
+          "weight_log": 0.106
+        },
+        {
+          "key": "giosue carducci",
+          "name": "Via Giosuè Carducci",
+          "n_cities": 699,
+          "pct_cities": 57.7,
+          "weight_sqrt": 0.038,
+          "weight_idf": 0.077,
+          "weight_log": 0.106
+        },
+        {
+          "key": "leonardo da vinci",
+          "name": "Via Leonardo da Vinci",
           "n_cities": 698,
           "pct_cities": 57.6,
           "weight_sqrt": 0.038,
@@ -228,28 +247,10 @@
           "weight_log": 0.106
         },
         {
-          "key": "giosue carducci",
-          "name": "Via Giosuè Carducci",
-          "n_cities": 697,
-          "pct_cities": 57.6,
-          "weight_sqrt": 0.038,
-          "weight_idf": 0.078,
-          "weight_log": 0.106
-        },
-        {
-          "key": "leonardo da vinci",
-          "name": "Via Leonardo da Vinci",
-          "n_cities": 694,
-          "pct_cities": 57.3,
-          "weight_sqrt": 0.038,
-          "weight_idf": 0.078,
-          "weight_log": 0.106
-        },
-        {
           "key": "trieste",
           "name": "Via Trieste",
-          "n_cities": 672,
-          "pct_cities": 55.5,
+          "n_cities": 673,
+          "pct_cities": 55.6,
           "weight_sqrt": 0.039,
           "weight_idf": 0.083,
           "weight_log": 0.106
@@ -278,21 +279,21 @@
         "fr"
       ],
       "cities_count": 967,
-      "total_city_streets": 334518,
-      "unique_norm_streets": 131999,
-      "pure_exclusive_streets": 106384,
-      "searchable_shared_streets": 25615,
+      "total_city_streets": 334311,
+      "unique_norm_streets": 130796,
+      "pure_exclusive_streets": 105099,
+      "searchable_shared_streets": 25697,
       "raw_valid_rows": 354085,
-      "mean_rarity_sqrt": 46.1,
-      "median_rarity_sqrt": 46.2,
-      "median_rarity_len_sqrt": 47.8,
+      "mean_rarity_sqrt": 45.8,
+      "median_rarity_sqrt": 46.0,
+      "median_rarity_len_sqrt": 47.5,
       "median_cliche_gap": -1.3,
-      "pct_longer_more_generic": 38.9,
-      "mean_rarity_idf": 63.2,
-      "median_rarity_idf": 63.1,
-      "mean_rarity_log": 46.9,
-      "median_rarity_log": 46.8,
-      "mean_exclusive_pct": 28.9,
+      "pct_longer_more_generic": 39.6,
+      "mean_rarity_idf": 62.9,
+      "median_rarity_idf": 62.9,
+      "mean_rarity_log": 46.6,
+      "median_rarity_log": 46.6,
+      "mean_exclusive_pct": 28.5,
       "mean_numbered_pct": 0.02,
       "median_built_area_km2": 7.2,
       "median_muni_area_km2": 15.2,
@@ -301,26 +302,26 @@
       "median_street_km_per_km2": 12.21,
       "median_pop_per_street": 75.2,
       "median_pop_per_street_km": 225.3,
-      "median_street_m": 212.6,
+      "median_street_m": 212.7,
       "mean_street_m": 333.8,
-      "spearman_built_area_rarity": 0.54,
-      "spearman_muni_area_rarity": 0.546,
+      "spearman_built_area_rarity": 0.542,
+      "spearman_muni_area_rarity": 0.551,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.869,
-          "r": 0.928
+          "exponent": 0.87,
+          "r": 0.929
         },
         "pop_vs_built_area": {
           "exponent": 0.535,
           "r": 0.511
         },
         "streets_vs_muni_area": {
-          "exponent": 0.431,
-          "r": 0.695
+          "exponent": 0.432,
+          "r": 0.696
         },
         "streets_vs_pop": {
-          "exponent": 0.572,
-          "r": 0.639
+          "exponent": 0.571,
+          "r": 0.638
         },
         "street_km_vs_built_area": {
           "exponent": 0.993,
@@ -330,33 +331,33 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 106384,
-          "median_m": 215.5,
-          "mean_m": 377.4
+          "count": 105099,
+          "median_m": 215.6,
+          "mean_m": 378.1
         },
         {
           "tier": "Rare (2-5)",
-          "count": 51187,
+          "count": 51406,
           "median_m": 211.2,
-          "mean_m": 380.1
+          "mean_m": 379.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 44028,
+          "count": 43993,
           "median_m": 193.3,
-          "mean_m": 331.3
+          "mean_m": 330.9
         },
         {
           "tier": "Common (21-100)",
-          "count": 63598,
-          "median_m": 200.4,
-          "mean_m": 320.0
+          "count": 63542,
+          "median_m": 199.9,
+          "mean_m": 319.1
         },
         {
           "tier": "Iconic (>100)",
-          "count": 69321,
-          "median_m": 219.9,
-          "mean_m": 336.1
+          "count": 70271,
+          "median_m": 220.8,
+          "mean_m": 337.8
         }
       ],
       "most_unique_city": {
@@ -366,15 +367,15 @@
       },
       "most_generic_city": {
         "name": "La Queue-en-Brie",
-        "score_sqrt": 15.5,
+        "score_sqrt": 15.4,
         "streets": 152
       },
       "top_shared": [
         {
           "key": "victor hugo",
           "name": "Rue Victor Hugo",
-          "n_cities": 706,
-          "pct_cities": 73.0,
+          "n_cities": 707,
+          "pct_cities": 73.1,
           "weight_sqrt": 0.038,
           "weight_idf": 0.046,
           "weight_log": 0.106
@@ -409,8 +410,8 @@
         {
           "key": "verdun",
           "name": "Rue de Verdun",
-          "n_cities": 520,
-          "pct_cities": 53.8,
+          "n_cities": 521,
+          "pct_cities": 53.9,
           "weight_sqrt": 0.044,
           "weight_idf": 0.09,
           "weight_log": 0.111
@@ -425,10 +426,10 @@
           "weight_log": 0.111
         },
         {
-          "key": "general de gaulle",
+          "key": "de gaulle",
           "name": "Avenue du Général de Gaulle",
-          "n_cities": 492,
-          "pct_cities": 50.9,
+          "n_cities": 493,
+          "pct_cities": 51.0,
           "weight_sqrt": 0.045,
           "weight_idf": 0.098,
           "weight_log": 0.112
@@ -499,16 +500,16 @@
         {
           "key": "europe",
           "name": "Avenue de l'Europe",
-          "n_cities": 394,
-          "pct_cities": 40.7,
+          "n_cities": 395,
+          "pct_cities": 40.8,
           "weight_sqrt": 0.05,
-          "weight_idf": 0.131,
+          "weight_idf": 0.13,
           "weight_log": 0.116
         }
       ],
       "founded_coverage_pct": 12.7,
       "median_founded_year": 1904,
-      "spearman_founded_rarity": -0.073
+      "spearman_founded_rarity": -0.066
     },
     {
       "code": "DE",
@@ -529,21 +530,21 @@
         "de"
       ],
       "cities_count": 1426,
-      "total_city_streets": 452826,
-      "unique_norm_streets": 155010,
-      "pure_exclusive_streets": 121130,
-      "searchable_shared_streets": 33880,
+      "total_city_streets": 452774,
+      "unique_norm_streets": 154708,
+      "pure_exclusive_streets": 120805,
+      "searchable_shared_streets": 33903,
       "raw_valid_rows": 472449,
       "mean_rarity_sqrt": 42.4,
       "median_rarity_sqrt": 42.8,
-      "median_rarity_len_sqrt": 46.4,
+      "median_rarity_len_sqrt": 46.3,
       "median_cliche_gap": -3.3,
-      "pct_longer_more_generic": 18.6,
+      "pct_longer_more_generic": 18.5,
       "mean_rarity_idf": 59.9,
-      "median_rarity_idf": 60.4,
-      "mean_rarity_log": 43.6,
+      "median_rarity_idf": 60.3,
+      "mean_rarity_log": 43.5,
       "median_rarity_log": 43.8,
-      "mean_exclusive_pct": 25.6,
+      "mean_exclusive_pct": 25.5,
       "mean_numbered_pct": 0.04,
       "median_built_area_km2": 11.0,
       "median_muni_area_km2": 59.9,
@@ -566,7 +567,7 @@
           "r": 0.636
         },
         "streets_vs_muni_area": {
-          "exponent": 0.35,
+          "exponent": 0.349,
           "r": 0.562
         },
         "streets_vs_pop": {
@@ -581,31 +582,31 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 121130,
-          "median_m": 315.3,
-          "mean_m": 585.8
+          "count": 120805,
+          "median_m": 315.4,
+          "mean_m": 586.2
         },
         {
           "tier": "Rare (2-5)",
-          "count": 68693,
-          "median_m": 324.9,
-          "mean_m": 651.1
+          "count": 68747,
+          "median_m": 324.8,
+          "mean_m": 650.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 56984,
-          "median_m": 285.8,
-          "mean_m": 548.0
+          "count": 57022,
+          "median_m": 286.0,
+          "mean_m": 548.3
         },
         {
           "tier": "Common (21-100)",
-          "count": 76466,
-          "median_m": 257.0,
-          "mean_m": 447.2
+          "count": 76407,
+          "median_m": 256.9,
+          "mean_m": 447.3
         },
         {
           "tier": "Iconic (>100)",
-          "count": 129553,
+          "count": 129793,
           "median_m": 273.6,
           "mean_m": 448.7
         }
@@ -642,8 +643,8 @@
         {
           "key": "schul",
           "name": "Schulstraße",
-          "n_cities": 1185,
-          "pct_cities": 83.1,
+          "n_cities": 1186,
+          "pct_cities": 83.2,
           "weight_sqrt": 0.029,
           "weight_idf": 0.025,
           "weight_log": 0.098
@@ -669,10 +670,10 @@
         {
           "key": "kirch",
           "name": "Kirchstraße",
-          "n_cities": 1086,
+          "n_cities": 1087,
           "pct_cities": 76.2,
           "weight_sqrt": 0.03,
-          "weight_idf": 0.038,
+          "weight_idf": 0.037,
           "weight_log": 0.099
         },
         {
@@ -694,15 +695,6 @@
           "weight_log": 0.1
         },
         {
-          "key": "schiller",
-          "name": "Schillerstraße",
-          "n_cities": 977,
-          "pct_cities": 68.5,
-          "weight_sqrt": 0.032,
-          "weight_idf": 0.052,
-          "weight_log": 0.101
-        },
-        {
           "key": "wiesen",
           "name": "Wiesenstraße",
           "n_cities": 977,
@@ -712,10 +704,19 @@
           "weight_log": 0.101
         },
         {
+          "key": "schiller",
+          "name": "Schillerstraße",
+          "n_cities": 977,
+          "pct_cities": 68.5,
+          "weight_sqrt": 0.032,
+          "weight_idf": 0.052,
+          "weight_log": 0.101
+        },
+        {
           "key": "goethe",
           "name": "Goethestraße",
-          "n_cities": 967,
-          "pct_cities": 67.8,
+          "n_cities": 968,
+          "pct_cities": 67.9,
           "weight_sqrt": 0.032,
           "weight_idf": 0.053,
           "weight_log": 0.101
@@ -759,7 +760,7 @@
       ],
       "founded_coverage_pct": 14.4,
       "median_founded_year": 1300,
-      "spearman_founded_rarity": -0.027
+      "spearman_founded_rarity": -0.028
     },
     {
       "code": "ES",
@@ -783,36 +784,36 @@
         "gl"
       ],
       "cities_count": 657,
-      "total_city_streets": 301494,
-      "unique_norm_streets": 134524,
-      "pure_exclusive_streets": 107830,
-      "searchable_shared_streets": 26694,
-      "raw_valid_rows": 361413,
-      "mean_rarity_sqrt": 53.0,
-      "median_rarity_sqrt": 50.0,
-      "median_rarity_len_sqrt": 54.2,
-      "median_cliche_gap": -2.9,
-      "pct_longer_more_generic": 28.2,
-      "mean_rarity_idf": 69.5,
-      "median_rarity_idf": 67.6,
-      "mean_rarity_log": 52.8,
-      "median_rarity_log": 49.9,
-      "mean_exclusive_pct": 33.9,
+      "total_city_streets": 301058,
+      "unique_norm_streets": 132513,
+      "pure_exclusive_streets": 105603,
+      "searchable_shared_streets": 26910,
+      "raw_valid_rows": 361407,
+      "mean_rarity_sqrt": 52.5,
+      "median_rarity_sqrt": 49.3,
+      "median_rarity_len_sqrt": 53.9,
+      "median_cliche_gap": -3.1,
+      "pct_longer_more_generic": 28.0,
+      "mean_rarity_idf": 69.2,
+      "median_rarity_idf": 67.3,
+      "mean_rarity_log": 52.3,
+      "median_rarity_log": 49.2,
+      "mean_exclusive_pct": 33.3,
       "mean_numbered_pct": 0.35,
       "median_built_area_km2": 6.9,
       "median_muni_area_km2": 64.3,
       "median_built_share_pct": 13.3,
       "median_pop_density": 3578.4,
       "median_street_km_per_km2": 15.23,
-      "median_pop_per_street": 83.3,
+      "median_pop_per_street": 83.4,
       "median_pop_per_street_km": 220.7,
-      "median_street_m": 199.9,
-      "mean_street_m": 377.5,
-      "spearman_built_area_rarity": 0.238,
-      "spearman_muni_area_rarity": 0.172,
+      "median_street_m": 200.1,
+      "mean_street_m": 377.6,
+      "spearman_built_area_rarity": 0.242,
+      "spearman_muni_area_rarity": 0.174,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.824,
+          "exponent": 0.823,
           "r": 0.877
         },
         "pop_vs_built_area": {
@@ -835,33 +836,33 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 107830,
-          "median_m": 200.7,
-          "mean_m": 448.3
+          "count": 105603,
+          "median_m": 201.3,
+          "mean_m": 451.9
         },
         {
           "tier": "Rare (2-5)",
-          "count": 53114,
-          "median_m": 198.5,
-          "mean_m": 446.5
+          "count": 53671,
+          "median_m": 198.4,
+          "mean_m": 444.9
         },
         {
           "tier": "Medium (6-20)",
-          "count": 51836,
-          "median_m": 196.0,
-          "mean_m": 365.0
+          "count": 52199,
+          "median_m": 195.9,
+          "mean_m": 364.7
         },
         {
           "tier": "Common (21-100)",
-          "count": 64305,
-          "median_m": 197.5,
-          "mean_m": 371.8
+          "count": 64451,
+          "median_m": 197.6,
+          "mean_m": 371.9
         },
         {
           "tier": "Iconic (>100)",
-          "count": 24409,
-          "median_m": 210.2,
-          "mean_m": 394.8
+          "count": 25134,
+          "median_m": 210.5,
+          "mean_m": 395.0
         }
       ],
       "most_unique_city": {
@@ -871,15 +872,24 @@
       },
       "most_generic_city": {
         "name": "Arroyomolinos",
-        "score_sqrt": 24.9,
+        "score_sqrt": 24.8,
         "streets": 245
       },
       "top_shared": [
         {
           "key": "cervantes",
           "name": "Calle Cervantes",
-          "n_cities": 349,
-          "pct_cities": 53.1,
+          "n_cities": 350,
+          "pct_cities": 53.3,
+          "weight_sqrt": 0.053,
+          "weight_idf": 0.097,
+          "weight_log": 0.118
+        },
+        {
+          "key": "fleming",
+          "name": "Calle Doctor Fleming",
+          "n_cities": 348,
+          "pct_cities": 53.0,
           "weight_sqrt": 0.054,
           "weight_idf": 0.098,
           "weight_log": 0.118
@@ -887,26 +897,35 @@
         {
           "key": "ramon y cajal",
           "name": "Calle Ramón y Cajal",
-          "n_cities": 335,
-          "pct_cities": 51.0,
-          "weight_sqrt": 0.055,
-          "weight_idf": 0.104,
+          "n_cities": 345,
+          "pct_cities": 52.5,
+          "weight_sqrt": 0.054,
+          "weight_idf": 0.099,
           "weight_log": 0.119
         },
         {
-          "key": "doctor fleming",
-          "name": "Calle Doctor Fleming",
-          "n_cities": 322,
-          "pct_cities": 49.0,
-          "weight_sqrt": 0.056,
-          "weight_idf": 0.11,
-          "weight_log": 0.12
+          "key": "velazquez",
+          "name": "Calle Velázquez",
+          "n_cities": 300,
+          "pct_cities": 45.7,
+          "weight_sqrt": 0.058,
+          "weight_idf": 0.121,
+          "weight_log": 0.121
+        },
+        {
+          "key": "goya",
+          "name": "Calle Goya",
+          "n_cities": 282,
+          "pct_cities": 42.9,
+          "weight_sqrt": 0.06,
+          "weight_idf": 0.13,
+          "weight_log": 0.123
         },
         {
           "key": "sol",
           "name": "Calle Sol",
-          "n_cities": 280,
-          "pct_cities": 42.6,
+          "n_cities": 281,
+          "pct_cities": 42.8,
           "weight_sqrt": 0.06,
           "weight_idf": 0.131,
           "weight_log": 0.123
@@ -914,26 +933,17 @@
         {
           "key": "antonio machado",
           "name": "Calle Antonio Machado",
-          "n_cities": 272,
-          "pct_cities": 41.4,
-          "weight_sqrt": 0.061,
-          "weight_idf": 0.136,
-          "weight_log": 0.124
-        },
-        {
-          "key": "velazquez",
-          "name": "Calle Velázquez",
-          "n_cities": 270,
-          "pct_cities": 41.1,
-          "weight_sqrt": 0.061,
-          "weight_idf": 0.137,
-          "weight_log": 0.124
+          "n_cities": 278,
+          "pct_cities": 42.3,
+          "weight_sqrt": 0.06,
+          "weight_idf": 0.133,
+          "weight_log": 0.123
         },
         {
           "key": "valencia",
           "name": "Calle Valencia",
-          "n_cities": 268,
-          "pct_cities": 40.8,
+          "n_cities": 269,
+          "pct_cities": 40.9,
           "weight_sqrt": 0.061,
           "weight_idf": 0.138,
           "weight_log": 0.124
@@ -948,26 +958,35 @@
           "weight_log": 0.124
         },
         {
-          "key": "goya",
-          "name": "Calle Goya",
-          "n_cities": 260,
-          "pct_cities": 39.6,
+          "key": "murillo",
+          "name": "Calle Murillo",
+          "n_cities": 263,
+          "pct_cities": 40.0,
           "weight_sqrt": 0.062,
-          "weight_idf": 0.143,
+          "weight_idf": 0.141,
+          "weight_log": 0.124
+        },
+        {
+          "key": "miguel hernandez",
+          "name": "Calle Miguel Hernández",
+          "n_cities": 262,
+          "pct_cities": 39.9,
+          "weight_sqrt": 0.062,
+          "weight_idf": 0.142,
+          "weight_log": 0.124
+        },
+        {
+          "key": "juan ramon jimenez",
+          "name": "Calle Juan Ramón Jiménez",
+          "n_cities": 258,
+          "pct_cities": 39.3,
+          "weight_sqrt": 0.062,
+          "weight_idf": 0.144,
           "weight_log": 0.125
         },
         {
           "key": "lope de vega",
           "name": "Calle Lope de Vega",
-          "n_cities": 253,
-          "pct_cities": 38.5,
-          "weight_sqrt": 0.063,
-          "weight_idf": 0.147,
-          "weight_log": 0.125
-        },
-        {
-          "key": "juan ramon jimenez",
-          "name": "Calle Juan Ramón Jiménez",
           "n_cities": 253,
           "pct_cities": 38.5,
           "weight_sqrt": 0.063,
@@ -984,36 +1003,18 @@
           "weight_log": 0.126
         },
         {
-          "key": "constitucion",
-          "name": "Plaza de la Constitución",
-          "n_cities": 246,
-          "pct_cities": 37.4,
-          "weight_sqrt": 0.064,
-          "weight_idf": 0.151,
-          "weight_log": 0.126
-        },
-        {
           "key": "federico garcia lorca",
           "name": "Calle Federico García Lorca",
-          "n_cities": 244,
-          "pct_cities": 37.1,
+          "n_cities": 247,
+          "pct_cities": 37.6,
           "weight_sqrt": 0.064,
-          "weight_idf": 0.153,
-          "weight_log": 0.126
-        },
-        {
-          "key": "miguel hernandez",
-          "name": "Calle Miguel Hernández",
-          "n_cities": 239,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.065,
-          "weight_idf": 0.156,
+          "weight_idf": 0.151,
           "weight_log": 0.126
         }
       ],
       "founded_coverage_pct": 12.9,
       "median_founded_year": 1268,
-      "spearman_founded_rarity": 0.192
+      "spearman_founded_rarity": 0.191
     },
     {
       "code": "CH",
@@ -1036,21 +1037,21 @@
         "it"
       ],
       "cities_count": 146,
-      "total_city_streets": 28167,
-      "unique_norm_streets": 16643,
-      "pure_exclusive_streets": 13491,
-      "searchable_shared_streets": 3152,
+      "total_city_streets": 28141,
+      "unique_norm_streets": 16458,
+      "pure_exclusive_streets": 13284,
+      "searchable_shared_streets": 3174,
       "raw_valid_rows": 29439,
-      "mean_rarity_sqrt": 66.8,
+      "mean_rarity_sqrt": 66.5,
       "median_rarity_sqrt": 64.0,
-      "median_rarity_len_sqrt": 66.3,
+      "median_rarity_len_sqrt": 66.0,
       "median_cliche_gap": -0.8,
-      "pct_longer_more_generic": 39.0,
-      "mean_rarity_idf": 76.6,
-      "median_rarity_idf": 74.0,
-      "mean_rarity_log": 64.9,
+      "pct_longer_more_generic": 40.4,
+      "mean_rarity_idf": 76.3,
+      "median_rarity_idf": 73.8,
+      "mean_rarity_log": 64.6,
       "median_rarity_log": 62.3,
-      "mean_exclusive_pct": 44.2,
+      "mean_exclusive_pct": 43.8,
       "mean_numbered_pct": 0.01,
       "median_built_area_km2": 5.6,
       "median_muni_area_km2": 15.3,
@@ -1061,24 +1062,24 @@
       "median_pop_per_street_km": 260.9,
       "median_street_m": 271.8,
       "mean_street_m": 438.1,
-      "spearman_built_area_rarity": 0.338,
-      "spearman_muni_area_rarity": 0.343,
+      "spearman_built_area_rarity": 0.326,
+      "spearman_muni_area_rarity": 0.339,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.903,
-          "r": 0.904
+          "exponent": 0.902,
+          "r": 0.905
         },
         "pop_vs_built_area": {
           "exponent": 0.894,
           "r": 0.77
         },
         "streets_vs_muni_area": {
-          "exponent": 0.41,
+          "exponent": 0.409,
           "r": 0.636
         },
         "streets_vs_pop": {
-          "exponent": 0.721,
-          "r": 0.839
+          "exponent": 0.719,
+          "r": 0.838
         },
         "street_km_vs_built_area": {
           "exponent": 1.033,
@@ -1088,33 +1089,33 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 13491,
-          "median_m": 268.5,
-          "mean_m": 457.1
+          "count": 13284,
+          "median_m": 268.4,
+          "mean_m": 458.2
         },
         {
           "tier": "Rare (2-5)",
-          "count": 6770,
-          "median_m": 267.9,
-          "mean_m": 467.2
+          "count": 6819,
+          "median_m": 269.1,
+          "mean_m": 467.9
         },
         {
           "tier": "Medium (6-20)",
-          "count": 4646,
-          "median_m": 250.9,
-          "mean_m": 443.7
+          "count": 4719,
+          "median_m": 251.2,
+          "mean_m": 442.5
         },
         {
           "tier": "Common (21-100)",
-          "count": 3260,
-          "median_m": 246.6,
-          "mean_m": 404.7
+          "count": 3319,
+          "median_m": 247.0,
+          "mean_m": 405.1
         }
       ],
       "most_unique_city": {
-        "name": "Biel/Bienne",
-        "score_sqrt": 97.2,
-        "streets": 346
+        "name": "Bellinzona",
+        "score_sqrt": 94.5,
+        "streets": 530
       },
       "most_generic_city": {
         "name": "Birsfelden",
@@ -1134,29 +1135,29 @@
         {
           "key": "garten",
           "name": "Gartenstrasse",
-          "n_cities": 82,
-          "pct_cities": 56.2,
+          "n_cities": 83,
+          "pct_cities": 56.8,
           "weight_sqrt": 0.11,
-          "weight_idf": 0.116,
-          "weight_log": 0.157
+          "weight_idf": 0.113,
+          "weight_log": 0.156
         },
         {
           "key": "industrie",
           "name": "Industriestrasse",
-          "n_cities": 74,
-          "pct_cities": 50.7,
-          "weight_sqrt": 0.116,
-          "weight_idf": 0.136,
-          "weight_log": 0.161
+          "n_cities": 75,
+          "pct_cities": 51.4,
+          "weight_sqrt": 0.115,
+          "weight_idf": 0.134,
+          "weight_log": 0.16
         },
         {
           "key": "birken",
           "name": "Birkenweg",
-          "n_cities": 70,
-          "pct_cities": 47.9,
-          "weight_sqrt": 0.12,
-          "weight_idf": 0.148,
-          "weight_log": 0.163
+          "n_cities": 71,
+          "pct_cities": 48.6,
+          "weight_sqrt": 0.119,
+          "weight_idf": 0.145,
+          "weight_log": 0.162
         },
         {
           "key": "kirch",
@@ -1170,11 +1171,20 @@
         {
           "key": "linden",
           "name": "Lindenstrasse",
-          "n_cities": 62,
-          "pct_cities": 42.5,
-          "weight_sqrt": 0.127,
-          "weight_idf": 0.172,
-          "weight_log": 0.167
+          "n_cities": 64,
+          "pct_cities": 43.8,
+          "weight_sqrt": 0.125,
+          "weight_idf": 0.165,
+          "weight_log": 0.166
+        },
+        {
+          "key": "halden",
+          "name": "Haldenstrasse",
+          "n_cities": 60,
+          "pct_cities": 41.1,
+          "weight_sqrt": 0.129,
+          "weight_idf": 0.178,
+          "weight_log": 0.169
         },
         {
           "key": "rosen",
@@ -1183,15 +1193,6 @@
           "pct_cities": 41.1,
           "weight_sqrt": 0.129,
           "weight_idf": 0.178,
-          "weight_log": 0.169
-        },
-        {
-          "key": "halden",
-          "name": "Haldenstrasse",
-          "n_cities": 59,
-          "pct_cities": 40.4,
-          "weight_sqrt": 0.13,
-          "weight_idf": 0.182,
           "weight_log": 0.169
         },
         {
@@ -1213,6 +1214,15 @@
           "weight_log": 0.17
         },
         {
+          "key": "post",
+          "name": "Poststrasse",
+          "n_cities": 56,
+          "pct_cities": 38.4,
+          "weight_sqrt": 0.134,
+          "weight_idf": 0.192,
+          "weight_log": 0.171
+        },
+        {
           "key": "dorf",
           "name": "Dorfstrasse",
           "n_cities": 55,
@@ -1222,8 +1232,8 @@
           "weight_log": 0.172
         },
         {
-          "key": "post",
-          "name": "Poststrasse",
+          "key": "blumen",
+          "name": "Blumenweg",
           "n_cities": 55,
           "pct_cities": 37.7,
           "weight_sqrt": 0.135,
@@ -1231,22 +1241,13 @@
           "weight_log": 0.172
         },
         {
-          "key": "blumen",
-          "name": "Blumenweg",
+          "key": "erlen",
+          "name": "Erlenweg",
           "n_cities": 54,
           "pct_cities": 37.0,
           "weight_sqrt": 0.136,
           "weight_idf": 0.2,
           "weight_log": 0.173
-        },
-        {
-          "key": "erlen",
-          "name": "Erlenweg",
-          "n_cities": 53,
-          "pct_cities": 36.3,
-          "weight_sqrt": 0.137,
-          "weight_idf": 0.203,
-          "weight_log": 0.174
         },
         {
           "key": "berg",
@@ -1260,7 +1261,7 @@
       ],
       "founded_coverage_pct": 13.0,
       "median_founded_year": 1080,
-      "spearman_founded_rarity": -0.196
+      "spearman_founded_rarity": -0.235
     },
     {
       "code": "PL",
@@ -1281,21 +1282,21 @@
         "pl"
       ],
       "cities_count": 847,
-      "total_city_streets": 178444,
-      "unique_norm_streets": 33954,
-      "pure_exclusive_streets": 24149,
-      "searchable_shared_streets": 9805,
+      "total_city_streets": 178383,
+      "unique_norm_streets": 33309,
+      "pure_exclusive_streets": 23522,
+      "searchable_shared_streets": 9787,
       "raw_valid_rows": 191005,
-      "mean_rarity_sqrt": 24.4,
-      "median_rarity_sqrt": 23.0,
-      "median_rarity_len_sqrt": 24.7,
+      "mean_rarity_sqrt": 24.1,
+      "median_rarity_sqrt": 22.8,
+      "median_rarity_len_sqrt": 24.4,
       "median_cliche_gap": -0.4,
       "pct_longer_more_generic": 44.9,
-      "mean_rarity_idf": 39.4,
-      "median_rarity_idf": 38.3,
-      "mean_rarity_log": 27.6,
-      "median_rarity_log": 26.4,
-      "mean_exclusive_pct": 11.2,
+      "mean_rarity_idf": 39.1,
+      "median_rarity_idf": 37.8,
+      "mean_rarity_log": 27.4,
+      "median_rarity_log": 26.2,
+      "mean_exclusive_pct": 10.9,
       "mean_numbered_pct": 0.02,
       "median_built_area_km2": 8.4,
       "median_muni_area_km2": 112.3,
@@ -1304,10 +1305,10 @@
       "median_street_km_per_km2": 11.69,
       "median_pop_per_street": 142.4,
       "median_pop_per_street_km": 217.9,
-      "median_street_m": 357.5,
-      "mean_street_m": 664.0,
-      "spearman_built_area_rarity": 0.353,
-      "spearman_muni_area_rarity": -0.175,
+      "median_street_m": 358.2,
+      "mean_street_m": 664.8,
+      "spearman_built_area_rarity": 0.358,
+      "spearman_muni_area_rarity": -0.17,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.924,
@@ -1333,33 +1334,33 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 24149,
-          "median_m": 327.6,
-          "mean_m": 613.1
+          "count": 23522,
+          "median_m": 330.1,
+          "mean_m": 618.4
         },
         {
           "tier": "Rare (2-5)",
-          "count": 17635,
-          "median_m": 355.4,
-          "mean_m": 706.8
+          "count": 17620,
+          "median_m": 355.7,
+          "mean_m": 705.9
         },
         {
           "tier": "Medium (6-20)",
-          "count": 22040,
-          "median_m": 332.2,
-          "mean_m": 667.3
+          "count": 21843,
+          "median_m": 331.2,
+          "mean_m": 667.0
         },
         {
           "tier": "Common (21-100)",
-          "count": 38433,
-          "median_m": 319.6,
-          "mean_m": 579.3
+          "count": 38149,
+          "median_m": 318.0,
+          "mean_m": 578.4
         },
         {
           "tier": "Iconic (>100)",
-          "count": 76187,
-          "median_m": 380.1,
-          "mean_m": 707.8
+          "count": 77249,
+          "median_m": 379.7,
+          "mean_m": 706.1
         }
       ],
       "most_unique_city": {
@@ -1464,6 +1465,15 @@
           "weight_log": 0.108
         },
         {
+          "key": "tadeusza kosciuszki",
+          "name": "Tadeusza Kościuszki",
+          "n_cities": 591,
+          "pct_cities": 69.8,
+          "weight_sqrt": 0.041,
+          "weight_idf": 0.053,
+          "weight_log": 0.109
+        },
+        {
           "key": "akacjowa",
           "name": "Akacjowa",
           "n_cities": 590,
@@ -1491,15 +1501,6 @@
           "weight_log": 0.109
         },
         {
-          "key": "tadeusza kosciuszki",
-          "name": "Tadeusza Kościuszki",
-          "n_cities": 577,
-          "pct_cities": 68.1,
-          "weight_sqrt": 0.042,
-          "weight_idf": 0.057,
-          "weight_log": 0.109
-        },
-        {
           "key": "lakowa",
           "name": "Łąkowa",
           "n_cities": 568,
@@ -1511,7 +1512,7 @@
       ],
       "founded_coverage_pct": 15.9,
       "median_founded_year": 1296,
-      "spearman_founded_rarity": -0.111
+      "spearman_founded_rarity": -0.103
     },
     {
       "code": "IL",
@@ -1533,21 +1534,21 @@
         "ar"
       ],
       "cities_count": 66,
-      "total_city_streets": 21258,
-      "unique_norm_streets": 9654,
-      "pure_exclusive_streets": 6843,
-      "searchable_shared_streets": 2811,
+      "total_city_streets": 21224,
+      "unique_norm_streets": 9498,
+      "pure_exclusive_streets": 6683,
+      "searchable_shared_streets": 2815,
       "raw_valid_rows": 22701,
-      "mean_rarity_sqrt": 57.9,
-      "median_rarity_sqrt": 53.5,
-      "median_rarity_len_sqrt": 51.6,
-      "median_cliche_gap": 2.8,
+      "mean_rarity_sqrt": 57.4,
+      "median_rarity_sqrt": 52.9,
+      "median_rarity_len_sqrt": 51.4,
+      "median_cliche_gap": 3.0,
       "pct_longer_more_generic": 80.3,
-      "mean_rarity_idf": 66.1,
-      "median_rarity_idf": 62.5,
-      "mean_rarity_log": 55.4,
-      "median_rarity_log": 50.7,
-      "mean_exclusive_pct": 30.5,
+      "mean_rarity_idf": 65.6,
+      "median_rarity_idf": 62.3,
+      "mean_rarity_log": 55.0,
+      "median_rarity_log": 50.5,
+      "mean_exclusive_pct": 30.0,
       "mean_numbered_pct": 1.79,
       "median_built_area_km2": 7.4,
       "median_muni_area_km2": 16.2,
@@ -1558,12 +1559,12 @@
       "median_pop_per_street_km": 602.7,
       "median_street_m": 241.0,
       "mean_street_m": 372.4,
-      "spearman_built_area_rarity": 0.181,
-      "spearman_muni_area_rarity": 0.321,
+      "spearman_built_area_rarity": 0.188,
+      "spearman_muni_area_rarity": 0.337,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 1.062,
-          "r": 0.929
+          "exponent": 1.064,
+          "r": 0.93
         },
         "pop_vs_built_area": {
           "exponent": 0.844,
@@ -1574,8 +1575,8 @@
           "r": 0.467
         },
         "streets_vs_pop": {
-          "exponent": 0.73,
-          "r": 0.705
+          "exponent": 0.728,
+          "r": 0.703
         },
         "street_km_vs_built_area": {
           "exponent": 1.043,
@@ -1585,27 +1586,27 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 6843,
-          "median_m": 205.2,
-          "mean_m": 323.9
+          "count": 6683,
+          "median_m": 205.1,
+          "mean_m": 324.3
         },
         {
           "tier": "Rare (2-5)",
-          "count": 5745,
-          "median_m": 228.0,
-          "mean_m": 349.6
+          "count": 5751,
+          "median_m": 226.4,
+          "mean_m": 347.1
         },
         {
           "tier": "Medium (6-20)",
-          "count": 6884,
+          "count": 6962,
           "median_m": 248.6,
-          "mean_m": 384.3
+          "mean_m": 385.5
         },
         {
           "tier": "Common (21-100)",
-          "count": 1786,
-          "median_m": 352.0,
-          "mean_m": 547.8
+          "count": 1828,
+          "median_m": 354.1,
+          "mean_m": 547.9
         }
       ],
       "most_unique_city": {
@@ -1615,7 +1616,7 @@
       },
       "most_generic_city": {
         "name": "Kiryat Bialik",
-        "score_sqrt": 38.2,
+        "score_sqrt": 38.0,
         "streets": 86
       },
       "top_shared": [
@@ -1674,6 +1675,15 @@
           "weight_log": 0.192
         },
         {
+          "key": "הרצוג",
+          "name": "הרב הרצוג",
+          "n_cities": 35,
+          "pct_cities": 53.0,
+          "weight_sqrt": 0.169,
+          "weight_idf": 0.151,
+          "weight_log": 0.193
+        },
+        {
           "key": "הזית",
           "name": "הזית",
           "n_cities": 35,
@@ -1681,6 +1691,15 @@
           "weight_sqrt": 0.169,
           "weight_idf": 0.151,
           "weight_log": 0.193
+        },
+        {
+          "key": "יהודה הלוי",
+          "name": "יהודה הלוי",
+          "n_cities": 34,
+          "pct_cities": 51.5,
+          "weight_sqrt": 0.171,
+          "weight_idf": 0.158,
+          "weight_log": 0.195
         },
         {
           "key": "מנחם בגין",
@@ -1692,13 +1711,13 @@
           "weight_log": 0.197
         },
         {
-          "key": "יהודה הלוי",
-          "name": "יהודה הלוי",
-          "n_cities": 33,
-          "pct_cities": 50.0,
-          "weight_sqrt": 0.174,
-          "weight_idf": 0.165,
-          "weight_log": 0.197
+          "key": "הרימון",
+          "name": "הרימון",
+          "n_cities": 32,
+          "pct_cities": 48.5,
+          "weight_sqrt": 0.177,
+          "weight_idf": 0.173,
+          "weight_log": 0.198
         },
         {
           "key": "חנה סנש",
@@ -1710,17 +1729,8 @@
           "weight_log": 0.198
         },
         {
-          "key": "הרימון",
-          "name": "הרימון",
-          "n_cities": 32,
-          "pct_cities": 48.5,
-          "weight_sqrt": 0.177,
-          "weight_idf": 0.173,
-          "weight_log": 0.198
-        },
-        {
-          "key": "יצחק שדה",
-          "name": "יצחק שדה",
+          "key": "העצמאות",
+          "name": "העצמאות",
           "n_cities": 31,
           "pct_cities": 47.0,
           "weight_sqrt": 0.18,
@@ -1728,8 +1738,8 @@
           "weight_log": 0.2
         },
         {
-          "key": "העצמאות",
-          "name": "העצמאות",
+          "key": "יצחק שדה",
+          "name": "יצחק שדה",
           "n_cities": 31,
           "pct_cities": 47.0,
           "weight_sqrt": 0.18,
@@ -1744,20 +1754,11 @@
           "weight_sqrt": 0.183,
           "weight_idf": 0.188,
           "weight_log": 0.202
-        },
-        {
-          "key": "קרן היסוד",
-          "name": "קרן היסוד",
-          "n_cities": 30,
-          "pct_cities": 45.5,
-          "weight_sqrt": 0.183,
-          "weight_idf": 0.188,
-          "weight_log": 0.202
         }
       ],
       "founded_coverage_pct": 89.4,
       "median_founded_year": 1934,
-      "spearman_founded_rarity": -0.117
+      "spearman_founded_rarity": -0.118
     },
     {
       "code": "RS",
@@ -1778,36 +1779,36 @@
         "sr"
       ],
       "cities_count": 128,
-      "total_city_streets": 57653,
-      "unique_norm_streets": 27051,
-      "pure_exclusive_streets": 20260,
-      "searchable_shared_streets": 6791,
+      "total_city_streets": 57561,
+      "unique_norm_streets": 26796,
+      "pure_exclusive_streets": 19994,
+      "searchable_shared_streets": 6802,
       "raw_valid_rows": 64502,
-      "mean_rarity_sqrt": 55.5,
-      "median_rarity_sqrt": 54.8,
-      "median_rarity_len_sqrt": 49.8,
+      "mean_rarity_sqrt": 55.2,
+      "median_rarity_sqrt": 54.4,
+      "median_rarity_len_sqrt": 49.0,
       "median_cliche_gap": 4.4,
       "pct_longer_more_generic": 75.8,
-      "mean_rarity_idf": 63.4,
-      "median_rarity_idf": 63.0,
-      "mean_rarity_log": 54.8,
+      "mean_rarity_idf": 63.2,
+      "median_rarity_idf": 62.8,
+      "mean_rarity_log": 54.5,
       "median_rarity_log": 54.0,
-      "mean_exclusive_pct": 34.9,
+      "mean_exclusive_pct": 34.6,
       "mean_numbered_pct": 0.31,
       "median_built_area_km2": 35.0,
       "median_muni_area_km2": 465.2,
       "median_built_share_pct": 7.2,
       "median_pop_density": 984.2,
       "median_street_km_per_km2": 13.61,
-      "median_pop_per_street": 97.7,
+      "median_pop_per_street": 98.0,
       "median_pop_per_street_km": 72.9,
-      "median_street_m": 618.2,
+      "median_street_m": 618.6,
       "mean_street_m": 1452.9,
-      "spearman_built_area_rarity": 0.336,
-      "spearman_muni_area_rarity": 0.169,
+      "spearman_built_area_rarity": 0.331,
+      "spearman_muni_area_rarity": 0.167,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.984,
+          "exponent": 0.983,
           "r": 0.85
         },
         "pop_vs_built_area": {
@@ -1815,12 +1816,12 @@
           "r": 0.623
         },
         "streets_vs_muni_area": {
-          "exponent": 0.367,
-          "r": 0.259
+          "exponent": 0.366,
+          "r": 0.258
         },
         "streets_vs_pop": {
           "exponent": 0.673,
-          "r": 0.768
+          "r": 0.769
         },
         "street_km_vs_built_area": {
           "exponent": 0.942,
@@ -1830,27 +1831,27 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 20260,
-          "median_m": 499.8,
-          "mean_m": 1171.9
+          "count": 19994,
+          "median_m": 501.2,
+          "mean_m": 1177.7
         },
         {
           "tier": "Rare (2-5)",
-          "count": 14105,
-          "median_m": 373.2,
-          "mean_m": 953.6
+          "count": 14169,
+          "median_m": 373.4,
+          "mean_m": 951.2
         },
         {
           "tier": "Medium (6-20)",
-          "count": 9209,
-          "median_m": 401.5,
-          "mean_m": 1020.8
+          "count": 9220,
+          "median_m": 399.2,
+          "mean_m": 1017.5
         },
         {
           "tier": "Common (21-100)",
-          "count": 13531,
-          "median_m": 612.2,
-          "mean_m": 1633.2
+          "count": 13630,
+          "median_m": 612.9,
+          "mean_m": 1635.3
         },
         {
           "tier": "Iconic (>100)",
@@ -1866,7 +1867,7 @@
       },
       "most_generic_city": {
         "name": "Vladimirci",
-        "score_sqrt": 25.6,
+        "score_sqrt": 25.4,
         "streets": 67
       },
       "top_shared": [
@@ -2029,33 +2030,33 @@
         "sr"
       ],
       "cities_count": 38,
-      "total_city_streets": 12174,
-      "unique_norm_streets": 8300,
-      "pure_exclusive_streets": 6858,
-      "searchable_shared_streets": 1442,
-      "raw_valid_rows": 16273,
-      "mean_rarity_sqrt": 70.7,
-      "median_rarity_sqrt": 70.2,
-      "median_rarity_len_sqrt": 66.2,
-      "median_cliche_gap": 1.6,
-      "pct_longer_more_generic": 76.3,
-      "mean_rarity_idf": 73.5,
-      "median_rarity_idf": 73.0,
-      "mean_rarity_log": 68.4,
+      "total_city_streets": 12162,
+      "unique_norm_streets": 8274,
+      "pure_exclusive_streets": 6839,
+      "searchable_shared_streets": 1435,
+      "raw_valid_rows": 16271,
+      "mean_rarity_sqrt": 70.4,
+      "median_rarity_sqrt": 70.1,
+      "median_rarity_len_sqrt": 65.6,
+      "median_cliche_gap": 1.8,
+      "pct_longer_more_generic": 73.7,
+      "mean_rarity_idf": 73.2,
+      "median_rarity_idf": 72.8,
+      "mean_rarity_log": 68.2,
       "median_rarity_log": 67.2,
-      "mean_exclusive_pct": 47.8,
+      "mean_exclusive_pct": 47.6,
       "mean_numbered_pct": 0.12,
       "median_built_area_km2": 8.6,
       "median_muni_area_km2": 38.0,
       "median_built_share_pct": 30.5,
       "median_pop_density": 3088.1,
       "median_street_km_per_km2": 11.6,
-      "median_pop_per_street": 129.8,
-      "median_pop_per_street_km": 251.8,
+      "median_pop_per_street": 129.9,
+      "median_pop_per_street_km": 253.2,
       "median_street_m": 327.2,
-      "mean_street_m": 538.8,
-      "spearman_built_area_rarity": 0.279,
-      "spearman_muni_area_rarity": 0.148,
+      "mean_street_m": 539.4,
+      "spearman_built_area_rarity": 0.284,
+      "spearman_muni_area_rarity": 0.151,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.976,
@@ -2066,7 +2067,7 @@
           "r": 0.833
         },
         "streets_vs_muni_area": {
-          "exponent": 0.743,
+          "exponent": 0.742,
           "r": 0.747
         },
         "streets_vs_pop": {
@@ -2081,40 +2082,49 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 6858,
-          "median_m": 262.6,
-          "mean_m": 488.6
+          "count": 6839,
+          "median_m": 262.5,
+          "mean_m": 488.5
         },
         {
           "tier": "Rare (2-5)",
-          "count": 3126,
-          "median_m": 303.4,
-          "mean_m": 530.7
+          "count": 3112,
+          "median_m": 302.7,
+          "mean_m": 529.9
         },
         {
           "tier": "Medium (6-20)",
-          "count": 1736,
-          "median_m": 335.9,
-          "mean_m": 598.0
+          "count": 1730,
+          "median_m": 334.5,
+          "mean_m": 601.2
         },
         {
           "tier": "Common (21-100)",
-          "count": 454,
-          "median_m": 465.6,
-          "mean_m": 769.7
+          "count": 481,
+          "median_m": 466.3,
+          "mean_m": 758.2
         }
       ],
       "most_unique_city": {
         "name": "Brezovica",
-        "score_sqrt": 95.2,
+        "score_sqrt": 95.1,
         "streets": 286
       },
       "most_generic_city": {
         "name": "Kutina",
-        "score_sqrt": 48.2,
+        "score_sqrt": 47.8,
         "streets": 104
       },
       "top_shared": [
+        {
+          "key": "ante starcevica",
+          "name": "Ulica Ante Starčevića",
+          "n_cities": 32,
+          "pct_cities": 84.2,
+          "weight_sqrt": 0.177,
+          "weight_idf": 0.047,
+          "weight_log": 0.198
+        },
         {
           "key": "zagrebacka",
           "name": "Zagrebačka ulica",
@@ -2143,24 +2153,6 @@
           "weight_log": 0.206
         },
         {
-          "key": "ivana gundulica",
-          "name": "Ulica Ivana Gundulića",
-          "n_cities": 26,
-          "pct_cities": 68.4,
-          "weight_sqrt": 0.196,
-          "weight_idf": 0.104,
-          "weight_log": 0.21
-        },
-        {
-          "key": "antuna gustava matosa",
-          "name": "Ulica Antuna Gustava Matoša",
-          "n_cities": 26,
-          "pct_cities": 68.4,
-          "weight_sqrt": 0.196,
-          "weight_idf": 0.104,
-          "weight_log": 0.21
-        },
-        {
           "key": "ivana gorana kovacica",
           "name": "Ulica Ivana Gorana Kovačića",
           "n_cities": 26,
@@ -2179,8 +2171,8 @@
           "weight_log": 0.21
         },
         {
-          "key": "ante starcevica",
-          "name": "Ulica Ante Starčevića",
+          "key": "ivana gundulica",
+          "name": "Ulica Ivana Gundulića",
           "n_cities": 26,
           "pct_cities": 68.4,
           "weight_sqrt": 0.196,
@@ -2190,6 +2182,15 @@
         {
           "key": "nikole tesle",
           "name": "Ulica Nikole Tesle",
+          "n_cities": 26,
+          "pct_cities": 68.4,
+          "weight_sqrt": 0.196,
+          "weight_idf": 0.104,
+          "weight_log": 0.21
+        },
+        {
+          "key": "antuna gustava matosa",
+          "name": "Ulica Antuna Gustava Matoša",
           "n_cities": 26,
           "pct_cities": 68.4,
           "weight_sqrt": 0.196,
@@ -2224,15 +2225,6 @@
           "weight_log": 0.215
         },
         {
-          "key": "antuna mihanovica",
-          "name": "Ulica Antuna Mihanovića",
-          "n_cities": 23,
-          "pct_cities": 60.5,
-          "weight_sqrt": 0.209,
-          "weight_idf": 0.138,
-          "weight_log": 0.218
-        },
-        {
           "key": "kralja zvonimira",
           "name": "Ulica kralja Zvonimira",
           "n_cities": 23,
@@ -2244,6 +2236,15 @@
         {
           "key": "vukovarska",
           "name": "Vukovarska ulica",
+          "n_cities": 23,
+          "pct_cities": 60.5,
+          "weight_sqrt": 0.209,
+          "weight_idf": 0.138,
+          "weight_log": 0.218
+        },
+        {
+          "key": "miroslava krleze",
+          "name": "Ulica Miroslava Krleže",
           "n_cities": 23,
           "pct_cities": 60.5,
           "weight_sqrt": 0.209,
@@ -2274,36 +2275,36 @@
         "sr"
       ],
       "cities_count": 30,
-      "total_city_streets": 5790,
-      "unique_norm_streets": 4506,
-      "pure_exclusive_streets": 3896,
-      "searchable_shared_streets": 610,
+      "total_city_streets": 5776,
+      "unique_norm_streets": 4468,
+      "pure_exclusive_streets": 3856,
+      "searchable_shared_streets": 612,
       "raw_valid_rows": 5946,
-      "mean_rarity_sqrt": 82.7,
-      "median_rarity_sqrt": 83.7,
-      "median_rarity_len_sqrt": 87.1,
+      "mean_rarity_sqrt": 82.4,
+      "median_rarity_sqrt": 83.3,
+      "median_rarity_len_sqrt": 87.0,
       "median_cliche_gap": -2.5,
-      "pct_longer_more_generic": 30.0,
-      "mean_rarity_idf": 85.2,
-      "median_rarity_idf": 86.2,
-      "mean_rarity_log": 80.4,
-      "median_rarity_log": 81.8,
-      "mean_exclusive_pct": 63.7,
+      "pct_longer_more_generic": 26.7,
+      "mean_rarity_idf": 85.0,
+      "median_rarity_idf": 85.8,
+      "mean_rarity_log": 80.1,
+      "median_rarity_log": 81.4,
+      "mean_exclusive_pct": 63.4,
       "mean_numbered_pct": 1.6,
       "median_built_area_km2": 5.6,
       "median_muni_area_km2": 381.9,
       "median_built_share_pct": 1.7,
       "median_pop_density": 4511.9,
       "median_street_km_per_km2": 11.59,
-      "median_pop_per_street": 311.6,
+      "median_pop_per_street": 312.5,
       "median_pop_per_street_km": 411.5,
       "median_street_m": 484.5,
       "mean_street_m": 854.0,
-      "spearman_built_area_rarity": 0.33,
-      "spearman_muni_area_rarity": 0.01,
+      "spearman_built_area_rarity": 0.311,
+      "spearman_muni_area_rarity": -0.016,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.919,
+          "exponent": 0.918,
           "r": 0.951
         },
         "pop_vs_built_area": {
@@ -2311,11 +2312,11 @@
           "r": 0.718
         },
         "streets_vs_muni_area": {
-          "exponent": 0.664,
+          "exponent": 0.663,
           "r": 0.423
         },
         "streets_vs_pop": {
-          "exponent": 1.01,
+          "exponent": 1.009,
           "r": 0.705
         },
         "street_km_vs_built_area": {
@@ -2326,31 +2327,31 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 3896,
-          "median_m": 426.5,
-          "mean_m": 943.6
+          "count": 3856,
+          "median_m": 428.5,
+          "mean_m": 949.2
         },
         {
           "tier": "Rare (2-5)",
-          "count": 1494,
-          "median_m": 408.2,
-          "mean_m": 866.7
+          "count": 1501,
+          "median_m": 407.8,
+          "mean_m": 865.3
         },
         {
           "tier": "Medium (6-20)",
-          "count": 400,
-          "median_m": 502.3,
-          "mean_m": 913.4
+          "count": 419,
+          "median_m": 503.3,
+          "mean_m": 901.7
         }
       ],
       "most_unique_city": {
-        "name": "Cazin",
-        "score_sqrt": 92.5,
-        "streets": 64
+        "name": "Visoko",
+        "score_sqrt": 91.9,
+        "streets": 92
       },
       "most_generic_city": {
         "name": "Novi Travnik",
-        "score_sqrt": 57.2,
+        "score_sqrt": 56.2,
         "streets": 20
       },
       "top_shared": [
@@ -2364,8 +2365,8 @@
           "weight_log": 0.256
         },
         {
-          "key": "omladinska",
-          "name": "Omladinska",
+          "key": "mese selimovica",
+          "name": "Meše Selimovića",
           "n_cities": 13,
           "pct_cities": 43.3,
           "weight_sqrt": 0.277,
@@ -2373,8 +2374,8 @@
           "weight_log": 0.263
         },
         {
-          "key": "mese selimovica",
-          "name": "Meše Selimovića",
+          "key": "omladinska",
+          "name": "Omladinska",
           "n_cities": 13,
           "pct_cities": 43.3,
           "weight_sqrt": 0.277,
@@ -2400,15 +2401,6 @@
           "weight_log": 0.27
         },
         {
-          "key": "prvomajska",
-          "name": "Prvomajska",
-          "n_cities": 11,
-          "pct_cities": 36.7,
-          "weight_sqrt": 0.302,
-          "weight_idf": 0.295,
-          "weight_log": 0.279
-        },
-        {
           "key": "marsala tita",
           "name": "Maršala Tita",
           "n_cities": 11,
@@ -2418,8 +2410,17 @@
           "weight_log": 0.279
         },
         {
-          "key": "kulina bana",
-          "name": "Kulina bana",
+          "key": "prvomajska",
+          "name": "Prvomajska",
+          "n_cities": 11,
+          "pct_cities": 36.7,
+          "weight_sqrt": 0.302,
+          "weight_idf": 0.295,
+          "weight_log": 0.279
+        },
+        {
+          "key": "alekse santica",
+          "name": "Alekse Šantića",
           "n_cities": 10,
           "pct_cities": 33.3,
           "weight_sqrt": 0.316,
@@ -2445,8 +2446,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "alekse santica",
-          "name": "Alekse Šantića",
+          "key": "kulina bana",
+          "name": "Kulina bana",
           "n_cities": 10,
           "pct_cities": 33.3,
           "weight_sqrt": 0.316,
@@ -2463,8 +2464,8 @@
           "weight_log": 0.301
         },
         {
-          "key": "vukovarska",
-          "name": "Vukovarska",
+          "key": "skendera kulenovica",
+          "name": "Skendera Kulenovića",
           "n_cities": 9,
           "pct_cities": 30.0,
           "weight_sqrt": 0.333,
@@ -2472,8 +2473,8 @@
           "weight_log": 0.301
         },
         {
-          "key": "skendera kulenovica",
-          "name": "Skendera Kulenovića",
+          "key": "vukovarska",
+          "name": "Vukovarska",
           "n_cities": 9,
           "pct_cities": 30.0,
           "weight_sqrt": 0.333,
@@ -2492,7 +2493,7 @@
       ],
       "founded_coverage_pct": 56.7,
       "median_founded_year": 1991,
-      "spearman_founded_rarity": 0.018
+      "spearman_founded_rarity": 0.014
     },
     {
       "code": "ME",
@@ -2513,21 +2514,21 @@
         "sr"
       ],
       "cities_count": 11,
-      "total_city_streets": 1384,
-      "unique_norm_streets": 1213,
-      "pure_exclusive_streets": 1099,
-      "searchable_shared_streets": 114,
+      "total_city_streets": 1383,
+      "unique_norm_streets": 1210,
+      "pure_exclusive_streets": 1094,
+      "searchable_shared_streets": 116,
       "raw_valid_rows": 1409,
-      "mean_rarity_sqrt": 90.5,
+      "mean_rarity_sqrt": 90.4,
       "median_rarity_sqrt": 89.5,
       "median_rarity_len_sqrt": 90.6,
       "median_cliche_gap": 1.2,
       "pct_longer_more_generic": 81.8,
-      "mean_rarity_idf": 89.7,
+      "mean_rarity_idf": 89.6,
       "median_rarity_idf": 88.4,
-      "mean_rarity_log": 88.7,
+      "mean_rarity_log": 88.6,
       "median_rarity_log": 87.6,
-      "mean_exclusive_pct": 75.4,
+      "mean_exclusive_pct": 75.1,
       "mean_numbered_pct": 1.76,
       "median_built_area_km2": 2.8,
       "median_muni_area_km2": 5.0,
@@ -2538,12 +2539,12 @@
       "median_pop_per_street_km": 492.1,
       "median_street_m": 326.2,
       "mean_street_m": 523.4,
-      "spearman_built_area_rarity": 0.419,
-      "spearman_muni_area_rarity": 0.506,
+      "spearman_built_area_rarity": 0.4,
+      "spearman_muni_area_rarity": 0.473,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.981,
-          "r": 0.965
+          "r": 0.964
         },
         "pop_vs_built_area": {
           "exponent": 0.79,
@@ -2554,8 +2555,8 @@
           "r": 0.819
         },
         "streets_vs_pop": {
-          "exponent": 0.915,
-          "r": 0.805
+          "exponent": 0.916,
+          "r": 0.806
         },
         "street_km_vs_built_area": {
           "exponent": 1.019,
@@ -2565,15 +2566,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 1099,
-          "median_m": 337.3,
-          "mean_m": 495.8
+          "count": 1094,
+          "median_m": 337.8,
+          "mean_m": 496.7
         },
         {
           "tier": "Rare (2-5)",
-          "count": 273,
+          "count": 277,
           "median_m": 406.4,
-          "mean_m": 585.4
+          "mean_m": 582.4
         },
         {
           "tier": "Medium (6-20)",
@@ -2585,23 +2586,14 @@
       "most_unique_city": {
         "name": "Ulcinj - Ulqin",
         "score_sqrt": 100.0,
-        "streets": 65
+        "streets": 64
       },
       "most_generic_city": {
         "name": "Cetinje",
-        "score_sqrt": 80.6,
+        "score_sqrt": 79.9,
         "streets": 42
       },
       "top_shared": [
-        {
-          "key": "beogradska",
-          "name": "Beogradska",
-          "n_cities": 6,
-          "pct_cities": 54.5,
-          "weight_sqrt": 0.408,
-          "weight_idf": 0.253,
-          "weight_log": 0.356
-        },
         {
           "key": "njegoseva",
           "name": "Njegoševa",
@@ -2612,13 +2604,13 @@
           "weight_log": 0.356
         },
         {
-          "key": "lovcenska",
-          "name": "Lovćenska",
-          "n_cities": 5,
-          "pct_cities": 45.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.329,
-          "weight_log": 0.387
+          "key": "beogradska",
+          "name": "Beogradska",
+          "n_cities": 6,
+          "pct_cities": 54.5,
+          "weight_sqrt": 0.408,
+          "weight_idf": 0.253,
+          "weight_log": 0.356
         },
         {
           "key": "vuka karadzica",
@@ -2630,35 +2622,17 @@
           "weight_log": 0.387
         },
         {
-          "key": "13 jula",
-          "name": "13 Jula",
-          "n_cities": 4,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.422,
-          "weight_log": 0.431
+          "key": "lovcenska",
+          "name": "Lovćenska",
+          "n_cities": 5,
+          "pct_cities": 45.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.329,
+          "weight_log": 0.387
         },
         {
-          "key": "durmitorska",
-          "name": "Durmitorska",
-          "n_cities": 4,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.422,
-          "weight_log": 0.431
-        },
-        {
-          "key": "janka vukotica",
-          "name": "Janka Vukotića",
-          "n_cities": 4,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.422,
-          "weight_log": 0.431
-        },
-        {
-          "key": "mojkovacka",
-          "name": "Mojkovačka",
+          "key": "sarajevska",
+          "name": "Sarajevska",
           "n_cities": 4,
           "pct_cities": 36.4,
           "weight_sqrt": 0.5,
@@ -2675,26 +2649,17 @@
           "weight_log": 0.431
         },
         {
-          "key": "sarajevska",
-          "name": "Sarajevska",
-          "n_cities": 4,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.422,
-          "weight_log": 0.431
-        },
-        {
-          "key": "save kovacevica",
-          "name": "Save Kovačevića",
-          "n_cities": 4,
-          "pct_cities": 36.4,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.422,
-          "weight_log": 0.431
-        },
-        {
           "key": "slobode",
           "name": "Slobode",
+          "n_cities": 4,
+          "pct_cities": 36.4,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.422,
+          "weight_log": 0.431
+        },
+        {
+          "key": "13 jula",
+          "name": "13. jula",
           "n_cities": 4,
           "pct_cities": 36.4,
           "weight_sqrt": 0.5,
@@ -2711,8 +2676,44 @@
           "weight_log": 0.431
         },
         {
-          "key": "karadjordjeva",
-          "name": "Karađorđeva",
+          "key": "janka vukotica",
+          "name": "Janka Vukotića",
+          "n_cities": 4,
+          "pct_cities": 36.4,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.422,
+          "weight_log": 0.431
+        },
+        {
+          "key": "save kovacevica",
+          "name": "Save Kovačevića",
+          "n_cities": 4,
+          "pct_cities": 36.4,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.422,
+          "weight_log": 0.431
+        },
+        {
+          "key": "mojkovacka",
+          "name": "Mojkovačka",
+          "n_cities": 4,
+          "pct_cities": 36.4,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.422,
+          "weight_log": 0.431
+        },
+        {
+          "key": "durmitorska",
+          "name": "Durmitorska",
+          "n_cities": 4,
+          "pct_cities": 36.4,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.422,
+          "weight_log": 0.431
+        },
+        {
+          "key": "iva andrica",
+          "name": "Iva Andrića",
           "n_cities": 3,
           "pct_cities": 27.3,
           "weight_sqrt": 0.577,
@@ -2720,8 +2721,8 @@
           "weight_log": 0.5
         },
         {
-          "key": "bratstva i jedinstva",
-          "name": "Bratstva i jedinstva",
+          "key": "nikole djurkovica",
+          "name": "Nikole Đurkovića",
           "n_cities": 3,
           "pct_cities": 27.3,
           "weight_sqrt": 0.577,
@@ -2861,8 +2862,8 @@
           "weight_log": 0.245
         },
         {
-          "key": "ilindenska",
-          "name": "Илинденска",
+          "key": "dimitar vlahov",
+          "name": "Димитар Влахов",
           "n_cities": 14,
           "pct_cities": 66.7,
           "weight_sqrt": 0.267,
@@ -2879,8 +2880,8 @@
           "weight_log": 0.256
         },
         {
-          "key": "dimitar vlahov",
-          "name": "Димитар Влахов",
+          "key": "partizanska",
+          "name": "Партизанска",
           "n_cities": 14,
           "pct_cities": 66.7,
           "weight_sqrt": 0.267,
@@ -2888,8 +2889,8 @@
           "weight_log": 0.256
         },
         {
-          "key": "partizanska",
-          "name": "Партизанска",
+          "key": "ilindenska",
+          "name": "Илинденска",
           "n_cities": 14,
           "pct_cities": 66.7,
           "weight_sqrt": 0.267,
@@ -2906,15 +2907,6 @@
           "weight_log": 0.263
         },
         {
-          "key": "kiril i metodij",
-          "name": "Кирил и Методиј",
-          "n_cities": 12,
-          "pct_cities": 57.1,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.184,
-          "weight_log": 0.27
-        },
-        {
           "key": "skopska",
           "name": "Скопска",
           "n_cities": 12,
@@ -2924,8 +2916,17 @@
           "weight_log": 0.27
         },
         {
-          "key": "leninova",
-          "name": "Ленинова",
+          "key": "kiril i metodij",
+          "name": "Кирил и Методиј",
+          "n_cities": 12,
+          "pct_cities": 57.1,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.184,
+          "weight_log": 0.27
+        },
+        {
+          "key": "nikola karev",
+          "name": "Никола Карев",
           "n_cities": 11,
           "pct_cities": 52.4,
           "weight_sqrt": 0.302,
@@ -2942,8 +2943,8 @@
           "weight_log": 0.279
         },
         {
-          "key": "nikola karev",
-          "name": "Никола Карев",
+          "key": "boris kidric",
+          "name": "Борис Кидрич",
           "n_cities": 11,
           "pct_cities": 52.4,
           "weight_sqrt": 0.302,
@@ -2960,8 +2961,8 @@
           "weight_log": 0.279
         },
         {
-          "key": "boris kidric",
-          "name": "Борис Кидрич",
+          "key": "leninova",
+          "name": "Ленинова",
           "n_cities": 11,
           "pct_cities": 52.4,
           "weight_sqrt": 0.302,
@@ -2992,9 +2993,9 @@
         "en"
       ],
       "cities_count": 211,
-      "total_city_streets": 103166,
-      "unique_norm_streets": 35120,
-      "pure_exclusive_streets": 24142,
+      "total_city_streets": 103162,
+      "unique_norm_streets": 35115,
+      "pure_exclusive_streets": 24137,
       "searchable_shared_streets": 10978,
       "raw_valid_rows": 125683,
       "mean_rarity_sqrt": 45.7,
@@ -3044,15 +3045,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 24142,
+          "count": 24137,
           "median_m": 332.1,
-          "mean_m": 630.2
+          "mean_m": 630.0
         },
         {
           "tier": "Rare (2-5)",
-          "count": 21089,
+          "count": 21090,
           "median_m": 347.8,
-          "mean_m": 697.4
+          "mean_m": 697.6
         },
         {
           "tier": "Medium (6-20)",
@@ -3095,7 +3096,7 @@
         },
         {
           "key": "maple",
-          "name": "Maple Street",
+          "name": "Maple Avenue",
           "n_cities": 167,
           "pct_cities": 79.1,
           "weight_sqrt": 0.077,
@@ -3148,8 +3149,8 @@
           "weight_log": 0.142
         },
         {
-          "key": "pine",
-          "name": "Pine Street",
+          "key": "willow",
+          "name": "Willow Street",
           "n_cities": 131,
           "pct_cities": 62.1,
           "weight_sqrt": 0.087,
@@ -3157,8 +3158,8 @@
           "weight_log": 0.142
         },
         {
-          "key": "willow",
-          "name": "Willow Street",
+          "key": "pine",
+          "name": "Pine Street",
           "n_cities": 131,
           "pct_cities": 62.1,
           "weight_sqrt": 0.087,
@@ -3243,12 +3244,12 @@
         "en"
       ],
       "cities_count": 191,
-      "total_city_streets": 588643,
-      "unique_norm_streets": 234336,
-      "pure_exclusive_streets": 173557,
-      "searchable_shared_streets": 60779,
+      "total_city_streets": 588510,
+      "unique_norm_streets": 234093,
+      "pure_exclusive_streets": 173310,
+      "searchable_shared_streets": 60783,
       "raw_valid_rows": 702082,
-      "mean_rarity_sqrt": 51.5,
+      "mean_rarity_sqrt": 51.4,
       "median_rarity_sqrt": 50.4,
       "median_rarity_len_sqrt": 44.8,
       "median_cliche_gap": 4.4,
@@ -3266,7 +3267,7 @@
       "median_street_km_per_km2": 12.99,
       "median_pop_per_street": 31.6,
       "median_pop_per_street_km": 71.6,
-      "median_street_m": 194.9,
+      "median_street_m": 195.0,
       "mean_street_m": 412.1,
       "spearman_built_area_rarity": 0.44,
       "spearman_muni_area_rarity": 0.705,
@@ -3295,39 +3296,39 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 173557,
+          "count": 173310,
           "median_m": 176.9,
-          "mean_m": 462.2
+          "mean_m": 462.4
         },
         {
           "tier": "Rare (2-5)",
-          "count": 122056,
-          "median_m": 170.6,
-          "mean_m": 441.9
+          "count": 122047,
+          "median_m": 170.7,
+          "mean_m": 442.1
         },
         {
           "tier": "Medium (6-20)",
-          "count": 122100,
-          "median_m": 174.7,
+          "count": 122058,
+          "median_m": 174.8,
           "mean_m": 416.2
         },
         {
           "tier": "Common (21-100)",
-          "count": 143692,
-          "median_m": 231.1,
-          "mean_m": 515.8
+          "count": 143854,
+          "median_m": 231.0,
+          "mean_m": 515.6
         },
         {
           "tier": "Iconic (>100)",
-          "count": 27238,
-          "median_m": 536.7,
-          "mean_m": 1563.5
+          "count": 27241,
+          "median_m": 536.8,
+          "mean_m": 1563.8
         }
       ],
       "most_unique_city": {
         "name": "Gwynedd",
-        "score_sqrt": 83.0,
-        "streets": 1627
+        "score_sqrt": 82.9,
+        "streets": 1622
       },
       "most_generic_city": {
         "name": "Blackpool",
@@ -3345,8 +3346,8 @@
           "weight_log": 0.132
         },
         {
-          "key": "victoria",
-          "name": "Victoria Street",
+          "key": "park",
+          "name": "Park Road",
           "n_cities": 187,
           "pct_cities": 97.9,
           "weight_sqrt": 0.073,
@@ -3354,8 +3355,8 @@
           "weight_log": 0.132
         },
         {
-          "key": "park",
-          "name": "Park Road",
+          "key": "victoria",
+          "name": "Victoria Road",
           "n_cities": 187,
           "pct_cities": 97.9,
           "weight_sqrt": 0.073,
@@ -3373,7 +3374,7 @@
         },
         {
           "key": "the",
-          "name": "The Avenue",
+          "name": "The Crescent",
           "n_cities": 184,
           "pct_cities": 96.3,
           "weight_sqrt": 0.074,
@@ -3390,8 +3391,8 @@
           "weight_log": 0.133
         },
         {
-          "key": "bridge",
-          "name": "Bridge Street",
+          "key": "mill",
+          "name": "Mill Lane",
           "n_cities": 174,
           "pct_cities": 91.1,
           "weight_sqrt": 0.076,
@@ -3399,8 +3400,8 @@
           "weight_log": 0.134
         },
         {
-          "key": "mill",
-          "name": "Mill Lane",
+          "key": "bridge",
+          "name": "Bridge Street",
           "n_cities": 174,
           "pct_cities": 91.1,
           "weight_sqrt": 0.076,
@@ -3419,10 +3420,10 @@
         {
           "key": "south",
           "name": "South Street",
-          "n_cities": 170,
-          "pct_cities": 89.0,
-          "weight_sqrt": 0.077,
-          "weight_idf": 0.022,
+          "n_cities": 171,
+          "pct_cities": 89.5,
+          "weight_sqrt": 0.076,
+          "weight_idf": 0.021,
           "weight_log": 0.135
         },
         {
@@ -3462,13 +3463,13 @@
           "weight_log": 0.135
         },
         {
-          "key": "west",
-          "name": "West Street",
-          "n_cities": 165,
-          "pct_cities": 86.4,
+          "key": "castle",
+          "name": "Castle Street",
+          "n_cities": 166,
+          "pct_cities": 86.9,
           "weight_sqrt": 0.078,
-          "weight_idf": 0.028,
-          "weight_log": 0.136
+          "weight_idf": 0.027,
+          "weight_log": 0.135
         }
       ],
       "founded_coverage_pct": 0.0,
@@ -3495,9 +3496,9 @@
         "ga"
       ],
       "cities_count": 44,
-      "total_city_streets": 13280,
-      "unique_norm_streets": 10035,
-      "pure_exclusive_streets": 8701,
+      "total_city_streets": 13278,
+      "unique_norm_streets": 10033,
+      "pure_exclusive_streets": 8699,
       "searchable_shared_streets": 1334,
       "raw_valid_rows": 15920,
       "mean_rarity_sqrt": 80.0,
@@ -3521,7 +3522,7 @@
       "median_street_m": 250.1,
       "mean_street_m": 411.6,
       "spearman_built_area_rarity": 0.119,
-      "spearman_muni_area_rarity": 0.027,
+      "spearman_muni_area_rarity": 0.028,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 1.012,
@@ -3547,8 +3548,8 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 8701,
-          "median_m": 227.4,
+          "count": 8699,
+          "median_m": 227.3,
           "mean_m": 403.9
         },
         {
@@ -3566,8 +3567,8 @@
         {
           "tier": "Common (21-100)",
           "count": 152,
-          "median_m": 487.5,
-          "mean_m": 865.8
+          "median_m": 494.6,
+          "mean_m": 871.5
         }
       ],
       "most_unique_city": {
@@ -3582,8 +3583,8 @@
       },
       "top_shared": [
         {
-          "key": "church",
-          "name": "Church Street",
+          "key": "the",
+          "name": "The Drive",
           "n_cities": 29,
           "pct_cities": 65.9,
           "weight_sqrt": 0.186,
@@ -3591,8 +3592,8 @@
           "weight_log": 0.204
         },
         {
-          "key": "the",
-          "name": "The Drive",
+          "key": "church",
+          "name": "Church Street",
           "n_cities": 29,
           "pct_cities": 65.9,
           "weight_sqrt": 0.186,
@@ -3663,15 +3664,6 @@
           "weight_log": 0.228
         },
         {
-          "key": "new",
-          "name": "New Street",
-          "n_cities": 18,
-          "pct_cities": 40.9,
-          "weight_sqrt": 0.236,
-          "weight_idf": 0.236,
-          "weight_log": 0.235
-        },
-        {
           "key": "the grove",
           "name": "The Grove",
           "n_cities": 18,
@@ -3682,7 +3674,16 @@
         },
         {
           "key": "abbey",
-          "name": "Abbey Street",
+          "name": "Abbey Road",
+          "n_cities": 18,
+          "pct_cities": 40.9,
+          "weight_sqrt": 0.236,
+          "weight_idf": 0.236,
+          "weight_log": 0.235
+        },
+        {
+          "key": "new",
+          "name": "New Street",
           "n_cities": 18,
           "pct_cities": 40.9,
           "weight_sqrt": 0.236,
@@ -3699,8 +3700,8 @@
           "weight_log": 0.245
         },
         {
-          "key": "the willows",
-          "name": "The Willows",
+          "key": "the elms",
+          "name": "The Elms",
           "n_cities": 15,
           "pct_cities": 34.1,
           "weight_sqrt": 0.258,
@@ -3708,8 +3709,8 @@
           "weight_log": 0.25
         },
         {
-          "key": "riverside",
-          "name": "Riverside",
+          "key": "the willows",
+          "name": "The Willows",
           "n_cities": 15,
           "pct_cities": 34.1,
           "weight_sqrt": 0.258,
@@ -3740,36 +3741,36 @@
         "pt"
       ],
       "cities_count": 226,
-      "total_city_streets": 59321,
-      "unique_norm_streets": 31453,
-      "pure_exclusive_streets": 25522,
-      "searchable_shared_streets": 5931,
+      "total_city_streets": 59169,
+      "unique_norm_streets": 30591,
+      "pure_exclusive_streets": 24531,
+      "searchable_shared_streets": 6060,
       "raw_valid_rows": 67609,
-      "mean_rarity_sqrt": 64.4,
-      "median_rarity_sqrt": 65.7,
-      "median_rarity_len_sqrt": 62.8,
-      "median_cliche_gap": 2.8,
-      "pct_longer_more_generic": 78.3,
-      "mean_rarity_idf": 75.4,
-      "median_rarity_idf": 76.2,
-      "mean_rarity_log": 63.0,
-      "median_rarity_log": 64.1,
-      "mean_exclusive_pct": 43.6,
+      "mean_rarity_sqrt": 63.2,
+      "median_rarity_sqrt": 64.6,
+      "median_rarity_len_sqrt": 61.8,
+      "median_cliche_gap": 3.1,
+      "pct_longer_more_generic": 77.9,
+      "mean_rarity_idf": 74.5,
+      "median_rarity_idf": 75.6,
+      "mean_rarity_log": 61.9,
+      "median_rarity_log": 63.0,
+      "mean_exclusive_pct": 42.0,
       "mean_numbered_pct": 0.48,
       "median_built_area_km2": 5.7,
       "median_muni_area_km2": 11.3,
       "median_built_share_pct": 60.3,
       "median_pop_density": 3493.3,
       "median_street_km_per_km2": 12.49,
-      "median_pop_per_street": 92.5,
+      "median_pop_per_street": 93.0,
       "median_pop_per_street_km": 272.4,
-      "median_street_m": 202.9,
-      "mean_street_m": 322.1,
-      "spearman_built_area_rarity": -0.012,
-      "spearman_muni_area_rarity": -0.05,
+      "median_street_m": 203.3,
+      "mean_street_m": 322.9,
+      "spearman_built_area_rarity": 0.011,
+      "spearman_muni_area_rarity": -0.033,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.683,
+          "exponent": 0.682,
           "r": 0.798
         },
         "pop_vs_built_area": {
@@ -3777,11 +3778,11 @@
           "r": 0.264
         },
         "streets_vs_muni_area": {
-          "exponent": 0.188,
+          "exponent": 0.187,
           "r": 0.409
         },
         "streets_vs_pop": {
-          "exponent": 0.591,
+          "exponent": 0.59,
           "r": 0.555
         },
         "street_km_vs_built_area": {
@@ -3792,43 +3793,43 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 25522,
-          "median_m": 191.1,
-          "mean_m": 310.3
+          "count": 24531,
+          "median_m": 190.7,
+          "mean_m": 312.0
         },
         {
           "tier": "Rare (2-5)",
-          "count": 12330,
-          "median_m": 200.1,
-          "mean_m": 340.8
+          "count": 12613,
+          "median_m": 199.2,
+          "mean_m": 337.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 9610,
-          "median_m": 205.2,
-          "mean_m": 332.5
+          "count": 9820,
+          "median_m": 205.0,
+          "mean_m": 331.0
         },
         {
           "tier": "Common (21-100)",
-          "count": 11145,
-          "median_m": 228.5,
-          "mean_m": 367.4
+          "count": 11388,
+          "median_m": 228.6,
+          "mean_m": 367.3
         },
         {
           "tier": "Iconic (>100)",
-          "count": 714,
-          "median_m": 369.4,
-          "mean_m": 646.6
+          "count": 817,
+          "median_m": 388.8,
+          "mean_m": 643.9
         }
       ],
       "most_unique_city": {
         "name": "Beato",
-        "score_sqrt": 81.3,
+        "score_sqrt": 80.1,
         "streets": 92
       },
       "most_generic_city": {
         "name": "Baixa da Banheira e Vale da Amoreira",
-        "score_sqrt": 36.6,
+        "score_sqrt": 35.1,
         "streets": 118
       },
       "top_shared": [
@@ -3862,10 +3863,10 @@
         {
           "key": "vasco da gama",
           "name": "Rua Vasco da Gama",
-          "n_cities": 114,
-          "pct_cities": 50.4,
-          "weight_sqrt": 0.094,
-          "weight_idf": 0.126,
+          "n_cities": 116,
+          "pct_cities": 51.3,
+          "weight_sqrt": 0.093,
+          "weight_idf": 0.123,
           "weight_log": 0.146
         },
         {
@@ -3887,26 +3888,17 @@
           "weight_log": 0.147
         },
         {
-          "key": "alexandre herculano",
-          "name": "Rua Alexandre Herculano",
-          "n_cities": 95,
-          "pct_cities": 42.0,
-          "weight_sqrt": 0.103,
-          "weight_idf": 0.16,
-          "weight_log": 0.152
+          "key": "humberto delgado",
+          "name": "Rua General Humberto Delgado",
+          "n_cities": 101,
+          "pct_cities": 44.7,
+          "weight_sqrt": 0.1,
+          "weight_idf": 0.149,
+          "weight_log": 0.15
         },
         {
           "key": "republica",
-          "name": "Avenida da República",
-          "n_cities": 95,
-          "pct_cities": 42.0,
-          "weight_sqrt": 0.103,
-          "weight_idf": 0.16,
-          "weight_log": 0.152
-        },
-        {
-          "key": "flores",
-          "name": "Rua das Flores",
+          "name": "Praça da República",
           "n_cities": 95,
           "pct_cities": 42.0,
           "weight_sqrt": 0.103,
@@ -3923,8 +3915,35 @@
           "weight_log": 0.152
         },
         {
+          "key": "flores",
+          "name": "Rua das Flores",
+          "n_cities": 95,
+          "pct_cities": 42.0,
+          "weight_sqrt": 0.103,
+          "weight_idf": 0.16,
+          "weight_log": 0.152
+        },
+        {
+          "key": "alexandre herculano",
+          "name": "Rua Alexandre Herculano",
+          "n_cities": 95,
+          "pct_cities": 42.0,
+          "weight_sqrt": 0.103,
+          "weight_idf": 0.16,
+          "weight_log": 0.152
+        },
+        {
           "key": "fernando pessoa",
           "name": "Rua Fernando Pessoa",
+          "n_cities": 92,
+          "pct_cities": 40.7,
+          "weight_sqrt": 0.104,
+          "weight_idf": 0.166,
+          "weight_log": 0.153
+        },
+        {
+          "key": "joao de deus",
+          "name": "Rua João de Deus",
           "n_cities": 91,
           "pct_cities": 40.3,
           "weight_sqrt": 0.105,
@@ -3932,12 +3951,12 @@
           "weight_log": 0.153
         },
         {
-          "key": "joao de deus",
-          "name": "Rua João de Deus",
-          "n_cities": 89,
-          "pct_cities": 39.4,
-          "weight_sqrt": 0.106,
-          "weight_idf": 0.172,
+          "key": "egas moniz",
+          "name": "Rua Professor Egas Moniz",
+          "n_cities": 90,
+          "pct_cities": 39.8,
+          "weight_sqrt": 0.105,
+          "weight_idf": 0.17,
           "weight_log": 0.154
         },
         {
@@ -3948,29 +3967,11 @@
           "weight_sqrt": 0.108,
           "weight_idf": 0.178,
           "weight_log": 0.155
-        },
-        {
-          "key": "camilo castelo branco",
-          "name": "Rua Camilo Castelo Branco",
-          "n_cities": 84,
-          "pct_cities": 37.2,
-          "weight_sqrt": 0.109,
-          "weight_idf": 0.183,
-          "weight_log": 0.156
-        },
-        {
-          "key": "bela vista",
-          "name": "Rua da Bela Vista",
-          "n_cities": 84,
-          "pct_cities": 37.2,
-          "weight_sqrt": 0.109,
-          "weight_idf": 0.183,
-          "weight_log": 0.156
         }
       ],
-      "founded_coverage_pct": 50.9,
+      "founded_coverage_pct": 52.7,
       "median_founded_year": 2013,
-      "spearman_founded_rarity": -0.116
+      "spearman_founded_rarity": -0.066
     },
     {
       "code": "NL",
@@ -3991,21 +3992,21 @@
         "nl"
       ],
       "cities_count": 317,
-      "total_city_streets": 145170,
-      "unique_norm_streets": 67677,
-      "pure_exclusive_streets": 52712,
-      "searchable_shared_streets": 14965,
+      "total_city_streets": 145156,
+      "unique_norm_streets": 67345,
+      "pure_exclusive_streets": 52343,
+      "searchable_shared_streets": 15002,
       "raw_valid_rows": 148891,
-      "mean_rarity_sqrt": 55.7,
-      "median_rarity_sqrt": 55.3,
+      "mean_rarity_sqrt": 55.5,
+      "median_rarity_sqrt": 55.1,
       "median_rarity_len_sqrt": 56.5,
       "median_cliche_gap": -1.1,
-      "pct_longer_more_generic": 40.1,
-      "mean_rarity_idf": 69.5,
-      "median_rarity_idf": 69.3,
-      "mean_rarity_log": 54.8,
-      "median_rarity_log": 54.2,
-      "mean_exclusive_pct": 34.2,
+      "pct_longer_more_generic": 39.4,
+      "mean_rarity_idf": 69.4,
+      "median_rarity_idf": 69.2,
+      "mean_rarity_log": 54.6,
+      "median_rarity_log": 53.9,
+      "mean_exclusive_pct": 34.0,
       "mean_numbered_pct": 0.02,
       "median_built_area_km2": 9.1,
       "median_muni_area_km2": 24.2,
@@ -4016,8 +4017,8 @@
       "median_pop_per_street_km": 176.3,
       "median_street_m": 238.7,
       "mean_street_m": 419.7,
-      "spearman_built_area_rarity": 0.271,
-      "spearman_muni_area_rarity": 0.23,
+      "spearman_built_area_rarity": 0.272,
+      "spearman_muni_area_rarity": 0.232,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.921,
@@ -4043,43 +4044,43 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 52712,
-          "median_m": 226.2,
-          "mean_m": 416.8
+          "count": 52343,
+          "median_m": 226.3,
+          "mean_m": 417.3
         },
         {
           "tier": "Rare (2-5)",
-          "count": 31089,
+          "count": 31173,
           "median_m": 231.9,
-          "mean_m": 442.8
+          "mean_m": 442.6
         },
         {
           "tier": "Medium (6-20)",
-          "count": 26317,
-          "median_m": 227.6,
-          "mean_m": 390.9
+          "count": 26402,
+          "median_m": 227.3,
+          "mean_m": 390.2
         },
         {
           "tier": "Common (21-100)",
-          "count": 29544,
-          "median_m": 237.4,
-          "mean_m": 402.3
+          "count": 29729,
+          "median_m": 237.6,
+          "mean_m": 402.7
         },
         {
           "tier": "Iconic (>100)",
-          "count": 5508,
+          "count": 5509,
           "median_m": 294.6,
-          "mean_m": 436.6
+          "mean_m": 436.9
         }
       ],
       "most_unique_city": {
         "name": "Bolsward",
-        "score_sqrt": 79.7,
-        "streets": 235
+        "score_sqrt": 79.2,
+        "streets": 234
       },
       "most_generic_city": {
         "name": "Hoogezand",
-        "score_sqrt": 35.8,
+        "score_sqrt": 35.5,
         "streets": 251
       },
       "top_shared": [
@@ -4244,36 +4245,36 @@
         "de"
       ],
       "cities_count": 203,
-      "total_city_streets": 72967,
-      "unique_norm_streets": 44143,
-      "pure_exclusive_streets": 36606,
-      "searchable_shared_streets": 7537,
-      "raw_valid_rows": 77716,
-      "mean_rarity_sqrt": 68.1,
-      "median_rarity_sqrt": 67.8,
-      "median_rarity_len_sqrt": 68.4,
-      "median_cliche_gap": -0.6,
-      "pct_longer_more_generic": 40.4,
-      "mean_rarity_idf": 78.6,
-      "median_rarity_idf": 78.5,
-      "mean_rarity_log": 66.4,
-      "median_rarity_log": 65.9,
-      "mean_exclusive_pct": 47.3,
-      "mean_numbered_pct": 0.02,
+      "total_city_streets": 72547,
+      "unique_norm_streets": 42627,
+      "pure_exclusive_streets": 34963,
+      "searchable_shared_streets": 7664,
+      "raw_valid_rows": 77712,
+      "mean_rarity_sqrt": 66.8,
+      "median_rarity_sqrt": 66.8,
+      "median_rarity_len_sqrt": 67.2,
+      "median_cliche_gap": -0.2,
+      "pct_longer_more_generic": 47.3,
+      "mean_rarity_idf": 77.6,
+      "median_rarity_idf": 77.5,
+      "mean_rarity_log": 65.2,
+      "median_rarity_log": 65.1,
+      "mean_exclusive_pct": 45.7,
+      "mean_numbered_pct": 0.03,
       "median_built_area_km2": 15.8,
       "median_muni_area_km2": 45.3,
       "median_built_share_pct": 35.1,
       "median_pop_density": 1326.2,
       "median_street_km_per_km2": 10.96,
-      "median_pop_per_street": 75.0,
+      "median_pop_per_street": 75.5,
       "median_pop_per_street_km": 121.9,
-      "median_street_m": 365.6,
-      "mean_street_m": 599.6,
-      "spearman_built_area_rarity": 0.389,
-      "spearman_muni_area_rarity": 0.483,
+      "median_street_m": 367.8,
+      "mean_street_m": 607.2,
+      "spearman_built_area_rarity": 0.409,
+      "spearman_muni_area_rarity": 0.512,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.906,
+          "exponent": 0.905,
           "r": 0.867
         },
         "pop_vs_built_area": {
@@ -4281,11 +4282,11 @@
           "r": 0.707
         },
         "streets_vs_muni_area": {
-          "exponent": 0.487,
-          "r": 0.6
+          "exponent": 0.488,
+          "r": 0.601
         },
         "streets_vs_pop": {
-          "exponent": 0.782,
+          "exponent": 0.781,
           "r": 0.9
         },
         "street_km_vs_built_area": {
@@ -4296,54 +4297,54 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 36606,
-          "median_m": 327.9,
-          "mean_m": 577.5
+          "count": 34963,
+          "median_m": 329.3,
+          "mean_m": 575.3
         },
         {
           "tier": "Rare (2-5)",
-          "count": 15909,
-          "median_m": 329.8,
-          "mean_m": 615.4
+          "count": 16229,
+          "median_m": 328.2,
+          "mean_m": 618.1
         },
         {
           "tier": "Medium (6-20)",
-          "count": 11843,
-          "median_m": 313.1,
-          "mean_m": 557.3
+          "count": 12267,
+          "median_m": 311.4,
+          "mean_m": 571.9
         },
         {
           "tier": "Common (21-100)",
-          "count": 8472,
-          "median_m": 351.3,
-          "mean_m": 587.0
+          "count": 8948,
+          "median_m": 353.9,
+          "mean_m": 597.0
         },
         {
           "tier": "Iconic (>100)",
-          "count": 137,
-          "median_m": 591.4,
-          "mean_m": 778.0
+          "count": 140,
+          "median_m": 587.3,
+          "mean_m": 779.5
         }
       ],
       "most_unique_city": {
-        "name": "Brussels",
-        "score_sqrt": 98.4,
-        "streets": 1039
+        "name": "Eupen",
+        "score_sqrt": 90.6,
+        "streets": 202
       },
       "most_generic_city": {
         "name": "Zandhoven",
-        "score_sqrt": 51.6,
-        "streets": 188
+        "score_sqrt": 50.2,
+        "streets": 186
       },
       "top_shared": [
         {
           "key": "station",
-          "name": "Rue de la Station",
-          "n_cities": 137,
-          "pct_cities": 67.5,
+          "name": "Stationsstraat",
+          "n_cities": 140,
+          "pct_cities": 69.0,
           "weight_sqrt": 0.085,
-          "weight_idf": 0.074,
-          "weight_log": 0.141
+          "weight_idf": 0.07,
+          "weight_log": 0.14
         },
         {
           "key": "molen",
@@ -4357,11 +4358,11 @@
         {
           "key": "kerk",
           "name": "Kerkstraat",
-          "n_cities": 92,
-          "pct_cities": 45.3,
-          "weight_sqrt": 0.104,
-          "weight_idf": 0.149,
-          "weight_log": 0.153
+          "n_cities": 94,
+          "pct_cities": 46.3,
+          "weight_sqrt": 0.103,
+          "weight_idf": 0.145,
+          "weight_log": 0.152
         },
         {
           "key": "school",
@@ -4375,15 +4376,24 @@
         {
           "key": "nieuw",
           "name": "Nieuwstraat",
-          "n_cities": 76,
-          "pct_cities": 37.4,
-          "weight_sqrt": 0.115,
-          "weight_idf": 0.185,
-          "weight_log": 0.16
+          "n_cities": 79,
+          "pct_cities": 38.9,
+          "weight_sqrt": 0.113,
+          "weight_idf": 0.178,
+          "weight_log": 0.158
         },
         {
           "key": "bos",
           "name": "Bosstraat",
+          "n_cities": 77,
+          "pct_cities": 37.9,
+          "weight_sqrt": 0.114,
+          "weight_idf": 0.182,
+          "weight_log": 0.159
+        },
+        {
+          "key": "groen",
+          "name": "Groenstraat",
           "n_cities": 75,
           "pct_cities": 36.9,
           "weight_sqrt": 0.115,
@@ -4391,8 +4401,8 @@
           "weight_log": 0.16
         },
         {
-          "key": "groen",
-          "name": "Groenstraat",
+          "key": "rozen",
+          "name": "Rozenlaan",
           "n_cities": 74,
           "pct_cities": 36.5,
           "weight_sqrt": 0.116,
@@ -4402,37 +4412,28 @@
         {
           "key": "veld",
           "name": "Veldstraat",
-          "n_cities": 72,
-          "pct_cities": 35.5,
-          "weight_sqrt": 0.118,
-          "weight_idf": 0.195,
-          "weight_log": 0.162
-        },
-        {
-          "key": "rozen",
-          "name": "Rozenlaan",
-          "n_cities": 72,
-          "pct_cities": 35.5,
-          "weight_sqrt": 0.118,
-          "weight_idf": 0.195,
-          "weight_log": 0.162
+          "n_cities": 73,
+          "pct_cities": 36.0,
+          "weight_sqrt": 0.117,
+          "weight_idf": 0.192,
+          "weight_log": 0.161
         },
         {
           "key": "kasteel",
           "name": "Kasteelstraat",
-          "n_cities": 70,
-          "pct_cities": 34.5,
-          "weight_sqrt": 0.12,
-          "weight_idf": 0.2,
-          "weight_log": 0.163
+          "n_cities": 73,
+          "pct_cities": 36.0,
+          "weight_sqrt": 0.117,
+          "weight_idf": 0.192,
+          "weight_log": 0.161
         },
         {
           "key": "industrie",
           "name": "Rue de l'Industrie",
-          "n_cities": 67,
-          "pct_cities": 33.0,
-          "weight_sqrt": 0.122,
-          "weight_idf": 0.209,
+          "n_cities": 68,
+          "pct_cities": 33.5,
+          "weight_sqrt": 0.121,
+          "weight_idf": 0.206,
           "weight_log": 0.164
         },
         {
@@ -4447,34 +4448,34 @@
         {
           "key": "beuken",
           "name": "Beukenlaan",
-          "n_cities": 65,
-          "pct_cities": 32.0,
-          "weight_sqrt": 0.124,
-          "weight_idf": 0.214,
+          "n_cities": 66,
+          "pct_cities": 32.5,
+          "weight_sqrt": 0.123,
+          "weight_idf": 0.211,
+          "weight_log": 0.165
+        },
+        {
+          "key": "klooster",
+          "name": "Kloosterstraat",
+          "n_cities": 66,
+          "pct_cities": 32.5,
+          "weight_sqrt": 0.123,
+          "weight_idf": 0.211,
           "weight_log": 0.165
         },
         {
           "key": "heide",
           "name": "Heidestraat",
-          "n_cities": 64,
-          "pct_cities": 31.5,
-          "weight_sqrt": 0.125,
-          "weight_idf": 0.217,
-          "weight_log": 0.166
-        },
-        {
-          "key": "klooster",
-          "name": "Kloosterstraat",
-          "n_cities": 63,
-          "pct_cities": 31.0,
-          "weight_sqrt": 0.126,
-          "weight_idf": 0.22,
-          "weight_log": 0.167
+          "n_cities": 65,
+          "pct_cities": 32.0,
+          "weight_sqrt": 0.124,
+          "weight_idf": 0.214,
+          "weight_log": 0.165
         }
       ],
       "founded_coverage_pct": 13.8,
       "median_founded_year": 1310,
-      "spearman_founded_rarity": -0.304
+      "spearman_founded_rarity": -0.311
     },
     {
       "code": "LU",
@@ -4497,20 +4498,20 @@
       ],
       "cities_count": 5,
       "total_city_streets": 1503,
-      "unique_norm_streets": 1253,
-      "pure_exclusive_streets": 1094,
+      "unique_norm_streets": 1251,
+      "pure_exclusive_streets": 1092,
       "searchable_shared_streets": 159,
       "raw_valid_rows": 1536,
-      "mean_rarity_sqrt": 85.0,
-      "median_rarity_sqrt": 85.6,
+      "mean_rarity_sqrt": 84.8,
+      "median_rarity_sqrt": 85.5,
       "median_rarity_len_sqrt": 82.3,
       "median_cliche_gap": 1.6,
       "pct_longer_more_generic": 60.0,
-      "mean_rarity_idf": 75.7,
-      "median_rarity_idf": 77.0,
-      "mean_rarity_log": 82.2,
-      "median_rarity_log": 82.8,
-      "mean_exclusive_pct": 61.9,
+      "mean_rarity_idf": 75.3,
+      "median_rarity_idf": 76.8,
+      "mean_rarity_log": 82.0,
+      "median_rarity_log": 82.7,
+      "mean_exclusive_pct": 61.6,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 5.8,
       "median_muni_area_km2": 21.4,
@@ -4548,25 +4549,25 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 1094,
+          "count": 1092,
           "median_m": 250.8,
-          "mean_m": 388.8
+          "mean_m": 389.0
         },
         {
           "tier": "Rare (2-5)",
-          "count": 409,
+          "count": 411,
           "median_m": 285.4,
-          "mean_m": 448.3
+          "mean_m": 447.3
         }
       ],
       "most_unique_city": {
         "name": "Luxembourg",
-        "score_sqrt": 94.7,
+        "score_sqrt": 94.6,
         "streets": 769
       },
       "most_generic_city": {
         "name": "Schifflange",
-        "score_sqrt": 74.5,
+        "score_sqrt": 73.8,
         "streets": 72
       },
       "top_shared": [
@@ -4589,8 +4590,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "michel rodange",
-          "name": "Rue Michel Rodange",
+          "key": "pierre krier",
+          "name": "Rue Pierre Krier",
           "n_cities": 5,
           "pct_cities": 100.0,
           "weight_sqrt": 0.447,
@@ -4607,8 +4608,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "pierre krier",
-          "name": "Rue Pierre Krier",
+          "key": "michel welter",
+          "name": "Rue Docteur Michel Welter",
           "n_cities": 5,
           "pct_cities": 100.0,
           "weight_sqrt": 0.447,
@@ -4616,8 +4617,17 @@
           "weight_log": 0.387
         },
         {
-          "key": "champs",
-          "name": "Rue des Champs",
+          "key": "michel rodange",
+          "name": "Rue Michel Rodange",
+          "n_cities": 5,
+          "pct_cities": 100.0,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.0,
+          "weight_log": 0.387
+        },
+        {
+          "key": "grande duchesse charlotte",
+          "name": "Boulevard Grande-Duchesse Charlotte",
           "n_cities": 4,
           "pct_cities": 80.0,
           "weight_sqrt": 0.5,
@@ -4625,35 +4635,8 @@
           "weight_log": 0.431
         },
         {
-          "key": "gare",
-          "name": "Rue de la Gare",
-          "n_cities": 4,
-          "pct_cities": 80.0,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.139,
-          "weight_log": 0.431
-        },
-        {
-          "key": "industrie",
-          "name": "Rue de l'Industrie",
-          "n_cities": 4,
-          "pct_cities": 80.0,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.139,
-          "weight_log": 0.431
-        },
-        {
-          "key": "emile mayrisch",
-          "name": "Rue Émile Mayrisch",
-          "n_cities": 4,
-          "pct_cities": 80.0,
-          "weight_sqrt": 0.5,
-          "weight_idf": 0.139,
-          "weight_log": 0.431
-        },
-        {
-          "key": "batty weber",
-          "name": "Rue Batty Weber",
+          "key": "commerce",
+          "name": "Rue du Commerce",
           "n_cities": 4,
           "pct_cities": 80.0,
           "weight_sqrt": 0.5,
@@ -4679,8 +4662,8 @@
           "weight_log": 0.431
         },
         {
-          "key": "artisans",
-          "name": "Rue des Artisans",
+          "key": "montagne",
+          "name": "Rue de la Montagne",
           "n_cities": 4,
           "pct_cities": 80.0,
           "weight_sqrt": 0.5,
@@ -4688,8 +4671,8 @@
           "weight_log": 0.431
         },
         {
-          "key": "caspar mathias spoo",
-          "name": "Rue Caspar Mathias Spoo",
+          "key": "romains",
+          "name": "Rue des Romains",
           "n_cities": 4,
           "pct_cities": 80.0,
           "weight_sqrt": 0.5,
@@ -4697,8 +4680,26 @@
           "weight_log": 0.431
         },
         {
-          "key": "commerce",
-          "name": "Rue du Commerce",
+          "key": "dicks",
+          "name": "Rue Dicks",
+          "n_cities": 4,
+          "pct_cities": 80.0,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.139,
+          "weight_log": 0.431
+        },
+        {
+          "key": "emile mayrisch",
+          "name": "Rue Émile Mayrisch",
+          "n_cities": 4,
+          "pct_cities": 80.0,
+          "weight_sqrt": 0.5,
+          "weight_idf": 0.139,
+          "weight_log": 0.431
+        },
+        {
+          "key": "champs",
+          "name": "Rue des Champs",
           "n_cities": 4,
           "pct_cities": 80.0,
           "weight_sqrt": 0.5,
@@ -4729,21 +4730,21 @@
         "de"
       ],
       "cities_count": 55,
-      "total_city_streets": 11889,
-      "unique_norm_streets": 7632,
-      "pure_exclusive_streets": 6378,
-      "searchable_shared_streets": 1254,
+      "total_city_streets": 11887,
+      "unique_norm_streets": 7614,
+      "pure_exclusive_streets": 6355,
+      "searchable_shared_streets": 1259,
       "raw_valid_rows": 12219,
-      "mean_rarity_sqrt": 74.1,
-      "median_rarity_sqrt": 75.4,
+      "mean_rarity_sqrt": 74.0,
+      "median_rarity_sqrt": 74.9,
       "median_rarity_len_sqrt": 77.3,
       "median_cliche_gap": -1.3,
-      "pct_longer_more_generic": 29.1,
-      "mean_rarity_idf": 78.7,
+      "pct_longer_more_generic": 27.3,
+      "mean_rarity_idf": 78.6,
       "median_rarity_idf": 79.3,
-      "mean_rarity_log": 72.2,
-      "median_rarity_log": 73.7,
-      "mean_exclusive_pct": 54.0,
+      "mean_rarity_log": 72.1,
+      "median_rarity_log": 73.1,
+      "mean_exclusive_pct": 53.9,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 8.2,
       "median_muni_area_km2": 31.4,
@@ -4755,10 +4756,10 @@
       "median_street_m": 299.2,
       "mean_street_m": 491.7,
       "spearman_built_area_rarity": -0.031,
-      "spearman_muni_area_rarity": 0.124,
+      "spearman_muni_area_rarity": 0.122,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 0.83,
+          "exponent": 0.829,
           "r": 0.799
         },
         "pop_vs_built_area": {
@@ -4781,21 +4782,21 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 6378,
-          "median_m": 291.2,
-          "mean_m": 546.7
+          "count": 6355,
+          "median_m": 291.1,
+          "mean_m": 547.4
         },
         {
           "tier": "Rare (2-5)",
-          "count": 2698,
-          "median_m": 271.9,
-          "mean_m": 511.6
+          "count": 2706,
+          "median_m": 271.4,
+          "mean_m": 510.2
         },
         {
           "tier": "Medium (6-20)",
-          "count": 2052,
-          "median_m": 259.8,
-          "mean_m": 434.9
+          "count": 2065,
+          "median_m": 260.9,
+          "mean_m": 436.0
         },
         {
           "tier": "Common (21-100)",
@@ -4825,8 +4826,8 @@
           "weight_log": 0.187
         },
         {
-          "key": "bahnhof",
-          "name": "Bahnhofstraße",
+          "key": "garten",
+          "name": "Gartengasse",
           "n_cities": 39,
           "pct_cities": 70.9,
           "weight_sqrt": 0.16,
@@ -4834,8 +4835,8 @@
           "weight_log": 0.188
         },
         {
-          "key": "garten",
-          "name": "Gartengasse",
+          "key": "bahnhof",
+          "name": "Bahnhofstraße",
           "n_cities": 39,
           "pct_cities": 70.9,
           "weight_sqrt": 0.16,
@@ -4880,7 +4881,7 @@
         },
         {
           "key": "bahn",
-          "name": "Bahnweg",
+          "name": "Bahnstraße",
           "n_cities": 28,
           "pct_cities": 50.9,
           "weight_sqrt": 0.189,
@@ -4888,8 +4889,8 @@
           "weight_log": 0.206
         },
         {
-          "key": "bach",
-          "name": "Bachgasse",
+          "key": "mozart",
+          "name": "Mozartstraße",
           "n_cities": 27,
           "pct_cities": 49.1,
           "weight_sqrt": 0.192,
@@ -4897,8 +4898,8 @@
           "weight_log": 0.208
         },
         {
-          "key": "mozart",
-          "name": "Mozartstraße",
+          "key": "bach",
+          "name": "Bachgasse",
           "n_cities": 27,
           "pct_cities": 49.1,
           "weight_sqrt": 0.192,
@@ -4915,8 +4916,8 @@
           "weight_log": 0.21
         },
         {
-          "key": "friedhof",
-          "name": "Friedhofstraße",
+          "key": "erlen",
+          "name": "Erlenweg",
           "n_cities": 25,
           "pct_cities": 45.5,
           "weight_sqrt": 0.2,
@@ -4933,8 +4934,8 @@
           "weight_log": 0.213
         },
         {
-          "key": "wald",
-          "name": "Waldweg",
+          "key": "friedhof",
+          "name": "Friedhofstraße",
           "n_cities": 25,
           "pct_cities": 45.5,
           "weight_sqrt": 0.2,
@@ -4942,8 +4943,8 @@
           "weight_log": 0.213
         },
         {
-          "key": "flur",
-          "name": "Flurgasse",
+          "key": "wald",
+          "name": "Waldweg",
           "n_cities": 25,
           "pct_cities": 45.5,
           "weight_sqrt": 0.2,
@@ -4975,20 +4976,20 @@
       ],
       "cities_count": 125,
       "total_city_streets": 29562,
-      "unique_norm_streets": 11804,
-      "pure_exclusive_streets": 8710,
-      "searchable_shared_streets": 3094,
+      "unique_norm_streets": 11785,
+      "pure_exclusive_streets": 8695,
+      "searchable_shared_streets": 3090,
       "raw_valid_rows": 29770,
-      "mean_rarity_sqrt": 47.8,
+      "mean_rarity_sqrt": 47.7,
       "median_rarity_sqrt": 47.9,
       "median_rarity_len_sqrt": 49.5,
       "median_cliche_gap": -1.9,
-      "pct_longer_more_generic": 26.4,
-      "mean_rarity_idf": 57.1,
+      "pct_longer_more_generic": 25.6,
+      "mean_rarity_idf": 57.0,
       "median_rarity_idf": 57.2,
-      "mean_rarity_log": 47.1,
+      "mean_rarity_log": 47.0,
       "median_rarity_log": 47.2,
-      "mean_exclusive_pct": 25.4,
+      "mean_exclusive_pct": 25.3,
       "mean_numbered_pct": 0.03,
       "median_built_area_km2": 6.0,
       "median_muni_area_km2": 37.1,
@@ -4999,7 +5000,7 @@
       "median_pop_per_street_km": 255.3,
       "median_street_m": 300.9,
       "mean_street_m": 482.6,
-      "spearman_built_area_rarity": 0.506,
+      "spearman_built_area_rarity": 0.504,
       "spearman_muni_area_rarity": 0.233,
       "scaling": {
         "streets_vs_built_area": {
@@ -5026,27 +5027,27 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 8710,
-          "median_m": 304.2,
+          "count": 8695,
+          "median_m": 304.3,
           "mean_m": 516.5
         },
         {
           "tier": "Rare (2-5)",
-          "count": 6174,
-          "median_m": 289.0,
+          "count": 6164,
+          "median_m": 288.6,
           "mean_m": 494.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 6405,
-          "median_m": 279.8,
-          "mean_m": 462.3
+          "count": 6408,
+          "median_m": 279.5,
+          "mean_m": 462.7
         },
         {
           "tier": "Common (21-100)",
-          "count": 8064,
-          "median_m": 294.5,
-          "mean_m": 455.7
+          "count": 8086,
+          "median_m": 294.8,
+          "mean_m": 455.5
         },
         {
           "tier": "Iconic (>100)",
@@ -5103,8 +5104,8 @@
           "weight_log": 0.151
         },
         {
-          "key": "nerudova",
-          "name": "Nerudova",
+          "key": "skolni",
+          "name": "Školní",
           "n_cities": 95,
           "pct_cities": 76.0,
           "weight_sqrt": 0.103,
@@ -5112,8 +5113,8 @@
           "weight_log": 0.152
         },
         {
-          "key": "skolni",
-          "name": "Školní",
+          "key": "nerudova",
+          "name": "Nerudova",
           "n_cities": 95,
           "pct_cities": 76.0,
           "weight_sqrt": 0.103,
@@ -5184,8 +5185,8 @@
           "weight_log": 0.156
         },
         {
-          "key": "smetanova",
-          "name": "Smetanova",
+          "key": "tyrsova",
+          "name": "Tyršova",
           "n_cities": 82,
           "pct_cities": 65.6,
           "weight_sqrt": 0.11,
@@ -5193,8 +5194,8 @@
           "weight_log": 0.157
         },
         {
-          "key": "tyrsova",
-          "name": "Tyršova",
+          "key": "smetanova",
+          "name": "Smetanova",
           "n_cities": 82,
           "pct_cities": 65.6,
           "weight_sqrt": 0.11,
@@ -5225,21 +5226,21 @@
         "cs"
       ],
       "cities_count": 71,
-      "total_city_streets": 9769,
-      "unique_norm_streets": 4351,
-      "pure_exclusive_streets": 3272,
-      "searchable_shared_streets": 1079,
+      "total_city_streets": 9768,
+      "unique_norm_streets": 4345,
+      "pure_exclusive_streets": 3263,
+      "searchable_shared_streets": 1082,
       "raw_valid_rows": 9814,
-      "mean_rarity_sqrt": 53.5,
+      "mean_rarity_sqrt": 53.4,
       "median_rarity_sqrt": 52.0,
       "median_rarity_len_sqrt": 56.1,
       "median_cliche_gap": -1.6,
       "pct_longer_more_generic": 32.4,
       "mean_rarity_idf": 60.1,
       "median_rarity_idf": 59.7,
-      "mean_rarity_log": 52.0,
+      "mean_rarity_log": 51.9,
       "median_rarity_log": 50.6,
-      "mean_exclusive_pct": 29.4,
+      "mean_exclusive_pct": 29.3,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 5.0,
       "median_muni_area_km2": 47.8,
@@ -5248,14 +5249,14 @@
       "median_street_km_per_km2": 12.1,
       "median_pop_per_street": 214.6,
       "median_pop_per_street_km": 362.2,
-      "median_street_m": 369.3,
+      "median_street_m": 369.6,
       "mean_street_m": 571.6,
-      "spearman_built_area_rarity": 0.554,
-      "spearman_muni_area_rarity": 0.362,
+      "spearman_built_area_rarity": 0.559,
+      "spearman_muni_area_rarity": 0.361,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 1.023,
-          "r": 0.933
+          "r": 0.934
         },
         "pop_vs_built_area": {
           "exponent": 0.9,
@@ -5263,10 +5264,10 @@
         },
         "streets_vs_muni_area": {
           "exponent": 0.355,
-          "r": 0.364
+          "r": 0.363
         },
         "streets_vs_pop": {
-          "exponent": 0.655,
+          "exponent": 0.656,
           "r": 0.743
         },
         "street_km_vs_built_area": {
@@ -5277,21 +5278,21 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 3272,
-          "median_m": 358.4,
-          "mean_m": 609.7
+          "count": 3263,
+          "median_m": 358.7,
+          "mean_m": 610.3
         },
         {
           "tier": "Rare (2-5)",
-          "count": 2089,
-          "median_m": 339.5,
-          "mean_m": 542.6
+          "count": 2091,
+          "median_m": 340.3,
+          "mean_m": 542.5
         },
         {
           "tier": "Medium (6-20)",
-          "count": 2443,
-          "median_m": 345.8,
-          "mean_m": 528.0
+          "count": 2449,
+          "median_m": 345.4,
+          "mean_m": 527.8
         },
         {
           "tier": "Common (21-100)",
@@ -5357,8 +5358,8 @@
           "weight_log": 0.18
         },
         {
-          "key": "sturova",
-          "name": "Štúrova",
+          "key": "kukucinova",
+          "name": "Kukučínova",
           "n_cities": 45,
           "pct_cities": 63.4,
           "weight_sqrt": 0.149,
@@ -5366,8 +5367,8 @@
           "weight_log": 0.181
         },
         {
-          "key": "kukucinova",
-          "name": "Kukučínova",
+          "key": "sturova",
+          "name": "Štúrova",
           "n_cities": 45,
           "pct_cities": 63.4,
           "weight_sqrt": 0.149,
@@ -5384,8 +5385,8 @@
           "weight_log": 0.185
         },
         {
-          "key": "slnecna",
-          "name": "Slnečná",
+          "key": "kratka",
+          "name": "Krátka",
           "n_cities": 39,
           "pct_cities": 54.9,
           "weight_sqrt": 0.16,
@@ -5393,8 +5394,8 @@
           "weight_log": 0.188
         },
         {
-          "key": "kratka",
-          "name": "Krátka",
+          "key": "slnecna",
+          "name": "Slnečná",
           "n_cities": 39,
           "pct_cities": 54.9,
           "weight_sqrt": 0.16,
@@ -5420,8 +5421,8 @@
           "weight_log": 0.189
         },
         {
-          "key": "druzstevna",
-          "name": "Družstevná",
+          "key": "bernolakova",
+          "name": "Bernolákova",
           "n_cities": 37,
           "pct_cities": 52.1,
           "weight_sqrt": 0.164,
@@ -5429,8 +5430,8 @@
           "weight_log": 0.191
         },
         {
-          "key": "bernolakova",
-          "name": "Bernolákova",
+          "key": "druzstevna",
+          "name": "Družstevná",
           "n_cities": 37,
           "pct_cities": 52.1,
           "weight_sqrt": 0.164,
@@ -5449,7 +5450,7 @@
       ],
       "founded_coverage_pct": 100.0,
       "median_founded_year": 1245,
-      "spearman_founded_rarity": -0.218
+      "spearman_founded_rarity": -0.21
     },
     {
       "code": "HU",
@@ -5470,18 +5471,18 @@
         "hu"
       ],
       "cities_count": 139,
-      "total_city_streets": 45832,
-      "unique_norm_streets": 15220,
-      "pure_exclusive_streets": 10568,
-      "searchable_shared_streets": 4652,
+      "total_city_streets": 45824,
+      "unique_norm_streets": 15206,
+      "pure_exclusive_streets": 10556,
+      "searchable_shared_streets": 4650,
       "raw_valid_rows": 47844,
       "mean_rarity_sqrt": 39.1,
       "median_rarity_sqrt": 37.2,
       "median_rarity_len_sqrt": 40.4,
       "median_cliche_gap": -2.6,
-      "pct_longer_more_generic": 23.7,
+      "pct_longer_more_generic": 23.0,
       "mean_rarity_idf": 48.9,
-      "median_rarity_idf": 48.2,
+      "median_rarity_idf": 48.1,
       "mean_rarity_log": 39.1,
       "median_rarity_log": 37.5,
       "mean_exclusive_pct": 17.1,
@@ -5495,8 +5496,8 @@
       "median_pop_per_street_km": 175.4,
       "median_street_m": 355.3,
       "mean_street_m": 533.5,
-      "spearman_built_area_rarity": 0.636,
-      "spearman_muni_area_rarity": 0.342,
+      "spearman_built_area_rarity": 0.638,
+      "spearman_muni_area_rarity": 0.346,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.987,
@@ -5507,8 +5508,8 @@
           "r": 0.942
         },
         "streets_vs_muni_area": {
-          "exponent": 0.326,
-          "r": 0.434
+          "exponent": 0.327,
+          "r": 0.435
         },
         "streets_vs_pop": {
           "exponent": 0.793,
@@ -5522,39 +5523,39 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 10568,
+          "count": 10556,
           "median_m": 351.8,
-          "mean_m": 589.0
+          "mean_m": 589.2
         },
         {
           "tier": "Rare (2-5)",
-          "count": 8984,
+          "count": 8980,
           "median_m": 319.2,
-          "mean_m": 543.7
+          "mean_m": 543.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 11017,
+          "count": 11000,
           "median_m": 303.2,
-          "mean_m": 483.4
+          "mean_m": 483.6
         },
         {
           "tier": "Common (21-100)",
-          "count": 13743,
-          "median_m": 345.3,
-          "mean_m": 514.6
+          "count": 13768,
+          "median_m": 345.1,
+          "mean_m": 514.5
         },
         {
           "tier": "Iconic (>100)",
           "count": 1520,
-          "median_m": 494.6,
-          "mean_m": 773.2
+          "median_m": 495.9,
+          "mean_m": 773.5
         }
       ],
       "most_unique_city": {
         "name": "Budapest",
         "score_sqrt": 72.1,
-        "streets": 5923
+        "streets": 5922
       },
       "most_generic_city": {
         "name": "Újfehértó",
@@ -5617,15 +5618,6 @@
           "weight_log": 0.145
         },
         {
-          "key": "deak ferenc",
-          "name": "Deák Ferenc utca",
-          "n_cities": 114,
-          "pct_cities": 82.0,
-          "weight_sqrt": 0.094,
-          "weight_idf": 0.04,
-          "weight_log": 0.146
-        },
-        {
           "key": "tancsics mihaly",
           "name": "Táncsics Mihály utca",
           "n_cities": 114,
@@ -5635,13 +5627,13 @@
           "weight_log": 0.146
         },
         {
-          "key": "rozsa",
-          "name": "Rózsa utca",
-          "n_cities": 106,
-          "pct_cities": 76.3,
-          "weight_sqrt": 0.097,
-          "weight_idf": 0.055,
-          "weight_log": 0.148
+          "key": "deak ferenc",
+          "name": "Deák Ferenc utca",
+          "n_cities": 114,
+          "pct_cities": 82.0,
+          "weight_sqrt": 0.094,
+          "weight_idf": 0.04,
+          "weight_log": 0.146
         },
         {
           "key": "bartok bela",
@@ -5653,8 +5645,17 @@
           "weight_log": 0.148
         },
         {
-          "key": "moricz zsigmond",
-          "name": "Móricz Zsigmond utca",
+          "key": "rozsa",
+          "name": "Rózsa utca",
+          "n_cities": 106,
+          "pct_cities": 76.3,
+          "weight_sqrt": 0.097,
+          "weight_idf": 0.055,
+          "weight_log": 0.148
+        },
+        {
+          "key": "harsfa",
+          "name": "Hársfa utca",
           "n_cities": 105,
           "pct_cities": 75.5,
           "weight_sqrt": 0.098,
@@ -5662,8 +5663,8 @@
           "weight_log": 0.149
         },
         {
-          "key": "harsfa",
-          "name": "Hársfa utca",
+          "key": "moricz zsigmond",
+          "name": "Móricz Zsigmond utca",
           "n_cities": 105,
           "pct_cities": 75.5,
           "weight_sqrt": 0.098,
@@ -5680,8 +5681,8 @@
           "weight_log": 0.15
         },
         {
-          "key": "kodaly zoltan",
-          "name": "Kodály Zoltán utca",
+          "key": "petofi sandor",
+          "name": "Petőfi Sándor utca",
           "n_cities": 96,
           "pct_cities": 69.1,
           "weight_sqrt": 0.102,
@@ -5689,8 +5690,8 @@
           "weight_log": 0.152
         },
         {
-          "key": "petofi sandor",
-          "name": "Petőfi Sándor utca",
+          "key": "kodaly zoltan",
+          "name": "Kodály Zoltán utca",
           "n_cities": 96,
           "pct_cities": 69.1,
           "weight_sqrt": 0.102,
@@ -5700,7 +5701,7 @@
       ],
       "founded_coverage_pct": 20.1,
       "median_founded_year": 1246,
-      "spearman_founded_rarity": -0.472
+      "spearman_founded_rarity": -0.473
     },
     {
       "code": "SI",
@@ -5721,49 +5722,49 @@
         "sl"
       ],
       "cities_count": 16,
-      "total_city_streets": 4784,
-      "unique_norm_streets": 3716,
-      "pure_exclusive_streets": 3196,
-      "searchable_shared_streets": 520,
+      "total_city_streets": 4742,
+      "unique_norm_streets": 3633,
+      "pure_exclusive_streets": 3101,
+      "searchable_shared_streets": 532,
       "raw_valid_rows": 4848,
-      "mean_rarity_sqrt": 82.2,
-      "median_rarity_sqrt": 81.9,
-      "median_rarity_len_sqrt": 88.5,
-      "median_cliche_gap": -4.5,
+      "mean_rarity_sqrt": 81.4,
+      "median_rarity_sqrt": 81.8,
+      "median_rarity_len_sqrt": 88.4,
+      "median_cliche_gap": -6.1,
       "pct_longer_more_generic": 0.0,
-      "mean_rarity_idf": 81.5,
-      "median_rarity_idf": 81.2,
-      "mean_rarity_log": 79.8,
-      "median_rarity_log": 79.7,
-      "mean_exclusive_pct": 62.1,
+      "mean_rarity_idf": 80.7,
+      "median_rarity_idf": 80.9,
+      "mean_rarity_log": 79.0,
+      "median_rarity_log": 79.6,
+      "mean_exclusive_pct": 60.6,
       "mean_numbered_pct": 0.05,
       "median_built_area_km2": 15.8,
       "median_muni_area_km2": 120.5,
       "median_built_share_pct": 14.6,
       "median_pop_density": 1440.8,
       "median_street_km_per_km2": 12.11,
-      "median_pop_per_street": 104.9,
+      "median_pop_per_street": 105.8,
       "median_pop_per_street_km": 124.2,
-      "median_street_m": 434.7,
-      "mean_street_m": 986.2,
-      "spearman_built_area_rarity": 0.44,
-      "spearman_muni_area_rarity": 0.564,
+      "median_street_m": 444.1,
+      "mean_street_m": 993.0,
+      "spearman_built_area_rarity": 0.416,
+      "spearman_muni_area_rarity": 0.484,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 1.048,
-          "r": 0.887
+          "exponent": 1.049,
+          "r": 0.89
         },
         "pop_vs_built_area": {
           "exponent": 0.97,
           "r": 0.784
         },
         "streets_vs_muni_area": {
-          "exponent": 0.572,
-          "r": 0.48
+          "exponent": 0.571,
+          "r": 0.481
         },
         "streets_vs_pop": {
-          "exponent": 0.819,
-          "r": 0.857
+          "exponent": 0.82,
+          "r": 0.861
         },
         "street_km_vs_built_area": {
           "exponent": 1.011,
@@ -5773,31 +5774,31 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 3196,
-          "median_m": 362.7,
-          "mean_m": 963.3
+          "count": 3101,
+          "median_m": 371.9,
+          "mean_m": 985.1
         },
         {
           "tier": "Rare (2-5)",
-          "count": 1202,
-          "median_m": 318.4,
-          "mean_m": 645.3
+          "count": 1240,
+          "median_m": 309.6,
+          "mean_m": 639.0
         },
         {
           "tier": "Medium (6-20)",
-          "count": 386,
-          "median_m": 380.5,
-          "mean_m": 668.2
+          "count": 401,
+          "median_m": 380.2,
+          "mean_m": 661.2
         }
       ],
       "most_unique_city": {
-        "name": "Koper / Capodistria",
-        "score_sqrt": 92.1,
-        "streets": 303
+        "name": "Ljubljana",
+        "score_sqrt": 89.9,
+        "streets": 1473
       },
       "most_generic_city": {
         "name": "Velenje",
-        "score_sqrt": 74.1,
+        "score_sqrt": 74.0,
         "streets": 125
       },
       "top_shared": [
@@ -5813,6 +5814,15 @@
         {
           "key": "cankarjeva",
           "name": "Cankarjeva ulica",
+          "n_cities": 12,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.104,
+          "weight_log": 0.27
+        },
+        {
+          "key": "gregorciceva",
+          "name": "Gregorčičeva ulica",
           "n_cities": 11,
           "pct_cities": 68.8,
           "weight_sqrt": 0.302,
@@ -5838,8 +5848,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "stritarjeva",
-          "name": "Stritarjeva ulica",
+          "key": "levstikova",
+          "name": "Levstikova ulica",
           "n_cities": 10,
           "pct_cities": 62.5,
           "weight_sqrt": 0.316,
@@ -5847,8 +5857,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "levstikova",
-          "name": "Levstikova ulica",
+          "key": "ljubljanska",
+          "name": "Ljubljanska cesta",
           "n_cities": 10,
           "pct_cities": 62.5,
           "weight_sqrt": 0.316,
@@ -5865,8 +5875,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "gregorciceva",
-          "name": "Gregorčičeva ulica",
+          "key": "stritarjeva",
+          "name": "Stritarjeva ulica",
           "n_cities": 10,
           "pct_cities": 62.5,
           "weight_sqrt": 0.316,
@@ -5874,44 +5884,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "jenkova",
-          "name": "Jenkova ulica",
-          "n_cities": 9,
-          "pct_cities": 56.2,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.208,
-          "weight_log": 0.301
-        },
-        {
           "key": "askerceva",
           "name": "Aškerčeva ulica",
-          "n_cities": 9,
-          "pct_cities": 56.2,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.208,
-          "weight_log": 0.301
-        },
-        {
-          "key": "copova",
-          "name": "Čopova ulica",
-          "n_cities": 9,
-          "pct_cities": 56.2,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.208,
-          "weight_log": 0.301
-        },
-        {
-          "key": "solska",
-          "name": "Šolska ulica",
-          "n_cities": 9,
-          "pct_cities": 56.2,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.208,
-          "weight_log": 0.301
-        },
-        {
-          "key": "ljubljanska",
-          "name": "Ljubljanska cesta",
           "n_cities": 9,
           "pct_cities": 56.2,
           "weight_sqrt": 0.333,
@@ -5928,8 +5902,35 @@
           "weight_log": 0.301
         },
         {
-          "key": "precna",
-          "name": "Prečna ulica",
+          "key": "talcev",
+          "name": "Cesta talcev",
+          "n_cities": 9,
+          "pct_cities": 56.2,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.208,
+          "weight_log": 0.301
+        },
+        {
+          "key": "solska",
+          "name": "Šolska ulica",
+          "n_cities": 9,
+          "pct_cities": 56.2,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.208,
+          "weight_log": 0.301
+        },
+        {
+          "key": "zupanciceva",
+          "name": "Župančičeva ulica",
+          "n_cities": 9,
+          "pct_cities": 56.2,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.208,
+          "weight_log": 0.301
+        },
+        {
+          "key": "copova",
+          "name": "Čopova ulica",
           "n_cities": 9,
           "pct_cities": 56.2,
           "weight_sqrt": 0.333,
@@ -6047,8 +6048,8 @@
       },
       "top_shared": [
         {
-          "key": "linde",
-          "name": "Lindevej",
+          "key": "birke",
+          "name": "Birkevej",
           "n_cities": 60,
           "pct_cities": 96.8,
           "weight_sqrt": 0.129,
@@ -6056,8 +6057,8 @@
           "weight_log": 0.169
         },
         {
-          "key": "birke",
-          "name": "Birkevej",
+          "key": "linde",
+          "name": "Lindevej",
           "n_cities": 60,
           "pct_cities": 96.8,
           "weight_sqrt": 0.129,
@@ -6083,8 +6084,8 @@
           "weight_log": 0.169
         },
         {
-          "key": "sol",
-          "name": "Solvænget",
+          "key": "molle",
+          "name": "Møllevej",
           "n_cities": 58,
           "pct_cities": 93.5,
           "weight_sqrt": 0.131,
@@ -6101,6 +6102,15 @@
           "weight_log": 0.17
         },
         {
+          "key": "elme",
+          "name": "Elmevej",
+          "n_cities": 58,
+          "pct_cities": 93.5,
+          "weight_sqrt": 0.131,
+          "weight_idf": 0.016,
+          "weight_log": 0.17
+        },
+        {
           "key": "tjorne",
           "name": "Tjørnevej",
           "n_cities": 58,
@@ -6110,17 +6120,8 @@
           "weight_log": 0.17
         },
         {
-          "key": "molle",
-          "name": "Møllevænget",
-          "n_cities": 58,
-          "pct_cities": 93.5,
-          "weight_sqrt": 0.131,
-          "weight_idf": 0.016,
-          "weight_log": 0.17
-        },
-        {
-          "key": "elme",
-          "name": "Elmevej",
+          "key": "sol",
+          "name": "Solbakken",
           "n_cities": 58,
           "pct_cities": 93.5,
           "weight_sqrt": 0.131,
@@ -6164,8 +6165,8 @@
           "weight_log": 0.171
         },
         {
-          "key": "tvaer",
-          "name": "Tværvej",
+          "key": "ahorn",
+          "name": "Ahornvej",
           "n_cities": 56,
           "pct_cities": 90.3,
           "weight_sqrt": 0.134,
@@ -6173,8 +6174,8 @@
           "weight_log": 0.171
         },
         {
-          "key": "rosen",
-          "name": "Rosenvænget",
+          "key": "mose",
+          "name": "Mosevej",
           "n_cities": 56,
           "pct_cities": 90.3,
           "weight_sqrt": 0.134,
@@ -6205,9 +6206,9 @@
         "sv"
       ],
       "cities_count": 124,
-      "total_city_streets": 103912,
-      "unique_norm_streets": 46075,
-      "pure_exclusive_streets": 35060,
+      "total_city_streets": 103907,
+      "unique_norm_streets": 46069,
+      "pure_exclusive_streets": 35054,
       "searchable_shared_streets": 11015,
       "raw_valid_rows": 108296,
       "mean_rarity_sqrt": 53.4,
@@ -6257,9 +6258,9 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 35060,
+          "count": 35054,
           "median_m": 365.4,
-          "mean_m": 903.1
+          "mean_m": 903.2
         },
         {
           "tier": "Rare (2-5)",
@@ -6275,8 +6276,8 @@
         },
         {
           "tier": "Common (21-100)",
-          "count": 23777,
-          "median_m": 282.7,
+          "count": 23778,
+          "median_m": 282.8,
           "mean_m": 488.1
         },
         {
@@ -6362,7 +6363,7 @@
         },
         {
           "key": "back",
-          "name": "Backvägen",
+          "name": "Bäckvägen",
           "n_cities": 104,
           "pct_cities": 83.9,
           "weight_sqrt": 0.098,
@@ -6389,7 +6390,7 @@
         },
         {
           "key": "industri",
-          "name": "Industrivägen",
+          "name": "Industrigatan",
           "n_cities": 102,
           "pct_cities": 82.3,
           "weight_sqrt": 0.099,
@@ -6406,8 +6407,8 @@
           "weight_log": 0.15
         },
         {
-          "key": "strand",
-          "name": "Strandvägen",
+          "key": "gran",
+          "name": "Granvägen",
           "n_cities": 100,
           "pct_cities": 80.6,
           "weight_sqrt": 0.1,
@@ -6415,8 +6416,8 @@
           "weight_log": 0.15
         },
         {
-          "key": "gran",
-          "name": "Granvägen",
+          "key": "strand",
+          "name": "Strandvägen",
           "n_cities": 100,
           "pct_cities": 80.6,
           "weight_sqrt": 0.1,
@@ -6456,19 +6457,19 @@
         "no"
       ],
       "cities_count": 65,
-      "total_city_streets": 40222,
-      "unique_norm_streets": 26912,
-      "pure_exclusive_streets": 22823,
+      "total_city_streets": 40219,
+      "unique_norm_streets": 26908,
+      "pure_exclusive_streets": 22819,
       "searchable_shared_streets": 4089,
       "raw_valid_rows": 42056,
-      "mean_rarity_sqrt": 75.1,
+      "mean_rarity_sqrt": 75.0,
       "median_rarity_sqrt": 75.3,
       "median_rarity_len_sqrt": 81.0,
       "median_cliche_gap": -4.2,
-      "pct_longer_more_generic": 12.3,
+      "pct_longer_more_generic": 13.8,
       "mean_rarity_idf": 80.0,
       "median_rarity_idf": 80.0,
-      "mean_rarity_log": 73.3,
+      "mean_rarity_log": 73.2,
       "median_rarity_log": 73.5,
       "mean_exclusive_pct": 55.8,
       "mean_numbered_pct": 0.0,
@@ -6481,8 +6482,8 @@
       "median_pop_per_street_km": 57.7,
       "median_street_m": 394.7,
       "mean_street_m": 908.9,
-      "spearman_built_area_rarity": 0.351,
-      "spearman_muni_area_rarity": 0.207,
+      "spearman_built_area_rarity": 0.35,
+      "spearman_muni_area_rarity": 0.208,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.859,
@@ -6508,21 +6509,21 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 22823,
-          "median_m": 415.9,
-          "mean_m": 1016.0
+          "count": 22819,
+          "median_m": 415.8,
+          "mean_m": 1015.2
         },
         {
           "tier": "Rare (2-5)",
           "count": 8706,
           "median_m": 398.7,
-          "mean_m": 1000.1
+          "mean_m": 1002.4
         },
         {
           "tier": "Medium (6-20)",
-          "count": 5885,
+          "count": 5886,
           "median_m": 338.2,
-          "mean_m": 638.8
+          "mean_m": 638.7
         },
         {
           "tier": "Common (21-100)",
@@ -6624,6 +6625,15 @@
           "weight_log": 0.187
         },
         {
+          "key": "gamle",
+          "name": "Gamleveien",
+          "n_cities": 40,
+          "pct_cities": 61.5,
+          "weight_sqrt": 0.158,
+          "weight_idf": 0.116,
+          "weight_log": 0.187
+        },
+        {
           "key": "bakke",
           "name": "Bakkeveien",
           "n_cities": 40,
@@ -6634,30 +6644,12 @@
         },
         {
           "key": "berg",
-          "name": "Bergveien",
+          "name": "Bergstien",
           "n_cities": 40,
           "pct_cities": 61.5,
           "weight_sqrt": 0.158,
           "weight_idf": 0.116,
           "weight_log": 0.187
-        },
-        {
-          "key": "gamle",
-          "name": "Gamleveien",
-          "n_cities": 40,
-          "pct_cities": 61.5,
-          "weight_sqrt": 0.158,
-          "weight_idf": 0.116,
-          "weight_log": 0.187
-        },
-        {
-          "key": "sol",
-          "name": "Solbakken",
-          "n_cities": 39,
-          "pct_cities": 60.0,
-          "weight_sqrt": 0.16,
-          "weight_idf": 0.122,
-          "weight_log": 0.188
         },
         {
           "key": "stor",
@@ -6669,8 +6661,17 @@
           "weight_log": 0.188
         },
         {
-          "key": "lerke",
-          "name": "Lerkeveien",
+          "key": "sol",
+          "name": "Solbakken",
+          "n_cities": 39,
+          "pct_cities": 60.0,
+          "weight_sqrt": 0.16,
+          "weight_idf": 0.122,
+          "weight_log": 0.188
+        },
+        {
+          "key": "ekorn",
+          "name": "Ekornveien",
           "n_cities": 37,
           "pct_cities": 56.9,
           "weight_sqrt": 0.164,
@@ -6702,9 +6703,9 @@
         "sv"
       ],
       "cities_count": 84,
-      "total_city_streets": 87694,
-      "unique_norm_streets": 43974,
-      "pure_exclusive_streets": 33643,
+      "total_city_streets": 87693,
+      "unique_norm_streets": 43973,
+      "pure_exclusive_streets": 33642,
       "searchable_shared_streets": 10331,
       "raw_valid_rows": 98813,
       "mean_rarity_sqrt": 60.6,
@@ -6754,15 +6755,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 33643,
-          "median_m": 493.5,
+          "count": 33642,
+          "median_m": 493.4,
           "mean_m": 1233.3
         },
         {
           "tier": "Rare (2-5)",
           "count": 21712,
           "median_m": 389.6,
-          "mean_m": 1098.4
+          "mean_m": 1098.5
         },
         {
           "tier": "Medium (6-20)",
@@ -6843,15 +6844,6 @@
           "weight_log": 0.163
         },
         {
-          "key": "kirkko",
-          "name": "Kirkkotie",
-          "n_cities": 67,
-          "pct_cities": 79.8,
-          "weight_sqrt": 0.122,
-          "weight_idf": 0.051,
-          "weight_log": 0.164
-        },
-        {
           "key": "riihi",
           "name": "Riihitie",
           "n_cities": 67,
@@ -6863,6 +6855,15 @@
         {
           "key": "koulu",
           "name": "Koulutie",
+          "n_cities": 67,
+          "pct_cities": 79.8,
+          "weight_sqrt": 0.122,
+          "weight_idf": 0.051,
+          "weight_log": 0.164
+        },
+        {
+          "key": "kirkko",
+          "name": "Kirkkotie",
           "n_cities": 67,
           "pct_cities": 79.8,
           "weight_sqrt": 0.122,
@@ -6888,15 +6889,6 @@
           "weight_log": 0.165
         },
         {
-          "key": "paja",
-          "name": "Pajatie",
-          "n_cities": 65,
-          "pct_cities": 77.4,
-          "weight_sqrt": 0.124,
-          "weight_idf": 0.058,
-          "weight_log": 0.165
-        },
-        {
           "key": "vali",
           "name": "Välitie",
           "n_cities": 65,
@@ -6906,8 +6898,17 @@
           "weight_log": 0.165
         },
         {
-          "key": "sepan",
-          "name": "Sepäntie",
+          "key": "paja",
+          "name": "Pajatie",
+          "n_cities": 65,
+          "pct_cities": 77.4,
+          "weight_sqrt": 0.124,
+          "weight_idf": 0.058,
+          "weight_log": 0.165
+        },
+        {
+          "key": "pihlaja",
+          "name": "Pihlajatie",
           "n_cities": 64,
           "pct_cities": 76.2,
           "weight_sqrt": 0.125,
@@ -6915,8 +6916,8 @@
           "weight_log": 0.166
         },
         {
-          "key": "mylly",
-          "name": "Myllytie",
+          "key": "sepan",
+          "name": "Sepäntie",
           "n_cities": 64,
           "pct_cities": 76.2,
           "weight_sqrt": 0.125,
@@ -7028,17 +7029,8 @@
       },
       "top_shared": [
         {
-          "key": "hjalla",
-          "name": "Hjallavegur",
-          "n_cities": 6,
-          "pct_cities": 75.0,
-          "weight_sqrt": 0.408,
-          "weight_idf": 0.138,
-          "weight_log": 0.356
-        },
-        {
-          "key": "skola",
-          "name": "Skólabraut",
+          "key": "mana",
+          "name": "Mánagata",
           "n_cities": 6,
           "pct_cities": 75.0,
           "weight_sqrt": 0.408,
@@ -7064,8 +7056,8 @@
           "weight_log": 0.356
         },
         {
-          "key": "mana",
-          "name": "Mánagata",
+          "key": "hjalla",
+          "name": "Hjallavegur",
           "n_cities": 6,
           "pct_cities": 75.0,
           "weight_sqrt": 0.408,
@@ -7073,44 +7065,26 @@
           "weight_log": 0.356
         },
         {
-          "key": "nordur",
-          "name": "Norðurstígur",
-          "n_cities": 5,
-          "pct_cities": 62.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.226,
-          "weight_log": 0.387
-        },
-        {
-          "key": "holts",
-          "name": "Holtsgata",
-          "n_cities": 5,
-          "pct_cities": 62.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.226,
-          "weight_log": 0.387
-        },
-        {
-          "key": "tungu",
-          "name": "Tunguvegur",
-          "n_cities": 5,
-          "pct_cities": 62.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.226,
-          "weight_log": 0.387
-        },
-        {
-          "key": "tun",
-          "name": "Túngata",
-          "n_cities": 5,
-          "pct_cities": 62.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.226,
-          "weight_log": 0.387
+          "key": "skola",
+          "name": "Skólabraut",
+          "n_cities": 6,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.408,
+          "weight_idf": 0.138,
+          "weight_log": 0.356
         },
         {
           "key": "sudur",
           "name": "Suðurgata",
+          "n_cities": 5,
+          "pct_cities": 62.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.226,
+          "weight_log": 0.387
+        },
+        {
+          "key": "hafnar",
+          "name": "Hafnargata",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -7127,8 +7101,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "austur",
-          "name": "Austurgata",
+          "key": "strand",
+          "name": "Strandgata",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -7136,8 +7110,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "urdar",
-          "name": "Urðarbraut",
+          "key": "tungu",
+          "name": "Tunguvegur",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -7154,8 +7128,35 @@
           "weight_log": 0.387
         },
         {
+          "key": "urdar",
+          "name": "Urðarbraut",
+          "n_cities": 5,
+          "pct_cities": 62.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.226,
+          "weight_log": 0.387
+        },
+        {
+          "key": "holts",
+          "name": "Holtsgata",
+          "n_cities": 5,
+          "pct_cities": 62.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.226,
+          "weight_log": 0.387
+        },
+        {
           "key": "laekjar",
           "name": "Lækjargata",
+          "n_cities": 5,
+          "pct_cities": 62.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.226,
+          "weight_log": 0.387
+        },
+        {
+          "key": "austur",
+          "name": "Austurgata",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -7187,14 +7188,14 @@
       ],
       "cities_count": 14,
       "total_city_streets": 4025,
-      "unique_norm_streets": 2304,
-      "pure_exclusive_streets": 1693,
-      "searchable_shared_streets": 611,
+      "unique_norm_streets": 2303,
+      "pure_exclusive_streets": 1691,
+      "searchable_shared_streets": 612,
       "raw_valid_rows": 5871,
       "mean_rarity_sqrt": 61.9,
       "median_rarity_sqrt": 57.5,
       "median_rarity_len_sqrt": 58.8,
-      "median_cliche_gap": 0.6,
+      "median_cliche_gap": 0.5,
       "pct_longer_more_generic": 50.0,
       "mean_rarity_idf": 56.3,
       "median_rarity_idf": 51.2,
@@ -7238,15 +7239,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 1693,
-          "median_m": 341.6,
-          "mean_m": 542.0
+          "count": 1691,
+          "median_m": 341.8,
+          "mean_m": 542.5
         },
         {
           "tier": "Rare (2-5)",
-          "count": 1352,
-          "median_m": 344.1,
-          "mean_m": 541.3
+          "count": 1354,
+          "median_m": 343.4,
+          "mean_m": 540.7
         },
         {
           "tier": "Medium (6-20)",
@@ -7285,15 +7286,6 @@
           "weight_log": 0.27
         },
         {
-          "key": "luha",
-          "name": "Luha",
-          "n_cities": 11,
-          "pct_cities": 78.6,
-          "weight_sqrt": 0.302,
-          "weight_idf": 0.091,
-          "weight_log": 0.279
-        },
-        {
           "key": "lepa",
           "name": "Lepa",
           "n_cities": 11,
@@ -7305,6 +7297,15 @@
         {
           "key": "kase",
           "name": "Kase",
+          "n_cities": 11,
+          "pct_cities": 78.6,
+          "weight_sqrt": 0.302,
+          "weight_idf": 0.091,
+          "weight_log": 0.279
+        },
+        {
+          "key": "luha",
+          "name": "Luha",
           "n_cities": 11,
           "pct_cities": 78.6,
           "weight_sqrt": 0.302,
@@ -7339,35 +7340,17 @@
           "weight_log": 0.279
         },
         {
+          "key": "kevade",
+          "name": "Kevade",
+          "n_cities": 10,
+          "pct_cities": 71.4,
+          "weight_sqrt": 0.316,
+          "weight_idf": 0.127,
+          "weight_log": 0.289
+        },
+        {
           "key": "lille",
           "name": "Lille",
-          "n_cities": 10,
-          "pct_cities": 71.4,
-          "weight_sqrt": 0.316,
-          "weight_idf": 0.127,
-          "weight_log": 0.289
-        },
-        {
-          "key": "pargi",
-          "name": "Pargi",
-          "n_cities": 10,
-          "pct_cities": 71.4,
-          "weight_sqrt": 0.316,
-          "weight_idf": 0.127,
-          "weight_log": 0.289
-        },
-        {
-          "key": "tamme",
-          "name": "Tamme",
-          "n_cities": 10,
-          "pct_cities": 71.4,
-          "weight_sqrt": 0.316,
-          "weight_idf": 0.127,
-          "weight_log": 0.289
-        },
-        {
-          "key": "eha",
-          "name": "Eha",
           "n_cities": 10,
           "pct_cities": 71.4,
           "weight_sqrt": 0.316,
@@ -7384,8 +7367,8 @@
           "weight_log": 0.289
         },
         {
-          "key": "aia",
-          "name": "Aia",
+          "key": "tamme",
+          "name": "Tamme",
           "n_cities": 10,
           "pct_cities": 71.4,
           "weight_sqrt": 0.316,
@@ -7393,8 +7376,26 @@
           "weight_log": 0.289
         },
         {
-          "key": "liiva",
-          "name": "Liiva",
+          "key": "roosi",
+          "name": "Roosi",
+          "n_cities": 10,
+          "pct_cities": 71.4,
+          "weight_sqrt": 0.316,
+          "weight_idf": 0.127,
+          "weight_log": 0.289
+        },
+        {
+          "key": "kooli",
+          "name": "Kooli",
+          "n_cities": 10,
+          "pct_cities": 71.4,
+          "weight_sqrt": 0.316,
+          "weight_idf": 0.127,
+          "weight_log": 0.289
+        },
+        {
+          "key": "eha",
+          "name": "Eha",
           "n_cities": 10,
           "pct_cities": 71.4,
           "weight_sqrt": 0.316,
@@ -7524,8 +7525,8 @@
           "weight_log": 0.263
         },
         {
-          "key": "meza",
-          "name": "Meža iela",
+          "key": "rigas",
+          "name": "Rīgas iela",
           "n_cities": 13,
           "pct_cities": 92.9,
           "weight_sqrt": 0.277,
@@ -7533,8 +7534,8 @@
           "weight_log": 0.263
         },
         {
-          "key": "rigas",
-          "name": "Rīgas iela",
+          "key": "meza",
+          "name": "Meža iela",
           "n_cities": 13,
           "pct_cities": 92.9,
           "weight_sqrt": 0.277,
@@ -7551,8 +7552,62 @@
           "weight_log": 0.27
         },
         {
+          "key": "avotu",
+          "name": "Avotu iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
           "key": "krasta",
           "name": "Krasta iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
+          "key": "zvaigznu",
+          "name": "Zvaigžņu iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
+          "key": "berzu",
+          "name": "Bērzu iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
+          "key": "priezu",
+          "name": "Priežu iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
+          "key": "cerinu",
+          "name": "Ceriņu iela",
+          "n_cities": 12,
+          "pct_cities": 85.7,
+          "weight_sqrt": 0.289,
+          "weight_idf": 0.058,
+          "weight_log": 0.27
+        },
+        {
+          "key": "rozu",
+          "name": "Rožu iela",
           "n_cities": 12,
           "pct_cities": 85.7,
           "weight_sqrt": 0.289,
@@ -7578,62 +7633,8 @@
           "weight_log": 0.27
         },
         {
-          "key": "avotu",
-          "name": "Avotu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
-          "key": "zvaigznu",
-          "name": "Zvaigžņu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
           "key": "ziedu",
           "name": "Ziedu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
-          "key": "berzu",
-          "name": "Bērzu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
-          "key": "rozu",
-          "name": "Rožu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
-          "key": "cerinu",
-          "name": "Ceriņu iela",
-          "n_cities": 12,
-          "pct_cities": 85.7,
-          "weight_sqrt": 0.289,
-          "weight_idf": 0.058,
-          "weight_log": 0.27
-        },
-        {
-          "key": "priezu",
-          "name": "Priežu iela",
           "n_cities": 12,
           "pct_cities": 85.7,
           "weight_sqrt": 0.289,
@@ -7751,15 +7752,6 @@
       },
       "top_shared": [
         {
-          "key": "birutes",
-          "name": "Birutės g.",
-          "n_cities": 29,
-          "pct_cities": 90.6,
-          "weight_sqrt": 0.186,
-          "weight_idf": 0.028,
-          "weight_log": 0.204
-        },
-        {
           "key": "liepu",
           "name": "Liepų g.",
           "n_cities": 29,
@@ -7769,8 +7761,17 @@
           "weight_log": 0.204
         },
         {
-          "key": "vytauto",
-          "name": "Vytauto g.",
+          "key": "birutes",
+          "name": "Birutės g.",
+          "n_cities": 29,
+          "pct_cities": 90.6,
+          "weight_sqrt": 0.186,
+          "weight_idf": 0.028,
+          "weight_log": 0.204
+        },
+        {
+          "key": "ausros",
+          "name": "Aušros g.",
           "n_cities": 28,
           "pct_cities": 87.5,
           "weight_sqrt": 0.189,
@@ -7778,8 +7779,8 @@
           "weight_log": 0.206
         },
         {
-          "key": "ausros",
-          "name": "Aušros g.",
+          "key": "vytauto",
+          "name": "Vytauto g.",
           "n_cities": 28,
           "pct_cities": 87.5,
           "weight_sqrt": 0.189,
@@ -7814,8 +7815,8 @@
           "weight_log": 0.21
         },
         {
-          "key": "kestucio",
-          "name": "Kęstučio g.",
+          "key": "geliu",
+          "name": "Gėlių g.",
           "n_cities": 25,
           "pct_cities": 78.1,
           "weight_sqrt": 0.2,
@@ -7823,8 +7824,8 @@
           "weight_log": 0.213
         },
         {
-          "key": "geliu",
-          "name": "Gėlių g.",
+          "key": "kestucio",
+          "name": "Kęstučio g.",
           "n_cities": 25,
           "pct_cities": 78.1,
           "weight_sqrt": 0.2,
@@ -7850,6 +7851,24 @@
           "weight_log": 0.215
         },
         {
+          "key": "alyvu",
+          "name": "Alyvų g.",
+          "n_cities": 23,
+          "pct_cities": 71.9,
+          "weight_sqrt": 0.209,
+          "weight_idf": 0.095,
+          "weight_log": 0.218
+        },
+        {
+          "key": "pramones",
+          "name": "Pramonės g.",
+          "n_cities": 23,
+          "pct_cities": 71.9,
+          "weight_sqrt": 0.209,
+          "weight_idf": 0.095,
+          "weight_log": 0.218
+        },
+        {
           "key": "zemaites",
           "name": "Žemaitės g.",
           "n_cities": 23,
@@ -7861,24 +7880,6 @@
         {
           "key": "draugystes",
           "name": "Draugystės g.",
-          "n_cities": 23,
-          "pct_cities": 71.9,
-          "weight_sqrt": 0.209,
-          "weight_idf": 0.095,
-          "weight_log": 0.218
-        },
-        {
-          "key": "alyvu",
-          "name": "Alyvų g.",
-          "n_cities": 23,
-          "pct_cities": 71.9,
-          "weight_sqrt": 0.209,
-          "weight_idf": 0.095,
-          "weight_log": 0.218
-        },
-        {
-          "key": "kastonu",
-          "name": "Kaštonų g.",
           "n_cities": 23,
           "pct_cities": 71.9,
           "weight_sqrt": 0.209,
@@ -7909,21 +7910,21 @@
         "ro"
       ],
       "cities_count": 183,
-      "total_city_streets": 32611,
-      "unique_norm_streets": 11179,
-      "pure_exclusive_streets": 8261,
-      "searchable_shared_streets": 2918,
+      "total_city_streets": 32592,
+      "unique_norm_streets": 11075,
+      "pure_exclusive_streets": 8156,
+      "searchable_shared_streets": 2919,
       "raw_valid_rows": 33486,
-      "mean_rarity_sqrt": 41.1,
-      "median_rarity_sqrt": 38.9,
+      "mean_rarity_sqrt": 40.9,
+      "median_rarity_sqrt": 38.8,
       "median_rarity_len_sqrt": 43.3,
       "median_cliche_gap": -0.9,
-      "pct_longer_more_generic": 41.0,
-      "mean_rarity_idf": 52.5,
-      "median_rarity_idf": 50.6,
-      "mean_rarity_log": 41.4,
+      "pct_longer_more_generic": 40.4,
+      "mean_rarity_idf": 52.4,
+      "median_rarity_idf": 50.5,
+      "mean_rarity_log": 41.2,
       "median_rarity_log": 39.6,
-      "mean_exclusive_pct": 20.9,
+      "mean_exclusive_pct": 20.7,
       "mean_numbered_pct": 0.16,
       "median_built_area_km2": 6.6,
       "median_muni_area_km2": 77.5,
@@ -7935,7 +7936,7 @@
       "median_street_m": 390.4,
       "mean_street_m": 636.4,
       "spearman_built_area_rarity": 0.574,
-      "spearman_muni_area_rarity": 0.07,
+      "spearman_muni_area_rarity": 0.073,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 1.053,
@@ -7950,7 +7951,7 @@
           "r": 0.201
         },
         "streets_vs_pop": {
-          "exponent": 0.731,
+          "exponent": 0.73,
           "r": 0.837
         },
         "street_km_vs_built_area": {
@@ -7961,27 +7962,27 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 8261,
-          "median_m": 343.5,
-          "mean_m": 614.4
+          "count": 8156,
+          "median_m": 344.6,
+          "mean_m": 616.8
         },
         {
           "tier": "Rare (2-5)",
-          "count": 5473,
-          "median_m": 342.3,
-          "mean_m": 576.8
+          "count": 5438,
+          "median_m": 341.7,
+          "mean_m": 575.8
         },
         {
           "tier": "Medium (6-20)",
-          "count": 6700,
-          "median_m": 341.1,
-          "mean_m": 560.1
+          "count": 6699,
+          "median_m": 340.7,
+          "mean_m": 559.3
         },
         {
           "tier": "Common (21-100)",
-          "count": 10676,
-          "median_m": 375.4,
-          "mean_m": 595.2
+          "count": 10798,
+          "median_m": 375.9,
+          "mean_m": 595.5
         },
         {
           "tier": "Iconic (>100)",
@@ -7992,7 +7993,7 @@
       ],
       "most_unique_city": {
         "name": "Iași",
-        "score_sqrt": 73.7,
+        "score_sqrt": 73.3,
         "streets": 746
       },
       "most_generic_city": {
@@ -8139,7 +8140,7 @@
       ],
       "founded_coverage_pct": 65.0,
       "median_founded_year": 1406,
-      "spearman_founded_rarity": -0.188
+      "spearman_founded_rarity": -0.191
     },
     {
       "code": "BG",
@@ -8160,13 +8161,13 @@
         "bg"
       ],
       "cities_count": 77,
-      "total_city_streets": 22128,
-      "unique_norm_streets": 9915,
-      "pure_exclusive_streets": 7733,
+      "total_city_streets": 22127,
+      "unique_norm_streets": 9913,
+      "pure_exclusive_streets": 7731,
       "searchable_shared_streets": 2182,
       "raw_valid_rows": 22424,
       "mean_rarity_sqrt": 47.6,
-      "median_rarity_sqrt": 47.2,
+      "median_rarity_sqrt": 47.1,
       "median_rarity_len_sqrt": 44.2,
       "median_cliche_gap": 3.4,
       "pct_longer_more_generic": 70.1,
@@ -8185,8 +8186,8 @@
       "median_pop_per_street_km": 286.4,
       "median_street_m": 323.1,
       "mean_street_m": 580.9,
-      "spearman_built_area_rarity": 0.443,
-      "spearman_muni_area_rarity": 0.208,
+      "spearman_built_area_rarity": 0.442,
+      "spearman_muni_area_rarity": 0.207,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.886,
@@ -8212,9 +8213,9 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 7733,
+          "count": 7731,
           "median_m": 301.9,
-          "mean_m": 520.4
+          "mean_m": 520.5
         },
         {
           "tier": "Rare (2-5)",
@@ -8230,8 +8231,8 @@
         },
         {
           "tier": "Common (21-100)",
-          "count": 5731,
-          "median_m": 384.8,
+          "count": 5732,
+          "median_m": 384.6,
           "mean_m": 776.0
         }
       ],
@@ -8310,8 +8311,8 @@
           "weight_log": 0.168
         },
         {
-          "key": "stara planina",
-          "name": "Стара планина",
+          "key": "hristo smirnenski",
+          "name": "Христо Смирненски",
           "n_cities": 60,
           "pct_cities": 77.9,
           "weight_sqrt": 0.129,
@@ -8337,8 +8338,8 @@
           "weight_log": 0.169
         },
         {
-          "key": "hristo smirnenski",
-          "name": "Христо Смирненски",
+          "key": "stara planina",
+          "name": "Стара планина",
           "n_cities": 60,
           "pct_cities": 77.9,
           "weight_sqrt": 0.129,
@@ -8405,20 +8406,20 @@
         "el"
       ],
       "cities_count": 73,
-      "total_city_streets": 37947,
-      "unique_norm_streets": 18311,
-      "pure_exclusive_streets": 14531,
-      "searchable_shared_streets": 3780,
+      "total_city_streets": 37945,
+      "unique_norm_streets": 18295,
+      "pure_exclusive_streets": 14512,
+      "searchable_shared_streets": 3783,
       "raw_valid_rows": 38759,
       "mean_rarity_sqrt": 58.8,
       "median_rarity_sqrt": 58.4,
       "median_rarity_len_sqrt": 74.0,
       "median_cliche_gap": -14.2,
       "pct_longer_more_generic": 19.2,
-      "mean_rarity_idf": 64.5,
+      "mean_rarity_idf": 64.4,
       "median_rarity_idf": 64.1,
       "mean_rarity_log": 57.6,
-      "median_rarity_log": 57.0,
+      "median_rarity_log": 56.9,
       "mean_exclusive_pct": 38.1,
       "mean_numbered_pct": 0.28,
       "median_built_area_km2": 19.8,
@@ -8430,11 +8431,11 @@
       "median_pop_per_street_km": 94.7,
       "median_street_m": 237.5,
       "mean_street_m": 811.3,
-      "spearman_built_area_rarity": 0.326,
+      "spearman_built_area_rarity": 0.327,
       "spearman_muni_area_rarity": 0.218,
       "scaling": {
         "streets_vs_built_area": {
-          "exponent": 1.188,
+          "exponent": 1.189,
           "r": 0.681
         },
         "pop_vs_built_area": {
@@ -8457,27 +8458,27 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 14531,
-          "median_m": 202.3,
-          "mean_m": 967.4
+          "count": 14512,
+          "median_m": 202.2,
+          "mean_m": 968.1
         },
         {
           "tier": "Rare (2-5)",
-          "count": 7225,
+          "count": 7226,
           "median_m": 195.5,
-          "mean_m": 616.3
+          "mean_m": 616.1
         },
         {
           "tier": "Medium (6-20)",
-          "count": 9368,
-          "median_m": 217.2,
-          "mean_m": 369.5
+          "count": 9357,
+          "median_m": 217.3,
+          "mean_m": 369.6
         },
         {
           "tier": "Common (21-100)",
-          "count": 6823,
+          "count": 6850,
           "median_m": 314.3,
-          "mean_m": 621.9
+          "mean_m": 621.0
         }
       ],
       "most_unique_city": {
@@ -8487,7 +8488,7 @@
       },
       "most_generic_city": {
         "name": "Drama",
-        "score_sqrt": 43.3,
+        "score_sqrt": 43.2,
         "streets": 485
       },
       "top_shared": [
@@ -8546,6 +8547,15 @@
           "weight_log": 0.171
         },
         {
+          "key": "riga feraioy",
+          "name": "Ρήγα Φεραίου",
+          "n_cities": 55,
+          "pct_cities": 75.3,
+          "weight_sqrt": 0.135,
+          "weight_idf": 0.066,
+          "weight_log": 0.172
+        },
+        {
           "key": "karaiskaki",
           "name": "Καραϊσκάκη",
           "n_cities": 55,
@@ -8555,13 +8565,13 @@
           "weight_log": 0.172
         },
         {
-          "key": "riga feraioy",
-          "name": "Ρήγα Φεραίου",
-          "n_cities": 55,
-          "pct_cities": 75.3,
-          "weight_sqrt": 0.135,
-          "weight_idf": 0.066,
-          "weight_log": 0.172
+          "key": "papaflessa",
+          "name": "Παπαφλέσσα",
+          "n_cities": 54,
+          "pct_cities": 74.0,
+          "weight_sqrt": 0.136,
+          "weight_idf": 0.07,
+          "weight_log": 0.173
         },
         {
           "key": "aristoteloys",
@@ -8575,15 +8585,6 @@
         {
           "key": "platonos",
           "name": "Πλάτωνος",
-          "n_cities": 54,
-          "pct_cities": 74.0,
-          "weight_sqrt": 0.136,
-          "weight_idf": 0.07,
-          "weight_log": 0.173
-        },
-        {
-          "key": "papaflessa",
-          "name": "Παπαφλέσσα",
           "n_cities": 54,
           "pct_cities": 74.0,
           "weight_sqrt": 0.136,
@@ -8741,24 +8742,6 @@
           "weight_log": 0.289
         },
         {
-          "key": "apollonos",
-          "name": "Apollonos",
-          "n_cities": 9,
-          "pct_cities": 75.0,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.116,
-          "weight_log": 0.301
-        },
-        {
-          "key": "ektoros",
-          "name": "Ektoros",
-          "n_cities": 9,
-          "pct_cities": 75.0,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.116,
-          "weight_log": 0.301
-        },
-        {
           "key": "gravias",
           "name": "Gravias",
           "n_cities": 9,
@@ -8768,17 +8751,8 @@
           "weight_log": 0.301
         },
         {
-          "key": "akropoleos",
-          "name": "Akropoleos",
-          "n_cities": 9,
-          "pct_cities": 75.0,
-          "weight_sqrt": 0.333,
-          "weight_idf": 0.116,
-          "weight_log": 0.301
-        },
-        {
-          "key": "parthenonos",
-          "name": "Parthenonos",
+          "key": "karpasias",
+          "name": "Karpasias",
           "n_cities": 9,
           "pct_cities": 75.0,
           "weight_sqrt": 0.333,
@@ -8804,8 +8778,35 @@
           "weight_log": 0.301
         },
         {
-          "key": "karpasias",
-          "name": "Karpasias",
+          "key": "apollonos",
+          "name": "Apollonos",
+          "n_cities": 9,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.116,
+          "weight_log": 0.301
+        },
+        {
+          "key": "akropoleos",
+          "name": "Akropoleos",
+          "n_cities": 9,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.116,
+          "weight_log": 0.301
+        },
+        {
+          "key": "ektoros",
+          "name": "Ektoros",
+          "n_cities": 9,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.333,
+          "weight_idf": 0.116,
+          "weight_log": 0.301
+        },
+        {
+          "key": "parthenonos",
+          "name": "Parthenonos",
           "n_cities": 9,
           "pct_cities": 75.0,
           "weight_sqrt": 0.333,
@@ -8822,15 +8823,6 @@
           "weight_log": 0.301
         },
         {
-          "key": "delfon",
-          "name": "Delfon",
-          "n_cities": 8,
-          "pct_cities": 66.7,
-          "weight_sqrt": 0.354,
-          "weight_idf": 0.163,
-          "weight_log": 0.315
-        },
-        {
           "key": "dramas",
           "name": "Dramas",
           "n_cities": 8,
@@ -8840,8 +8832,8 @@
           "weight_log": 0.315
         },
         {
-          "key": "efesou",
-          "name": "Efesou",
+          "key": "pandoras",
+          "name": "Pandoras",
           "n_cities": 8,
           "pct_cities": 66.7,
           "weight_sqrt": 0.354,
@@ -8849,8 +8841,8 @@
           "weight_log": 0.315
         },
         {
-          "key": "thrakis",
-          "name": "Thrakis",
+          "key": "ippokratous",
+          "name": "Ippokratous",
           "n_cities": 8,
           "pct_cities": 66.7,
           "weight_sqrt": 0.354,
@@ -8860,6 +8852,15 @@
         {
           "key": "tinou",
           "name": "Tinou",
+          "n_cities": 8,
+          "pct_cities": 66.7,
+          "weight_sqrt": 0.354,
+          "weight_idf": 0.163,
+          "weight_log": 0.315
+        },
+        {
+          "key": "makedonias",
+          "name": "Makedonias",
           "n_cities": 8,
           "pct_cities": 66.7,
           "weight_sqrt": 0.354,
@@ -8892,9 +8893,9 @@
       ],
       "cities_count": 17,
       "total_city_streets": 3370,
-      "unique_norm_streets": 2678,
-      "pure_exclusive_streets": 2270,
-      "searchable_shared_streets": 408,
+      "unique_norm_streets": 2677,
+      "pure_exclusive_streets": 2268,
+      "searchable_shared_streets": 409,
       "raw_valid_rows": 3426,
       "mean_rarity_sqrt": 86.4,
       "median_rarity_sqrt": 86.2,
@@ -8916,8 +8917,8 @@
       "median_pop_per_street_km": 298.3,
       "median_street_m": 155.9,
       "mean_street_m": 254.5,
-      "spearman_built_area_rarity": 0.422,
-      "spearman_muni_area_rarity": 0.292,
+      "spearman_built_area_rarity": 0.445,
+      "spearman_muni_area_rarity": 0.325,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.478,
@@ -8943,15 +8944,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 2270,
+          "count": 2268,
           "median_m": 147.7,
-          "mean_m": 241.0
+          "mean_m": 241.1
         },
         {
           "tier": "Rare (2-5)",
-          "count": 939,
-          "median_m": 170.7,
-          "mean_m": 306.3
+          "count": 941,
+          "median_m": 170.6,
+          "mean_m": 305.9
         },
         {
           "tier": "Medium (6-20)",
@@ -8972,8 +8973,8 @@
       },
       "top_shared": [
         {
-          "key": "kbira",
-          "name": "Triq il-Kbira",
+          "key": "santa marija",
+          "name": "Triq Santa Marija",
           "n_cities": 13,
           "pct_cities": 76.5,
           "weight_sqrt": 0.277,
@@ -8981,8 +8982,8 @@
           "weight_log": 0.263
         },
         {
-          "key": "santa marija",
-          "name": "Triq Santa Marija",
+          "key": "kbira",
+          "name": "Triq il-Kbira",
           "n_cities": 13,
           "pct_cities": 76.5,
           "weight_sqrt": 0.277,
@@ -8999,8 +9000,8 @@
           "weight_log": 0.27
         },
         {
-          "key": "san guzepp",
-          "name": "Triq San Ġużepp",
+          "key": "san pawl",
+          "name": "Triq San Pawl",
           "n_cities": 11,
           "pct_cities": 64.7,
           "weight_sqrt": 0.302,
@@ -9008,8 +9009,8 @@
           "weight_log": 0.279
         },
         {
-          "key": "san pawl",
-          "name": "Triq San Pawl",
+          "key": "san guzepp",
+          "name": "Triq San Ġużepp",
           "n_cities": 11,
           "pct_cities": 64.7,
           "weight_sqrt": 0.302,
@@ -9024,33 +9025,6 @@
           "weight_sqrt": 0.333,
           "weight_idf": 0.224,
           "weight_log": 0.301
-        },
-        {
-          "key": "san frangisk",
-          "name": "Triq San Franġisk",
-          "n_cities": 8,
-          "pct_cities": 47.1,
-          "weight_sqrt": 0.354,
-          "weight_idf": 0.266,
-          "weight_log": 0.315
-        },
-        {
-          "key": "torri",
-          "name": "Triq it-Torri",
-          "n_cities": 8,
-          "pct_cities": 47.1,
-          "weight_sqrt": 0.354,
-          "weight_idf": 0.266,
-          "weight_log": 0.315
-        },
-        {
-          "key": "mitħna",
-          "name": "Triq il-Mitħna",
-          "n_cities": 8,
-          "pct_cities": 47.1,
-          "weight_sqrt": 0.354,
-          "weight_idf": 0.266,
-          "weight_log": 0.315
         },
         {
           "key": "san gorg",
@@ -9071,8 +9045,35 @@
           "weight_log": 0.315
         },
         {
-          "key": "karmnu",
-          "name": "Triq il-Karmnu",
+          "key": "torri",
+          "name": "Triq it-Torri",
+          "n_cities": 8,
+          "pct_cities": 47.1,
+          "weight_sqrt": 0.354,
+          "weight_idf": 0.266,
+          "weight_log": 0.315
+        },
+        {
+          "key": "san frangisk",
+          "name": "Triq San Franġisk",
+          "n_cities": 8,
+          "pct_cities": 47.1,
+          "weight_sqrt": 0.354,
+          "weight_idf": 0.266,
+          "weight_log": 0.315
+        },
+        {
+          "key": "mitħna",
+          "name": "Triq il-Mitħna",
+          "n_cities": 8,
+          "pct_cities": 47.1,
+          "weight_sqrt": 0.354,
+          "weight_idf": 0.266,
+          "weight_log": 0.315
+        },
+        {
+          "key": "san mikiel",
+          "name": "Triq San Mikiel",
           "n_cities": 7,
           "pct_cities": 41.2,
           "weight_sqrt": 0.378,
@@ -9080,8 +9081,8 @@
           "weight_log": 0.333
         },
         {
-          "key": "san mikiel",
-          "name": "Triq San Mikiel",
+          "key": "karmnu",
+          "name": "Triq il-Karmnu",
           "n_cities": 7,
           "pct_cities": 41.2,
           "weight_sqrt": 0.378,
@@ -9274,8 +9275,8 @@
           "weight_log": 0.315
         },
         {
-          "key": "abdyl frasheri",
-          "name": "Rruga Abdyl Frasheri",
+          "key": "kongresi i lushnjes",
+          "name": "Rruga Kongresi i Lushnjes",
           "n_cities": 7,
           "pct_cities": 20.6,
           "weight_sqrt": 0.378,
@@ -9283,8 +9284,8 @@
           "weight_log": 0.333
         },
         {
-          "key": "luigj gurakuqi",
-          "name": "Rruga Luigj Gurakuqi",
+          "key": "lidhja e prizrenit",
+          "name": "Rruga Lidhja e Prizrenit",
           "n_cities": 7,
           "pct_cities": 20.6,
           "weight_sqrt": 0.378,
@@ -9301,6 +9302,15 @@
           "weight_log": 0.333
         },
         {
+          "key": "luigj gurakuqi",
+          "name": "Rruga Luigj Gurakuqi",
+          "n_cities": 7,
+          "pct_cities": 20.6,
+          "weight_sqrt": 0.378,
+          "weight_idf": 0.448,
+          "weight_log": 0.333
+        },
+        {
           "key": "studenti",
           "name": "Rruga Studenti",
           "n_cities": 7,
@@ -9310,17 +9320,8 @@
           "weight_log": 0.333
         },
         {
-          "key": "1 maji",
-          "name": "Rruga 1 Maji",
-          "n_cities": 7,
-          "pct_cities": 20.6,
-          "weight_sqrt": 0.378,
-          "weight_idf": 0.448,
-          "weight_log": 0.333
-        },
-        {
-          "key": "egnatia",
-          "name": "Rruga Egnatia",
+          "key": "abdyl frasheri",
+          "name": "Rruga Abdyl Frasheri",
           "n_cities": 7,
           "pct_cities": 20.6,
           "weight_sqrt": 0.378,
@@ -9337,8 +9338,8 @@
           "weight_log": 0.333
         },
         {
-          "key": "dituria",
-          "name": "Rruga Dituria",
+          "key": "adem jashari",
+          "name": "Rruga Adem Jashari",
           "n_cities": 7,
           "pct_cities": 20.6,
           "weight_sqrt": 0.378,
@@ -9460,6 +9461,15 @@
           "weight_log": 0.333
         },
         {
+          "key": "fehmi agani",
+          "name": "Fehmi Agani",
+          "n_cities": 6,
+          "pct_cities": 75.0,
+          "weight_sqrt": 0.408,
+          "weight_idf": 0.138,
+          "weight_log": 0.356
+        },
+        {
           "key": "mic sokoli",
           "name": "Mic Sokoli",
           "n_cities": 6,
@@ -9487,17 +9497,8 @@
           "weight_log": 0.356
         },
         {
-          "key": "fehmi agani",
-          "name": "Fehmi Agani",
-          "n_cities": 6,
-          "pct_cities": 75.0,
-          "weight_sqrt": 0.408,
-          "weight_idf": 0.138,
-          "weight_log": 0.356
-        },
-        {
-          "key": "trepca",
-          "name": "Trepça",
+          "key": "hasan prishtina",
+          "name": "Hasan Prishtina",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9505,8 +9506,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "shote galica",
-          "name": "Shotë Galica",
+          "key": "kongresi i manastirit",
+          "name": "Kongresi i Manastirit",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9523,17 +9524,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "fan noli",
-          "name": "Fan Noli",
-          "n_cities": 5,
-          "pct_cities": 62.5,
-          "weight_sqrt": 0.447,
-          "weight_idf": 0.226,
-          "weight_log": 0.387
-        },
-        {
-          "key": "hasan prishtina",
-          "name": "Hasan Prishtina",
+          "key": "ernest koliqi",
+          "name": "Ernest Koliqi",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9550,8 +9542,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "ali hadri",
-          "name": "Ali Hadri",
+          "key": "shote galica",
+          "name": "Shotë Galica",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9568,8 +9560,8 @@
           "weight_log": 0.387
         },
         {
-          "key": "bajram curri",
-          "name": "Bajram Curri",
+          "key": "ali pashe tepelena",
+          "name": "Ali Pashë Tepelena",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9577,8 +9569,17 @@
           "weight_log": 0.387
         },
         {
-          "key": "drenica",
-          "name": "Drenica",
+          "key": "ali hadri",
+          "name": "Ali Hadri",
+          "n_cities": 5,
+          "pct_cities": 62.5,
+          "weight_sqrt": 0.447,
+          "weight_idf": 0.226,
+          "weight_log": 0.387
+        },
+        {
+          "key": "bajram curri",
+          "name": "Bajram Curri",
           "n_cities": 5,
           "pct_cities": 62.5,
           "weight_sqrt": 0.447,
@@ -9609,21 +9610,21 @@
         "uk"
       ],
       "cities_count": 455,
-      "total_city_streets": 84823,
-      "unique_norm_streets": 29653,
-      "pure_exclusive_streets": 22341,
-      "searchable_shared_streets": 7312,
+      "total_city_streets": 84802,
+      "unique_norm_streets": 29505,
+      "pure_exclusive_streets": 22195,
+      "searchable_shared_streets": 7310,
       "raw_valid_rows": 102902,
-      "mean_rarity_sqrt": 37.5,
-      "median_rarity_sqrt": 36.4,
+      "mean_rarity_sqrt": 37.4,
+      "median_rarity_sqrt": 36.1,
       "median_rarity_len_sqrt": 32.4,
       "median_cliche_gap": 2.9,
-      "pct_longer_more_generic": 76.9,
-      "mean_rarity_idf": 53.5,
-      "median_rarity_idf": 52.4,
-      "mean_rarity_log": 38.5,
-      "median_rarity_log": 37.1,
-      "mean_exclusive_pct": 19.0,
+      "pct_longer_more_generic": 77.1,
+      "mean_rarity_idf": 53.4,
+      "median_rarity_idf": 52.3,
+      "mean_rarity_log": 38.4,
+      "median_rarity_log": 37.0,
+      "mean_exclusive_pct": 18.8,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 8.4,
       "median_muni_area_km2": 26.4,
@@ -9635,7 +9636,7 @@
       "median_street_m": 548.8,
       "mean_street_m": 786.5,
       "spearman_built_area_rarity": 0.494,
-      "spearman_muni_area_rarity": 0.183,
+      "spearman_muni_area_rarity": 0.185,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.943,
@@ -9651,7 +9652,7 @@
         },
         "streets_vs_pop": {
           "exponent": 0.674,
-          "r": 0.766
+          "r": 0.767
         },
         "street_km_vs_built_area": {
           "exponent": 1.016,
@@ -9661,38 +9662,38 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 22341,
-          "median_m": 426.0,
-          "mean_m": 675.9
+          "count": 22195,
+          "median_m": 426.1,
+          "mean_m": 675.4
         },
         {
           "tier": "Rare (2-5)",
           "count": 14175,
-          "median_m": 451.3,
-          "mean_m": 694.5
+          "median_m": 451.2,
+          "mean_m": 695.4
         },
         {
           "tier": "Medium (6-20)",
-          "count": 14749,
-          "median_m": 483.6,
-          "mean_m": 736.2
+          "count": 14673,
+          "median_m": 481.7,
+          "mean_m": 734.6
         },
         {
           "tier": "Common (21-100)",
-          "count": 21132,
-          "median_m": 535.7,
+          "count": 21314,
+          "median_m": 535.8,
           "mean_m": 816.4
         },
         {
           "tier": "Iconic (>100)",
-          "count": 12426,
-          "median_m": 766.8,
-          "mean_m": 1439.2
+          "count": 12445,
+          "median_m": 767.0,
+          "mean_m": 1439.1
         }
       ],
       "most_unique_city": {
         "name": "Inkerman",
-        "score_sqrt": 83.5,
+        "score_sqrt": 83.4,
         "streets": 34
       },
       "most_generic_city": {
@@ -9740,8 +9741,8 @@
         {
           "key": "bogdana hmelnickogo",
           "name": "вулиця Богдана Хмельницького",
-          "n_cities": 287,
-          "pct_cities": 63.1,
+          "n_cities": 288,
+          "pct_cities": 63.3,
           "weight_sqrt": 0.059,
           "weight_idf": 0.075,
           "weight_log": 0.122
@@ -9749,10 +9750,10 @@
         {
           "key": "molodizna",
           "name": "Молодіжна вулиця",
-          "n_cities": 286,
-          "pct_cities": 62.9,
+          "n_cities": 287,
+          "pct_cities": 63.1,
           "weight_sqrt": 0.059,
-          "weight_idf": 0.076,
+          "weight_idf": 0.075,
           "weight_log": 0.122
         },
         {
@@ -9839,7 +9840,7 @@
       ],
       "founded_coverage_pct": 83.3,
       "median_founded_year": 1795,
-      "spearman_founded_rarity": -0.355
+      "spearman_founded_rarity": -0.351
     },
     {
       "code": "BY",
@@ -9861,9 +9862,9 @@
       ],
       "cities_count": 83,
       "total_city_streets": 12248,
-      "unique_norm_streets": 4718,
-      "pure_exclusive_streets": 3515,
-      "searchable_shared_streets": 1203,
+      "unique_norm_streets": 4715,
+      "pure_exclusive_streets": 3510,
+      "searchable_shared_streets": 1205,
       "raw_valid_rows": 12892,
       "mean_rarity_sqrt": 47.4,
       "median_rarity_sqrt": 43.1,
@@ -9873,8 +9874,8 @@
       "mean_rarity_idf": 53.4,
       "median_rarity_idf": 49.3,
       "mean_rarity_log": 46.7,
-      "median_rarity_log": 43.0,
-      "mean_exclusive_pct": 24.9,
+      "median_rarity_log": 42.8,
+      "mean_exclusive_pct": 24.8,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 8.0,
       "median_muni_area_km2": 17.8,
@@ -9912,15 +9913,15 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 3515,
-          "median_m": 412.5,
-          "mean_m": 622.3
+          "count": 3510,
+          "median_m": 412.4,
+          "mean_m": 621.8
         },
         {
           "tier": "Rare (2-5)",
-          "count": 2295,
-          "median_m": 451.3,
-          "mean_m": 666.3
+          "count": 2300,
+          "median_m": 451.4,
+          "mean_m": 666.9
         },
         {
           "tier": "Medium (6-20)",
@@ -9937,7 +9938,7 @@
       ],
       "most_unique_city": {
         "name": "Frunzyenski District",
-        "score_sqrt": 81.7,
+        "score_sqrt": 81.6,
         "streets": 127
       },
       "most_generic_city": {
@@ -9983,8 +9984,8 @@
           "weight_log": 0.165
         },
         {
-          "key": "janki kupaly",
-          "name": "вуліца Янкі Купалы",
+          "key": "kastrycnickaja",
+          "name": "Кастрычніцкая вуліца",
           "n_cities": 61,
           "pct_cities": 73.5,
           "weight_sqrt": 0.128,
@@ -9992,8 +9993,8 @@
           "weight_log": 0.168
         },
         {
-          "key": "kastrycnickaja",
-          "name": "Кастрычніцкая вуліца",
+          "key": "janki kupaly",
+          "name": "вуліца Янкі Купалы",
           "n_cities": 61,
           "pct_cities": 73.5,
           "weight_sqrt": 0.128,
@@ -10064,8 +10065,8 @@
           "weight_log": 0.172
         },
         {
-          "key": "kirava",
-          "name": "вуліца Кірава",
+          "key": "jubilejnaja",
+          "name": "Юбілейная вуліца",
           "n_cities": 54,
           "pct_cities": 65.1,
           "weight_sqrt": 0.136,
@@ -10073,8 +10074,8 @@
           "weight_log": 0.173
         },
         {
-          "key": "zavodskaja",
-          "name": "Заводская вуліца",
+          "key": "internacyjanalnaja",
+          "name": "Інтэрнацыянальная вуліца",
           "n_cities": 54,
           "pct_cities": 65.1,
           "weight_sqrt": 0.136,
@@ -10084,7 +10085,7 @@
       ],
       "founded_coverage_pct": 77.1,
       "median_founded_year": 1482,
-      "spearman_founded_rarity": -0.033
+      "spearman_founded_rarity": -0.036
     },
     {
       "code": "MD",
@@ -10106,21 +10107,21 @@
         "uk"
       ],
       "cities_count": 42,
-      "total_city_streets": 6475,
-      "unique_norm_streets": 3375,
-      "pure_exclusive_streets": 2523,
-      "searchable_shared_streets": 852,
+      "total_city_streets": 6474,
+      "unique_norm_streets": 3365,
+      "pure_exclusive_streets": 2512,
+      "searchable_shared_streets": 853,
       "raw_valid_rows": 6591,
       "mean_rarity_sqrt": 61.9,
-      "median_rarity_sqrt": 60.5,
-      "median_rarity_len_sqrt": 58.8,
-      "median_cliche_gap": 2.3,
+      "median_rarity_sqrt": 60.4,
+      "median_rarity_len_sqrt": 58.7,
+      "median_cliche_gap": 2.4,
       "pct_longer_more_generic": 83.3,
       "mean_rarity_idf": 66.1,
       "median_rarity_idf": 65.0,
-      "mean_rarity_log": 59.4,
-      "median_rarity_log": 57.2,
-      "mean_exclusive_pct": 34.6,
+      "mean_rarity_log": 59.3,
+      "median_rarity_log": 57.0,
+      "mean_exclusive_pct": 34.5,
       "mean_numbered_pct": 0.0,
       "median_built_area_km2": 7.9,
       "median_muni_area_km2": 47.9,
@@ -10131,8 +10132,8 @@
       "median_pop_per_street_km": 189.9,
       "median_street_m": 459.0,
       "mean_street_m": 754.1,
-      "spearman_built_area_rarity": 0.331,
-      "spearman_muni_area_rarity": 0.176,
+      "spearman_built_area_rarity": 0.326,
+      "spearman_muni_area_rarity": 0.18,
       "scaling": {
         "streets_vs_built_area": {
           "exponent": 0.932,
@@ -10143,7 +10144,7 @@
           "r": 0.854
         },
         "streets_vs_muni_area": {
-          "exponent": 0.034,
+          "exponent": 0.035,
           "r": 0.053
         },
         "streets_vs_pop": {
@@ -10158,21 +10159,21 @@
       "length_by_tier": [
         {
           "tier": "Unique (n=1)",
-          "count": 2523,
-          "median_m": 376.7,
-          "mean_m": 660.4
+          "count": 2512,
+          "median_m": 376.4,
+          "mean_m": 660.6
         },
         {
           "tier": "Rare (2-5)",
-          "count": 1836,
-          "median_m": 431.9,
-          "mean_m": 702.9
+          "count": 1844,
+          "median_m": 432.7,
+          "mean_m": 702.7
         },
         {
           "tier": "Medium (6-20)",
-          "count": 1404,
+          "count": 1406,
           "median_m": 572.0,
-          "mean_m": 887.5
+          "mean_m": 887.3
         },
         {
           "tier": "Common (21-100)",
@@ -10247,26 +10248,8 @@
           "weight_log": 0.21
         },
         {
-          "key": "31 august 1989",
-          "name": "Strada 31 August 1989",
-          "n_cities": 25,
-          "pct_cities": 59.5,
-          "weight_sqrt": 0.2,
-          "weight_idf": 0.139,
-          "weight_log": 0.213
-        },
-        {
-          "key": "alexei mateevici",
-          "name": "Strada Alexei Mateevici",
-          "n_cities": 25,
-          "pct_cities": 59.5,
-          "weight_sqrt": 0.2,
-          "weight_idf": 0.139,
-          "weight_log": 0.213
-        },
-        {
-          "key": "serghei lazo",
-          "name": "Strada Serghei Lazo",
+          "key": "vasile lupu",
+          "name": "Strada Vasile Lupu",
           "n_cities": 25,
           "pct_cities": 59.5,
           "weight_sqrt": 0.2,
@@ -10283,8 +10266,35 @@
           "weight_log": 0.213
         },
         {
+          "key": "alexei mateevici",
+          "name": "Strada Alexei Mateevici",
+          "n_cities": 25,
+          "pct_cities": 59.5,
+          "weight_sqrt": 0.2,
+          "weight_idf": 0.139,
+          "weight_log": 0.213
+        },
+        {
           "key": "florilor",
           "name": "Strada Florilor",
+          "n_cities": 25,
+          "pct_cities": 59.5,
+          "weight_sqrt": 0.2,
+          "weight_idf": 0.139,
+          "weight_log": 0.213
+        },
+        {
+          "key": "serghei lazo",
+          "name": "Strada Serghei Lazo",
+          "n_cities": 25,
+          "pct_cities": 59.5,
+          "weight_sqrt": 0.2,
+          "weight_idf": 0.139,
+          "weight_log": 0.213
+        },
+        {
+          "key": "31 august 1989",
+          "name": "Strada 31 August 1989",
           "n_cities": 25,
           "pct_cities": 59.5,
           "weight_sqrt": 0.2,
@@ -10301,15 +10311,6 @@
           "weight_log": 0.213
         },
         {
-          "key": "vasile lupu",
-          "name": "Strada Vasile Lupu",
-          "n_cities": 25,
-          "pct_cities": 59.5,
-          "weight_sqrt": 0.2,
-          "weight_idf": 0.139,
-          "weight_log": 0.213
-        },
-        {
           "key": "mihail sadoveanu",
           "name": "Strada Mihail Sadoveanu",
           "n_cities": 24,
@@ -10319,8 +10320,8 @@
           "weight_log": 0.215
         },
         {
-          "key": "boris glavan",
-          "name": "Strada Boris Glavan",
+          "key": "mihai viteazul",
+          "name": "Strada Mihai Viteazul",
           "n_cities": 23,
           "pct_cities": 54.8,
           "weight_sqrt": 0.209,
@@ -10330,7 +10331,7 @@
       ],
       "founded_coverage_pct": 97.6,
       "median_founded_year": 1603,
-      "spearman_founded_rarity": 0.17
+      "spearman_founded_rarity": 0.173
     }
   ],
   "cross_country_shared": [
@@ -10338,10 +10339,10 @@
       "key": "iris",
       "name": "Via degli Iris",
       "countries_count": 14,
-      "total_cities": 629,
+      "total_cities": 630,
       "by_country": {
         "IT": 42,
-        "FR": 231,
+        "FR": 232,
         "DE": 86,
         "ES": 27,
         "CH": 7,
@@ -10360,17 +10361,17 @@
       "key": "flora",
       "name": "Via Flora",
       "countries_count": 14,
-      "total_cities": 331,
+      "total_cities": 333,
       "by_country": {
         "IT": 21,
         "FR": 6,
         "DE": 69,
         "ES": 8,
-        "CH": 46,
+        "CH": 47,
         "NY": 9,
         "GB": 23,
         "NL": 46,
-        "BE": 7,
+        "BE": 8,
         "HU": 8,
         "DK": 8,
         "SE": 72,
@@ -10445,15 +10446,15 @@
       "key": "park",
       "name": "Parkstraße",
       "countries_count": 12,
-      "total_cities": 1455,
+      "total_cities": 1459,
       "by_country": {
         "DE": 587,
-        "CH": 40,
+        "CH": 41,
         "NY": 180,
         "GB": 187,
         "IE": 20,
         "NL": 140,
-        "BE": 51,
+        "BE": 54,
         "AT": 17,
         "HU": 17,
         "DK": 53,
@@ -10465,16 +10466,16 @@
       "key": "europa",
       "name": "Viale Europa",
       "countries_count": 12,
-      "total_cities": 1030,
+      "total_cities": 1035,
       "by_country": {
-        "IT": 523,
+        "IT": 526,
         "DE": 99,
         "ES": 224,
         "CH": 4,
         "GB": 19,
         "PT": 14,
         "NL": 85,
-        "BE": 36,
+        "BE": 38,
         "AT": 7,
         "HU": 6,
         "DK": 10,
@@ -10485,12 +10486,12 @@
       "key": "villa",
       "name": "Via Villa",
       "countries_count": 12,
-      "total_cities": 310,
+      "total_cities": 312,
       "by_country": {
-        "IT": 56,
+        "IT": 57,
         "FR": 7,
         "DE": 7,
-        "ES": 21,
+        "ES": 22,
         "NY": 25,
         "GB": 38,
         "BE": 3,
@@ -10505,7 +10506,7 @@
       "key": "panorama",
       "name": "Via Panorama",
       "countries_count": 12,
-      "total_cities": 300,
+      "total_cities": 301,
       "by_country": {
         "IT": 11,
         "FR": 37,
@@ -10514,7 +10515,7 @@
         "CH": 9,
         "NY": 8,
         "GB": 4,
-        "BE": 30,
+        "BE": 31,
         "AT": 4,
         "CZ": 3,
         "HU": 28,
@@ -10545,7 +10546,7 @@
       "key": "golf",
       "name": "Via del Golf",
       "countries_count": 12,
-      "total_cities": 211,
+      "total_cities": 212,
       "by_country": {
         "IT": 5,
         "FR": 47,
@@ -10554,7 +10555,7 @@
         "NY": 10,
         "GB": 38,
         "NL": 7,
-        "BE": 6,
+        "BE": 7,
         "DK": 11,
         "SE": 14,
         "NO": 4,
@@ -10585,7 +10586,7 @@
       "key": "diana",
       "name": "Via Diana",
       "countries_count": 12,
-      "total_cities": 171,
+      "total_cities": 172,
       "by_country": {
         "IT": 34,
         "DE": 33,
@@ -10594,7 +10595,7 @@
         "NY": 7,
         "GB": 16,
         "NL": 10,
-        "BE": 3,
+        "BE": 4,
         "HU": 4,
         "DK": 4,
         "SE": 14,
@@ -10605,13 +10606,13 @@
       "key": "tennis",
       "name": "Via del Tennis",
       "countries_count": 12,
-      "total_cities": 153,
+      "total_cities": 155,
       "by_country": {
-        "IT": 3,
+        "IT": 4,
         "FR": 41,
         "DE": 17,
         "ES": 6,
-        "CH": 3,
+        "CH": 4,
         "NY": 7,
         "GB": 15,
         "NL": 4,
@@ -10644,7 +10645,7 @@
       "key": "station",
       "name": "Rue de la Station",
       "countries_count": 11,
-      "total_cities": 785,
+      "total_cities": 788,
       "by_country": {
         "FR": 31,
         "DE": 12,
@@ -10653,7 +10654,7 @@
         "GB": 186,
         "IE": 14,
         "NL": 202,
-        "BE": 137,
+        "BE": 140,
         "DK": 53,
         "SE": 100,
         "FI": 3
@@ -10663,7 +10664,7 @@
       "key": "bellevue",
       "name": "Rue de Bellevue",
       "countries_count": 11,
-      "total_cities": 457,
+      "total_cities": 458,
       "by_country": {
         "FR": 328,
         "DE": 8,
@@ -10672,7 +10673,7 @@
         "GB": 46,
         "IE": 4,
         "NL": 4,
-        "BE": 8,
+        "BE": 9,
         "DK": 6,
         "SE": 9,
         "NO": 3
@@ -10720,10 +10721,10 @@
       "key": "lang",
       "name": "Langgasse",
       "countries_count": 11,
-      "total_cities": 216,
+      "total_cities": 217,
       "by_country": {
         "DE": 60,
-        "CH": 9,
+        "CH": 10,
         "NY": 7,
         "GB": 17,
         "NL": 21,
@@ -10796,13 +10797,13 @@
       "key": "berg",
       "name": "Bergstraße",
       "countries_count": 10,
-      "total_cities": 1382,
+      "total_cities": 1385,
       "by_country": {
         "DE": 1035,
         "CH": 50,
         "NY": 7,
         "NL": 66,
-        "BE": 50,
+        "BE": 53,
         "AT": 22,
         "DK": 3,
         "SE": 105,
@@ -10814,10 +10815,10 @@
       "key": "bach",
       "name": "Via Bach",
       "countries_count": 10,
-      "total_cities": 924,
+      "total_cities": 925,
       "by_country": {
         "IT": 6,
-        "FR": 5,
+        "FR": 6,
         "DE": 720,
         "ES": 10,
         "CH": 47,
@@ -10829,6 +10830,5 @@
       }
     }
   ],
-  "updated_at_iso": "2026-11-23 10:27 UTC",
-  "total_with_founded_year": 2241
+  "total_with_founded_year": 2245
 }
