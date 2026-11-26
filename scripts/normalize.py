@@ -27,7 +27,10 @@ _HIGHWAY_CODE_RE = re.compile(
 )
 
 # Purely numeric / ordinal street names (excluding historical dates like "20 Settembre", "14 Juillet", "3 Maja")
-_PURE_NUMERIC_RE = re.compile(r"^(?:\d+[a-z]?|\d+(?:st|nd|rd|th|e|er|eme|o|a|°|º|ª)?)$", re.IGNORECASE)
+_PURE_NUMERIC_RE = re.compile(
+    r"^(?:\d+[a-z]?|\d+(?:st|nd|rd|th|e|er|eme|o|a|°|º|ª)?|\d+\s+(?:j|ja|e))$",
+    re.IGNORECASE,
+)
 
 # Special Latin & South Slavic Cyrillic transliterations before NFKD stripping
 _LATIN_TRANSLIT = str.maketrans({
@@ -136,7 +139,7 @@ _PREPARED_CACHE: dict[
 ] = {}
 _SLASH_SEP_RE = re.compile(r"\s+/\s+")
 _DASH_SEP_RE = re.compile(r"\s+[-–—]\s+")
-_CYRILLIC_LANG_ORDER = ("sr", "mk", "bg", "uk")
+_CYRILLIC_LANG_ORDER = ("ru", "sr", "mk", "bg", "uk")
 
 
 def load_lang_rules(path: Path = LANG_CONFIG_PATH) -> dict[str, dict[str, list[str]]]:

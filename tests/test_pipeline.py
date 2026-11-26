@@ -309,6 +309,32 @@ def test_title_cleaning_and_guards():
     assert normalize_street("вулиця Академіка Корольова", ["uk"])[0] == "korolova"
 
 
+def test_russian_normalization():
+    # Road-type suffixes & prefixes
+    assert normalize_street("Тверская улица", ["ru"])[0] == "tverskaja"
+    assert normalize_street("Невский проспект", ["ru"])[0] == "nevskij"
+    assert normalize_street("Сосинский проезд", ["ru"])[0] == "sosinskij"
+    assert normalize_street("улица Якушева", ["ru"])[0] == "jakuseva"
+    assert normalize_street("Красная площадь", ["ru"])[0] == "krasnaja"
+    assert normalize_street("Кутузовский проспект", ["ru"])[0] == "kutuzovskij"
+    assert normalize_street("Варшавское шоссе", ["ru"])[0] == "varsavskoe"
+    assert normalize_street("Котельническая набережная", ["ru"])[0] == "kotelniceskaja"
+    assert normalize_street("Сиреневая аллея", ["ru"])[0] == "sirenevaja"
+
+    # Titles & multi-token guards
+    assert normalize_street("улица Академика Королёва", ["ru"])[0] == "koroleva"
+    assert normalize_street("проспект Маршала Жукова", ["ru"])[0] == "marsala zukova"
+    assert normalize_street("улица Маршала Георгия Жукова", ["ru"])[0] == "georgija zukova"
+    assert normalize_street("улица имени Ленина", ["ru"])[0] == "lenina"
+
+    # Numbered ordinal streets vs historical/named ordinals
+    assert normalize_street("1-я линия", ["ru"]) == ("", "1-я линия", True)
+    assert normalize_street("2-й проезд", ["ru"]) == ("", "2-й проезд", True)
+    assert normalize_street("2-я Дубровская улица", ["ru"]) == ("2 ja dubrovskaja", "2-я Дубровская улица", False)
+    assert normalize_street("улица 3 Интернационала", ["ru"]) == ("3 internacionala", "улица 3 Интернационала", False)
+    assert normalize_street("улица 50 лет ВЛКСМ", ["ru"]) == ("50 let vlksm", "улица 50 лет ВЛКСМ", False)
+
+
 def test_generated_outputs_integrity():
     summary_path = ROOT / "data" / "summary.json"
     if not summary_path.exists():

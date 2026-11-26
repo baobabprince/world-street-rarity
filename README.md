@@ -7,11 +7,11 @@ Built on **Overture Maps** (OpenStreetMap + open administrative divisions) queri
 ## Live Site (GitHub Pages)
 https://baobabprince.github.io/world-street-rarity/
 
-## Coverage (40 European Countries + Israel + New York)
+## Coverage (41 European Countries + Israel + New York)
 - **Western Europe:** United Kingdom (`GB`), Ireland (`IE`), France (`FR`), Netherlands (`NL`), Belgium (`BE`), Luxembourg (`LU`), Germany (`DE`), Switzerland (`CH`), Austria (`AT`)
 - **Southern Europe:** Spain (`ES`), Portugal (`PT`), Italy (`IT`), Greece (`GR`), Malta (`MT`), Cyprus (`CY`)
 - **Northern Europe (Nordics & Baltics):** Denmark (`DK`), Sweden (`SE`), Norway (`NO`), Finland (`FI`), Iceland (`IS`), Estonia (`EE`), Latvia (`LV`), Lithuania (`LT`)
-- **Central & Eastern Europe:** Poland (`PL`), Czechia (`CZ`), Slovakia (`SK`), Hungary (`HU`), Romania (`RO`), Bulgaria (`BG`), Ukraine (`UA`), Belarus (`BY`), Moldova (`MD`)
+- **Central & Eastern Europe:** Poland (`PL`), Czechia (`CZ`), Slovakia (`SK`), Hungary (`HU`), Romania (`RO`), Bulgaria (`BG`), Ukraine (`UA`), Belarus (`BY`), Moldova (`MD`), Russia (`RU`)
 - **Balkans:** Slovenia (`SI`), Croatia (`HR`), Serbia (`RS`), Bosnia & Herzegovina (`BA`), Montenegro (`ME`), North Macedonia (`MK`), Albania (`AL`), Kosovo (`XK`)
 - **Benchmarks outside Europe:** Israel (`IL`, also benchmarked against official registries in [israel-street-rarity](https://github.com/baobabprince/israel-street-rarity)) & New York State (`NY` / `US-NY`, with NYC's 5 boroughs separated to compare Manhattan's numbered grid)
 

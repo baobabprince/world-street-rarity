@@ -499,6 +499,31 @@
       "kapitana", "majora", "lejtenanta", "knjazja", "mitropolita"
     ]
   },
+  "ru": {
+    "prefixes": [
+      "ulica", "ul.", "ul", "prospekt", "prosp.", "pr.", "pr-t", "pr-kt",
+      "pereulok", "per.", "per", "bulvar", "bul.", "b-r", "proezd", "pr-d",
+      "sosse", "shosse", "plostad", "pl.", "nabereznaja", "nab.", "alleja",
+      "tupik", "tup.", "linija", "trakt", "spusk", "doroga", "skver",
+      "kvartal", "kv-l", "mikrorajon", "mkr.", "mkr", "mkrn",
+      "poselok", "pos.", "territorija"
+    ],
+    "connectors": [],
+    "suffixes": [
+      "ulica", "prospekt", "pereulok", "bulvar", "proezd", "sosse", "shosse",
+      "plostad", "nabereznaja", "alleja", "tupik", "linija", "trakt",
+      "spusk", "doroga", "skver", "kvartal", "mikrorajon", "val", "most"
+    ],
+    "fused_suffixes": [],
+    "titles": [
+      "akademika", "doktora", "professora", "imeni", "im.", "im", "kosmonavta"
+    ],
+    "titles_multi": [
+      "generala", "marsala", "marshala", "admirala", "polkovnika",
+      "podpolkovnika", "majora", "kapitana", "lejtenanta", "geroja",
+      "knjazja", "mitropolita", "letcika"
+    ]
+  },
   "el": {
     "prefixes": [
       "odos", "leoforos", "leof.", "l.", "plateia", "pl.", "parodos",

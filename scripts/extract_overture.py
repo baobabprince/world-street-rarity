@@ -36,6 +36,55 @@ def _connect() -> duckdb.DuckDBPyConnection:
     return con
 
 
+def _road_band_select(
+    seg_url: str,
+    bx1: float,
+    by1: float,
+    bx2: float,
+    by2: float,
+    mid_lon_filter: str = "",
+    pad: float = 0.0,
+) -> str:
+    px1, py1, px2, py2 = bx1 - pad, by1 - pad, bx2 + pad, by2 + pad
+    extra = f"\n              AND {mid_lon_filter}" if mid_lon_filter else ""
+    return f"""            SELECT s.names.primary AS street_name,
+                   CASE
+                     WHEN s.class IN ('primary', 'secondary', 'tertiary')
+                      AND {ONEWAY_EXPR}
+                     THEN ST_Length_Spheroid(s.geometry) * 0.5
+                     ELSE ST_Length_Spheroid(s.geometry)
+                   END AS adj_len_m,
+                   (s.bbox.xmin + s.bbox.xmax) / 2.0 AS mid_lon,
+                   (s.bbox.ymin + s.bbox.ymax) / 2.0 AS mid_lat,
+                   ST_Point((s.bbox.xmin + s.bbox.xmax) / 2.0, (s.bbox.ymin + s.bbox.ymax) / 2.0) AS pt,
+                   s.bbox
+            FROM read_parquet('{seg_url}') s
+            WHERE s.subtype = 'road'
+              AND s.names.primary IS NOT NULL
+              AND s.class IN ({URBAN_ROAD_CLASSES})
+              AND s.bbox.xmin >= {px1} AND s.bbox.xmax <= {px2}
+              AND s.bbox.ymin >= {py1} AND s.bbox.ymax <= {py2}{extra}"""
+
+
+def _build_roads_cte(
+    seg_url: str,
+    bbox: list[float],
+    road_bboxes: list[list[float]] | None,
+) -> str:
+    """Build the Overture road-segment CTE, splitting wide countries into Parquet-friendly bands."""
+    if not road_bboxes or len(road_bboxes) <= 1:
+        bx1, by1, bx2, by2 = road_bboxes[0] if road_bboxes else bbox
+        return _road_band_select(seg_url, bx1, by1, bx2, by2)
+
+    bands: list[str] = []
+    last_idx = len(road_bboxes) - 1
+    for i, (bx1, by1, bx2, by2) in enumerate(road_bboxes):
+        op = "<=" if i == last_idx else "<"
+        mid_filter = f"(s.bbox.xmin + s.bbox.xmax) / 2.0 >= {bx1} AND (s.bbox.xmin + s.bbox.xmax) / 2.0 {op} {bx2}"
+        bands.append(_road_band_select(seg_url, bx1, by1, bx2, by2, mid_lon_filter=mid_filter, pad=0.1))
+    return "\n            UNION ALL\n".join(bands)
+
+
 def extract_country(
     country_cfg: dict[str, Any],
     release: str,
@@ -187,27 +236,12 @@ def extract_country(
 
     # Materialize joined road segments once in temp table so we compute BOTH
     # dual-carriageway-corrected street lengths AND 250m x 250m active built-up area!
+    roads_cte = _build_roads_cte(seg_url, country_cfg["bbox"], country_cfg.get("road_bboxes"))
     con.execute(
         f"""
         CREATE TEMP TABLE joined_roads AS
         WITH roads AS (
-            SELECT s.names.primary AS street_name,
-                   CASE
-                     WHEN s.class IN ('primary', 'secondary', 'tertiary')
-                      AND {ONEWAY_EXPR}
-                     THEN ST_Length_Spheroid(s.geometry) * 0.5
-                     ELSE ST_Length_Spheroid(s.geometry)
-                   END AS adj_len_m,
-                   (s.bbox.xmin + s.bbox.xmax) / 2.0 AS mid_lon,
-                   (s.bbox.ymin + s.bbox.ymax) / 2.0 AS mid_lat,
-                   ST_Point((s.bbox.xmin + s.bbox.xmax) / 2.0, (s.bbox.ymin + s.bbox.ymax) / 2.0) AS pt,
-                   s.bbox
-            FROM read_parquet('{seg_url}') s
-            WHERE s.subtype = 'road'
-              AND s.names.primary IS NOT NULL
-              AND s.class IN ({URBAN_ROAD_CLASSES})
-              AND s.bbox.xmin >= {xmin} AND s.bbox.xmax <= {xmax}
-              AND s.bbox.ymin >= {ymin} AND s.bbox.ymax <= {ymax}
+{roads_cte}
         )
         SELECT c.city_id,
                r.street_name,
